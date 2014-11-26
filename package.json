@@ -1,0 +1,34 @@
+{
+  "name": "cucumber-boilerplate",
+  "version": "0.0.0",
+  "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
+  "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
+  "main": "test/runner.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdriverio/cucumber-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webdriverio/cucumber-boilerplate/issues"
+  },
+  "keywords": [
+    "webdriverio",
+    "cucumber",
+    "test",
+    "selenium"
+  ],
+  "author": "Christian Bromann <christian@saucelabs.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "~1.9.0",
+    "config": "^1.8.1",
+    "http-server": "^0.7.3",
+    "mocha": "^1.18.2",
+    "webdriverio": "^2.3.0",
+    "yadda": "^0.10.14",
+    "yaml": "^0.2.3"
+  }
+}

@@ -1,0 +1,5 @@
+--reporter spec
+--timeout 100000
+--require chai
+
+./test/runner.js
