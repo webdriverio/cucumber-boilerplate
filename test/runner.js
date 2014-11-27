@@ -1,6 +1,6 @@
 var Yadda = require('yadda'),
     config = require('config').env,
-    should = require('chai').should(),
+    chai = require('chai'),
     beforeHook = require('./support/hooks/before.js'),
     afterHook = require('./support/hooks/after.js'),
     beforeEachHook = require('./support/hooks/beforeEach.js'),
@@ -14,8 +14,9 @@ var Yadda = require('yadda'),
 /**
  * expose assertion library
  */
-context.expect = chai.expect;
-context.assert = chai.assert;
+global.expect = chai.expect;
+global.assert = chai.assert;
+global.should = chai.should();
 
 Yadda.plugins.mocha.AsyncScenarioLevelPlugin.init();
 

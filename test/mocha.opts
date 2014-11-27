@@ -1,5 +1,5 @@
 --reporter spec
---timeout 100000
+--timeout 5000
 --require chai
 
 ./test/runner.js

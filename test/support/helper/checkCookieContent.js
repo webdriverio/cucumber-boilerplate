@@ -2,7 +2,7 @@
  * check cookie content
  */
 
-module.exports = function (obsolete ,name, falseCase, value, done) {
+module.exports = function (name, falseCase, value, done) {
     browser.getCookie(name, function(err,cookie) {
         should.not.exist(err);
         cookie.name.should.equals(name, 'no cookie found with the name "' + name + '"');
