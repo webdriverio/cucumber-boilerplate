@@ -6,6 +6,7 @@ module.exports = function(dict) {
 
     this.then(/^I expect that the title is( not)* "$string"$/, require('../helper/checkTitle'))
         .then(/^I expect that element "$string" is( not)* visible$/, require('../helper/isVisible'))
+        .then(/^I expect that element "$string" does( not)* exist$/, require('../helper/isExisting'))
         .then(/^I expect that element "$string" does( not)* contain the same text as element "$string"$/, require('../helper/compareText'))
         .then(/^I expect that (element|inputfield) "$string"( not)* contains the text "([^"]*)"$/, require('../helper/checkContent'))
         .then(/^I expect that the url is( not)* "$string"$/, require('../helper/checkURL'))
