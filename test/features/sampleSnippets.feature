@@ -4,16 +4,16 @@ Feature: Sample Snippets test
 
 Scenario: open URL
 
-    Given the page url is not "http://localhost:8080/test/site/"
-    And   I open the url "http://localhost:8080/test/site/"
-    Then  I expect that the url is "http://localhost:8080/test/site/"
+    Given the page url is not "http://webdriverjs.christian-bromann.com/"
+    And   I open the url "http://webdriverjs.christian-bromann.com/"
+    Then  I expect that the url is "http://webdriverjs.christian-bromann.com/"
     And   I expect that the url is not "http://google.com"
 
 Scenario: open sub page of website
 
-    Given the page url is not "http://localhost:8080/test/site/two.html"
+    Given the page url is not "http://webdriverjs.christian-bromann.com/two.html"
     And   I open the site "/"
-    Then  I expect that the url is "http://localhost:8080/test/site/"
+    Then  I expect that the url is "http://webdriverjs.christian-bromann.com/"
     And   I expect that the url is not "http://google.com"
 
 Scenario: click on link
@@ -40,9 +40,9 @@ Scenario: double click on a button
 Scenario: click on element
 
     Given I open the site "/"
-    And   the element ".red" is visible
-    When  I click on the element ".red"
-    Then  I expect that element ".red" is not visible
+    And   the element ".btn1_clicked" is not visible
+    When  I click on the element ".btn1"
+    Then  I expect that element ".btn1_clicked" is visible
 
 Scenario: add value to an input element
 
@@ -171,9 +171,9 @@ Scenario: check width and height
 Scenario: check selected
 
     Given I open the site "/"
-    And   the checkbox ".checkbox" is not selected
-    When  I click on the element ".checkbox"
-    Then  I expect that checkbox ".checkbox" is selected
+    And   the checkbox ".checkbox_notselected" is not selected
+    When  I click on the element ".checkbox_notselected"
+    Then  I expect that checkbox ".checkbox_notselected" is selected
 
 Scenario: set / read cookie
 
