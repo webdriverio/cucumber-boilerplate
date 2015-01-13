@@ -3,7 +3,8 @@
  */
 
 module.exports = function (name, falseCase, value, done) {
-    browser.getCookie(name, function(err,cookie) {
+
+    this.browser.getCookie(name, function(err,cookie) {
         should.not.exist(err);
         cookie.name.should.equals(name, 'no cookie found with the name "' + name + '"');
 
@@ -13,4 +14,5 @@ module.exports = function (name, falseCase, value, done) {
             cookie.value.should.equal(value, 'expected cookie "' + name + '" to have value ' + value + ' but got ' + cookie.value);
         }
     }).call(done);
-}
+
+};

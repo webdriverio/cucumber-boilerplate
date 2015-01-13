@@ -25,6 +25,7 @@
   "dependencies": {
     "chai": "~1.9.0",
     "config": "^1.8.1",
+    "deepmerge": "^0.2.7",
     "http-server": "^0.7.3",
     "mocha": "^1.18.2",
     "webdriverio": "^2.3.0",

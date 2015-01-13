@@ -22,7 +22,7 @@ module.exports = function(elem) {
         y = parseInt(arguments[3],10);
     }
 
-    browser.getLocation(elem, function(err,res) {
+    this.browser.getLocation(elem, function(err,res) {
         should.not.exist(err);
 
         if(x) {

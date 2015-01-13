@@ -3,8 +3,11 @@
  */
 
 module.exports =  function(type, element, falseCase, origText, done) {
+
     var command = type !== 'inputfield' ? 'getText' : 'getValue';
-    browser[command](element, function(err, text) {
+
+    this.browser[command](element, function(err, text) {
+
         should.not.exist(err);
 
         if(falseCase) {
@@ -15,4 +18,4 @@ module.exports =  function(type, element, falseCase, origText, done) {
 
     })
     .call(done);
-}
+};

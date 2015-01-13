@@ -22,7 +22,7 @@ module.exports = function(elem) {
         height = parseInt(arguments[3],10);
     }
 
-    browser.getElementSize(elem, function(err,res) {
+    this.browser.getElementSize(elem, function(err,res) {
         should.not.exist(err);
 
         if(width) {

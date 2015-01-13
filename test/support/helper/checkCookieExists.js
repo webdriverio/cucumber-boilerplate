@@ -3,7 +3,8 @@
  */
 
 module.exports = function (name, falseCase, done) {
-    browser.getCookie(name, function(err,cookie) {
+
+    this.browser.getCookie(name, function(err,cookie) {
         should.not.exist(err);
 
         if(falseCase) {
@@ -12,4 +13,5 @@ module.exports = function (name, falseCase, done) {
             expect(cookie).not.to.be.null;
         }
     }).call(done);
+
 }

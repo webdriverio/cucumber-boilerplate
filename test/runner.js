@@ -1,15 +1,15 @@
 var Yadda = require('yadda'),
-    config = require('config').env,
+    config = require('config'),
     chai = require('chai'),
+    merge = require('deepmerge'),
     beforeHook = require('./support/hooks/before.js'),
     afterHook = require('./support/hooks/after.js'),
     beforeEachHook = require('./support/hooks/beforeEach.js'),
     afterEachHook = require('./support/hooks/afterEach.js'),
-    context = config,
     processed = 0,
     fileCount = null,
+    context = {},
     currentStep;
-
 
 /**
  * expose assertion library
@@ -17,6 +17,11 @@ var Yadda = require('yadda'),
 global.expect = chai.expect;
 global.assert = chai.assert;
 global.should = chai.should();
+
+/**
+ * register own global namespace
+ */
+global.testrunner = {};
 
 Yadda.plugins.mocha.AsyncScenarioLevelPlugin.init();
 
@@ -32,12 +37,14 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
         before(function(done) {
 
             if(processed === 0) {
-                return beforeHook(beforeEachHook.bind(null,done));
+                return beforeHook.call(global.testrunner, beforeEachHook.bind(global.testrunner, done));
             }
 
-            beforeEachHook(done);
+            beforeEachHook.call(global.testrunner, done);
         });
+
         scenarios(feature.scenarios, function(scenario, done) {
+            var context = merge(global.testrunner, config.env);
             var stepDefinitions = require('./support/step-definitions');
             var yadda = new Yadda.Yadda(stepDefinitions, context);
             yadda.yadda(scenario.steps, done);
@@ -50,10 +57,10 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
         after(function(done) {
 
             if(++processed === fileCount) {
-                return afterEachHook(afterHook.bind(null,done));
+                return afterEachHook.call(global.testrunner, afterHook.bind(global.testrunner, done));
             }
 
-            afterEachHook(done);
+            afterEachHook.call(global.testrunner, done);
 
         });
 

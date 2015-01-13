@@ -3,7 +3,8 @@
  */
 
 module.exports = function (element, falseCase, done) {
-    browser.isSelected(element, function(err,isSelected) {
+
+    this.browser.isSelected(element, function(err,isSelected) {
         should.not.exist(err);
 
         if(falseCase) {
@@ -12,4 +13,5 @@ module.exports = function (element, falseCase, done) {
             isSelected.should.equal(true, element + ' should be selected');
         }
     }).call(done);
+
 };

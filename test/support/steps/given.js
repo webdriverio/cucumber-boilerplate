@@ -6,7 +6,7 @@ module.exports = function() {
 
     this.given(/I open the (url|site) "$string"$/, function (type, page, done) {
             var url = type === 'url' ? page : this.baseUrl + page;
-            browser.url(url , done);
+            this.browser.url(url , done);
         })
         .given(/^the element "$string" is( not)* visible$/, require('../helper/isVisible.js'))
         .given(/^there is (an|no) element "$string" on the page$/, require('../helper/checkElementExists.js'))

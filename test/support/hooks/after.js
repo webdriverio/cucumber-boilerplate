@@ -1,3 +1,3 @@
 var AfterHook = module.exports = function(done) {
-    browser.end(done);
+    this.browser.end(done);
 };

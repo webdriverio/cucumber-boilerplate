@@ -5,7 +5,7 @@
 module.exports = function (isExisting, elem, done) {
     isExisting = isExisting === 'a';
 
-    browser.elements(elem, function(err,res) {
+    this.browser.elements(elem, function(err,res) {
         should.not.exist(err);
 
         if(isExisting) {
