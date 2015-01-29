@@ -36,6 +36,10 @@ module.exports = function() {
             this.browser.pause(ms).call(done);
         })
 
+        .when(/^I press "$string"$/, function(key, done) {
+            this.browser.keys(key).call(done);
+        })
+
         .when(/^I set a cookie "$string" with the content "$string"$/, function(name, content, done) {
             this.browser.setCookie({
                 name: name,
