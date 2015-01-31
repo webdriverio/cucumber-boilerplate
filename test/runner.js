@@ -23,7 +23,7 @@ global.should = chai.should();
  */
 global.testrunner = {};
 
-Yadda.plugins.mocha.AsyncScenarioLevelPlugin.init();
+Yadda.plugins.mocha.StepLevelPlugin.init();
 
 new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
     fileCount = fileCount === null ? files.length : fileCount;
@@ -35,7 +35,6 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
         }
 
         before(function(done) {
-
             if(processed === 0) {
                 return beforeHook.call(global.testrunner, beforeEachHook.bind(global.testrunner, done));
             }
@@ -43,11 +42,19 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
             beforeEachHook.call(global.testrunner, done);
         });
 
-        scenarios(feature.scenarios, function(scenario, done) {
-            var context = merge(global.testrunner, config.env);
+        scenarios(feature.scenarios, function(scenario) {
             var stepDefinitions = require('./support/step-definitions');
             var yadda = new Yadda.Yadda(stepDefinitions, context);
-            yadda.yadda(scenario.steps, done);
+
+            steps(scenario.steps, function(step, done) {
+                var context = merge(global.testrunner, config.env);
+
+                if(scenario.annotations.executedBy) {
+                    context.browser = context.browser.select(scenario.annotations.executedBy);
+                }
+
+                yadda.run(step, context, done);
+            });
         });
 
         Yadda.EventBus.instance().on(Yadda.EventBus.ON_EXECUTE, function(event) {
