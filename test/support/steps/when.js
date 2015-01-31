@@ -49,6 +49,18 @@ module.exports = function() {
 
         .when(/^I delete the cookie "$string"$/, function(name, done) {
             this.browser.deleteCookie(name).call(done);
-        });
+        })
+
+        /**
+         * ToDo add tests
+         */
+        .when(/^I press "$string"$/, function(key, done) {
+            this.browser.keys(key).call(done);
+        })
+
+        .when(/^I (accept|dismiss) the alertbox$/, function(action, done) {
+            var command = 'alert' + action.slice(0, 1).toUpperCase() + action.slice(1);
+            this.browser[command]().call(done);
+        })
 
 }
