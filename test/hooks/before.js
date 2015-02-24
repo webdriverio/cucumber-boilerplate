@@ -1,7 +1,11 @@
 var WebdriverIO = require('webdriverio'),
-    config = require('config');
+    config = require('../config').config;
 
 var BeforeHook = module.exports = function(done) {
-    this.browser = WebdriverIO.remote(config.options);
+
+    var options = config.options;
+    options.desiredCapabilites = config.capabilities;
+
+    this.browser = WebdriverIO.remote(options);
     this.browser.init().call(done);
 }

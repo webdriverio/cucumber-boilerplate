@@ -1,24 +1,26 @@
-var Yadda   = require('yadda'),
+var Yadda = require('yadda'),
     English = Yadda.localisation.English,
-    fs      = require('fs'),
-    chai    = require('chai');
+    fs = require('fs'),
+    path = require('path'),
+    chai = require('chai');
 
 module.exports = (function() {
 
     var library = English.library(),
         dictionary = new Yadda.Dictionary(),
-        steps = fs.readdirSync(__dirname + '/steps');
+        stepsFiles = path.join(__dirname, '..', 'steps'),
+        steps = fs.readdirSync(stepsFiles);
 
     /**
      * define regex helpers
      */
-    dictionary.define('string','([^"]*)?');
+    dictionary.define('string', '([^"]*)?');
 
     /**
      * define step library
      */
     steps.forEach(function(step) {
-        require('./steps/' + step).call(library,dictionary);
+        require(path.join(stepsFiles, step)).call(library, dictionary);
     });
 
     return library;
