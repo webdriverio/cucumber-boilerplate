@@ -1,11 +1,11 @@
 var Yadda = require('yadda'),
-    config = require('config'),
+    config = require('../config').config,
     chai = require('chai'),
     merge = require('deepmerge'),
-    beforeHook = require('./support/hooks/before.js'),
-    afterHook = require('./support/hooks/after.js'),
-    beforeEachHook = require('./support/hooks/beforeEach.js'),
-    afterEachHook = require('./support/hooks/afterEach.js'),
+    beforeHook = require('../hooks/before.js'),
+    afterHook = require('../hooks/after.js'),
+    beforeEachHook = require('../hooks/beforeEach.js'),
+    afterEachHook = require('../hooks/afterEach.js'),
     processed = 0,
     fileCount = null,
     context = {},
@@ -43,7 +43,7 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
         });
 
         scenarios(feature.scenarios, function(scenario) {
-            var stepDefinitions = require('./support/step-definitions');
+            var stepDefinitions = require('./step-definitions');
             var yadda = new Yadda.Yadda(stepDefinitions, context);
 
             steps(scenario.steps, function(step, done) {
