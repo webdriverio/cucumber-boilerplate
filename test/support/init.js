@@ -21,7 +21,7 @@ global.should = chai.should();
 /**
  * register own global namespace
  */
-global.testrunner = {};
+global.testscope = {};
 
 Yadda.plugins.mocha.StepLevelPlugin.init();
 
@@ -36,10 +36,10 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
 
         before(function(done) {
             if(processed === 0) {
-                return beforeHook.call(global.testrunner, beforeEachHook.bind(global.testrunner, done));
+                return beforeHook.call(global.testscope, beforeEachHook.bind(global.testscope, done));
             }
 
-            beforeEachHook.call(global.testrunner, done);
+            beforeEachHook.call(global.testscope, done);
         });
 
         scenarios(feature.scenarios, function(scenario) {
@@ -47,7 +47,7 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
             var yadda = new Yadda.Yadda(stepDefinitions, context);
 
             steps(scenario.steps, function(step, done) {
-                var context = merge(global.testrunner, config.env);
+                var context = merge(global.testscope, config.env);
 
                 if(scenario.annotations.executedBy) {
                     context.browser = context.browser.select(scenario.annotations.executedBy);
@@ -64,10 +64,10 @@ new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
         after(function(done) {
 
             if(++processed === fileCount) {
-                return afterEachHook.call(global.testrunner, afterHook.bind(global.testrunner, done));
+                return afterEachHook.call(global.testscope, afterHook.bind(global.testscope, done));
             }
 
-            afterEachHook.call(global.testrunner, done);
+            afterEachHook.call(global.testscope, done);
 
         });
 
