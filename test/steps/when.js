@@ -27,7 +27,7 @@ module.exports = function() {
             this.browser.submitForm(form).call(done);
         })
 
-        .when(/^I wait on element "$string"( for (\d+)ms)*( to (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*$/, require('../helper/waitfor'))
+        .when(/^I wait on element "$string"( for (\d+)ms)*( to (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*$/, require('../support/helper/waitfor'))
 
         .when(/^I pause for (\d+)ms$/, function(ms, done) {
             this.browser.pause(ms).call(done);
