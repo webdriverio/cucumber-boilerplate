@@ -105,7 +105,7 @@ are better aligned to your aims. To do so you will find all step definitions in 
 are separated in `given`, `when` and `then`. For instance if you want to have a login step that helps
 you to login the browser before each test, you can start to add that as a "given" snippet:
 
-__`./test/steps/given.js`__
+__./test/steps/given.js__
 ```js
 module.exports = function() {
 
@@ -138,7 +138,7 @@ You can access the browser and your WebdriverIO instance with `this.browser`.
 To assert values this boilerplate project comes with a [Chai](http://chaijs.com/) integration. Let's say
 you want to check if the username gets display in the header properly. For that we add a new snippet in
 
-__`./test/steps/then.js`__
+__./test/steps/then.js__
 ```js
 module.exports = function(dict) {
 
