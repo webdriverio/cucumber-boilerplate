@@ -39,10 +39,7 @@ module.exports = function() {
         .given(/^the cookie "$string" does( not)* exist$/,
             require('../support/helper/checkCookieExists'))
 
-        // TODO
         .given(/^the element "$string" is( not)* \d+px (broad|tall)$/,
             require('../support/helper/checkDimension'));
-
-        // .given(/^the element "$string" is positioned \d+px (from the top|from the right|from the bottom|from the right)$/)
 
 }
