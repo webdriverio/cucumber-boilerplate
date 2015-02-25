@@ -22,9 +22,9 @@ file from you are all set.
 ## Features
 
 - Super simple setup
-- Full integration if [WebdriverIO](http://webdriver.io/)
+- Full integration with [WebdriverIO](http://webdriver.io/)
 - Over 65 predefined steps that cover almost everything you need, you can start writing tests right away
-- Easy integration if cloud services like [SauceLabs](https://saucelabs.com/)
+- Easy integration with cloud services like [SauceLabs](https://saucelabs.com/)
 - Support for different languages (French, Spanish, Norwegian, Polish, German, Russian)
 - _Integration of WebdriverIO's Multiremote functionality (coming soon)_
 - _Easy to run tests in parallel (coming soon)_
@@ -78,7 +78,7 @@ are better aligned to your aims. To do so you will find all step definitions in 
 are separated in `given`, `when` and `then`. For instance if you want to have a login step that helps
 you to login the browser before each test, you can start to add that as a "given" snippet:
 
-___`./test/steps/given.js`___
+__`./test/steps/given.js`__
 ```js
 module.exports = function() {
 
@@ -111,7 +111,7 @@ You can access the browser and your WebdriverIO instance with `this.browser`.
 To assert values this boilerplate project comes with a [Chai](http://chaijs.com/) integration. Let's say
 you want to check if the username gets display in the header properly. For that we add a new snippet in
 
-___`./test/steps/then.js`___
+__`./test/steps/then.js`__
 ```js
 module.exports = function(dict) {
 
