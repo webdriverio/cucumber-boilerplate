@@ -1,12 +1,13 @@
 var Yadda = require('yadda'),
-    English = Yadda.localisation.English,
+    config = require('../config').config,
+    language = Yadda.localisation[upperCaseFirstLetter(config.language)],
     fs = require('fs'),
     path = require('path'),
     chai = require('chai');
 
 module.exports = (function() {
 
-    var library = English.library(),
+    var library = language.library(),
         dictionary = new Yadda.Dictionary(),
         stepsFiles = path.join(__dirname, '..', 'steps'),
         steps = fs.readdirSync(stepsFiles);
@@ -26,3 +27,7 @@ module.exports = (function() {
     return library;
 
 })();
+
+function upperCaseFirstLetter(word) {
+    return word.slice(0,1).toUpperCase() + word.slice(1);
+}

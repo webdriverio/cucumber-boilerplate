@@ -1,6 +1,12 @@
 exports.config = {
 
     /**
+     * language of your feature files
+     * options: french, spanish, norwegian, polish, german, russian
+     */
+    language: 'english',
+
+    /**
      * set selenium host and port
      */
     selenium: {

@@ -34,10 +34,7 @@ module.exports = function(dict) {
         .then(/^I expect that cookie "$string"( not)* exists$/,
             require('../support/helper/checkCookieExists'))
 
-        // TODO
         .then(/^I expect that element "$string" is( not)* \d+px (broad|tall)$/,
             require('../support/helper/checkDimension'));
-
-        // .then(/^I expect that element "$string" is positioned \d+px (from the top|from the right|from the bottom|from the right)$/);
 
 };
