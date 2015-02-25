@@ -71,6 +71,33 @@ $ ./test/run.js
 To configure your tests, checkout the [`config.js`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/test/config.js)
 file in your test directory. It comes with a bunch of documented options you can choose from.
 
+## Environment specific configurations
+
+You can setup multiple configs for specific environments. Lets say you want to have a different baseUrl for
+your local and pre-deploy tests. Use the `config.js` to set all general configs (like mochaOpts) that don't change.
+They act as default values. For each different environment you can create a new config with the following name
+scheme:
+
+```txt
+config.<ENVIRONMENT>.js
+```
+
+Now you can create a specifc config for your pre-deploy tests:
+
+__config.staging.js__
+```js
+module.config = {
+    baseUrl: 'http://staging.example.com'
+}
+```
+
+Your environment specific config file will get merged into the default config file and overwrites the values you set.
+To run a test in a specific environment just set the desired `NODE_ENV` environment variable:
+
+```sh
+$ NODE_ENV=staging ./test/run.js
+```
+
 # Adding new steps and snippets
 
 The predefined snippets allow you to do a lot of common things but you might need extra snippets which

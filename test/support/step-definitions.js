@@ -1,5 +1,5 @@
 var Yadda = require('yadda'),
-    config = require('../config').config,
+    config = require('./configure'),
     language = Yadda.localisation[upperCaseFirstLetter(config.language)],
     fs = require('fs'),
     path = require('path'),

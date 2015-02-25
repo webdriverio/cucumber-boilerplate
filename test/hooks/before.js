@@ -1,5 +1,5 @@
 var WebdriverIO = require('webdriverio'),
-    config = require('../config').config;
+    config = require('../support/configure');
 
 var BeforeHook = module.exports = function(done) {
 

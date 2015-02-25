@@ -1,5 +1,5 @@
 var Yadda = require('yadda'),
-    config = require('../config').config,
+    config = require('./configure'),
     chai = require('chai'),
     merge = require('deepmerge'),
     beforeHook = require('../hooks/before.js'),
