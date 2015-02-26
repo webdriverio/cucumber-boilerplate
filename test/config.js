@@ -41,6 +41,13 @@ exports.config = {
     },
 
     /**
+     * location of feature files
+     */
+    featureFiles: [
+        'test/features/**/*.feature'
+    ],
+
+    /**
      * environment variables
      *
      * - baseUrl: sets base url for `Given I open the site "/some/url.html"`
@@ -58,4 +65,4 @@ exports.config = {
         timeout: 5000,
         require: 'chai'
     }
-}
+};

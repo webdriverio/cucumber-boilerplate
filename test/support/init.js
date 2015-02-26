@@ -1,7 +1,9 @@
 var Yadda = require('yadda'),
-    config = require('./configure'),
     chai = require('chai'),
+    path = require('path'),
+    glob = require('glob'),
     merge = require('deepmerge'),
+    config = require('./configure'),
     beforeHook = require('../hooks/before.js'),
     afterHook = require('../hooks/after.js'),
     beforeEachHook = require('../hooks/beforeEach.js'),
@@ -25,7 +27,17 @@ global.testscope = {};
 
 Yadda.plugins.mocha.StepLevelPlugin.init();
 
-new Yadda.FeatureFileSearch('./test/features').each(function(file,i,files) {
+/**
+ * gather feature files
+ */
+var files = [];
+config.featureFiles.forEach(function(globPattern) {
+    glob.sync(globPattern, { cwd: path.join(__dirname, '..', '..') }).forEach(function(file) {
+        files.push(path.join(__dirname, '..', '..', file))
+    });
+});
+
+files.forEach(function(file, i, files) {
     fileCount = fileCount === null ? files.length : fileCount;
 
     featureFile(file, function(feature) {
