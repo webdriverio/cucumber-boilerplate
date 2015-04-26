@@ -24,7 +24,7 @@ file and you are all set.
 - Super simple setup
 - Full integration with [WebdriverIO](http://webdriver.io/)
 - Over 65 predefined steps that cover almost everything you need, you can start writing tests right away
-- Easy integration with cloud services like [SauceLabs](https://saucelabs.com/)
+- Easy integration with cloud services like [Sauce Labs](https://saucelabs.com/)
 - Support for different languages (French, Spanish, Norwegian, Polish, German, Russian)
 - _Integration of WebdriverIO's Multiremote functionality (coming soon)_
 - _Easy to run tests in parallel (coming soon)_
