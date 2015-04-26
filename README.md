@@ -17,7 +17,7 @@ Choose one of the following options:
 Then just embed the test directory into the root folder of your project and copy/install the [necessary
 dependencies](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L30)
 from the [package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L30)
-file from you are all set.
+file and you are all set.
 
 ## Features
 
