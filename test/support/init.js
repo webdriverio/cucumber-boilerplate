@@ -32,8 +32,8 @@ Yadda.plugins.mocha.StepLevelPlugin.init();
  */
 var files = [];
 config.featureFiles.forEach(function(globPattern) {
-    glob.sync(globPattern, { cwd: path.join(__dirname, '..', '..') }).forEach(function(file) {
-        files.push(path.join(__dirname, '..', '..', file))
+    glob.sync(globPattern, { cwd: process.cwd() }).forEach(function(file) {
+        files.push(path.join(process.cwd(), file))
     });
 });
 

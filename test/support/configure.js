@@ -13,7 +13,7 @@ if(process.env.NODE_ENV && fs.existsSync(envConfigPath)) {
 }
 
 if(process.env.TESTS_CONFIGURATION_PATH) {
-    var testsConfigPath = path.join(__dirname, '..', '..', '..', '..', process.env.TESTS_CONFIGURATION_PATH);
+    var testsConfigPath = path.join(process.cwd(), process.env.TESTS_CONFIGURATION_PATH);
     if (fs.existsSync(testsConfigPath)) {
         config = extend(true, config, require(testsConfigPath).config);
     }
