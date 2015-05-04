@@ -5,7 +5,7 @@
   "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
   "main": "test/runner.js",
   "scripts": {
-    "test": "./bin/run.js"
+    "test": "./bin/run"
   },
   "repository": {
     "type": "git",
