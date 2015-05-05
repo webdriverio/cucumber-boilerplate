@@ -249,6 +249,8 @@ Checkout all predefined snippets. You can find the way how they get used in [`sa
 - `/^I expect that cookie "$string"( not)* contains "$string"$/`<br>test if cookie with certain value exists
 - `/^I expect that cookie "$string"( not)* exists$/`<br>test if cookie exists
 - `/^I expect that element "$string" is( not)* \d+px (broad|tall)$/`<br>test if element has certain height/width
+- `/^I expect that link "$string" ( not)* contains "$string"
+
 
 # Contributing
 
