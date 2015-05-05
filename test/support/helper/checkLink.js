@@ -2,15 +2,15 @@
  * check if link contains $string
  */
 
-module.exports = function (selector, falseCase, partLink, done) {
+module.exports = function (selector, falseCase, text, done) {
 
     this.browser.getAttribute(selector, 'href', function (err, link) {
         should.not.exist(err);
 
         if(falseCase) {
-            partLink.should.not.contain(link);
+            link.should.not.contain(text);
         } else {
-            partLink.should.contain(link);
+            link.should.contain(text);
         }
 
     }).call(done);
