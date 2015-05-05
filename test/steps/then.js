@@ -35,6 +35,9 @@ module.exports = function(dict) {
             require('../support/helper/checkCookieExists'))
 
         .then(/^I expect that element "$string" is( not)* \d+px (broad|tall)$/,
-            require('../support/helper/checkDimension'));
+            require('../support/helper/checkDimension'))
+
+         .then(/^I expect that link "$string" ( not)* contains "$string"$/,
+            require('../support/helper/checkLink'));
 
 };
