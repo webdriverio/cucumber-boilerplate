@@ -207,11 +207,11 @@ Scenario: ...
 
 # Isolate test
 
-If you are developing and you want to run only some test you can mark them as "Isolate" so they will get skipped.
+If you are developing and you want to run only some test you can mark them as "Isolate" so the others will not.
 
 ```gherkin
-// run only the isolated scenario
-@Isolate
+// run only the "isolated" scenarios
+@Isolated
 Scenario: ...
 ```
 

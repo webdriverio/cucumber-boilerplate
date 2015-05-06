@@ -69,7 +69,7 @@ files.forEach(function(file, i, files) {
         });
 
         scenarios(feature.scenarios, function(scenario) {
-            if(runIsolateTestOnly && !scenario.annotations.isolate) {
+            if(runIsolateTestOnly && !scenario.annotations.isolate && !scenario.annotations.only) {
                 return;
             }
 
