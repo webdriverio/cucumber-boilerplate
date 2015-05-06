@@ -11,7 +11,8 @@ var Yadda = require('yadda'),
     processed = 0,
     fileCount = null,
     context = {},
-    currentStep;
+    currentStep,
+    runIsolateTestOnly = false;
 
 /**
  * expose assertion library
@@ -37,6 +38,19 @@ config.featureFiles.forEach(function(globPattern) {
     });
 });
 
+/**
+ * Looking for tests scenarios to run in isolation, if found set the flag to run only those
+ */
+files.forEach(function(file, i, files) {
+    featureFile(file, function(feature) {
+        scenarios(feature.scenarios, function(scenario) {
+            if(scenario.annotations.isolate) {
+                runIsolateTestOnly = true;
+            }
+        });
+    });
+});
+
 files.forEach(function(file, i, files) {
     fileCount = fileCount === null ? files.length : fileCount;
 
@@ -55,6 +69,10 @@ files.forEach(function(file, i, files) {
         });
 
         scenarios(feature.scenarios, function(scenario) {
+            if(runIsolateTestOnly && !scenario.annotations.isolate) {
+                return;
+            }
+
             var stepDefinitions = require('./step-definitions');
             var yadda = new Yadda.Yadda(stepDefinitions, context);
 

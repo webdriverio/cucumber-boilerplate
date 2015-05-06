@@ -205,6 +205,16 @@ Feature: ...
 Scenario: ...
 ```
 
+# Isolate test
+
+If you are developing and you want to run only some test you can mark them as "Isolate" so they will get skipped.
+
+```gherkin
+// run only the isolated scenario
+@Isolate
+Scenario: ...
+```
+
 # List of predefined steps
 
 Checkout all predefined snippets. You can find the way how they get used in [`sampleSnippets.feature`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/test/features/sampleSnippets.feature).

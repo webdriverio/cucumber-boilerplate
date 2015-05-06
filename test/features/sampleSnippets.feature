@@ -2,6 +2,7 @@ Feature: Sample Snippets test
     As ad developer
     I should be able to use given text snippets
 
+#@Isolate
 Scenario: open URL
     Given the page url is not "http://webdriverjs.christian-bromann.com/"
     And   I open the url "http://webdriverjs.christian-bromann.com/"
@@ -32,6 +33,7 @@ Scenario: double click on a button
     When  I doubleclick on the element ".btn1"
     Then  I expect that element ".btn1_dblclicked" is visible
 
+#@Isolate
 Scenario: click on element
     Given I open the site "/"
     And   the element ".btn1_clicked" is not visible
