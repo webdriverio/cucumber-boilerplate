@@ -219,13 +219,13 @@ If there are more tests to isolate use the `@Isolate` annotation.
 
 ```gherkin
 // run only the "isolated" scenarios
-@Isolated
+@Isolate
 Scenario: ...
 
 Scenario: ...
 ...
 
-@Isolated
+@Isolate
 Scenario: ...
 ```
 
