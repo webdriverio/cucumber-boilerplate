@@ -207,10 +207,24 @@ Scenario: ...
 
 # Isolate test
 
-If you are developing and you want to run only some test you can mark them as "Isolate" so the others will not.
+If you want to run just a single test and ignore the others you can use the `@Only` annotation.
+
+```gherkin
+// run test is isolation
+@Only
+Scenario: ...
+```
+
+If there are more tests to isolate use the `@Isolate` annotation.
 
 ```gherkin
 // run only the "isolated" scenarios
+@Isolated
+Scenario: ...
+
+Scenario: ...
+...
+
 @Isolated
 Scenario: ...
 ```
