@@ -8,13 +8,13 @@
 var spawn = require('child_process').spawn,
     path = require('path'),
     args = [path.join(__dirname, '..', 'node_modules', '.bin', '_mocha')],
-    config = require('./config').config;
+    config = require('../test/support/configure');
 
 /**
  * execute init script with mocha
  * init script handles the rest
  */
-args.push(path.join(__dirname, 'support', 'init.js'));
+args.push(path.join(__dirname, '..', 'test', 'support', 'init.js'));
 
 /**
  * set mocha configs

@@ -56,4 +56,10 @@ module.exports = function() {
             this.browser[command]().call(done);
         })
 
+        .when(/^I refresh site$/, function(done) {
+            this.browser.refresh().call(done);
+        })
+        
+
+        
 }
