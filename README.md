@@ -14,9 +14,8 @@ Choose one of the following options:
 1. Download the latest stable release [here](https://github.com/webdriverio/cucumber-boilerplate/archive/master.zip) or
 2. Clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git` - and checkout the tagged release you'd like to use.
 
-Then just embed the test directory into the root folder of your project and copy/install the [necessary
-dependencies](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L30)
-from the [package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L30)
+Then just embed the test directory into the root folder of your project and copy/install the [necessary dependencies
+from the [package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L31)
 file and you are all set.
 
 ## Features
