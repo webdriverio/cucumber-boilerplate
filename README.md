@@ -14,9 +14,8 @@ Choose one of the following options:
 1. Download the latest stable release [here](https://github.com/webdriverio/cucumber-boilerplate/archive/master.zip) or
 2. Clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git` - and checkout the tagged release you'd like to use.
 
-Then just embed the test directory into the root folder of your project and copy/install the [necessary
-dependencies](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L30)
-from the [package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L30)
+Then just embed the test directory into the root folder of your project and copy/install the [necessary dependencies
+from the [package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L31)
 file and you are all set.
 
 ## Features
@@ -32,7 +31,7 @@ file and you are all set.
 # How to write a test
 
 Tests are written in [Gherkin syntax](http://docs.behat.org/en/latest/guides/1.gherkin.html#gherkin-syntax)
-that means that you write down what suppose to happen in a real language. All test files are located in
+that means that you write down what's supposed to happen in a real language. All test files are located in
 `./test/features/*` and have the file ending `.feature`. You will already find some test files in that
 directory. They should demonstrate, how tests could look like. Just create a new file and write your first
 test.
@@ -71,9 +70,9 @@ $ ./test/run.js
 To configure your tests, checkout the [`config.js`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/test/config.js)
 file in your test directory. It comes with a bunch of documented options you can choose from.
 
-## Environment specific configurations
+## Environment-specific configurations
 
-You can setup multiple configs for specific environments. Lets say you want to have a different baseUrl for
+You can setup multiple configs for specific environments. Lets say you want to have a different `baseUrl`` for
 your local and pre-deploy tests. Use the `config.js` to set all general configs (like mochaOpts) that don't change.
 They act as default values. For each different environment you can create a new config with the following name
 scheme:
@@ -82,7 +81,7 @@ scheme:
 config.<ENVIRONMENT>.js
 ```
 
-Now you can create a specifc config for your pre-deploy tests:
+Now you can create a specific config for your pre-deploy tests:
 
 __config.staging.js__
 ```js
@@ -91,7 +90,7 @@ module.config = {
 }
 ```
 
-Your environment specific config file will get merged into the default config file and overwrites the values you set.
+Your environment-specific config file will get merged into the default config file and overwrites the values you set.
 To run a test in a specific environment just set the desired `NODE_ENV` environment variable:
 
 ```sh
@@ -101,9 +100,9 @@ $ NODE_ENV=staging ./test/run.js
 # Adding new steps and snippets
 
 The predefined snippets allow you to do a lot of common things but you might need extra snippets which
-are better aligned to your aims. To do so you will find all step definitions in `./test/steps`. They
+are better aligned with your aims. To do so you will find all step definitions in `./test/steps`. They
 are separated in `given`, `when` and `then`. For instance if you want to have a login step that helps
-you to login the browser before each test, you can start to add that as a "given" snippet:
+you to login the browser before each test, you can start to add that as a `given` snippet:
 
 __./test/steps/given.js__
 ```js
@@ -130,9 +129,9 @@ module.exports = function() {
     })
 ```
 
-You define your snippet as regular expression. This is pretty powerful as it allows you to create complex
+You define your snippet using regular expressions. This is pretty powerful as it allows you to create complex
 sentences with multiple options. Everything that's within `"$string"` gets captured and appended to the
-callback. The last argument is always a callback function that needs to get call if your step is done.
+callback. The last argument is always a callback function that you need to call when your step is done.
 You can access the browser and your WebdriverIO instance with `this.browser`.
 
 To assert values this boilerplate project comes with a [Chai](http://chaijs.com/) integration. Let's say
@@ -152,7 +151,7 @@ module.exports = function(dict) {
     /**
      * my check username in header snippet
      */
-    .then(/^should the username "$string" be present in the header$/, function(username, done) {
+    .then(/^the username "$string" should be present in the header$/, function(username, done) {
         client.getText('#header .username', function(err, headerUsername) {
             should.not.exist(err);
             username.should.equal(headerUsername, 'username in header doesn\'t match');
@@ -161,7 +160,7 @@ module.exports = function(dict) {
     })
 ```
 
-That's it. We created to new snippets to test something on our page. We can use these snippets now
+That's it. We created two new snippets to test something on our page. We can use these snippets now
 in our Scenario like this:
 
 ```gherkin
@@ -169,7 +168,7 @@ Feature: ...
 
 Scenario: check if username is present
     Given I login as "roboter" with password "test123"
-    Then should the username "roboter" be present in the header
+    Then the username "roboter" should be present in the header
 ```
 
 # Comments
@@ -188,7 +187,7 @@ Feature: As a bystander
 # This is a single line comment
 Scenario: check if username is present
     Given I login as "roboter" with password "test123"
-    Then should the username "roboter" be present in the header
+    Then the username "roboter" should be present in the header
 ```
 
 # Pending test
@@ -231,7 +230,7 @@ Scenario: ...
 
 # List of predefined steps
 
-Checkout all predefined snippets. You can find the way how they get used in [`sampleSnippets.feature`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/test/features/sampleSnippets.feature).
+Check out all predefined snippets. You can see how they get used in [`sampleSnippets.feature`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/test/features/sampleSnippets.feature).
 
 ## Given steps
 - `/I open the (url|site) "$string"$/`<br>open url in browser
@@ -265,10 +264,10 @@ Checkout all predefined snippets. You can find the way how they get used in [`sa
 - `/^I expect that the title is( not)* "$string"$/`<br>test title of page
 - `/^I expect that element "$string" is( not)* visible$/`<br>test if element is visible
 - `/^I expect that element "$string" does( not)* exist$/`<br>test if element exists
-- `/^I expect that element "$string" does( not)* contain the same text as element "$string"$/<br>compare text of two elements
+- `/^I expect that element "$string" does( not)* contain the same text as element "$string"$/`<br>compare text of two elements
 - `/^I expect that (element|inputfield) "$string"( not)* contains the text "([^"]*)"$/`<br>compare text of two elements
 - `/^I expect that the url is( not)* "$string"$/`<br>test url
-- `/^I expect that the( css)* attribute "$string" from element "$string" is( not)* "$string"$/`<br>assert if css attribute of element has certain value
+- `/^I expect that the( css)* attribute "$string" from element "$string" is( not)* "$string"$/`<br>assert that the CSS attribute of element has certain value
 - `/^I expect that checkbox "$string" is( not)* selected$/`<br>test if checkbox is selected
 - `/^I expect that cookie "$string"( not)* contains "$string"$/`<br>test if cookie with certain value exists
 - `/^I expect that cookie "$string"( not)* exists$/`<br>test if cookie exists
@@ -277,8 +276,5 @@ Checkout all predefined snippets. You can find the way how they get used in [`sa
 # Contributing
 
 Please fork, add specs, and send pull requests! In lieu of a formal styleguide, take care to maintain the existing coding style.
-Currently not all [WebdriverIO](http://webdriver.io/) commands are mapped and implemented as snippets. Any contribution that
+Currently not all [WebdriverIO](http://webdriver.io/) commands are mapped and implemented as snippets. Any contributions that
 adds new snippets + test are highly welcome.
-
-
-
