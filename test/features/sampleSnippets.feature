@@ -1,5 +1,5 @@
 Feature: Sample Snippets test
-    As ad developer
+    As a developer
     I should be able to use given text snippets
 
 #@Isolate
