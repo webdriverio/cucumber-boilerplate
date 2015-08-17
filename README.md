@@ -15,7 +15,7 @@ Choose one of the following options:
 2. Clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git`
 
 Then just embed the test directory into the root folder of your project and copy/install the [necessary dependencies
-from the [package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L31)
+from the package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L31)
 file and you are all set.
 
 ## Features
