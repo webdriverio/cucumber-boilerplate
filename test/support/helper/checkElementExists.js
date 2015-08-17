@@ -13,6 +13,6 @@ module.exports = function (isExisting, elem, done) {
         } else {
             expect(res.value).to.have.length(0, 'element with selector "' + elem + '" should not exist on the page');
         }
-    }).call(done)
+    }).call(done);
 
 };

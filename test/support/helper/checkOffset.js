@@ -27,17 +27,17 @@ module.exports = function(elem) {
 
         if(x) {
             if(falseCaseX) {
-                res.x.should.not.equal(x, 'Element ' + elem + ' sollte nicht mit ' + x + 'px auf der x Achse liegen');
+                res.x.should.not.equal(x, 'element ' + elem + ' should not be positioned at ' + x + 'px on the x axis');
             } else {
-                res.x.should.equal(x, 'Element ' + elem + ' sollte mit ' + x + 'px auf der x Achse liegen, ist jedoch bei ' + res.x);
+                res.x.should.equal(x, 'element ' + elem + ' should be positioned at ' + x + 'px on the x axis, but was found at ' + res.x + 'px');
             }
         }
 
         if(y) {
             if(falseCaseY) {
-                res.y.should.not.equal(y, 'Element ' + elem + ' sollte nicht mit ' + y + 'px auf der y Achse liegen');
+                res.y.should.not.equal(y, 'element ' + elem + ' should not be positioned at ' + y + 'px on the y axis');
             } else {
-                res.y.should.equal(y, 'Element ' + elem + ' sollte mit ' + y + 'px auf der y Achse liegen, ist jedoch bei ' + res.y);
+                res.y.should.equal(y, 'element ' + elem + ' should be positioned at ' + y + 'px on the y axis, but was found at ' + res.y + 'px');
             }
         }
 

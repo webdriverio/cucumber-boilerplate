@@ -27,17 +27,17 @@ module.exports = function(elem) {
 
         if(width) {
             if(falseCaseWidth) {
-                res.width.should.not.equal(width, 'Element ' + elem + ' sollte nicht ' + width + 'px breit sein');
+                res.width.should.not.equal(width, 'element ' + elem + ' should not have a width of ' + width + 'px');
             } else {
-                res.width.should.equal(width, 'Element ' + elem + ' sollte ' + width + 'px breit sein, ist jedoch ' + res.width + ' breit');
+                res.width.should.equal(width, 'Element ' + elem + ' should have a width of ' + width + 'px, but is ' + res.width + 'px');
             }
         }
 
         if(height) {
             if(falseCaseHeight) {
-                res.height.should.not.equal(height, 'Element ' + elem + ' sollte nicht ' + height + 'px hoch sein');
+                res.height.should.not.equal(height, 'Element ' + elem + ' should not have a height of ' + height + 'px');
             } else {
-                res.height.should.equal(height, 'Element ' + elem + ' sollte ' + height + 'px hoch sein, ist jedoch ' + res.height + ' hoch');
+                res.height.should.equal(height, 'Element ' + elem + ' should have a height of ' + height + 'px, but is ' + res.height + 'px');
             }
         }
 

@@ -14,4 +14,4 @@ module.exports = function (name, falseCase, done) {
         }
     }).call(done);
 
-}
+};

@@ -42,4 +42,4 @@ module.exports = function() {
         .given(/^the element "$string" is( not)* \d+px (broad|tall)$/,
             require('../support/helper/checkDimension'));
 
-}
+};

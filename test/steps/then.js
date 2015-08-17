@@ -32,9 +32,9 @@ module.exports = function(dict) {
             require('../support/helper/checkCookieContent'))
 
         .then(/^I expect that cookie "$string"( not)* exists$/,
-            require('../support/helper/checkCookieExists'))
+            require('../support/helper/checkCookieExists'));
 
-        .then(/^I expect that element "$string" is( not)* \d+px (broad|tall)$/,
-            require('../support/helper/checkDimension'));
+        // .then(/^I expect that element "$string" is( not)* \d+px (broad|tall)$/,
+        //     require('../support/helper/checkDimension'));
 
 };
