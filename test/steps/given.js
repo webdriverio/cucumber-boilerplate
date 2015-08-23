@@ -8,6 +8,11 @@ module.exports = function() {
             var url = type === 'url' ? page : this.baseUrl + page;
             this.browser.url(url , done);
         })
+        .given(/^I want to search on "$string"$/, function(website, done){
+            this.browser
+                .visitSearchEngine(website, this)
+                .call(done);
+        })
 
         .given(/^the element "$string" is( not)* visible$/,
             require('../support/helper/isVisible.js'))
