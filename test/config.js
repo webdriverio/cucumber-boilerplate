@@ -37,7 +37,7 @@ exports.config = {
      * desired capabilities
      */
     capabilities: {
-        browserName: 'phantomjs'
+        browserName: 'chrome'
     },
 
     /**
@@ -53,7 +53,7 @@ exports.config = {
      * - baseUrl: sets base url for `Given I open the site "/some/url.html"`
      */
     env: {
-        baseUrl: 'http://webdriverjs.christian-bromann.com'
+        baseUrl: 'https://github.com/'
     },
 
     /**
@@ -62,7 +62,7 @@ exports.config = {
      */
     mochaOpts: {
         reporter: 'spec',
-        timeout: 5000,
+        timeout: 10000,
         require: 'chai'
     }
 };
