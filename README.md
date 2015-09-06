@@ -54,7 +54,7 @@ Scenario: Another test
 
 ```
 
-This test opens the browser and navigates them to google.com to check if the title contains the search 
+This test opens the browser and navigates them to google.com to check if the title contains the search
 query after doing a search. As you can see, it is pretty simple and understandable for everyone.
 
 # How to run the test
@@ -72,7 +72,7 @@ file in your test directory. It comes with a bunch of documented options you can
 
 ## Environment-specific configurations
 
-You can setup multiple configs for specific environments. Lets say you want to have a different `baseUrl`` for
+You can setup multiple configs for specific environments. Let's say you want to have a different `baseUrl` for
 your local and pre-deploy tests. Use the `config.js` to set all general configs (like mochaOpts) that don't change.
 They act as default values. For each different environment you can create a new config with the following name
 scheme:
@@ -147,7 +147,7 @@ module.exports = function(dict) {
     // ... other predefined snippets
     // ...
     // ...
-    
+
     /**
      * my check username in header snippet
      */
