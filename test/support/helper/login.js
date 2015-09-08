@@ -4,13 +4,20 @@
 
 var githubPage = require('../pageObjects/githubPage.js');
 
-module.exports = function (login, password, done) {
+var login = function (login, password, done) {
 
-    this.browser
-        .timeoutsImplicitWait(5000)
-        .click(githubPage.signInButton)
-        .setValue(githubPage.loginInput, login)
-        .setValue(githubPage.passwordInput, password)
-        .click(githubPage.signIn2Button).call(done);
+    var that = this;
 
+    return this.browser.timeoutsImplicitWait(5000).then(function () {
+        that.browser.click(githubPage.signInButton);
+        return that.browser.setValue(githubPage.loginInput, login);
+    }).then(function () {
+        return that.browser.setValue(githubPage.passwordInput, password);
+    }).then(function () {
+        return that.browser.click(githubPage.signIn2Button);
+    }).then(function () {
+        return done();
+    });
 };
+
+module.exports = login;
