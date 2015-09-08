@@ -1,3 +1,4 @@
+@Pending
 Feature: Sample Snippets test
     As a developer
     I should be able to use given text snippets
