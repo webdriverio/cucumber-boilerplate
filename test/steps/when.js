@@ -44,13 +44,16 @@ module.exports = function() {
             this.browser.deleteCookie(name).call(done);
         })
 
-        /**
-         * ToDo add tests
-         */
         .when(/^I press "$string"$/, function(key, done) {
             this.browser.keys(key).call(done);
         })
 
+        .when(/^I log in to site with username "$string" and password "$string"$/,
+            require('../support/helper/login.js'))
+
+        /**
+         * ToDo add tests
+         */
         .when(/^I (accept|dismiss) the alertbox$/, function(action, done) {
             var command = 'alert' + action.slice(0, 1).toUpperCase() + action.slice(1);
             this.browser[command]().call(done);

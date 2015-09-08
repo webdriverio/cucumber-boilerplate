@@ -10,8 +10,15 @@ Scenario: open URL
 
 Scenario: search for webdriverio repository
     Given I open the url "https://github.com/search"
-    # And   there is an element ".input-block" on the page
     And   the inputfield ".input-block" does contain the text ""
     And   I set "webdriverio" to the inputfield ".input-block"
+    And   I press "Space"
+    And   I add "selenium" to the inputfield ".input-block"
     When  I submit the form "#search_form"
-    Then  I expect that element ".repo-list-item:first-child > .repo-list-description" contains the text "Webdriver/Selenium 2.0 JavaScript bindings for Node.js"
+    Then  I expect that inputfield ".input-block" contains the text "webdriverio selenium"
+    And   I expect that element ".repo-list-item:first-child > .repo-list-description" contains the text "Webdriver/Selenium 2.0 JavaScript bindings for Node.js"
+
+Scenario: login
+    Given I open the url "https://github.com/"
+    When  I log in to site with username "marketionist" and password "1234"
+    Then  I expect that element "#js-flash-container .flash-error" is visible
