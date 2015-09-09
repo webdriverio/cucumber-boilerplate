@@ -37,7 +37,7 @@ exports.config = {
      * desired capabilities
      */
     capabilities: {
-        browserName: 'phantomjs'
+        browserName: 'chrome'
     },
 
     /**
@@ -62,7 +62,7 @@ exports.config = {
      */
     mochaOpts: {
         reporter: 'spec',
-        timeout: 5000,
+        timeout: 10000,
         require: 'chai'
     }
 };

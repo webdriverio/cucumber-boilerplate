@@ -12,6 +12,7 @@ module.exports = function (element, falseCase, done) {
         } else {
             isSelected.should.equal(true, element + ' should be selected');
         }
+
     }).call(done);
 
 };
