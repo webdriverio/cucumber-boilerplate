@@ -18,7 +18,7 @@ Scenario: search for webdriverio repository
     Then  I expect that inputfield ".input-block" contains the text "webdriverio selenium"
     And   I expect that element ".repo-list-item:first-child > .repo-list-description" contains the text "Webdriver/Selenium 2.0 JavaScript bindings for Node.js"
 
-Scenario: login
+Scenario: login with fake credentials
     Given I open the url "https://github.com/"
     When  I log in to site with username "marketionist" and password "1234"
     Then  I expect that element "#js-flash-container .flash-error" is visible
