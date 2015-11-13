@@ -3,7 +3,7 @@
  */
 
 module.exports = function (selector, falseCase, done) {
-    browser.elements(selector, function (err, elements) {
+    this.browser.elements(selector, function (err, elements) {
         should.not.exist(err);
 
         if(falseCase) {
