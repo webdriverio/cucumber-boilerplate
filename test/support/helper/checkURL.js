@@ -10,7 +10,7 @@ module.exports = function (falseCase, url, done) {
         if(falseCase) {
             result.value.should.not.equal(url, 'expected url not to be ' + result.value);
         } else {
-            result.value.should.equal(url, 'expected url to be "' + result.value + '"  but found "' + url + '"');
+            result.value.should.equal(url, 'expected url to be "' + url + '"  but found "' + result.value + '"');
         }
 
     }).call(done);
