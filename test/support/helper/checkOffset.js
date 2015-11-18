@@ -3,7 +3,6 @@
  */
 
 module.exports = function(elem) {
-
     var done = arguments[arguments.length-1],
         x    = null,
         y    = null,
@@ -22,24 +21,24 @@ module.exports = function(elem) {
         y = parseInt(arguments[3],10);
     }
 
-    this.browser.getLocation(elem, function(err,res) {
-        should.not.exist(err);
-
-        if(x) {
-            if(falseCaseX) {
-                res.x.should.not.equal(x, 'element ' + elem + ' should not be positioned at ' + x + 'px on the x axis');
-            } else {
-                res.x.should.equal(x, 'element ' + elem + ' should be positioned at ' + x + 'px on the x axis, but was found at ' + res.x + 'px');
+    this.browser
+        .getLocation(elem)
+        .then(function(res) {
+            if(x) {
+                if(falseCaseX) {
+                    res.x.should.not.equal(x, 'element ' + elem + ' should not be positioned at ' + x + 'px on the x axis');
+                } else {
+                    res.x.should.equal(x, 'element ' + elem + ' should be positioned at ' + x + 'px on the x axis, but was found at ' + res.x + 'px');
+                }
             }
-        }
 
-        if(y) {
-            if(falseCaseY) {
-                res.y.should.not.equal(y, 'element ' + elem + ' should not be positioned at ' + y + 'px on the y axis');
-            } else {
-                res.y.should.equal(y, 'element ' + elem + ' should be positioned at ' + y + 'px on the y axis, but was found at ' + res.y + 'px');
+            if(y) {
+                if(falseCaseY) {
+                    res.y.should.not.equal(y, 'element ' + elem + ' should not be positioned at ' + y + 'px on the y axis');
+                } else {
+                    res.y.should.equal(y, 'element ' + elem + ' should be positioned at ' + y + 'px on the y axis, but was found at ' + res.y + 'px');
+                }
             }
-        }
-
-    }).call(done);
+        })
+        .call(done);
 };
