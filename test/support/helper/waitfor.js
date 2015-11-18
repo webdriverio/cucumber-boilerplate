@@ -8,5 +8,6 @@ module.exports = function(elem, obsolete, ms, isWaitingOnSpecificState, state) {
     }
 
     ms = parseInt(ms, 10) || 3000;
-    this.browser[command](elem, ms).call(done);
+    this.browser[command](elem, ms)
+        .call(done);
 }
