@@ -1,0 +1,12 @@
+{
+    "globals": {
+        "$": true, 
+        "Backbone": true, 
+        "_": true, 
+        "console": true, 
+        "define": true, 
+        "jQuery": true, 
+        "require": true, 
+        "throw": true
+    }
+}
