@@ -2,9 +2,9 @@
  * given steps
  */
 
-module.exports = function() {
-
-    this.given(/I open the (url|site) "$string"$/,
+module.exports = function () {
+    this
+        .given(/I open the (url|site) "$string"$/,
             require('../support/action/openWebsite.js'))
 
         .given(/^the element "$string" is( not)* visible$/,
@@ -39,5 +39,4 @@ module.exports = function() {
 
         .given(/^the element "$string" is( not)* \d+px (broad|tall)$/,
             require('../support/check/checkDimension'));
-
 };

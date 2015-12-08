@@ -2,9 +2,9 @@
  * then steps
  */
 
-module.exports = function(dict) {
-
-    this.then(/^I expect that the title is( not)* "$string"$/,
+module.exports = function (dict) {
+    this
+        .then(/^I expect that the title is( not)* "$string"$/,
             require('../support/check/checkTitle'))
 
         .then(/^I expect that element "$string" is( not)* visible$/,
@@ -37,7 +37,6 @@ module.exports = function(dict) {
         .then(/^I expect that element "$string" is( not)* within the viewport$/,
             require('../support/check/checkWithinViewport'));
 
-        // .then(/^I expect that element "$string" is( not)* \d+px (broad|tall)$/,
-        //     require('../support/helper/checkDimension'));
-
+    // .then(/^I expect that element "$string" is( not)* \d+px (broad|tall)$/,
+    //     require('../support/helper/checkDimension'));
 };

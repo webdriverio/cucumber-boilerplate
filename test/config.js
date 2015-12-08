@@ -30,7 +30,7 @@ exports.config = {
      *   default: 500
      */
     options: {
-        logLevel: 'silent',
+        logLevel: 'silent'
     },
 
     /**

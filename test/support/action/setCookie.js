@@ -1,4 +1,4 @@
-module.exports = function(name, content, done) {
+module.exports = function (name, content, done) {
     this.browser.setCookie({
         name: name,
         value: content

@@ -8,7 +8,9 @@
 var spawn = require('child_process').spawn,
     path = require('path'),
     args = [path.join(__dirname, '..', 'node_modules', '.bin', '_mocha')],
-    config = require('./config').config;
+    config = require('./config').config,
+    flag,
+    proc;
 
 /**
  * execute init script with mocha
@@ -19,11 +21,11 @@ args.push(path.join(__dirname, 'support', 'init.js'));
 /**
  * set mocha configs
  */
-for(flag in (config.mochaOpts || {})) {
+for (flag in (config.mochaOpts || {})) {
     args.push('--' + flag + '=' + config.mochaOpts[flag]);
 }
 
-process.argv.slice(2).forEach(function(arg) {
+process.argv.slice(2).forEach(function (arg) {
     var flag;
 
     /**
@@ -52,21 +54,30 @@ process.argv.slice(2).forEach(function(arg) {
             args.unshift(arg);
             break;
         default:
-            if (0 == arg.indexOf('--trace')) args.unshift(arg);
-            else args.push(arg);
+            if (0 === arg.indexOf('--trace')) {
+                args.unshift(arg);
+            } else {
+                args.push(arg);
+            }
             break;
     }
 });
 
-var proc = spawn(process.argv[0], args, {
+proc = spawn(process.argv[0], args, {
     customFds: [0, 1, 2]
 });
-proc.on('exit', function(code, signal) {
-    process.on('exit', function() {
-        if (signal) {
-            process.kill(process.pid, signal);
-        } else {
-            process.exit(code);
-        }
-    });
-});
+proc.on(
+    'exit',
+    function (code, signal) {
+        process.on(
+            'exit',
+            function () {
+                if (signal) {
+                    process.kill(process.pid, signal);
+                } else {
+                    process.exit(code);
+                }
+            }
+        );
+    }
+);

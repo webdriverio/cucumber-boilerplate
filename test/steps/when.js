@@ -2,9 +2,9 @@
  * when steps
  */
 
-module.exports = function() {
-
-    this.when(/^I (click|doubleclick) on the (link|button|element) "$string"$/,
+module.exports = function () {
+    this
+        .when(/^I (click|doubleclick) on the (link|button|element) "$string"$/,
             require('../support/action/clickElement'))
 
         .when(/^I (add|set) "$string" to the inputfield "$string"$/,
@@ -42,5 +42,4 @@ module.exports = function() {
          */
         .when(/^I (accept|dismiss) the alertbox$/,
             require('../support/action/handleAlertbox'));
-
 };

@@ -1,3 +1,3 @@
-var BeforeEachHook = module.exports = function(done) {
+var BeforeEachHook = module.exports = function (done) {
     done();
-}
+};
