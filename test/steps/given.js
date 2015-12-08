@@ -37,6 +37,9 @@ module.exports = function () {
         .given(/^the cookie "$string" does( not)* exist$/,
             require('../support/check/checkCookieExists'))
 
-        .given(/^the element "$string" is( not)* \d+px (broad|tall)$/,
-            require('../support/check/checkDimension'));
+        .given(/^the element "$string" is( not)* ([\d]+)px (broad|tall)$/,
+            require('../support/check/checkDimension'))
+
+        .given(/^the element "$string" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
+            require('../support/check/checkOffset'));
 };

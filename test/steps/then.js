@@ -32,11 +32,14 @@ module.exports = function (dict) {
             require('../support/check/checkCookieContent'))
 
         .then(/^I expect that cookie "$string"( not)* exists$/,
-            require('../support/check/checkCookieExists'))
+            require('../support/check/checkCookieExists'));
 
-        .then(/^I expect that element "$string" is( not)* within the viewport$/,
+        .then(/^I expect that element "$string" is( not)* ([\d]+)px (broad|tall)$/,
+            require('../support/check/checkDimension'))
+
+        .then(/^I expect that element "$string" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
+            require('../support/check/checkOffset'))
+
+	.then(/^I expect that element "$string" is( not)* within the viewport$/,
             require('../support/check/checkWithinViewport'));
-
-    // .then(/^I expect that element "$string" is( not)* \d+px (broad|tall)$/,
-    //     require('../support/helper/checkDimension'));
 };

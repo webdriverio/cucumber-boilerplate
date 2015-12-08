@@ -2,44 +2,27 @@
  * check width and height
  */
 
-module.exports = function (elem) {
-    var done   = arguments[arguments.length - 1],
-        width  = null,
-        height = null,
-        falseCaseWidth,falseCaseHeight;
-
-    if (arguments.length === 6) {
-        falseCaseWidth  = arguments[1] === 'nicht die';
-        falseCaseHeight = arguments[3] === 'nicht die';
-        width  = parseInt(arguments[2], 10);
-        height = parseInt(arguments[4], 10);
-    } else if (arguments[2] === 'Breite') {
-        falseCaseWidth  = arguments[1] === 'nicht die';
-        width = parseInt(arguments[3], 10);
-    } else {
-        falseCaseHeight = arguments[1] === 'nicht die';
-        height = parseInt(arguments[3], 10);
-    }
-
+module.exports = function (elem, falseCase, size, dimension, done) {
     this.browser
         .getElementSize(elem)
         .then(function (res) {
-            if (width) {
-                if (falseCaseWidth) {
-                    res.width.should.not.equal(width, 'element ' + elem + ' should not have a width of ' + width + 'px');
-                } else {
-                    res.width.should.equal(width, 'Element ' + elem + ' should have a width of ' + width + 'px, but is ' + res.width + 'px');
-                }
+            var check = res.height,
+                label = 'height';
+
+            if (dimension === 'broad') {
+                check = res.width;
+                label = 'width';
             }
 
-            if (height) {
-                if (falseCaseHeight) {
-                    res.height.should.not.equal(height, 'Element ' + elem + ' should not have a height of ' + height + 'px');
-                } else {
-                    res.height.should.equal(height, 'Element ' + elem + ' should have a height of ' + height + 'px, but is ' + res.height + 'px');
-                }
+            size = parseInt(size, 10);
+
+            if (falseCase) {
+                check.should.not.equal(size, 'element ' + elem + ' should not have a ' + label + ' of ' + size + 'px');
+            } else {
+                check.should.equal(size, 'Element ' + elem + ' should have a ' + label + ' of ' + size + 'px, but is ' + check + 'px');
             }
 
+            return this;
         })
         .call(done);
 };

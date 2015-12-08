@@ -2,44 +2,19 @@
  * check position
  */
 
-module.exports = function (elem) {
-    var done = arguments[arguments.length - 1],
-        x = null,
-        y = null,
-        falseCaseX,
-        falseCaseY;
-
-    if (arguments.length === 6) {
-        falseCaseX = arguments[1] === ' nicht';
-        falseCaseY = arguments[3] === ' nicht';
-        x = parseInt(arguments[2], 10);
-        y = parseInt(arguments[4], 10);
-    } else if (arguments[1] === 'x') {
-        falseCaseX = arguments[2] === ' nicht';
-        x = parseInt(arguments[3], 10);
-    } else {
-        falseCaseY = arguments[2] === ' nicht';
-        y = parseInt(arguments[3], 10);
-    }
-
+module.exports = function (elem, falseCase, position, axis, done) {
     this.browser
-        .getLocation(elem)
+        .getLocation(elem, axis)
         .then(function (res) {
-            if (x) {
-                if (falseCaseX) {
-                    res.x.should.not.equal(x, 'element ' + elem + ' should not be positioned at ' + x + 'px on the x axis');
-                } else {
-                    res.x.should.equal(x, 'element ' + elem + ' should be positioned at ' + x + 'px on the x axis, but was found at ' + res.x + 'px');
-                }
+            position = parseInt(position, 10);
+
+            if (falseCase) {
+                res.should.not.equal(position, 'element ' + elem + ' should not be positioned at ' + position + 'px on the x axis');
+            } else {
+                res.should.equal(position, 'element ' + elem + ' should be positioned at ' + position + 'px on the x axis, but was found at ' + res + 'px');
             }
 
-            if (y) {
-                if (falseCaseY) {
-                    res.y.should.not.equal(y, 'element ' + elem + ' should not be positioned at ' + y + 'px on the y axis');
-                } else {
-                    res.y.should.equal(y, 'element ' + elem + ' should be positioned at ' + y + 'px on the y axis, but was found at ' + res.y + 'px');
-                }
-            }
+            return this;
         })
         .call(done);
 };

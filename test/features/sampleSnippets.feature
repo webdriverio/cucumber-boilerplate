@@ -146,7 +146,18 @@ Scenario: check width and height
     Then  I expect that element ".red" is 102px broad
     And   I expect that element ".red" is 102px tall
     And   I expect that element ".red" is not 103px broad
-    And   I expect that element ".red" is not 102px tall
+    And   I expect that element ".red" is not 103px tall
+
+Scenario: check offset
+    Given I open the site "/"
+    And   the element ".red" is positioned at 15px on the x axis
+    And   the element ".red" is positioned at 242px on the y axis
+    And   the element ".red" is not positioned at 16px on the x axis
+    And   the element ".red" is not positioned at 243px on the y axis
+    Then  I expect that element ".red" is positioned at 15px on the x axis
+    And   I expect that element ".red" is positioned at 242px on the y axis
+    And   I expect that element ".red" is not positioned at 16px on the x axis
+    And   I expect that element ".red" is not positioned at 243px on the y axis
 
 Scenario: check selected
     Given I open the site "/"
