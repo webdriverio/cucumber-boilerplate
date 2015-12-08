@@ -272,6 +272,7 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `/^I expect that cookie "$string"( not)* contains "$string"$/`<br>test if cookie with certain value exists
 - `/^I expect that cookie "$string"( not)* exists$/`<br>test if cookie exists
 - `/^I expect that element "$string" is( not)* \d+px (broad|tall)$/`<br>test if element has certain height/width
+- `/^I expect that element "$string" is( not)* within the viewport$/`<br>test if element is within the viewport
 
 # Contributing
 
