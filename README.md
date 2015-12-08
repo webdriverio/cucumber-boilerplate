@@ -244,7 +244,8 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `/^the checkbox "$string" is( not)* selected$/`<br>test if checkbox is selected
 - `/^the cookie "$string" contains( not)* the value "$string"$/`<br>test if cookie with certain value exists
 - `/^the cookie "$string" does( not)* exist$/`<br>test if cookie exists
-- `/^the element "$string" is( not)* \d+px (broad|tall)$/`<br>test if element has certain height/width
+- `/^the element "$string" is( not)* ([\d]+)px (broad|tall)$/`<br>test if element has certain height/width
+- `/^the element "$string" is( not)* positioned at ([\d]+)px on the (x|y) axis$/`<br>test if element has a certain position on the x/y axis
 
 ## When steps
 - `/^I (click|doubleclick) on the (link|button|element) "$string"$/`<br>click/doubleclick on link, button or element
@@ -271,8 +272,9 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `/^I expect that checkbox "$string" is( not)* selected$/`<br>test if checkbox is selected
 - `/^I expect that cookie "$string"( not)* contains "$string"$/`<br>test if cookie with certain value exists
 - `/^I expect that cookie "$string"( not)* exists$/`<br>test if cookie exists
-- `/^I expect that element "$string" is( not)* \d+px (broad|tall)$/`<br>test if element has certain height/width
+- `/^I expect that element "$string" is( not)* ([\d]+)px (broad|tall)$/`<br>test if element has certain height/width
 - `/^I expect that element "$string" is( not)* within the viewport$/`<br>test if element is within the viewport
+- `/^I expect that element "$string" is( not)* positioned at ([\d]+)px on the (x|y) axis$/`<br>test if element has a certain position on the x/y axis
 
 # Contributing
 
