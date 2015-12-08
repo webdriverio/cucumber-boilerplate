@@ -167,3 +167,8 @@ Scenario: delete cookie
     And   the cookie "test" does exist
     When  I delete the cookie "test"
     Then  I expect that cookie "test" not exists
+
+Scenario: open google with a custom command
+    Given I want to search on "http://www.google.com/"
+    Then  I expect that the url is "http://www.google.com/"
+    And   I expect that the url is not "http://yahoo.com/"
