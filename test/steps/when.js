@@ -43,6 +43,9 @@ module.exports = function () {
         .when(/^I (accept|dismiss) the alertbox$/,
             require('../support/action/handleAlertbox'))
 
+        .when(/^I scroll to element "$string"$/,
+            require('../support/action/scroll'))
+
         .when(/^I close the last opened (window|tab)$/,
             require('../support/action/closeLastOpenedWindow'))
 
