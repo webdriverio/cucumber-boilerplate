@@ -43,6 +43,9 @@ module.exports = function () {
         .when(/^I (accept|dismiss) the alertbox$/,
             require('../support/action/handleAlertbox'))
 
+        .when(/^I close the last opened (window|tab)$/,
+            require('../support/action/closeLastOpenedWindow'))
+
         .when(/^I focus the last opened (window|tab)$/,
             require('../support/action/focusLastOpenedWindow'));
 };
