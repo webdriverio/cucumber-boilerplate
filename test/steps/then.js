@@ -43,6 +43,9 @@ module.exports = function (dict) {
         .then(/^I expect that element "$string" is( not)* within the viewport$/,
             require('../support/check/checkWithinViewport'))
 
+        .then(/^I expect that element "$string" is( not)* focused$/,
+            require('../support/check/checkFocus'))
+
         .then(/^I expect the url "$string" is opened in a new (tab|window)$/,
             require('../support/check/checkIsOpenedInNewWindow'));
 };
