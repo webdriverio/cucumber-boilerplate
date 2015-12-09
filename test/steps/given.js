@@ -43,6 +43,9 @@ module.exports = function () {
         .given(/^the element "$string" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
             require('../support/check/checkOffset'))
 
+        .given(/^I have a screen that is ([\d]+) by ([\d]+) pixels$/,
+            require('../support/action/resizeScreenSize'))
+
         .given(/^I have closed all but the first tab$/,
             require('../support/action/closeAllButFirstTab'));
 };
