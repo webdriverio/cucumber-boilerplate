@@ -43,6 +43,9 @@ module.exports = function (dict) {
         .then(/^I expect that element "$string" is( not)* within the viewport$/,
             require('../support/check/checkWithinViewport'))
 
+        .then(/^I expect a new (window|tab) has( not)* been opened$/,
+            require('../support/check/checkNewWindow'))
+
         .then(/^I expect that element "$string" becomes( not)* visible$/,
             require('../support/action/waitForVisible'))
 
