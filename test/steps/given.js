@@ -41,5 +41,8 @@ module.exports = function () {
             require('../support/check/checkDimension'))
 
         .given(/^the element "$string" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
-            require('../support/check/checkOffset'));
+            require('../support/check/checkOffset'))
+
+        .given(/^I have closed all but the first tab$/,
+            require('../support/action/closeAllButFirstTab'));
 };
