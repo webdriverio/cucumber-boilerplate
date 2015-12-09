@@ -43,6 +43,9 @@ module.exports = function (dict) {
         .then(/^I expect that element "$string" is( not)* within the viewport$/,
             require('../support/check/checkWithinViewport'))
 
+        .then(/^I expect that element "$string" becomes( not)* visible$/,
+            require('../support/action/waitForVisible'))
+
         .then(/^I expect that element "$string" is( not)* focused$/,
             require('../support/check/checkFocus'))
 
