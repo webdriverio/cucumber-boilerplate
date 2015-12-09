@@ -43,6 +43,9 @@ module.exports = function (dict) {
         .then(/^I expect that element "$string" is( not)* within the viewport$/,
             require('../support/check/checkWithinViewport'))
 
+        .then(/^I expect the url to( not)* contain "$string"$/,
+            require('../support/check/checkInURLPath'))
+
         .then(/^I expect that element "$string" (has|does not have) the class "$string"$/,
             require('../support/check/checkClass'))
 
