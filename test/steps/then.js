@@ -41,5 +41,8 @@ module.exports = function (dict) {
             require('../support/check/checkOffset'))
 
         .then(/^I expect that element "$string" is( not)* within the viewport$/,
-            require('../support/check/checkWithinViewport'));
+            require('../support/check/checkWithinViewport'))
+
+        .then(/^I expect the url "$string" is opened in a new (tab|window)$/,
+            require('../support/check/checkIsOpenedInNewWindow'));
 };
