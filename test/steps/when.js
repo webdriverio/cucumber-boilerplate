@@ -41,5 +41,8 @@ module.exports = function () {
          * ToDo add tests
          */
         .when(/^I (accept|dismiss) the alertbox$/,
-            require('../support/action/handleAlertbox'));
+            require('../support/action/handleAlertbox'))
+
+        .when(/^I focus the last opened (window|tab)$/,
+            require('../support/action/focusLastOpenedWindow'));
 };
