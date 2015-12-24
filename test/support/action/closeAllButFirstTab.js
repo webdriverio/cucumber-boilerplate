@@ -1,6 +1,6 @@
 var Q = require('q');
 
-module.exports = function (done) {
+module.exports = function (windowType, done) {
     this.browser
         // Close all tabs but the first one - this should remain the last step
         .windowHandles()
