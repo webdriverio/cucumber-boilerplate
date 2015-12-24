@@ -7,5 +7,6 @@ module.exports = function (selector, falseCase, done) {
             } else {
                 isVisible.should.equal(true, 'Expected element "' + selector + '" to be inside the viewport, but it is not');
             }
-        }).call(done);
+        })
+        .call(done);
 };
