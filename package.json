@@ -27,7 +27,7 @@
     "deepmerge": "~0.2.7",
     "glob": "~6.0.1",
     "mocha": "2.3.3",
-    "webdriverio": "~3.2.6",
+    "webdriverio": "~3.3.0",
     "yadda": "~0.16.0"
   }
 }
