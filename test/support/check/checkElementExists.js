@@ -3,7 +3,7 @@
  */
 
 module.exports = function (isExisting, elem, done) {
-    isExisting = (isExisting === 'a');
+    isExisting = (isExisting === 'an');
 
     this.browser
         .elements(elem)
