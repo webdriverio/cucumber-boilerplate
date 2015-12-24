@@ -249,7 +249,7 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 
 ## When steps
 - `/^I (click|doubleclick) on the (link|button|element) "$string"$/`<br>click/doubleclick on link, button or element
-- `/^I (add|set) "$string" to the inputfield "$string"$/`<br>add value to inputfeld
+- `/^I (add|set) "$string" to the inputfield "$string"$/`<br>add value to inputfield
 - `/^I clear the inputfield "$string"$/`<br>clear input field
 - `/^I drag element "$string" to element "$string"$/`<br>drag n drop element from element to element
 - `/^I submit the form "$string"$/`<br>submit form
@@ -278,6 +278,6 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 
 # Contributing
 
-Please fork, add specs, and send pull requests! In lieu of a formal styleguide, take care to maintain the existing coding style.
+Please fork, add specs, and send pull requests! In lieu of a formal style guide, take care to maintain the existing coding style.
 Currently not all [WebdriverIO](http://webdriver.io/) commands are mapped and implemented as snippets. Any contributions that
 adds new snippets + test are highly welcome.
