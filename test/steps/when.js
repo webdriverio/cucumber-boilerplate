@@ -19,9 +19,6 @@ module.exports = function () {
         .when(/^I submit the form "$string"$/,
             require('../support/action/submitForm'))
 
-        .when(/^I wait on element "$string"( for (\d+)ms)*( to (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*$/,
-            require('../support/action/waitfor'))
-
         .when(/^I pause for (\d+)ms$/,
             require('../support/action/pause'))
 
@@ -34,14 +31,11 @@ module.exports = function () {
         .when(/^I press "$string"$/,
             require('../support/action/pressButton'))
 
-        .when(/^I log in to site with username "$string" and password "$string"$/,
-            require('../support/custom/login'))
+        .when(/^I (accept|dismiss) the (alertbox|confirmbox|prompt)$/,
+            require('../support/action/handleModal'))
 
-        /**
-         * ToDo add tests
-         */
-        .when(/^I (accept|dismiss) the alertbox$/,
-            require('../support/action/handleAlertbox'))
+        .when(/^I enter "$string" into the prompt$/,
+            require('../support/action/setPromptText'))
 
         .when(/^I scroll to element "$string"$/,
             require('../support/action/scroll'))
@@ -50,5 +44,8 @@ module.exports = function () {
             require('../support/action/closeLastOpenedWindow'))
 
         .when(/^I focus the last opened (window|tab)$/,
-            require('../support/action/focusLastOpenedWindow'));
+            require('../support/action/focusLastOpenedWindow'))
+
+        .when(/^I log in to site with username "$string" and password "$string"$/,
+            require('../support/custom/login'));
 };

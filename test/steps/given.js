@@ -5,13 +5,22 @@
 module.exports = function () {
     this
         .given(/I open the (url|site) "$string"$/,
-            require('../support/action/openWebsite.js'))
+            require('../support/action/openWebsite'))
 
         .given(/^the element "$string" is( not)* visible$/,
-            require('../support/check/isVisible.js'))
+            require('../support/check/isVisible'))
+
+        .given(/^the element "$string" is( not)* enabled$/,
+            require('../support/check/isEnabled'))
+
+        .given(/^the element "$string" is( not)* selected$/,
+            require('../support/check/checkSelected'))
+
+        .given(/^the checkbox "$string" is( not)* checked$/,
+            require('../support/check/checkSelected'))
 
         .given(/^there is (an|no) element "$string" on the page$/,
-            require('../support/check/checkElementExists.js'))
+            require('../support/check/checkElementExists'))
 
         .given(/^the title is( not)* "$string"$/,
             require('../support/check/checkTitle'))
@@ -19,7 +28,10 @@ module.exports = function () {
         .given(/^the element "$string" contains( not)* the same text as element "$string"$/,
             require('../support/check/compareText'))
 
-        .given(/^the (element|inputfield) "$string" does( not)* contain the text "([^"]*)"$/,
+        .given(/^the (element|inputfield) "$string" does( not)* contain the text "$string"$/,
+            require('../support/check/checkContent'))
+
+        .given(/^the (element|inputfield) "$string" does( not)* contain any text$/,
             require('../support/check/checkContent'))
 
         .given(/^the page url is( not)* "$string"$/,
@@ -27,9 +39,6 @@ module.exports = function () {
 
         .given(/^the( css)* attribute "$string" from element "$string" is( not)* "$string"$/,
             require('../support/check/checkProperty'))
-
-        .given(/^the checkbox "$string" is( not)* selected$/,
-            require('../support/check/checkSelected'))
 
         .given(/^the cookie "$string" contains( not)* the value "$string"$/,
             require('../support/check/checkCookieContent'))
@@ -47,5 +56,8 @@ module.exports = function () {
             require('../support/action/resizeScreenSize'))
 
         .given(/^I have closed all but the first tab$/,
-            require('../support/action/closeAllButFirstTab'));
+            require('../support/action/closeAllButFirstTab'))
+
+        .given(/^a (alertbox|confirmbox|prompt) is( not)* opened$/,
+            require('../support/check/checkModal'));
 };
