@@ -1,7 +1,7 @@
 /**
  * check url path
  */
-var config = require('../../config.js');
+var config = require('../../config.js').config;
 
 module.exports = function (falseCase, path, done) {
     this.browser
