@@ -55,7 +55,7 @@ module.exports = function () {
         .given(/^I have a screen that is ([\d]+) by ([\d]+) pixels$/,
             require('../support/action/resizeScreenSize'))
 
-        .given(/^I have closed all but the first tab$/,
+        .given(/^I have closed all but the first (window|tab)$/,
             require('../support/action/closeAllButFirstTab'))
 
         .given(/^a (alertbox|confirmbox|prompt) is( not)* opened$/,
