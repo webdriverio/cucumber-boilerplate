@@ -5,7 +5,8 @@
   "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
   "main": "test/runner.js",
   "scripts": {
-    "test": "./test/run.js"
+    "postinstall": "selenium-standalone install",
+    "runserver": "(selenium-standalone start & http-server ./demo-app)"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,9 @@
     "mocha": "2.3.3",
     "webdriverio": "~3.3.0",
     "yadda": "~0.16.0"
+  },
+  "devDependencies": {
+    "http-server": "0.8.5",
+    "selenium-standalone": "4.8.0"
   }
 }

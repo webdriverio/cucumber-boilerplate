@@ -59,6 +59,13 @@ query after doing a search. As you can see, it is pretty simple and understandab
 
 # How to run the test
 
+[start the selenium & local webserver]
+
+
+```sh
+$ npm run-script server
+```
+
 To run your tests just call the run.js file:
 
 ```sh
