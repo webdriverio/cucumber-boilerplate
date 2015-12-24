@@ -1,20 +1,25 @@
+var Q = require('q');
+
 module.exports = function (done) {
     this.browser
         // Close all tabs but the first one - this should remain the last step
         .windowHandles()
         .then(function (windowHandles) {
             var handles = windowHandles.value,
-                handlesLength = handles.length,
-                currentHandleNr;
+                currentHandleNr = 0,
+                browser = this;
 
-            if (handlesLength > 1) {
-                for (currentHandleNr = 1; currentHandleNr < handlesLength; currentHandleNr++) {
-                    return this
-                        .close(handles[currentHandleNr]);
-                }
-            }
+            return Q.all(handles.map(function (handle) {
+                        currentHandleNr++;
 
-            return this;
+                        if (currentHandleNr > 1) {
+                            return browser.close();
+                        }
+
+                        return handle;
+                    }
+                )
+            );
         })
         .call(done);
 };
