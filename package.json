@@ -6,7 +6,8 @@
   "main": "test/runner.js",
   "scripts": {
     "postinstall": "selenium-standalone install",
-    "runserver": "(selenium-standalone start & http-server ./demo-app)"
+    "runserver": "(selenium-standalone start & http-server ./demo-app)",
+    "phantomjs": "phantomjs"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "http-server": "0.8.5",
+    "phantomjs": "1.9.19",
     "selenium-standalone": "4.8.0"
   }
 }
