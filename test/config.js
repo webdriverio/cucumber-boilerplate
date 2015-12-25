@@ -30,7 +30,7 @@ exports.config = {
      *   default: 500
      */
     options: {
-        logLevel: 'silent',
+        logLevel: 'silent'
     },
 
     /**
@@ -53,7 +53,7 @@ exports.config = {
      * - baseUrl: sets base url for `Given I open the site "/some/url.html"`
      */
     env: {
-        baseUrl: 'http://webdriverjs.christian-bromann.com'
+        baseUrl: 'http://127.0.0.1:8080'
     },
 
     /**

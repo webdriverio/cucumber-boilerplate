@@ -10,7 +10,7 @@ Scenario: open URL
 
 Scenario: search for webdriverio repository
     Given I open the url "https://github.com/search"
-    And   the inputfield ".input-block" does contain the text ""
+    And   the inputfield ".input-block" does not contain any text
     And   I set "webdriverio" to the inputfield ".input-block"
     And   I press "Space"
     And   I add "selenium" to the inputfield ".input-block"

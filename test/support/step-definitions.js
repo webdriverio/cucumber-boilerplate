@@ -5,8 +5,7 @@ var Yadda = require('yadda'),
     path = require('path'),
     chai = require('chai');
 
-module.exports = (function() {
-
+module.exports = (function () {
     var library = language.library(),
         dictionary = new Yadda.Dictionary(),
         stepsFiles = path.join(__dirname, '..', 'steps'),
@@ -20,7 +19,7 @@ module.exports = (function() {
     /**
      * define step library
      */
-    steps.forEach(function(step) {
+    steps.forEach(function (step) {
         require(path.join(stepsFiles, step)).call(library, dictionary);
     });
 
@@ -29,5 +28,5 @@ module.exports = (function() {
 })();
 
 function upperCaseFirstLetter(word) {
-    return word.slice(0,1).toUpperCase() + word.slice(1);
+    return word.slice(0, 1).toUpperCase() + word.slice(1);
 }

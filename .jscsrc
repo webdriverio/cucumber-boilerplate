@@ -1,0 +1,4 @@
+{
+    "preset": "crockford",
+    "excludeFiles": ["node_modules/**"]
+}

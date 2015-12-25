@@ -12,7 +12,8 @@ var Yadda = require('yadda'),
     fileCount = null,
     context = {},
     currentStep,
-    runIsolateTestOnly = false;
+    runIsolateTestOnly = false,
+    files = [];
 
 /**
  * expose assertion library
@@ -31,76 +32,97 @@ Yadda.plugins.mocha.StepLevelPlugin.init();
 /**
  * gather feature files
  */
-var files = [];
-config.featureFiles.forEach(function(globPattern) {
-    glob.sync(globPattern, { cwd: path.join(__dirname, '..', '..') }).forEach(function(file) {
-        files.push(path.join(__dirname, '..', '..', file))
+config.featureFiles.forEach(function (globPattern) {
+    glob.sync(
+        globPattern,
+        {
+            cwd: path.join(__dirname, '..', '..')
+        }
+    ).forEach(function (file) {
+        files.push(path.join(__dirname, '..', '..', file));
     });
 });
 
 /**
  * Looking for tests scenarios to run in isolation, if found set the flag to run only those
  */
-files.forEach(function(file, i, files) {
-    featureFile(file, function(feature) {
-        scenarios(feature.scenarios, function(scenario) {
-            if(scenario.annotations.isolate) {
-                runIsolateTestOnly = true;
-            }
-        });
-    });
+files.forEach(function (file, i, files) {
+    featureFile(
+        file,
+        function (feature) {
+            scenarios(
+                feature.scenarios,
+                function (scenario) {
+                    if (scenario.annotations.isolate) {
+                        runIsolateTestOnly = true;
+                    }
+                }
+            );
+        }
+    );
 });
 
-files.forEach(function(file, i, files) {
-    fileCount = fileCount === null ? files.length : fileCount;
+files.forEach(function (file, i, files) {
+    fileCount = (fileCount === null) ? files.length : fileCount;
 
-    featureFile(file, function(feature) {
-
-        if(feature.annotations.pending) {
-            fileCount--;
-        }
-
-        before(function(done) {
-            if(processed === 0) {
-                return beforeHook.call(global.testscope, beforeEachHook.bind(global.testscope, done));
+    featureFile(
+        file,
+        function (feature) {
+            if (feature.annotations.pending) {
+                fileCount--;
             }
 
-            beforeEachHook.call(global.testscope, done);
-        });
-
-        scenarios(feature.scenarios, function(scenario) {
-            if(runIsolateTestOnly && !scenario.annotations.isolate && !scenario.annotations.only) {
-                return;
-            }
-
-            var stepDefinitions = require('./step-definitions');
-            var yadda = new Yadda.Yadda(stepDefinitions, context);
-
-            steps(scenario.steps, function(step, done) {
-                var context = merge(global.testscope, config.env);
-
-                if(scenario.annotations.executedBy) {
-                    context.browser = context.browser.select(scenario.annotations.executedBy);
+            before(function (done) {
+                if (processed === 0) {
+                    return beforeHook.call(global.testscope, beforeEachHook.bind(global.testscope, done));
                 }
 
-                yadda.run(step, context, done);
+                beforeEachHook.call(global.testscope, done);
             });
-        });
 
-        Yadda.EventBus.instance().on(Yadda.EventBus.ON_EXECUTE, function(event) {
-            currentStep = event.data.step;
-        });
+            scenarios(
+                feature.scenarios,
+                function (scenario) {
+                    var stepDefinitions = require('./step-definitions'),
+                        yadda = new Yadda.Yadda(stepDefinitions, context);
 
-        after(function(done) {
+                    if (runIsolateTestOnly &&
+                        !scenario.annotations.isolate &&
+                        !scenario.annotations.only
+                    ) {
+                        return;
+                    }
 
-            if(++processed === fileCount) {
-                return afterEachHook.call(global.testscope, afterHook.bind(global.testscope, done));
-            }
+                    steps(
+                        scenario.steps,
+                        function (step, done) {
+                            var context = merge(global.testscope, config.env);
 
-            afterEachHook.call(global.testscope, done);
+                            if (scenario.annotations.executedBy) {
+                                context.browser = context.browser.select(scenario.annotations.executedBy);
+                            }
 
-        });
+                            yadda.run(step, context, done);
+                        }
+                    );
+                }
+            );
 
-    });
+            Yadda.EventBus.instance().on(
+                Yadda.EventBus.ON_EXECUTE,
+                function (event) {
+                    currentStep = event.data.step;
+                }
+            );
 
+            after(function (done) {
+                if (++processed === fileCount) {
+                    return afterEachHook.call(global.testscope, afterHook.bind(global.testscope, done));
+                }
+
+                afterEachHook.call(global.testscope, done);
+            });
+
+        }
+    );
 });
