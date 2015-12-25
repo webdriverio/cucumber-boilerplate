@@ -1,3 +1,4 @@
+@Pending
 Feature: Test modals
     As a developer
     I want to be able to test the onening, closing and contens of modal windows

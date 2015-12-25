@@ -9,6 +9,7 @@ Feature: Test how clicks are handled on a certain element
         When  I click on the link "Navigate to github.com"
         Then  I expect the url to contain "https://github.com"
 
+    @Pending
     Scenario: Double click on a link should navigate to another page
         When  I doubleclick on the link "Navigate to github.com"
         Then  I expect the url to contain "https://github.com"
