@@ -1,4 +1,3 @@
-@Only
 Feature: Test select elements
     As a developer
     I want to be able to test if a certain value is selected for a certain
