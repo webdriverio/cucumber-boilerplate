@@ -240,6 +240,7 @@ Scenario: ...
 Check out all predefined snippets. You can see how they get used in [`sampleSnippets.feature`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/test/features/sampleSnippets.feature).
 
 ## Given steps
+
 - `/I open the (url|site) "$string"` <br>Open a site in the current browser window/tab
 - `the element "$string" is( not)* visible` <br>Check the (in)visibility of a element
 - `the element "$string" is( not)* enabled` <br>Check if a element is (not) enabled
@@ -261,6 +262,7 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `a (alertbox|confirmbox|prompt) is( not)* opened` <br>Check if a modal is opened
 
 ## Then steps
+
 - `I expect that the title is( not)* "$string"` <br>Check the title of the current browser window/tab
 - `I expect that element "$string" is( not)* visible` <br>Check if a certain element is visible
 - `I expect that element "$string" becomes( not)* visible` <br>Check if a certain element becomes visible
@@ -289,7 +291,8 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `I expect that a (alertbox|confirmbox|prompt) is( not)* opened` <br>Check if a modal is opened
 - `I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "$text"` <br>Check the text of a modal
 
-## Then steps
+## When steps
+
 - `I (click|doubleclick) on the (link|button|element) "$string"` <br>(Double)click a link, button or element
 - `I (add|set) "$string" to the inputfield "$string"` <br>Add or set the content of an input field
 - `I clear the inputfield "$string"` <br>Clear an input field
