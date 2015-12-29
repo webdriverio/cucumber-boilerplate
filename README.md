@@ -308,6 +308,8 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `I close the last opened (window|tab)` <br>Close the last opened browser window/tab
 - `I focus the last opened (window|tab)` <br>Focus the last opened browser window/tab
 - `I log in to site with username "$string" and password "$string"` <br>Login to a site with the given username and password
+- `I select the (\d+)(st|nd|rd|th) option for element "$string"` <br>Select a option based on it's index
+- `I select the option with the (name|value|text) "$string" for element "$string"` <br>Select a option based on it's name, value or visible text
 
 # Contributing
 
