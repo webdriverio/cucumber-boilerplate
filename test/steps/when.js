@@ -49,6 +49,9 @@ module.exports = function () {
         .when(/^I log in to site with username "$string" and password "$string"$/,
             require('../support/custom/login'))
 
+        .when(/^I select the (\d+)(st|nd|rd|th) option for element "$string"$/,
+            require('../support/action/selectOptionByIndex'))
+
         .when(/^I select the option with the (name|value|text) "$string" for element "$string"$/,
             require('../support/action/selectOption'));
 };
