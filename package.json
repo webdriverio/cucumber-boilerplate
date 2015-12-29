@@ -6,7 +6,7 @@
   "main": "test/runner.js",
   "scripts": {
     "postinstall": "selenium-standalone install",
-    "runserver": "(selenium-standalone start & http-server ./demo-app)",
+    "server": "(selenium-standalone start & http-server ./demo-app)",
     "phantomjs": "phantomjs"
   },
   "repository": {
