@@ -201,6 +201,10 @@ function openPrompt(event) {
     $result.text(result);
 }
 
+function toggleMoveToElement(event) {
+    $(this).toggleClass('moveToClass');
+}
+
 $(function () {
     $('.jsToggleElement')
         .on('click', onClickToggleElement);
@@ -235,4 +239,7 @@ $(function () {
 
     $('#openPrompt')
         .on('click', openPrompt);
+
+    $('#moveTo')
+        .on('mouseenter mouseleave', toggleMoveToElement);
 });

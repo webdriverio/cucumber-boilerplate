@@ -315,6 +315,7 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `I log in to site with username "$string" and password "$string"` <br>Login to a site with the given username and password
 - `I select the (\d+)(st|nd|rd|th) option for element "$string"` <br>Select a option based on it's index
 - `I select the option with the (name|value|text) "$string" for element "$string"` <br>Select a option based on it's name, value or visible text
+- `I move to element "$string"( with an offset of (\d+),(\d+))` <br>Move the mouse by an (optional) offset of the specificed element
 
 # Contributing
 
