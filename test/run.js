@@ -64,7 +64,7 @@ process.argv.slice(2).forEach(function (arg) {
 });
 
 proc = spawn(process.argv[0], args, {
-    customFds: [0, 1, 2]
+    stdio: 'inherit'
 });
 proc.on(
     'exit',
