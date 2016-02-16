@@ -53,5 +53,8 @@ module.exports = function () {
             require('../support/action/selectOptionByIndex'))
 
         .when(/^I select the option with the (name|value|text) "$string" for element "$string"$/,
-            require('../support/action/selectOption'));
+            require('../support/action/selectOption'))
+
+        .when(/^I move to element "$string"( with an offset of (\d+),(\d+))*$/,
+            require('../support/action/moveToElement'));
 };
