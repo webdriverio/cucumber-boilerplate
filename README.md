@@ -20,7 +20,7 @@ file and you are all set.
 
 ## Resolving dependencies
 
-When running the tests for the first time you may need Selenium Standalone Server and ChromeDriver. The exact version(s) and path(s) required will be highlighted as error messages when you [start Selenium server](../master/README.md#how-to-run-the-test).
+When running the tests for the first time you may need Selenium Standalone Server and ChromeDriver. The exact version(s) and path(s) required will be highlighted as error messages when you [start Selenium server](/README.md#how-to-run-the-test).
 
 Dependencies can found:
 - [Selenium releases](https://npm.taobao.org/mirrors/selenium/)
