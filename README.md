@@ -18,6 +18,14 @@ Then just embed the test directory into the root folder of your project and copy
 from the package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json#L26-L31)
 file and you are all set.
 
+## Resolving dependencies
+
+When running the tests for the first time you may need Selenium Standalone Server and ChromeDriver. The exact version(s) and path(s) required will be highlighted as error messages when you [start Selenium server](/README.md#how-to-run-the-test).
+
+Dependencies can found:
+- [Selenium releases](https://npm.taobao.org/mirrors/selenium/)
+- [ChromeDriver releases](http://chromedriver.storage.googleapis.com/index.html) 
+
 ## Features
 
 - Super simple setup
