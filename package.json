@@ -1,14 +1,15 @@
 {
   "name": "cucumber-boilerplate",
   "version": "0.0.0",
-  "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
-  "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
+  "description": "Customised ES6/7 edge Boilerplate project to run WebdriverIO tests with Cucumber",
+  "homepage": "https://github.com/maxmckenzie/cucumber-boilerplate",
   "main": "test/runner.js",
   "scripts": {
     "postinstall": "selenium-standalone install",
     "selenium-server": "selenium-standalone start",
     "local-webserver": "http-server ./demo-app",
-    "phantomjs": "phantomjs"
+    "phantomjs": "phantomjs",
+    "lint": "eslint demo-app/ test"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,8 @@
     "yadda": "~0.16.0"
   },
   "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^9.0.1",
     "http-server": "0.8.5",
     "phantomjs": "1.9.19",
     "selenium-standalone": "4.8.0"
