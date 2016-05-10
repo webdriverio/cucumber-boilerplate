@@ -9,7 +9,7 @@
     "selenium-server": "selenium-standalone start",
     "local-webserver": "http-server ./demo-app",
     "phantomjs": "phantomjs",
-    "lint": "eslint demo-app/ test"
+    "lint": "eslint demo-app/ test/"
   },
   "repository": {
     "type": "git",
