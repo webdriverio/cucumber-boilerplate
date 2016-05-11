@@ -1,3 +1,9 @@
+# Additional edits from fork
+
+- jslint replaced with eslint and style guide so y'all need to do this if npm install dont work `npm install eslint-plugin-import eslint eslint-airbnb-base -g`
+
+==== original readme ====
+
 Cucumber Boilerplate [![Build Status](https://travis-ci.org/webdriverio/cucumber-boilerplate.svg?branch=master)](https://travis-ci.org/webdriverio/cucumber-boilerplate)
 ====================
 

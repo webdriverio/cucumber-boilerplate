@@ -63,6 +63,7 @@ exports.config = {
     mochaOpts: {
         reporter: 'spec',
         timeout: 10000,
-        require: 'chai'
+        require: 'chai',
+        compilers: ['js:babel-core/register'],
     }
 };
