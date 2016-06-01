@@ -16,6 +16,11 @@ var Yadda = require('yadda'),
     files = [];
 
 /**
+ * Create a reference to the support root - for easy reference within steps
+ */
+global.SUPPORT_PATH = __dirname;
+
+/**
  * expose assertion library
  */
 global.expect = chai.expect;

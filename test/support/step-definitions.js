@@ -2,14 +2,15 @@ var Yadda = require('yadda'),
     config = require('./configure'),
     language = Yadda.localisation[upperCaseFirstLetter(config.language)],
     fs = require('fs'),
+    glob = require('glob'),
     path = require('path'),
     chai = require('chai');
 
 module.exports = (function () {
     var library = language.library(),
         dictionary = new Yadda.Dictionary(),
-        stepsFiles = path.join(__dirname, '..', 'steps'),
-        steps = fs.readdirSync(stepsFiles);
+        stepsFiles = path.join(__dirname, '..', 'steps', '**', '*.js'),
+        steps = glob.sync(stepsFiles);
 
     /**
      * define regex helpers
@@ -20,7 +21,7 @@ module.exports = (function () {
      * define step library
      */
     steps.forEach(function (step) {
-        require(path.join(stepsFiles, step)).call(library, dictionary);
+        require(step).call(library, dictionary);
     });
 
     return library;
