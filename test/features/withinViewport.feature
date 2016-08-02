@@ -7,5 +7,5 @@ Feature: Github test
         Given I open the url "https://github.com/"
         And   I have a screen that is 1024 by 768 pixels
         And   I pause for 1000ms
-        Then  I expect that element ".octicon-logo-github" is within the viewport
-        And   I expect that element ".site-footer" is not within the viewport
+        Then  I expect that element ".header-logo-invertocat > .octicon-mark-github" is within the viewport
+        And   I expect that element ".site-footer-mark" is not within the viewport
