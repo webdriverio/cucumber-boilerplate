@@ -5,7 +5,7 @@ Feature: Github test
 Scenario: open URL
     Given I open the url "https://github.com/"
     Then  I expect that the url is "https://github.com/"
-    And   I expect that the title is "GitHub · Where software is built"
+    And   I expect that the title is "How people build software · GitHub"
 
 Scenario: login with fake credentials
     Given I open the url "https://github.com/"
