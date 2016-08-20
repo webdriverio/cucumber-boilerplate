@@ -13,13 +13,21 @@ module.exports = function (type, element, falseCase, origText, done) {
         falseCase = !falseCase;
     }
 
+    if (origText === undefined && falseCase === undefined) {
+        origText = '';
+        falseCase = true;
+    }
+
+
+    function handleTextCompare(text, origText) {
+        if (falseCase) {
+            origText.should.not.equal(text);
+        } else {
+            origText.should.equal(text);
+        }
+    }
+
     this.browser[command](element)
-        .then(function (text) {
-            if (falseCase) {
-                origText.should.not.equal(text);
-            } else {
-                origText.should.equal(text);
-            }
-        })
+        .then(handleTextCompare.bind(this, origText))
         .call(done);
 };

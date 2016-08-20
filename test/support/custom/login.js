@@ -5,7 +5,7 @@
 var githubPage = require('../pageObjects/githubPage.js');
 
 module.exports = function (login, password, done) {
-    return this.browser
+    this.browser
         .windowHandleSize({width:1280,height:800})
         .pause(1000)
         .click(githubPage.signInButton)

@@ -21,7 +21,6 @@ Feature: Test waiting for actions
         When  I click on the button "#waitForEnabledBtn"
         Then  I wait on element "#waitForEnabledElement" for 1000ms to be enabled
 
-    @Pending
     Scenario: Test if element becomes selected
         Given the element "#waitForSelectedElement" is not selected
         When  I click on the button "#waitForSelectedBtn"

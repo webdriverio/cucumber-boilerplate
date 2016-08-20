@@ -4,9 +4,19 @@
 module.exports = function (selectionType, selectionValue, selectElem, done) {
     var command;
 
+    commandArguments = [
+        selectElem,
+        selectionValue
+    ];
+
     switch (selectionType) {
         case 'name' : {
-            command = 'selectByName';
+            command = 'selectByAttribute';
+
+            // The selectByAttribute command expects the attribute name as it
+            // second argument so let's add it
+            commandArguments.splice(1, 0, 'name');
+
             break;
         }
 
@@ -25,6 +35,6 @@ module.exports = function (selectionType, selectionValue, selectElem, done) {
         }
     }
 
-    this.browser[command](selectElem, selectionValue)
+    this.browser[command].apply(this, commandArguments)
         .call(done);
 };

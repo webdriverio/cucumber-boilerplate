@@ -26,17 +26,17 @@
   "author": "Christian Bromann <christian@saucelabs.com>",
   "license": "MIT",
   "dependencies": {
-    "chai": "~3.4.1",
+    "chai": "~3.5.0",
     "deepmerge": "~0.2.7",
-    "glob": "~6.0.1",
-    "mocha": "2.3.3",
+    "glob": "~7.0.5",
+    "mocha": "3.0.2",
     "q": "~1.4.1",
-    "webdriverio": "~3.4.0",
-    "yadda": "~0.16.0"
+    "webdriverio": "~4.2.7",
+    "yadda": "~0.18.0"
   },
   "devDependencies": {
-    "http-server": "0.8.5",
-    "phantomjs": "1.9.19",
-    "selenium-standalone": "4.8.0"
+    "http-server": "~0.9.0",
+    "phantomjs": "~2.1.7",
+    "selenium-standalone": "~5.5.0"
   }
 }

@@ -9,17 +9,17 @@ module.exports = function (windowType, done) {
                 currentHandleNr = 0,
                 browser = this;
 
-            return Q.all(handles.map(function (handle) {
-                        currentHandleNr++;
+            return handles.reduce(function(promise, handle) {
+                return promise.then(function(result) {
+                    currentHandleNr++;
 
-                        if (currentHandleNr > 1) {
-                            return browser.close();
-                        }
-
-                        return handle;
+                    if (currentHandleNr > 1) {
+                        return browser.switchTab(handle).close();
                     }
-                )
-            );
+
+                    return handle;
+                });
+            }, Q());
         })
         .call(done);
 };
