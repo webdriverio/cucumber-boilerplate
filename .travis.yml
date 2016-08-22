@@ -12,4 +12,4 @@ branches:
 
 before_script: "npm run-script local-webserver 2>&1 >/dev/null &"
 
-script: "sleep 10 && NODE_ENV=build ./test/run.js"
+script: "sleep 10 && wdio wdio.conf.js"
