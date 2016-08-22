@@ -10,6 +10,6 @@ branches:
   only:
     - master
 
-before_script: "(npm run-script selenium-server & npm run-script local-webserver) 2>&1 >/dev/null &"
+before_script: "npm run-script local-webserver 2>&1 >/dev/null &"
 
 script: "sleep 10 && NODE_ENV=build ./test/run.js"
