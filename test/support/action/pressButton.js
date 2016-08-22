@@ -1,5 +1,5 @@
-module.exports = function (key, done) {
-    this.browser
-        .keys(key)
-        .call(done);
+module.exports = (key, done) => {
+    browser.keys(key);
+
+    done();
 };

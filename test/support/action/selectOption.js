@@ -1,7 +1,7 @@
 /*
     I select the option with the (name|value|text) "$string" of element "$string"
  */
-module.exports = function (selectionType, selectionValue, selectElem, done) {
+module.exports = (selectionType, selectionValue, selectElem, done) => {
     var command;
 
     commandArguments = [
@@ -35,6 +35,7 @@ module.exports = function (selectionType, selectionValue, selectElem, done) {
         }
     }
 
-    this.browser[command].apply(this, commandArguments)
-        .call(done);
+    browser[command].apply(this, commandArguments)
+
+    done();
 };

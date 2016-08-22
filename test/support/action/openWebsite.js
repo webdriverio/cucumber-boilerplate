@@ -1,7 +1,7 @@
-module.exports = function (type, page, done) {
-    var url = (type === 'url') ? page : this.baseUrl + page;
+module.exports = (type, page, done) => {
+    var url = (type === 'url') ? page : browser.options.baseUrl + page;
 
-    this.browser
-        .url(url)
-        .call(done);
+    browser.url(url);
+
+    done();
 };

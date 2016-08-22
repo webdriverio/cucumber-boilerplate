@@ -1,7 +1,7 @@
-module.exports = function (ms, done) {
+module.exports = (ms, done) => {
     ms = parseInt(ms, 10);
 
-    this.browser
-        .pause(ms)
-        .call(done);
+    browser.pause(ms);
+
+    done();
 };

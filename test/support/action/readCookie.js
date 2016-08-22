@@ -1,5 +1,5 @@
-module.exports = function (name, done) {
-    this.browser
-        .deleteCookie(name)
-        .call(done);
+module.exports = (name, done) => {
+    browser.deleteCookie(name);
+
+    done();
 };

@@ -1,8 +1,8 @@
-module.exports = function (name, content, done) {
-    this.browser
-        .setCookie({
-            name: name,
-            value: content
-        })
-        .call(done);
+module.exports = (name, content, done) => {
+    browser.setCookie({
+        name: name,
+        value: content
+    });
+
+    done();
 };

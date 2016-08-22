@@ -1,12 +1,9 @@
-module.exports = function (type, done) {
-    this.browser
-        .windowHandles()
-        .then(function (windowHandles) {
-            var lastWindowHandle = windowHandles.value.slice(-1);
+module.exports = (type, done) => {
+    var windowHandles = browser.windowHandles(),
+        lastWindowHandle = windowHandles.value.slice(-1);
 
-            return this
-                .window(lastWindowHandle[0])
-                .close();
-        })
-        .call(done);
+    browser.window(lastWindowHandle[0]);
+    browser.close();
+
+    done();
 };

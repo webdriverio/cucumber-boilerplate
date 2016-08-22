@@ -1,15 +1,11 @@
-module.exports = function (elem, obsolete, ms, isWaitingOnSpecificState, falseState, state) {
+module.exports = (elem, obsolete, ms, isWaitingOnSpecificState, falseState, state) => {
     var command = 'waitForExist',
         done = arguments[arguments.length - 1];
-
-    if (typeof done !== 'function') {
-        done = null;
-    }
 
     if (isWaitingOnSpecificState) {
         state = state.indexOf(' ') > -1 ? state.split(/\s/)[state.split(/\s/).length - 1] : state;
 
-        // Checkbox checked state translates to selected state
+        // Check box checked state translates to selected state
         if (state === 'checked') {
             state = 'selected';
         }
@@ -18,10 +14,14 @@ module.exports = function (elem, obsolete, ms, isWaitingOnSpecificState, falseSt
     }
 
     if (typeof falseState === 'undefined') {
-        falseState = true;
+        falseState = false;
     }
 
     ms = parseInt(ms, 10) || 3000;
-    this.browser[command](elem, ms, falseState)
-        .call(done);
+    browser[command](elem, ms, falseState);
+
+    // @TODO is this required?
+    if (typeof done === 'function') {
+        done();
+    }
 };

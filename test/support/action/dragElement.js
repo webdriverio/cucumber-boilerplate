@@ -1,5 +1,5 @@
-module.exports = function (source, destination, done) {
-    this.browser
-        .dragAndDrop(source, destination, this.noError)
-        .call(done);
+module.exports = (source, destination, done) => {
+    browser.dragAndDrop(source, destination);
+
+    done();
 };

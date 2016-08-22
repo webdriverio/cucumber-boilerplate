@@ -1,9 +1,10 @@
-module.exports = function (screenWidth, screenHeight, done) {
-    this.browser
-        .windowHandleSize({
-            width: parseInt(screenWidth),
-            height: parseInt(screenHeight)
-        })
-        .refresh()
-        .call(done);
+module.exports = (screenWidth, screenHeight, done) => {
+    browser.windowHandleSize({
+        width: parseInt(screenWidth),
+        height: parseInt(screenHeight)
+    });
+
+    browser.refresh();
+
+    done();
 };

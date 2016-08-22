@@ -2,17 +2,14 @@
  * check url
  */
 
-module.exports = function (falseCase, url, done) {
-    this.browser
-        .url(function (err,result) {
-            should.not.exist(err);
+module.exports = (falseCase, expectedUrl, done) => {
+    var result = browser.url();
 
-            if (falseCase) {
-                result.value.should.not.equal(url, 'expected url not to be ' + result.value);
-            } else {
-                result.value.should.equal(url, 'expected url to be "' + url + '"  but found "' + result.value + '"');
-            }
+    if (falseCase) {
+        result.value.should.not.equal(expectedUrl, 'expected url not to be ' + result.value);
+    } else {
+        result.value.should.equal(expectedUrl, 'expected url to be "' + expectedUrl + '"  but found "' + result.value + '"');
+    }
 
-        })
-        .call(done);
+    done();
 };

@@ -2,27 +2,23 @@
  * check width and height
  */
 
-module.exports = function (elem, falseCase, size, dimension, done) {
-    this.browser
-        .getElementSize(elem)
-        .then(function (res) {
-            var check = res.height,
-                label = 'height';
+module.exports = (elem, falseCase, size, dimension, done) => {
+    var res = browser.getElementSize(elem),
+        check = res.height,
+        label = 'height';
 
-            if (dimension === 'broad') {
-                check = res.width;
-                label = 'width';
-            }
+    size = parseInt(size, 10);
 
-            size = parseInt(size, 10);
+    if (dimension === 'broad') {
+        check = res.width;
+        label = 'width';
+    }
 
-            if (falseCase) {
-                check.should.not.equal(size, 'element ' + elem + ' should not have a ' + label + ' of ' + size + 'px');
-            } else {
-                check.should.equal(size, 'Element ' + elem + ' should have a ' + label + ' of ' + size + 'px, but is ' + check + 'px');
-            }
+    if (falseCase) {
+        check.should.not.equal(size, 'element ' + elem + ' should not have a ' + label + ' of ' + size + 'px');
+    } else {
+        check.should.equal(size, 'Element ' + elem + ' should have a ' + label + ' of ' + size + 'px, but is ' + check + 'px');
+    }
 
-            return this;
-        })
-        .call(done);
+    done();
 };

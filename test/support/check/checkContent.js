@@ -2,8 +2,9 @@
  * check content for specific element or input field
  */
 
-module.exports = function (type, element, falseCase, origText, done) {
-    var command = (type !== 'inputfield') ? 'getText' : 'getValue';
+module.exports = (type, element, falseCase, origText, done) => {
+    var command = (type !== 'inputfield') ? 'getText' : 'getValue',
+        text;
 
     // Check for empty element
     if (!done && typeof origText === 'function') {
@@ -18,16 +19,13 @@ module.exports = function (type, element, falseCase, origText, done) {
         falseCase = true;
     }
 
+    text = browser[command](element);
 
-    function handleTextCompare(text, origText) {
-        if (falseCase) {
-            origText.should.not.equal(text);
-        } else {
-            origText.should.equal(text);
-        }
+    if (falseCase) {
+        origText.should.not.equal(text);
+    } else {
+        origText.should.equal(text);
     }
 
-    this.browser[command](element)
-        .then(handleTextCompare.bind(this, origText))
-        .call(done);
+    done();
 };

@@ -1,4 +1,4 @@
-module.exports = function (action, modalType, done) {
+module.exports = (action, modalType, done) => {
     var command = 'alert' + action.slice(0, 1).toUpperCase() + action.slice(1);
 
     /**
@@ -8,9 +8,7 @@ module.exports = function (action, modalType, done) {
         command = 'alertAccept';
     }
 
-    this.browser
-        .then(function () {
-            return this[command]();
-        })
-        .call(done);
+    browser[command]();
+
+    done();
 };

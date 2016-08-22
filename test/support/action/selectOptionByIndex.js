@@ -1,5 +1,5 @@
-module.exports = function (index, indexSuffix, selectElem, done) {
-    this.browser
-        .selectByIndex(selectElem, +index)
-        .call(done);
+module.exports = (index, indexSuffix, selectElem, done) => {
+    browser.selectByIndex(selectElem, +index);
+
+    done();
 };

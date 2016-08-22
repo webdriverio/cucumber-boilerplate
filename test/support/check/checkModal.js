@@ -1,14 +1,17 @@
-module.exports = function (modalType, falseState, done) {
-    this.browser
-        .alertText()
-        .then(function () {
-            if (falseState) {
-                assert.ok(false, 'A ' + modalType + ' was opened when it shouldnt');
-            }
-        }, function () {
-            if (!falseState) {
-                assert.ok(false, 'A ' + modalType + ' was not opened when it should have been opened');
-            }
-        })
-        .call(done);
+module.exports = (modalType, falseState, done) => {
+    var alertText;
+
+    try {
+        alertText = browser.alertText();
+
+        if (falseState) {
+            alertText.not.to.equal(null, 'A ' + modalType + ' was opened when it shouldn\'t');
+        }
+    } catch(e) {
+        if (!falseState) {
+            alertText.to.equal(null, 'A ' + modalType + ' was not opened when it should have been opened');
+        }
+    }
+
+    done();
 };

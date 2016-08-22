@@ -1,5 +1,5 @@
-module.exports = function (form, done) {
-    this.browser
-        .submitForm(form)
-        .call(done);
+module.exports = (form, done) => {
+    browser.submitForm(form);
+
+    done();
 };
