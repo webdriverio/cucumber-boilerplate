@@ -15,9 +15,9 @@ module.exports = (isCSS, attrName, elem, falseCase, value, done) => {
     }
 
     if (falseCase) {
-        res.should.not.equal(value, (isCSS ? 'CSS ' : '') + 'attribute of element ' + elem + ' should not contain ' + res);
+        value.should.not.equal(res, (isCSS ? 'CSS ' : '') + 'attribute of element ' + elem + ' should not contain ' + res);
     } else {
-        res.should.equal(value, (isCSS ? 'CSS ' : '') + 'attribute of element ' + elem + ' should not contain ' + res + ', but ' + value);
+        value.should.equal(res, (isCSS ? 'CSS ' : '') + 'attribute of element ' + elem + ' should not contain ' + res + ', but ' + value);
     }
 
     done();

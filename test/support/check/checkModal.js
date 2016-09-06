@@ -9,7 +9,7 @@ module.exports = (modalType, falseState, done) => {
         }
     } catch(e) {
         if (!falseState) {
-            alertText.to.equal(null, 'A ' + modalType + ' was not opened when it should have been opened');
+            assert(alertText === null, 'A ' + modalType + ' was not opened when it should have been opened');
         }
     }
 
