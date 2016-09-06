@@ -23,14 +23,16 @@
   "author": "Christian Bromann <christian@saucelabs.com>",
   "license": "MIT",
   "dependencies": {
-    "chai": "3.5.0",
-    "q": "~1.4.1",
-    "webdriverio": "~4.2.7",
-    "wdio-cucumber-framework": "0.2.4",
-    "wdio-selenium-standalone-service": "0.0.5",
-    "wdio-spec-reporter": "0.0.3"
+    "chai": "~3.5.0",
+    "wdio-cucumber-framework": "~0.2.4",
+    "wdio-phantomjs-service": "~0.1.0",
+    "wdio-selenium-standalone-service": "~0.0.6",
+    "wdio-spec-reporter": "~0.0.3",
+    "webdriverio": "~4.2.11",
+    "q": "~1.4.1"
   },
   "devDependencies": {
-    "http-server": "~0.9.0"
+    "http-server": "~0.9.0",
+    "selenium-standalone": "~5.6.2"
   }
 }
