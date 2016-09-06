@@ -154,7 +154,7 @@ exports.config = {
     //
     // Gets executed before test execution begins. At this point you can access all global
     // variables, such as `browser`. It is the perfect place to define custom commands.
-    before: function (capabilities, specs) {
+    before: function () {
         /**
          * Setup the Chai assertion framework
          */
