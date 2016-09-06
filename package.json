@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "chai": "~3.5.0",
+    "cucumber": "~1.2.2",
     "wdio-cucumber-framework": "~0.2.4",
     "wdio-phantomjs-service": "~0.1.0",
     "wdio-selenium-standalone-service": "~0.0.6",
