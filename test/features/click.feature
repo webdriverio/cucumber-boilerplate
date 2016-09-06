@@ -6,14 +6,10 @@ Feature: Test how clicks are handled on a certain element
         Given I open the site "/"
 
     Scenario: Single click on a link should navigate to another page
-        When  I click on the link "Navigate to github.com"
-        Then  I expect the url to contain "https://github.com"
+        When  I click on the link "Navigate to example.com"
+        Then  I expect the url to contain "https://example.com"
 
-    @Pending
-    Scenario: Double click on a link should navigate to another page
-        When  I doubleclick on the link "Navigate to github.com"
-        Then  I expect the url to contain "https://github.com"
-
+    @Isolate
     Scenario: Single click on the button #toggleMessage should display an message
         When  I click on the button "#toggleMessage"
         Then  I expect that element "#message1" is visible

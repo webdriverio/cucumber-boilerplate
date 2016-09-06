@@ -33,7 +33,6 @@ Feature: Sample Snippets test
         When  I doubleclick on the element ".btn1"
         Then  I expect that element ".btn1_dblclicked" is visible
 
-    #@Isolate
     Scenario: click on element
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   the element ".btn1_clicked" is not visible
@@ -163,6 +162,8 @@ Feature: Sample Snippets test
         When  I click on the element ".checkbox_notselected"
         Then  I expect that checkbox ".checkbox_notselected" is checked
 
+    # This will fail in PhantoJS due to a security warning
+    @Pending
     Scenario: set / read cookie
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   the cookie "test" does not exist
@@ -171,6 +172,8 @@ Feature: Sample Snippets test
         And   I expect that cookie "test" contains "test123"
         And   I expect that cookie "test" not contains "test1234"
 
+    # This will fail in PhantoJS due to a security warning
+    @Pending
     Scenario: delete cookie
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   the cookie "test" does exist

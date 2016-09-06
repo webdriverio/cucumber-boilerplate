@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>DEMO APP</title>
 
+        <!-- Reset CSS -->
+        <link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -19,6 +22,13 @@
         <div class="container">
             <h1>DEMO APP</h1>
             <div class="subtitle">DEMO APP</div>
+
+            <hr />
+
+            <div style="position: relative; height: 200px;">
+                <div id="draggable" data-dropzone="#droppable" style="width:100px; height:100px; background-color:steelblue; border:2px solid black; line-height:100px; text-align:center; cursor:move; font-size:12px; position:absolute;z-index:2;">Drag me!</div>
+                <div id="droppable" style="position:absolute;right:0; width:200px; height:200px; background-color:lightgrey; line-height:200px; text-align:center; cursor:move; font-size:12px">Dropzone</div>
+            </div>
 
             <hr />
 
@@ -75,12 +85,12 @@
 
             <hr />
 
-            <div><a id="linkSameWindow" href="http://www.bbc.com/">This link opens google.com in the same window</a></div>
-            <div><a id="linkNewWindow" href="http://www.bbc.com/" target="_blank">This link opens google.com in a new window</a></div>
+            <div><a id="linkSameWindow" href="http://example.com/">This link opens example.com in the same window</a></div>
+            <div><a id="linkNewWindow" href="http://example.com/" target="_blank">This link opens example.com in a new window</a></div>
 
             <hr />
 
-            <a href="https://github.com" id="testClick">Navigate to github.com</a>
+            <a href="https://example.com" id="testClick">Navigate to example.com</a>
             <button id="toggleMessage">Open different alert based on click or double click</button>
             <div id="message1" class="hidden">This is the first message</div>
             <div id="message2" class="hidden">This is the second message</div>
@@ -89,11 +99,6 @@
             <hr />
 
             <div><input type="text" size="30" value="" id="testInput" placeholder="Test input"></div>
-
-            <hr />
-
-            <div id="draggable" data-dropzone="#droppable" style="width:100px; height:100px; background-color:steelblue; border:2px solid black; line-height:100px; text-align:center; cursor:move; font-size:12px; pozition-absolute;z-index:2;">Drag me!</div>
-            <div id="droppable" style="position:absolute;right:0; margin-top:-100px; width:200px; height:200px; background-color:lightgrey; line-height:200px; text-align:center; cursor:move; font-size:12px">Dropzone</div>
 
             <hr />
 
