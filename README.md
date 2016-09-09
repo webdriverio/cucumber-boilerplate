@@ -245,6 +245,10 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 # Contributing
 
 Please fork, add specs, and send pull requests! Do keep in mind that this is a generic project, so please keep your specs as generic as possible so they can be re-used in other projects.
+The project contains a [editorconfig](http://editorconfig.org/) and [eslint](http://eslint.org/) configuration file, builds will run eslint with this configuration. To run eslint localy use the following command:
 
-Currently not all [WebdriverIO](http://webdriver.io/) commands are mapped and implemented as snippets. Any contributions that
-adds new snippets + test are highly welcome.
+```sh
+$ eslint test/**/*.js
+```
+
+Currently not all [WebdriverIO](http://webdriver.io/) commands are mapped and implemented as snippets. Any contributions that adds new snippets + test are highly welcome.
