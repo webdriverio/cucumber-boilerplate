@@ -31,8 +31,7 @@
     "wdio-phantomjs-service": "~0.1.0",
     "wdio-selenium-standalone-service": "~0.0.6",
     "wdio-spec-reporter": "~0.0.3",
-    "webdriverio": "~4.2.11",
-    "q": "~1.4.1"
+    "webdriverio": "~4.2.11"
   },
   "devDependencies": {
     "eslint": "~3.4.0",
