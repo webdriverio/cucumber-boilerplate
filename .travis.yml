@@ -22,4 +22,4 @@ branches:
 
 before_script: "npm run-script local-webserver 2>&1 >/dev/null &"
 
-script: "sleep 10 && wdio wdio.BUILD.conf.js"
+script: "eslint test/**/*.js && wdio wdio.BUILD.conf.js"
