@@ -1,8 +1,0 @@
-{
-    "globals": {
-        "console": true,
-        "define": true,
-        "require": true,
-        "throw": true
-    }
-}
