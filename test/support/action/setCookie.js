@@ -1,7 +1,7 @@
-module.exports = (name, content, done) => {
+module.exports = (cookieName, cookieContent, done) => {
     browser.setCookie({
-        name: name,
-        value: content
+        name: cookieName,
+        value: cookieContent,
     });
 
     done();

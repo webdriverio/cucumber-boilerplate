@@ -1,31 +1,30 @@
-/**
- * check content for specific element or input field
- */
-
 module.exports = (type, element, falseCase, origText, done) => {
-    var command = (type !== 'inputfield') ? 'getText' : 'getValue',
-        text;
+    const command = (type !== 'inputfield') ? 'getText' : 'getValue';
+
+    let doneCallback = done;
+    let origionalText = origText;
+    let boolFalseCase = !!falseCase;
 
     // Check for empty element
-    if (!done && typeof origText === 'function') {
-        done = origText;
-        origText = '';
+    if (!doneCallback && typeof origionalText === 'function') {
+        doneCallback = origionalText;
+        origionalText = '';
 
-        falseCase = !falseCase;
+        boolFalseCase = !boolFalseCase;
     }
 
-    if (origText === undefined && falseCase === undefined) {
-        origText = '';
-        falseCase = true;
+    if (origionalText === undefined && falseCase === undefined) {
+        origionalText = '';
+        boolFalseCase = true;
     }
 
-    text = browser[command](element);
+    const text = browser[command](element);
 
-    if (falseCase) {
-        origText.should.not.equal(text);
+    if (boolFalseCase) {
+        origionalText.should.not.equal(text);
     } else {
-        origText.should.equal(text);
+        origionalText.should.equal(text);
     }
 
-    done();
+    doneCallback();
 };

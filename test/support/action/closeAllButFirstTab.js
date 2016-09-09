@@ -1,10 +1,9 @@
-var Q = require('q');
-
 module.exports = (windowType, done) => {
     // Get all the window handles
-    var windowHandles = browser.windowHandles(),
-        handles = windowHandles.value,
-        currentHandleNr = 0;
+    const windowHandles = browser.windowHandles();
+    const handles = windowHandles.value;
+
+    let currentHandleNr = 0;
 
     // Close all tabs but the first one
     handles.forEach((handle) => {

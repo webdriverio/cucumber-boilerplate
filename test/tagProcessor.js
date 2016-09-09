@@ -1,13 +1,13 @@
-var Cucumber = require('cucumber');
+module.exports = (() => {
+    'use strict'; // This is required since this file is not parsed with Babel
 
-module.exports = (function() {
-    var tags = ['~@Pending']; // Always ignore @Pending tags
+    let tags = ['~@Pending']; // Always ignore @Pending tags
 
-    process.argv.forEach(function (val, index, array) {
+    process.argv.forEach((val) => {
         if (val.indexOf('--tags=') === 0) {
-            val = val.replace('--tags=', '');
+            const collectedTags = val.replace('--tags=', '');
 
-            tags = tags.concat(val);
+            tags = tags.concat(collectedTags);
         }
     });
 

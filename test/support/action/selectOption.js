@@ -1,13 +1,11 @@
-/*
-    I select the option with the (name|value|text) "$string" of element "$string"
- */
 module.exports = (selectionType, selectionValue, selectElem, done) => {
-    var command;
-
-    commandArguments = [
+    const commandArguments = [
         selectElem,
-        selectionValue
+        selectionValue,
     ];
+    const element = browser.element(selectElem);
+
+    let command;
 
     switch (selectionType) {
         case 'name' : {
@@ -31,11 +29,11 @@ module.exports = (selectionType, selectionValue, selectElem, done) => {
         }
 
         default: {
-            throw new Exception('Unknown selection type `' + selectionType + '`!');
+            throw new Error(`Unknown selection type "${selectionType}"`);
         }
     }
 
-    browser[command].apply(this, commandArguments)
+    element[command].apply(this, commandArguments);
 
     done();
 };

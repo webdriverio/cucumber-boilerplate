@@ -1,10 +1,9 @@
 module.exports = (elem, falseCase, done) => {
-    var ms = 10000;
+    const ms = 10000;
 
-    falseCase = (falseCase) ? true : false;
+    const element = browser.element(elem);
 
-    elem = browser.element(elem);
-    elem.waitForVisible(ms, falseCase);
+    element.waitForVisible(ms, falseCase);
 
     done();
 };

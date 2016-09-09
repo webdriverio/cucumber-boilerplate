@@ -1,10 +1,8 @@
-/**
- * check attribute or css property
- */
-
 module.exports = (isCSS, attrName, elem, falseCase, value, done) => {
-    var command = isCSS ? 'getCssProperty' : 'getAttribute',
-        res = browser[command](elem, attrName);
+    const command = isCSS ? 'getCssProperty' : 'getAttribute';
+    const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
+
+    let res = browser[command](elem, attrName);
 
     /**
      * when getting something with a color WebdriverIO returns a color
@@ -15,9 +13,18 @@ module.exports = (isCSS, attrName, elem, falseCase, value, done) => {
     }
 
     if (falseCase) {
-        value.should.not.equal(res, (isCSS ? 'CSS ' : '') + 'attribute of element ' + elem + ' should not contain ' + res);
+        value.should.not
+            .equal(
+                res,
+                `${attrType} of element "${elem}" should not contain "${res}"`
+            );
     } else {
-        value.should.equal(res, (isCSS ? 'CSS ' : '') + 'attribute of element ' + elem + ' should not contain ' + res + ', but ' + value);
+        value.should
+            .equal(
+                res,
+                `${attrType} of element "${elem}" should not contain "${res}",
+                but "${value}"`
+            );
     }
 
     done();

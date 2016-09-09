@@ -1,13 +1,9 @@
-/**
- * check width and height
- */
-
 module.exports = (elem, falseCase, size, dimension, done) => {
-    var res = browser.getElementSize(elem),
-        check = res.height,
-        label = 'height';
+    const res = browser.getElementSize(elem);
+    const intSize = parseInt(size, 10);
 
-    size = parseInt(size, 10);
+    let check = res.height;
+    let label = 'height';
 
     if (dimension === 'broad') {
         check = res.width;
@@ -15,9 +11,18 @@ module.exports = (elem, falseCase, size, dimension, done) => {
     }
 
     if (falseCase) {
-        check.should.not.equal(size, 'element ' + elem + ' should not have a ' + label + ' of ' + size + 'px');
+        check.should.not
+            .equal(
+                intSize,
+                `element "${elem}" should not have a ${label} of ${intSize}px`
+            );
     } else {
-        check.should.equal(size, 'Element ' + elem + ' should have a ' + label + ' of ' + size + 'px, but is ' + check + 'px');
+        check.should
+            .equal(
+                intSize,
+                `Element "${elem}" should have a ${label} of ${intSize}px,
+                but is ${check}px`
+            );
     }
 
     done();

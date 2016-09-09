@@ -1,10 +1,18 @@
 module.exports = (selector, falseCase, done) => {
-    var isVisible = browser.isVisibleWithinViewport(selector);
+    const isVisible = browser.isVisibleWithinViewport(selector);
 
     if (falseCase) {
-        isVisible.should.not.equal(true, 'Expected element "' + selector + '" to be outside the viewport, but it is not');
+        isVisible.should.not
+            .equal(
+                true,
+                `Expected element "${selector}" to be outside the viewport`
+            );
     } else {
-        isVisible.should.equal(true, 'Expected element "' + selector + '" to be inside the viewport, but it is not');
+        isVisible.should
+            .equal(
+                true,
+                `Expected element "${selector}" to be inside the viewport`
+            );
     }
 
     done();

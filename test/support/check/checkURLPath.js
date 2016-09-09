@@ -1,10 +1,6 @@
-/**
- * check url path
- */
-
 module.exports = (falseCase, path, done) => {
-    var result = browser.url(),
-        domain = browser.options.baseUrl;
+    const result = browser.url();
+    const domain = browser.options.baseUrl;
 
     // Remove the domain from the url
     if (result.value.indexOf(domain) === 0) {
@@ -12,9 +8,14 @@ module.exports = (falseCase, path, done) => {
     }
 
     if (falseCase) {
-        result.value.should.not.equal(path, 'expected path not to be ' + result.value);
+        result.value.should.not
+            .equal(path, `expected path not to be "${result.value}"`);
     } else {
-        result.value.should.equal(path, 'expected path to be "' + path + '"  but found "' + result.value + '"');
+        result.value.should
+            .equal(
+                path,
+                `expected path to be "${path}" but found "${result.value}"`
+            );
     }
 
     done();

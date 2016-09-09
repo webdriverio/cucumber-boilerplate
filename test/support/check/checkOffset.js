@@ -1,16 +1,21 @@
-/**
- * check position
- */
-
 module.exports = (elem, falseCase, position, axis, done) => {
-    var res = browser.getLocation(elem, axis);
-
-    position = parseInt(position, 10);
+    const res = browser.getLocation(elem, axis);
+    const intPosition = parseInt(position, 10);
 
     if (falseCase) {
-        res.should.not.equal(position, 'element ' + elem + ' should not be positioned at ' + position + 'px on the x axis');
+        res.should.not
+            .equal(
+                intPosition,
+                `element "${elem}" should not be positioned at ${intPosition}px
+                on the x axis`
+            );
     } else {
-        res.should.equal(position, 'element ' + elem + ' should be positioned at ' + position + 'px on the x axis, but was found at ' + res + 'px');
+        res.should
+            .equal(
+                intPosition,
+                `element "${elem}" should be positioned at ${intPosition}px
+                on the x axis, but was found at ${res}px`
+            );
     }
 
     done();

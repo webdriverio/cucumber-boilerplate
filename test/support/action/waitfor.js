@@ -1,27 +1,30 @@
-module.exports = (elem, obsolete, ms, isWaitingOnSpecificState, falseState, state) => {
-    var command = 'waitForExist',
-        done = arguments[arguments.length - 1];
+module.exports =
+(elem, obsolete, ms, isWaitingOnSpecificState, falseState, state, done) => {
+    const intMs = parseInt(ms, 10) || 3000;
+
+    let command = 'waitForExist';
+    let boolFalseState = falseState;
+    let parsedState;
 
     if (isWaitingOnSpecificState) {
-        state = state.indexOf(' ') > -1 ? state.split(/\s/)[state.split(/\s/).length - 1] : state;
+        parsedState = state.indexOf(' ') > -1
+                    ? state.split(/\s/)[state.split(/\s/).length - 1]
+                    : state;
 
         // Check box checked state translates to selected state
-        if (state === 'checked') {
-            state = 'selected';
+        if (parsedState === 'checked') {
+            parsedState = 'selected';
         }
 
-        command = 'waitFor' + state[0].toUpperCase() + state.slice(1);
+        command = `waitFor${parsedState[0].toUpperCase()}` +
+                    `${parsedState.slice(1)}`;
     }
 
     if (typeof falseState === 'undefined') {
-        falseState = false;
+        boolFalseState = false;
     }
 
-    ms = parseInt(ms, 10) || 3000;
-    browser[command](elem, ms, falseState);
+    browser[command](elem, intMs, boolFalseState);
 
-    // @TODO is this required?
-    if (typeof done === 'function') {
-        done();
-    }
+    done();
 };

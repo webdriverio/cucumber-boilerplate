@@ -1,14 +1,16 @@
-/**
- * check cookie content
- */
-
 module.exports = (name, falseCase, done) => {
-    var cookie = browser.getCookie(name);
+    const cookie = browser.getCookie(name);
 
     if (falseCase) {
-        expect(cookie).to.be.null;
+        assert.isNull(
+            cookie,
+            `A cookie with the name "${name}" was found`
+        );
     } else {
-        expect(cookie).not.to.be.null;
+        assert.isNotNull(
+            cookie,
+            `A cookie with the name "${name}" was not found`
+        );
     }
 
     done();

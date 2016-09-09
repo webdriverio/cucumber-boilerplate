@@ -1,14 +1,12 @@
-/**
- * check if element is visible
- */
-
 module.exports = (element, falseCase, done) => {
-    var enabled = browser.isEnabled(element);
+    const enabled = browser.isEnabled(element);
 
     if (falseCase) {
-        enabled.should.not.equal(true, 'expected element "' + element + '" not to be enabled');
+        enabled.should.not
+            .equal(true, `expected element "${element}" not to be enabled`);
     } else {
-        enabled.should.equal(true, 'expected element "' + element + '" to be enabled');
+        enabled.should
+            .equal(true, `expected element "${element}" to be enabled`);
     }
 
     done();

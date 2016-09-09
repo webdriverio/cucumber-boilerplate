@@ -1,99 +1,115 @@
-/**
- * given steps
- */
-module.exports = function () {
+const openWebsite = require('../support/action/openWebsite');
+const isVisible = require('../support/check/isVisible');
+const isEnabled = require('../support/check/isEnabled');
+const checkSelected = require('../support/check/checkSelected');
+const checkElementExists = require('../support/check/checkElementExists');
+const checkTitle = require('../support/check/checkTitle');
+const compareText = require('../support/check/compareText');
+const checkContent = require('../support/check/checkContent');
+const checkUrl = require('../support/check/checkURL');
+const checkProperty = require('../support/check/checkProperty');
+const checkCookieContent = require('../support/check/checkCookieContent');
+const checkCookieExists = require('../support/check/checkCookieExists');
+const checkDimension = require('../support/check/checkDimension');
+const checkOffset = require('../support/check/checkOffset');
+const resizeScreenSize = require('../support/action/resizeScreenSize');
+const closeAllButFirstTab = require('../support/action/closeAllButFirstTab');
+const checkModal = require('../support/check/checkModal');
+
+
+module.exports = function given() {
     this.Given(
         /^I open the (url|site) "([^"]*)?"$/,
-        require('../support/action/openWebsite')
+        openWebsite
     );
 
     this.Given(
         /^the element "([^"]*)?" is( not)* visible$/,
-        require('../support/check/isVisible')
+        isVisible
     );
 
     this.Given(
         /^the element "([^"]*)?" is( not)* enabled$/,
-        require('../support/check/isEnabled')
+        isEnabled
     );
 
     this.Given(
         /^the element "([^"]*)?" is( not)* selected$/,
-        require('../support/check/checkSelected')
+        checkSelected
     );
 
     this.Given(
         /^the checkbox "([^"]*)?" is( not)* checked$/,
-        require('../support/check/checkSelected')
+        checkSelected
     );
 
     this.Given(
         /^there is (an|no) element "([^"]*)?" on the page$/,
-        require('../support/check/checkElementExists')
+        checkElementExists
     );
 
     this.Given(
         /^the title is( not)* "([^"]*)?"$/,
-        require('../support/check/checkTitle')
+        checkTitle
     );
 
     this.Given(
         /^the element "([^"]*)?" contains( not)* the same text as element "([^"]*)?"$/,
-        require('../support/check/compareText')
+        compareText
     );
 
     this.Given(
         /^the (element|inputfield) "([^"]*)?" does( not)* contain the text "([^"]*)?"$/,
-        require('../support/check/checkContent')
+        checkContent
     );
 
     this.Given(
         /^the (element|inputfield) "([^"]*)?" does( not)* contain any text$/,
-        require('../support/check/checkContent')
+        checkContent
     );
 
     this.Given(
         /^the page url is( not)* "([^"]*)?"$/,
-        require('../support/check/checkURL')
+        checkUrl
     );
 
     this.Given(
         /^the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
-        require('../support/check/checkProperty')
+        checkProperty
     );
 
     this.Given(
         /^the cookie "([^"]*)?" contains( not)* the value "([^"]*)?"$/,
-        require('../support/check/checkCookieContent')
+        checkCookieContent
     );
 
     this.Given(
         /^the cookie "([^"]*)?" does( not)* exist$/,
-        require('../support/check/checkCookieExists')
+        checkCookieExists
     );
 
     this.Given(
         /^the element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)$/,
-        require('../support/check/checkDimension')
+        checkDimension
     );
 
     this.Given(
         /^the element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
-        require('../support/check/checkOffset')
+        checkOffset
     );
 
     this.Given(
         /^I have a screen that is ([\d]+) by ([\d]+) pixels$/,
-        require('../support/action/resizeScreenSize')
+        resizeScreenSize
     );
 
     this.Given(
         /^I have closed all but the first (window|tab)$/,
-        require('../support/action/closeAllButFirstTab')
+        closeAllButFirstTab
     );
 
     this.Given(
         /^a (alertbox|confirmbox|prompt) is( not)* opened$/,
-        require('../support/check/checkModal')
+        checkModal
     );
 };
