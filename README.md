@@ -102,6 +102,14 @@ To run a test in a specific environment just add the desired configuration file 
 $ wdio wdio.STAGING.conf.js
 ```
 
+# Running single feature
+Sometimes its usefull to only execute a single feature file, to do so use the following command:
+
+```sh
+$ wdio --spec ./test/features/select.feature
+```
+
+
 # Using tags
 
 If you want to run only specific tests you can mark your features with tags. These tags will be placed before each feature like so:
@@ -111,10 +119,10 @@ If you want to run only specific tests you can mark your features with tags. The
 Feature: ...
 ```
 
-To run only the tests with a specific tag use the `--tags=` parameter like so:
+To run only the tests with specific tag(s) use the `--tags=` parameter like so:
 
 ```sh
-$ wdio --tags=Tag
+$ wdio --tags=@Tag,@AnotherTag
 ```
 
 You can add multiple tags separated by a comma
