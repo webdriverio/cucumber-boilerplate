@@ -1,14 +1,28 @@
-module.exports = (falseCase, docTitle, done) => {
+/**
+ * Check the title of the current browser window
+ * @param  {Type}     falseCase     Whether to check if the title matches the
+ *                                  expected value or not
+ * @param  {Type}     expectedTitle The expected title
+ * @param  {Function} done          Function to execute when finished
+ */
+module.exports = (falseCase, expectedTitle, done) => {
+    /**
+     * The title of the current browser window
+     * @type {String}
+     */
     const title = browser.getTitle();
 
     if (falseCase) {
         title.should.not
-            .equal(docTitle, `expected title not to be "${docTitle}"`);
+            .equal(
+                expectedTitle,
+                `expected title not to be "${expectedTitle}"`
+            );
     } else {
         title.should
             .equal(
-                docTitle,
-                `expected title to be "${docTitle}" but found "${title}"`
+                expectedTitle,
+                `expected title to be "${expectedTitle}" but found "${title}"`
             );
     }
 

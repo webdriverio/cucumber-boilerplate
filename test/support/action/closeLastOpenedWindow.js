@@ -1,8 +1,16 @@
+/**
+ * Close the last opened window
+ * @param  {String}   type Type of object to close (window or tab)
+ * @param  {Function} done Function to execute when finished
+ */
 module.exports = (type, done) => {
-    const windowHandles = browser.windowHandles();
-    const lastWindowHandle = windowHandles.value.slice(-1);
+    /**
+     * The last opened window handle
+     * @type {Object}
+     */
+    const lastWindowHandle = browser.windowHandles().value.slice(-1)[0];
 
-    browser.window(lastWindowHandle[0]);
+    browser.window(lastWindowHandle);
     browser.close();
 
     done();

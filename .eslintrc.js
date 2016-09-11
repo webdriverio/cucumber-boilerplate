@@ -27,8 +27,47 @@ module.exports = {
     // Custom rules
     rules: {
         strict: 'off',
-        indent: ['error', 4, { SwitchCase: 1 }],
-        'max-len': ['error', 80, { ignorePattern: '\\s*\\/\\^(.*)\\$\\/,$' }],
-        'new-cap': ['error', { newIsCap: true, capIsNewExceptions: ['Given', 'When', 'Then'] }],
+        indent: [
+            'error',
+            4,
+            {
+                SwitchCase: 1,
+            }
+        ],
+        'max-len': [
+            'error',
+            80,
+            {
+                ignorePattern: '\\s*\\/\\^(.*)\\$\\/,$',
+            }
+        ],
+        'new-cap': [
+            'error',
+            {
+                newIsCap: true,
+                capIsNewExceptions: [
+                    'Given',
+                    'When',
+                    'Then',
+                ]
+            }
+        ],
+        'require-jsdoc': [
+            'error',
+            {
+                require: {
+                    FunctionDeclaration: true,
+                    MethodDefinition: true,
+                    ClassDeclaration: true,
+                }
+            }
+        ],
+        'valid-jsdoc': [
+            'error',
+            {
+                requireReturn: false,
+                matchDescription: '.+',
+            }
+        ],
     }
 };

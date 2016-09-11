@@ -1,11 +1,23 @@
-module.exports = (modalType, falseState, modalText, done) => {
+/**
+ * Check the text of a modal
+ * @param  {String}   modalType     The type of modal that is expected
+ *                                  (alertbox, confirmbox or prompt)
+ * @param  {String}   falseState    Whether to check if the text matches or not
+ * @param  {String}   expectedText  The text to check against
+ * @param  {Function} done          Function to execute when finished
+ */
+module.exports = (modalType, falseState, expectedText, done) => {
     try {
+        /**
+         * The text of the current modal
+         * @type {String}
+         */
         const text = browser.alertText();
 
         if (falseState) {
-            text.should.not.equal(modalText);
+            text.should.not.equal(expectedText);
         } else {
-            text.should.equal(modalText);
+            text.should.equal(expectedText);
         }
     } catch (e) {
         assert(

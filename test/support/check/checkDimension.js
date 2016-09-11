@@ -1,27 +1,55 @@
-module.exports = (elem, falseCase, size, dimension, done) => {
-    const res = browser.getElementSize(elem);
-    const intSize = parseInt(size, 10);
+/**
+ * Check the dimensions of the given element
+ * @param  {String}   elem         Element selector
+ * @param  {String}   falseCase    Whether to check if the dimensions match or
+ *                                 not
+ * @param  {String}   expectedSize Expected size
+ * @param  {String}   dimension    Dimension to check (broad or tall)
+ * @param  {Function} done         Function to execute when finished
+ */
+module.exports = (elem, falseCase, expectedSize, dimension, done) => {
+    /**
+     * The size of the given element
+     * @type {Object}
+     */
+    const elementSize = browser.getElementSize(elem);
 
-    let check = res.height;
+    /**
+     * Parsed size to check for
+     * @type {Int}
+     */
+    const intExpectedSize = parseInt(expectedSize, 10);
+
+    /**
+     * The size property to check against
+     * @type {Int}
+     */
+    let origionalSize = elementSize.height;
+
+    /**
+     * The label of the checked property
+     * @type {String}
+     */
     let label = 'height';
 
     if (dimension === 'broad') {
-        check = res.width;
+        origionalSize = elementSize.width;
         label = 'width';
     }
 
     if (falseCase) {
-        check.should.not
+        origionalSize.should.not
             .equal(
-                intSize,
-                `element "${elem}" should not have a ${label} of ${intSize}px`
+                intExpectedSize,
+                `element "${elem}" should not have a ${label} of ` +
+                `${intExpectedSize}px`
             );
     } else {
-        check.should
+        origionalSize.should
             .equal(
-                intSize,
-                `Element "${elem}" should have a ${label} of ${intSize}px,
-                but is ${check}px`
+                intExpectedSize,
+                `Element "${elem}" should have a ${label} of ` +
+                `${intExpectedSize}px, but is ${origionalSize}px`
             );
     }
 

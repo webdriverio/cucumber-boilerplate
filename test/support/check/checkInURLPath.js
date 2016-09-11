@@ -1,17 +1,29 @@
-module.exports = (falseCase, value, done) => {
-    const result = browser.url();
+/**
+ * Check if the given string is in the URL path
+ * @param  {String}   falseCase       Whether to check if the given string is in
+ *                                    the URL path or not
+ * @param  {String}   expectedUrlPart The string to check for
+ * @param  {Function} done            Function to execute when finished
+ */
+module.exports = (falseCase, expectedUrlPart, done) => {
+    /**
+     * The URL of the current browser window
+     * @type {String}
+     */
+    const currentUrl = browser.url().value;
 
     if (falseCase) {
-        result.value.should.not
+        currentUrl.should.not
             .contain(
-                value,
-                `Expected URL "${result.value}" not to contain "${value}"`
+                expectedUrlPart,
+                `Expected URL "${currentUrl}" not to contain ` +
+                `"${expectedUrlPart}"`
             );
     } else {
-        result.value.should
+        currentUrl.should
             .contain(
-                value,
-                `Expected URL "${result.value}" to contain "${value}"`
+                expectedUrlPart,
+                `Expected URL "${currentUrl}" to contain "${expectedUrlPart}"`
             );
     }
 

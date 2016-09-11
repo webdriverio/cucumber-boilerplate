@@ -1,29 +1,54 @@
-module.exports = (isCSS, attrName, elem, falseCase, value, done) => {
+/**
+ * Check the given property of the given element
+ * @param  {String}   isCSS         Whether to check for a CSS property or an
+ *                                  attribute
+ * @param  {String}   attrName      The name of the attribute to check
+ * @param  {String}   elem          Element selector
+ * @param  {String}   falseCase     Whether to check if the value of the
+ *                                  attribute matches or not
+ * @param  {String}   expectedValue The value to match against
+ * @param  {Function} done          Function to execute when finished
+ */
+module.exports = (isCSS, attrName, elem, falseCase, expectedValue, done) => {
+    /**
+     * The command to use for fetching the expected value
+     * @type {String}
+     */
     const command = isCSS ? 'getCssProperty' : 'getAttribute';
+
+    /**
+     * Te label to identify the attribute by
+     * @type {String}
+     */
     const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
 
-    let res = browser[command](elem, attrName);
+    /**
+     * The actual attribute value
+     * @type {Mixed}
+     */
+    let attributeValue = browser[command](elem, attrName);
 
     /**
      * when getting something with a color WebdriverIO returns a color
      * object but we want to assert against a string
      */
     if (attrName.indexOf('color') > -1) {
-        res = res.value;
+        attributeValue = attributeValue.value;
     }
 
     if (falseCase) {
-        value.should.not
+        expectedValue.should.not
             .equal(
-                res,
-                `${attrType} of element "${elem}" should not contain "${res}"`
+                attributeValue,
+                `${attrType} of element "${elem}" should not contain ` +
+                `"${attributeValue}"`
             );
     } else {
-        value.should
+        expectedValue.should
             .equal(
-                res,
-                `${attrType} of element "${elem}" should not contain "${res}",
-                but "${value}"`
+                attributeValue,
+                `${attrType} of element "${elem}" should not contain ` +
+                `"${attributeValue}", but "${expectedValue}"`
             );
     }
 

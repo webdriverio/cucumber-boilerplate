@@ -1,11 +1,22 @@
+/**
+ * Check if a modal was opened
+ * @param  {String}   modalType  The type of modal that is expected (alertbox,
+ *                               confirmbox or prompt)
+ * @param  {String}   falseState Whether to check if the modal was opened or not
+ * @param  {Function} done       Function to execute when finished
+ */
 module.exports = (modalType, falseState, done) => {
-    let alertText;
+    /**
+     * The text of the prompt
+     * @type {String}
+     */
+    let promptText = '';
 
     try {
-        alertText = browser.alertText();
+        promptText = browser.alertText();
 
         if (falseState) {
-            alertText.not.to
+            promptText.not.to
                 .equal(
                     null,
                     `A ${modalType} was opened when it shouldn't`
@@ -14,7 +25,7 @@ module.exports = (modalType, falseState, done) => {
     } catch (e) {
         if (!falseState) {
             assert(
-                (alertText === null),
+                (promptText === null),
                 `A ${modalType} was not opened when it should have been opened`
             );
         }

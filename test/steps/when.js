@@ -5,7 +5,7 @@ const dragElement = require('../support/action/dragElement');
 const submitForm = require('../support/action/submitForm');
 const pause = require('../support/action/pause');
 const setCookie = require('../support/action/setCookie');
-const readCookie = require('../support/action/readCookie');
+const deleteCookie = require('../support/action/deleteCookie');
 const pressButton = require('../support/action/pressButton');
 const handleModal = require('../support/action/handleModal');
 const setPromptText = require('../support/action/setPromptText');
@@ -56,7 +56,7 @@ module.exports = function when() {
 
     this.When(
         /^I delete the cookie "([^"]*)?"$/,
-        readCookie
+        deleteCookie
     );
 
     this.When(

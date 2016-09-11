@@ -1,20 +1,39 @@
-module.exports = (elem, falseCase, position, axis, done) => {
-    const res = browser.getLocation(elem, axis);
-    const intPosition = parseInt(position, 10);
+/**
+ * Check the offset of the given element
+ * @param  {String}   elem              Element selector
+ * @param  {String}   falseCase         Whether to check if the offset matches
+ *                                      or not
+ * @param  {String}   expectedPosition  The position to check against
+ * @param  {String}   axis              The axis to check on (x or y)
+ * @param  {Function} done              Function to execute when finished
+ */
+module.exports = (elem, falseCase, expectedPosition, axis, done) => {
+    /**
+     * Get the location of the element on the given axis
+     * @type {[type]}
+     */
+    const location = browser.getLocation(elem, axis);
+
+    /**
+     * Parsed expected position
+     * @type {Int}
+     */
+    const intExpectedPosition = parseInt(expectedPosition, 10);
 
     if (falseCase) {
-        res.should.not
+        location.should.not
             .equal(
-                intPosition,
-                `element "${elem}" should not be positioned at ${intPosition}px
-                on the x axis`
+                intExpectedPosition,
+                `element "${elem}" should not be positioned at ` +
+                `${intExpectedPosition}px on the x axis`
             );
     } else {
-        res.should
+        location.should
             .equal(
-                intPosition,
-                `element "${elem}" should be positioned at ${intPosition}px
-                on the x axis, but was found at ${res}px`
+                intExpectedPosition,
+                `element "${elem}" should be positioned at ` +
+                `${intExpectedPosition}px on the x axis, but was found at ` +
+                `${location}px`
             );
     }
 

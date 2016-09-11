@@ -16,7 +16,6 @@ const resizeScreenSize = require('../support/action/resizeScreenSize');
 const closeAllButFirstTab = require('../support/action/closeAllButFirstTab');
 const checkModal = require('../support/check/checkModal');
 
-
 module.exports = function given() {
     this.Given(
         /^I open the (url|site) "([^"]*)?"$/,
