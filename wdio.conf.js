@@ -125,7 +125,9 @@ exports.config = {
             './test/steps/when.js'
         ],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
-        compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
+        compiler: [
+            'js:babel-register'
+        ],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
         failFast: false,    // <boolean> abort the run on first failure
         format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
@@ -209,6 +211,3 @@ exports.config = {
     // onComplete: function(exitCode) {
     // }
 };
-
-require("babel-register");
-
