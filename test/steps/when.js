@@ -1,22 +1,20 @@
-const clickElement = require('../support/action/clickElement');
-const setInputField = require('../support/action/setInputField');
-const clearInputField = require('../support/action/clearInputField');
-const dragElement = require('../support/action/dragElement');
-const submitForm = require('../support/action/submitForm');
-const pause = require('../support/action/pause');
-const setCookie = require('../support/action/setCookie');
-const deleteCookie = require('../support/action/deleteCookie');
-const pressButton = require('../support/action/pressButton');
-const handleModal = require('../support/action/handleModal');
-const setPromptText = require('../support/action/setPromptText');
-const scroll = require('../support/action/scroll');
-const closeLastOpenedWindow =
-    require('../support/action/closeLastOpenedWindow');
-const focusLastOpenedWindow =
-    require('../support/action/focusLastOpenedWindow');
-const selectOptionByIndex = require('../support/action/selectOptionByIndex');
-const selectOption = require('../support/action/selectOption');
-const moveToElement = require('../support/action/moveToElement');
+import clickElement from '../support/action/clickElement';
+import setInputField from '../support/action/setInputField';
+import clearInputField from '../support/action/clearInputField';
+import dragElement from '../support/action/dragElement';
+import submitForm from '../support/action/submitForm';
+import pause from '../support/action/pause';
+import setCookie from '../support/action/setCookie';
+import deleteCookie from '../support/action/deleteCookie';
+import pressButton from '../support/action/pressButton';
+import handleModal from '../support/action/handleModal';
+import setPromptText from '../support/action/setPromptText';
+import scroll from '../support/action/scroll';
+import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow';
+import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow';
+import selectOptionByIndex from '../support/action/selectOptionByIndex';
+import selectOption from '../support/action/selectOption';
+import moveToElement from '../support/action/moveToElement';
 
 module.exports = function when() {
     this.When(

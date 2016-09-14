@@ -1,20 +1,20 @@
-const openWebsite = require('../support/action/openWebsite');
-const isVisible = require('../support/check/isVisible');
-const isEnabled = require('../support/check/isEnabled');
-const checkSelected = require('../support/check/checkSelected');
-const checkElementExists = require('../support/check/checkElementExists');
-const checkTitle = require('../support/check/checkTitle');
-const compareText = require('../support/check/compareText');
-const checkContent = require('../support/check/checkContent');
-const checkUrl = require('../support/check/checkURL');
-const checkProperty = require('../support/check/checkProperty');
-const checkCookieContent = require('../support/check/checkCookieContent');
-const checkCookieExists = require('../support/check/checkCookieExists');
-const checkDimension = require('../support/check/checkDimension');
-const checkOffset = require('../support/check/checkOffset');
-const resizeScreenSize = require('../support/action/resizeScreenSize');
-const closeAllButFirstTab = require('../support/action/closeAllButFirstTab');
-const checkModal = require('../support/check/checkModal');
+import openWebsite from '../support/action/openWebsite';
+import isVisible from '../support/check/isVisible';
+import isEnabled from '../support/check/isEnabled';
+import checkSelected from '../support/check/checkSelected';
+import checkElementExists from '../support/check/checkElementExists';
+import checkTitle from '../support/check/checkTitle';
+import compareText from '../support/check/compareText';
+import checkContent from '../support/check/checkContent';
+import checkUrl from '../support/check/checkURL';
+import checkProperty from '../support/check/checkProperty';
+import checkCookieContent from '../support/check/checkCookieContent';
+import checkCookieExists from '../support/check/checkCookieExists';
+import checkDimension from '../support/check/checkDimension';
+import checkOffset from '../support/check/checkOffset';
+import resizeScreenSize from '../support/action/resizeScreenSize';
+import closeAllButFirstTab from '../support/action/closeAllButFirstTab';
+import checkModal from '../support/check/checkModal';
 
 module.exports = function given() {
     this.Given(

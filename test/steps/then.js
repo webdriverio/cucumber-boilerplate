@@ -1,29 +1,29 @@
-const checkTitle = require('../support/check/checkTitle');
-const isVisible = require('../support/check/isVisible');
-const waitForVisible = require('../support/action/waitForVisible');
-const checkContainsText = require('../support/check/checkContainsText');
-const checkContent = require('../support/check/checkContent');
-const compareText = require('../support/check/compareText');
-const isExisting = require('../support/check/isExisting');
-const checkWithinViewport = require('../support/check/checkWithinViewport');
-const checkURL = require('../support/check/checkURL');
-const checkURLPath = require('../support/check/checkURLPath');
-const checkInURLPath = require('../support/check/checkInURLPath');
-const checkProperty = require('../support/check/checkProperty');
-const checkSelected = require('../support/check/checkSelected');
-const isEnabled = require('../support/check/isEnabled');
-const checkCookieContent = require('../support/check/checkCookieContent');
-const checkCookieExists = require('../support/check/checkCookieExists');
-const checkDimension = require('../support/check/checkDimension');
-const checkOffset = require('../support/check/checkOffset');
-const checkClass = require('../support/check/checkClass');
-const checkNewWindow = require('../support/check/checkNewWindow');
-const checkIsOpenedInNewWindow =
-    require('../support/check/checkIsOpenedInNewWindow');
-const checkFocus = require('../support/check/checkFocus');
-const waitfor = require('../support/action/waitfor');
-const checkModal = require('../support/check/checkModal');
-const checkModalText = require('../support/check/checkModalText');
+import checkTitle from '../support/check/checkTitle';
+import isVisible from '../support/check/isVisible';
+import waitForVisible from '../support/action/waitForVisible';
+import checkContainsText from '../support/check/checkContainsText';
+import checkContent from '../support/check/checkContent';
+import compareText from '../support/check/compareText';
+import isExisting from '../support/check/isExisting';
+import checkWithinViewport from '../support/check/checkWithinViewport';
+import checkURL from '../support/check/checkURL';
+import checkURLPath from '../support/check/checkURLPath';
+import checkInURLPath from '../support/check/checkInURLPath';
+import checkProperty from '../support/check/checkProperty';
+import checkSelected from '../support/check/checkSelected';
+import isEnabled from '../support/check/isEnabled';
+import checkCookieContent from '../support/check/checkCookieContent';
+import checkCookieExists from '../support/check/checkCookieExists';
+import checkDimension from '../support/check/checkDimension';
+import checkOffset from '../support/check/checkOffset';
+import checkClass from '../support/check/checkClass';
+import checkNewWindow from '../support/check/checkNewWindow';
+import checkIsOpenedInNewWindow from
+    '../support/check/checkIsOpenedInNewWindow';
+import checkFocus from '../support/check/checkFocus';
+import waitfor from '../support/action/waitfor';
+import checkModal from '../support/check/checkModal';
+import checkModalText from '../support/check/checkModalText';
 
 module.exports = function then() {
     this.Then(
