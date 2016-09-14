@@ -1,0 +1,41 @@
+env:
+  es6: true
+  node: true
+
+extends: 'airbnb-base'
+
+globals:
+  assert: true
+  browser: true
+  expect: true
+
+parserOptions:
+  ecmaVersion: 6
+
+rules:
+  strict: 'off'
+  indent:
+    - 'error'
+    - 4
+    - SwitchCase: 1
+  max-len:
+    - 'error'
+    - 80
+    - ignorePattern: '\s*\/\^(.*)\$\/,$'
+  new-cap:
+    - 'error'
+    - newIsCap: true
+      capIsNewExceptions:
+        - 'Given'
+        - 'When'
+        - 'Then'
+  require-jsdoc:
+    - 'error'
+    - require:
+        FunctionDeclaration: true
+        MethodDefinition: true
+        ClassDeclaration: true
+  valid-jsdoc:
+    - 'error'
+    - requireReturn: false
+      matchDescription: '.+'
