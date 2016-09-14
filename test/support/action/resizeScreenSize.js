@@ -10,7 +10,5 @@ module.exports = (screenWidth, screenHeight, done) => {
         height: parseInt(screenHeight, 10),
     });
 
-    browser.refresh();
-
     done();
 };
