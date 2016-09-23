@@ -1,12 +1,30 @@
-module.exports = function (selector, falseCase, done) {
-    this.browser
-        .isVisibleWithinViewport(selector)
-        .then(function (isVisible) {
-            if (falseCase) {
-                isVisible.should.not.equal(true, 'Expected element "' + selector + '" to be outside the viewport, but it is not');
-            } else {
-                isVisible.should.equal(true, 'Expected element "' + selector + '" to be inside the viewport, but it is not');
-            }
-        })
-        .call(done);
+/**
+ * Check if the given element is visible inside the current viewport
+ * @param  {String}   element   Element selector
+ * @param  {String}   falseCase Whether to check if the element is visible
+ *                              within the current viewport or not
+ * @param  {Function} done      Function to execute when finished
+ */
+module.exports = (element, falseCase, done) => {
+    /**
+     * The state of visibility of the given element inside the viewport
+     * @type {Boolean}
+     */
+    const isVisible = browser.isVisibleWithinViewport(element);
+
+    if (falseCase) {
+        isVisible.should.not
+            .equal(
+                true,
+                `Expected element "${element}" to be outside the viewport`
+            );
+    } else {
+        isVisible.should
+            .equal(
+                true,
+                `Expected element "${element}" to be inside the viewport`
+            );
+    }
+
+    done();
 };

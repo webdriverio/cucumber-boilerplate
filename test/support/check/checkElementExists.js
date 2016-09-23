@@ -1,18 +1,29 @@
 /**
- * check if element exists
+ * Check if the given element exists
+ * @param  {String}   isExisting Whether the element should be existing or not
+ * @param  {String}   elem       Element selector
+ * @param  {Function} done       Function to execute when finished
  */
+module.exports = (isExisting, elem, done) => {
+    /**
+     * The number of elements found in the DOM
+     * @type {Int}
+     */
+    const nrOfElements = browser.elements(elem).value;
 
-module.exports = function (isExisting, elem, done) {
-    isExisting = (isExisting === 'an');
+    if (isExisting === 'an') {
+        expect(nrOfElements).to.have.length
+            .above(
+                0,
+                `element with selector "${elem}" should exist on the page`
+            );
+    } else {
+        expect(nrOfElements).to.have
+            .length(
+                0,
+                `element with selector "${elem}" should not exist on the page`
+            );
+    }
 
-    this.browser
-        .elements(elem)
-        .then(function (res) {
-            if (isExisting) {
-                expect(res.value).to.have.length.above(0, 'element with selector "' + elem + '" should exist on the page');
-            } else {
-                expect(res.value).to.have.length(0, 'element with selector "' + elem + '" should not exist on the page');
-            }
-        })
-        .call(done);
+    done();
 };

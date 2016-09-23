@@ -4,12 +4,22 @@ notifications:
 language: node_js
 
 node_js:
-  - '4.2.4'
+  - '4'
+
+env:
+  - CXX=g++-4.8
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 
 branches:
   only:
     - master
 
-before_script: "(npm run-script selenium-server & npm run-script local-webserver) 2>&1 >/dev/null &"
+before_script: "npm run-script local-webserver 2>&1 >/dev/null &"
 
-script: "sleep 10 && NODE_ENV=build ./test/run.js"
+script: "eslint test/**/*.js && wdio wdio.BUILD.conf.js"

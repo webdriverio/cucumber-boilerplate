@@ -1,22 +1,36 @@
-module.exports = function (url, windowOrTab, done) {
-    this.browser
-        .pause(5000)
-        .windowHandles()
-        .then(function (windowHandles) {
-            var lastWindowHandle = windowHandles.value.slice(-1);
+/**
+ * Check if the given URL was opened in a new window
+ * @param  {String}   expectedUrl The URL to check for
+ * @param  {String}   obsolete    Indicator for the type (window or tab) unused
+ * @param  {Function} done        Function to execute when finished
+ */
+module.exports = (expectedUrl, obsolete, done) => {
+    /**
+     * All the current window handles
+     * @type {Object}
+     */
+    const windowHandles = browser.windowHandles().value;
 
-            windowHandles.value.length.should.not.equal(1, "A popup was not opened");
+    windowHandles.length.should.not.equal(1, 'A popup was not opened');
 
-            return this
-                .window(lastWindowHandle[0])
-                .url();
-        })
-        .then(function (result) {
-            var windowUrl = result.value;
+    /**
+     * The last opened window handle
+     * @type {Object}
+     */
+    const lastWindowHandle = windowHandles.slice(-1);
 
-            windowUrl.should.contain(url, 'The popup has a incorrect url');
+    // Make sure we focus on the last opened window handle
+    browser.window(lastWindowHandle[0]);
 
-            return this.close();
-        })
-        .call(done);
+    /**
+     * Get the URL of the current browser window
+     * @type {String}
+     */
+    const windowUrl = browser.url().value;
+
+    windowUrl.should.contain(expectedUrl, 'The popup has a incorrect url');
+
+    browser.close();
+
+    done();
 };

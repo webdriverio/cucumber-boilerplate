@@ -1,16 +1,28 @@
 /**
- * check cookie content
+ * Check if a cookie with the given name exists
+ * @param  {[type]}   name      The name of the cookie
+ * @param  {[type]}   falseCase Whether or not to check if the cookie exists or
+ *                              not
+ * @param  {Function} done      Function to execute when finished
  */
-// jshint -W030
-module.exports = function (name, falseCase, done) {
-    this.browser
-        .getCookie(name)
-        .then(function (cookie) {
-            if (falseCase) {
-                expect(cookie).to.be.null;
-            } else {
-                expect(cookie).not.to.be.null;
-            }
-        })
-        .call(done);
+module.exports = (name, falseCase, done) => {
+    /**
+     * The cookie as retrieved from the browser
+     * @type {Object}
+     */
+    const cookie = browser.getCookie(name);
+
+    if (falseCase) {
+        assert.isNull(
+            cookie,
+            `A cookie with the name "${name}" was found`
+        );
+    } else {
+        assert.isNotNull(
+            cookie,
+            `A cookie with the name "${name}" was not found`
+        );
+    }
+
+    done();
 };

@@ -1,25 +1,21 @@
-var Q = require('q');
+/**
+ * Close all but the first tab
+ * @param  {String}   windowType Type of object to close (window or tab)
+ * @param  {Function} done       Function to execute when finished
+ */
+module.exports = (windowType, done) => {
+    /**
+     * Get all the window handles
+     * @type {Object}
+     */
+    const windowHandles = browser.windowHandles().value;
 
-module.exports = function (windowType, done) {
-    this.browser
-        // Close all tabs but the first one - this should remain the last step
-        .windowHandles()
-        .then(function (windowHandles) {
-            var handles = windowHandles.value,
-                currentHandleNr = 0,
-                browser = this;
+    // Close all tabs but the first one
+    windowHandles.forEach((handle, index) => {
+        if (index > 0) {
+            browser.switchTab(handle).close();
+        }
+    });
 
-            return Q.all(handles.map(function (handle) {
-                        currentHandleNr++;
-
-                        if (currentHandleNr > 1) {
-                            return browser.close();
-                        }
-
-                        return handle;
-                    }
-                )
-            );
-        })
-        .call(done);
+    done();
 };

@@ -1,26 +1,39 @@
 /**
- * check url path
+ * Check if the current URL path matches the given path
+ * @param  {String}   falseCase    Whether to check if the path matches the
+ *                                 expected value or not
+ * @param  {String}   expectedPath The expected path to match against
+ * @param  {Function} done         Function to execute when finished
  */
-var config = require('../../config.js').config;
+module.exports = (falseCase, expectedPath, done) => {
+    /**
+     * The URL of the current browser window
+     * @type {String}
+     */
+    let currentUrl = browser.url().value;
 
-module.exports = function (falseCase, path, done) {
-    this.browser
-        .url()
-        .then(function (result) {
-            // Remove the domain from the url
-            var domain = config.env.baseUrl;
+    /**
+     * The base URL of the current browser window
+     * @type {Object}
+     */
+    const domain = browser.options.baseUrl;
 
-            if (result.value.indexOf(domain) === 0) {
-                result.value = result.value.replace(domain, '');
-            }
+    // Remove the domain from the url
+    if (currentUrl.indexOf(domain) === 0) {
+        currentUrl = currentUrl.replace(domain, '');
+    }
 
-            if (falseCase) {
-                result.value.should.not.equal(path, 'expected path not to be ' + result.value);
-            } else {
-                result.value.should.equal(path, 'expected path to be "' + path + '"  but found "' + result.value + '"');
-            }
+    if (falseCase) {
+        currentUrl.should.not
+            .equal(expectedPath, `expected path not to be "${currentUrl}"`);
+    } else {
+        currentUrl.should
+            .equal(
+                expectedPath,
+                `expected path to be "${expectedPath}" but found ` +
+                `"${currentUrl}"`
+            );
+    }
 
-            return this;
-        })
-        .call(done);
+    done();
 };

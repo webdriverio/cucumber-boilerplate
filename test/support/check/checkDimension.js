@@ -1,28 +1,57 @@
 /**
- * check width and height
+ * Check the dimensions of the given element
+ * @param  {String}   elem         Element selector
+ * @param  {String}   falseCase    Whether to check if the dimensions match or
+ *                                 not
+ * @param  {String}   expectedSize Expected size
+ * @param  {String}   dimension    Dimension to check (broad or tall)
+ * @param  {Function} done         Function to execute when finished
  */
+module.exports = (elem, falseCase, expectedSize, dimension, done) => {
+    /**
+     * The size of the given element
+     * @type {Object}
+     */
+    const elementSize = browser.getElementSize(elem);
 
-module.exports = function (elem, falseCase, size, dimension, done) {
-    this.browser
-        .getElementSize(elem)
-        .then(function (res) {
-            var check = res.height,
-                label = 'height';
+    /**
+     * Parsed size to check for
+     * @type {Int}
+     */
+    const intExpectedSize = parseInt(expectedSize, 10);
 
-            if (dimension === 'broad') {
-                check = res.width;
-                label = 'width';
-            }
+    /**
+     * The size property to check against
+     * @type {Int}
+     */
+    let origionalSize = elementSize.height;
 
-            size = parseInt(size, 10);
+    /**
+     * The label of the checked property
+     * @type {String}
+     */
+    let label = 'height';
 
-            if (falseCase) {
-                check.should.not.equal(size, 'element ' + elem + ' should not have a ' + label + ' of ' + size + 'px');
-            } else {
-                check.should.equal(size, 'Element ' + elem + ' should have a ' + label + ' of ' + size + 'px, but is ' + check + 'px');
-            }
+    if (dimension === 'broad') {
+        origionalSize = elementSize.width;
+        label = 'width';
+    }
 
-            return this;
-        })
-        .call(done);
+    if (falseCase) {
+        origionalSize.should.not
+            .equal(
+                intExpectedSize,
+                `element "${elem}" should not have a ${label} of ` +
+                `${intExpectedSize}px`
+            );
+    } else {
+        origionalSize.should
+            .equal(
+                intExpectedSize,
+                `Element "${elem}" should have a ${label} of ` +
+                `${intExpectedSize}px, but is ${origionalSize}px`
+            );
+    }
+
+    done();
 };

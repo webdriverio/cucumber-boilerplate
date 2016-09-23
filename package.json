@@ -1,14 +1,11 @@
 {
   "name": "cucumber-boilerplate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
   "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
   "main": "test/runner.js",
   "scripts": {
-    "postinstall": "selenium-standalone install",
-    "selenium-server": "selenium-standalone start",
-    "local-webserver": "http-server ./demo-app",
-    "phantomjs": "phantomjs"
+    "local-webserver": "http-server ./demo-app"
   },
   "repository": {
     "type": "git",
@@ -26,17 +23,20 @@
   "author": "Christian Bromann <christian@saucelabs.com>",
   "license": "MIT",
   "dependencies": {
-    "chai": "~3.4.1",
-    "deepmerge": "~0.2.7",
-    "glob": "~6.0.1",
-    "mocha": "2.3.3",
-    "q": "~1.4.1",
-    "webdriverio": "~3.4.0",
-    "yadda": "~0.16.0"
+    "babel-preset-es2015": "~6.14.0",
+    "babel-register": "~6.14.0",
+    "chai": "~3.5.0",
+    "cucumber": "~1.2.2",
+    "wdio-cucumber-framework": "~0.2.4",
+    "wdio-phantomjs-service": "~0.1.0",
+    "wdio-selenium-standalone-service": "~0.0.6",
+    "wdio-spec-reporter": "~0.0.3",
+    "webdriverio": "~4.2.11"
   },
   "devDependencies": {
-    "http-server": "0.8.5",
-    "phantomjs": "1.9.19",
-    "selenium-standalone": "4.8.0"
+    "eslint": "~3.4.0",
+    "eslint-config-airbnb-base": "~5.0.3",
+    "http-server": "~0.9.0",
+    "selenium-standalone": "~5.6.2"
   }
 }

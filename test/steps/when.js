@@ -1,60 +1,104 @@
-/**
- * when steps
- */
+import clickElement from '../support/action/clickElement';
+import setInputField from '../support/action/setInputField';
+import clearInputField from '../support/action/clearInputField';
+import dragElement from '../support/action/dragElement';
+import submitForm from '../support/action/submitForm';
+import pause from '../support/action/pause';
+import setCookie from '../support/action/setCookie';
+import deleteCookie from '../support/action/deleteCookie';
+import pressButton from '../support/action/pressButton';
+import handleModal from '../support/action/handleModal';
+import setPromptText from '../support/action/setPromptText';
+import scroll from '../support/action/scroll';
+import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow';
+import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow';
+import selectOptionByIndex from '../support/action/selectOptionByIndex';
+import selectOption from '../support/action/selectOption';
+import moveToElement from '../support/action/moveToElement';
 
-module.exports = function () {
-    this
-        .when(/^I (click|doubleclick) on the (link|button|element) "$string"$/,
-            require('../support/action/clickElement'))
+module.exports = function when() {
+    this.When(
+        /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,
+        clickElement
+    );
 
-        .when(/^I (add|set) "$string" to the inputfield "$string"$/,
-            require('../support/action/setInputField'))
+    this.When(
+        /^I (add|set) "([^"]*)?" to the inputfield "([^"]*)?"$/,
+        setInputField
+    );
 
-        .when(/^I clear the inputfield "$string"$/,
-            require('../support/action/clearInputField'))
+    this.When(
+        /^I clear the inputfield "([^"]*)?"$/,
+        clearInputField
+    );
 
-        .when(/^I drag element "$string" to element "$string"$/,
-            require('../support/action/dragElement'))
+    this.When(
+        /^I drag element "([^"]*)?" to element "([^"]*)?"$/,
+        dragElement
+    );
 
-        .when(/^I submit the form "$string"$/,
-            require('../support/action/submitForm'))
+    this.When(
+        /^I submit the form "([^"]*)?"$/,
+        submitForm
+    );
 
-        .when(/^I pause for (\d+)ms$/,
-            require('../support/action/pause'))
+    this.When(
+        /^I pause for (\d+)ms$/,
+        pause
+    );
 
-        .when(/^I set a cookie "$string" with the content "$string"$/,
-            require('../support/action/setCookie'))
+    this.When(
+        /^I set a cookie "([^"]*)?" with the content "([^"]*)?"$/,
+        setCookie
+    );
 
-        .when(/^I delete the cookie "$string"$/,
-            require('../support/action/readCookie'))
+    this.When(
+        /^I delete the cookie "([^"]*)?"$/,
+        deleteCookie
+    );
 
-        .when(/^I press "$string"$/,
-            require('../support/action/pressButton'))
+    this.When(
+        /^I press "([^"]*)?"$/,
+        pressButton
+    );
 
-        .when(/^I (accept|dismiss) the (alertbox|confirmbox|prompt)$/,
-            require('../support/action/handleModal'))
+    this.When(
+        /^I (accept|dismiss) the (alertbox|confirmbox|prompt)$/,
+        handleModal
+    );
 
-        .when(/^I enter "$string" into the prompt$/,
-            require('../support/action/setPromptText'))
+    this.When(
+        /^I enter "([^"]*)?" into the prompt$/,
+        setPromptText
+    );
 
-        .when(/^I scroll to element "$string"$/,
-            require('../support/action/scroll'))
+    this.When(
+        /^I scroll to element "([^"]*)?"$/,
+        scroll
+    );
 
-        .when(/^I close the last opened (window|tab)$/,
-            require('../support/action/closeLastOpenedWindow'))
+    this.When(
+        /^I close the last opened (window|tab)$/,
+        closeLastOpenedWindow
+    );
 
-        .when(/^I focus the last opened (window|tab)$/,
-            require('../support/action/focusLastOpenedWindow'))
+    this.When(
+        /^I focus the last opened (window|tab)$/,
+        focusLastOpenedWindow
+    );
 
-        .when(/^I log in to site with username "$string" and password "$string"$/,
-            require('../support/custom/login'))
+    this.When(
+        /^I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"$/,
+        selectOptionByIndex
+    );
 
-        .when(/^I select the (\d+)(st|nd|rd|th) option for element "$string"$/,
-            require('../support/action/selectOptionByIndex'))
+    this.When(
+        /^I select the option with the (name|value|text) "([^"]*)?" for element "([^"]*)?"$/,
+        selectOption
+    );
 
-        .when(/^I select the option with the (name|value|text) "$string" for element "$string"$/,
-            require('../support/action/selectOption'))
-
-        .when(/^I move to element "$string"( with an offset of (\d+),(\d+))*$/,
-            require('../support/action/moveToElement'));
+    this.When(
+        /^I move to element "([^"]*)?"( with an offset of (\d+),(\d+))*$/,
+        moveToElement
+    );
 };

@@ -1,87 +1,163 @@
-/**
- * then steps
- */
+import checkTitle from '../support/check/checkTitle';
+import isVisible from '../support/check/isVisible';
+import waitForVisible from '../support/action/waitForVisible';
+import checkContainsText from '../support/check/checkContainsText';
+import checkContent from '../support/check/checkContent';
+import compareText from '../support/check/compareText';
+import isExisting from '../support/check/isExisting';
+import checkWithinViewport from '../support/check/checkWithinViewport';
+import checkURL from '../support/check/checkURL';
+import checkURLPath from '../support/check/checkURLPath';
+import checkInURLPath from '../support/check/checkInURLPath';
+import checkProperty from '../support/check/checkProperty';
+import checkSelected from '../support/check/checkSelected';
+import isEnabled from '../support/check/isEnabled';
+import checkCookieContent from '../support/check/checkCookieContent';
+import checkCookieExists from '../support/check/checkCookieExists';
+import checkDimension from '../support/check/checkDimension';
+import checkOffset from '../support/check/checkOffset';
+import checkClass from '../support/check/checkClass';
+import checkNewWindow from '../support/check/checkNewWindow';
+import checkIsOpenedInNewWindow from
+    '../support/check/checkIsOpenedInNewWindow';
+import checkFocus from '../support/check/checkFocus';
+import waitfor from '../support/action/waitfor';
+import checkModal from '../support/check/checkModal';
+import checkModalText from '../support/check/checkModalText';
 
-module.exports = function (dict) {
-    this
-        .then(/^I expect that the title is( not)* "$string"$/,
-            require('../support/check/checkTitle'))
+module.exports = function then() {
+    this.Then(
+        /^I expect that the title is( not)* "([^"]*)?"$/,
+        checkTitle
+    );
 
-        .then(/^I expect that element "$string" is( not)* visible$/,
-            require('../support/check/isVisible'))
+    this.Then(
+        /^I expect that element "([^"]*)?" is( not)* visible$/,
+        isVisible
+    );
 
-        .then(/^I expect that element "$string" becomes( not)* visible$/,
-            require('../support/action/waitForVisible'))
+    this.Then(
+        /^I expect that element "([^"]*)?" becomes( not)* visible$/,
+        waitForVisible
+    );
 
-        .then(/^I expect that element "$string" is( not)* within the viewport$/,
-            require('../support/check/checkWithinViewport'))
+    this.Then(
+        /^I expect that element "([^"]*)?" is( not)* within the viewport$/,
+        checkWithinViewport
+    );
 
-        .then(/^I expect that element "$string" does( not)* exist$/,
-            require('../support/check/isExisting'))
+    this.Then(
+        /^I expect that element "([^"]*)?" does( not)* exist$/,
+        isExisting
+    );
 
-        .then(/^I expect that element "$string" does( not)* contain the same text as element "$string"$/,
-            require('../support/check/compareText'))
+    this.Then(
+        /^I expect that element "([^"]*)?" does( not)* contain the same text as element "([^"]*)?"$/,
+        compareText
+    );
 
-        .then(/^I expect that (element|inputfield) "$string"( not)* contains the text "$string"$/,
-            require('../support/check/checkContent'))
+    this.Then(
+        /^I expect that (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
+        checkContent
+    );
 
-        .then(/^I expect that (element|inputfield) "$string" does( not)* contain any text$/,
-            require('../support/check/checkContent'))
+    this.Then(
+        /^I expect that (element|inputfield) "([^"]*)?" does( not)* contain any text$/,
+        checkContent
+    );
 
-        .then(/^I expect that (element|inputfield) "$string" is( not)* empty$/,
-            require('../support/check/checkContainsText'))
+    this.Then(
+        /^I expect that (element|inputfield) "([^"]*)?" is( not)* empty$/,
+        checkContainsText
+    );
 
-        .then(/^I expect that the url is( not)* "$string"$/,
-            require('../support/check/checkURL'))
+    this.Then(
+        /^I expect that the url is( not)* "([^"]*)?"$/,
+        checkURL
+    );
 
-        .then(/^I expect that the path is( not)* "$string"$/,
-            require('../support/check/checkURLPath'))
+    this.Then(
+        /^I expect that the path is( not)* "([^"]*)?"$/,
+        checkURLPath
+    );
 
-        .then(/^I expect the url to( not)* contain "$string"$/,
-            require('../support/check/checkInURLPath'))
+    this.Then(
+        /^I expect the url to( not)* contain "([^"]*)?"$/,
+        checkInURLPath
+    );
 
-        .then(/^I expect that the( css)* attribute "$string" from element "$string" is( not)* "$string"$/,
-            require('../support/check/checkProperty'))
+    this.Then(
+        /^I expect that the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
+        checkProperty
+    );
 
-        .then(/^I expect that checkbox "$string" is( not)* checked$/,
-            require('../support/check/checkSelected'))
+    this.Then(
+        /^I expect that checkbox "([^"]*)?" is( not)* checked$/,
+        checkSelected
+    );
 
-        .then(/^I expect that element "$string" is( not)* selected$/,
-            require('../support/check/checkSelected'))
+    this.Then(
+        /^I expect that element "([^"]*)?" is( not)* selected$/,
+        checkSelected
+    );
 
-        .then(/^I expect that element "$string" is( not)* enabled$/,
-            require('../support/check/isEnabled'))
+    this.Then(
+        /^I expect that element "([^"]*)?" is( not)* enabled$/,
+        isEnabled
+    );
 
-        .then(/^I expect that cookie "$string"( not)* contains "$string"$/,
-            require('../support/check/checkCookieContent'))
+    this.Then(
+        /^I expect that cookie "([^"]*)?"( not)* contains "([^"]*)?"$/,
+        checkCookieContent
+    );
 
-        .then(/^I expect that cookie "$string"( not)* exists$/,
-            require('../support/check/checkCookieExists'))
+    this.Then(
+        /^I expect that cookie "([^"]*)?"( not)* exists$/,
+        checkCookieExists
+    );
 
-        .then(/^I expect that element "$string" is( not)* ([\d]+)px (broad|tall)$/,
-            require('../support/check/checkDimension'))
+    this.Then(
+        /^I expect that element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)$/,
+        checkDimension
+    );
 
-        .then(/^I expect that element "$string" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
-            require('../support/check/checkOffset'))
+    this.Then(
+        /^I expect that element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
+        checkOffset
+    );
 
-        .then(/^I expect that element "$string" (has|does not have) the class "$string"$/,
-            require('../support/check/checkClass'))
+    this.Then(
+        /^I expect that element "([^"]*)?" (has|does not have) the class "([^"]*)?"$/,
+        checkClass
+    );
 
-        .then(/^I expect a new (window|tab) has( not)* been opened$/,
-            require('../support/check/checkNewWindow'))
+    this.Then(
+        /^I expect a new (window|tab) has( not)* been opened$/,
+        checkNewWindow
+    );
 
-        .then(/^I expect the url "$string" is opened in a new (tab|window)$/,
-            require('../support/check/checkIsOpenedInNewWindow'))
+    this.Then(
+        /^I expect the url "([^"]*)?" is opened in a new (tab|window)$/,
+        checkIsOpenedInNewWindow
+    );
 
-        .then(/^I expect that element "$string" is( not)* focused$/,
-            require('../support/check/checkFocus'))
+    this.Then(
+        /^I expect that element "([^"]*)?" is( not)* focused$/,
+        checkFocus
+    );
 
-        .then(/^I wait on element "$string"( for (\d+)ms)*( to( not)* (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*$/,
-            require('../support/action/waitfor'))
+    this.Then(
+        /^I wait on element "([^"]*)?"( for (\d+)ms)*( to( not)* (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*$/,
+        waitfor
+    );
 
-        .then(/^I expect that a (alertbox|confirmbox|prompt) is( not)* opened$/,
-            require('../support/check/checkModal'))
+    this.Then(
+        /^I expect that a (alertbox|confirmbox|prompt) is( not)* opened$/,
+        checkModal
+    );
 
-        .then(/^I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "$text"$/,
-            require('../support/check/checkModalText'));
+    this.Then(
+        /^I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "([^"]*)?"$/,
+        checkModalText
+    );
 };
