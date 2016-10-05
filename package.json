@@ -5,7 +5,8 @@
   "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
   "main": "test/runner.js",
   "scripts": {
-    "local-webserver": "http-server ./demo-app"
+    "local-webserver": "http-server ./demo-app",
+    "test": "babel-node ./node_modules/.bin/isparta cover _mocha --include-all-sources --default-excludes ['*/node_modules/**', '**/unit-tests/**'] --excludes '**/steps/*.js' --root test -- unit-tests --recursive"
   },
   "repository": {
     "type": "git",
