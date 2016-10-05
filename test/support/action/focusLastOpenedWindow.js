@@ -1,9 +1,9 @@
 /**
  * Focus the last opened window
- * @param  {String}   type Type of object to close (window or tab)
- * @param  {Function} done Function to execute when finished
+ * @param  {String}   obsolete Type of object to close (window or tab)
+ * @param  {Function} done     Function to execute when finished
  */
-module.exports = (type, done) => {
+module.exports = (obsolete, done) => {
     /**
      * The last opened window
      * @type {Object}

@@ -1,8 +1,9 @@
 /**
  * Parse the tags from the CLI to pass to Cucumber
- * @return {Array} The tags to process
+ * @param  {Object} consoleArguments The arguments to parse from the console
+ * @return {Array}                   The tags to process
  */
-module.exports = (() => {
+module.exports = (consoleArguments) => {
     'use strict'; // This is required since this file is not parsed with Babel
 
     /**
@@ -11,7 +12,7 @@ module.exports = (() => {
      */
     let tags = ['~@Pending']; // Always ignore @Pending tags
 
-    process.argv.forEach((val) => {
+    consoleArguments.forEach((val) => {
         if (val.indexOf('--tags=') === 0) {
             /**
              * The collected tags from the CLI param
@@ -24,4 +25,4 @@ module.exports = (() => {
     });
 
     return tags;
-})();
+};

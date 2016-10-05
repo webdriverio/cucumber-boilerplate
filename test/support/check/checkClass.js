@@ -13,7 +13,7 @@ module.exports = (elem, falseCase, expectedClassName, done) => {
      */
     const classesList = browser.getAttribute(elem, 'className').split(' ');
 
-    if (falseCase === 'does not have') {
+    if (!!falseCase) {
         expect(classesList).to.not
             .include(
                 expectedClassName,

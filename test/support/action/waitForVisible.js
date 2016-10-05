@@ -14,13 +14,7 @@ module.exports = (elem, falseCase, done) => {
      */
     const ms = 10000;
 
-    /**
-     * The element to wait for
-     * @type {Object}
-     */
-    const element = browser.element(elem);
-
-    element.waitForVisible(ms, falseCase);
+    browser.waitForVisible(elem, ms, !!falseCase);
 
     done();
 };

@@ -11,8 +11,7 @@
  *                                             existence)
  * @param  {Function} done                     Function to execute when finished
  */
-module.exports =
-(elem, obsolete, ms, isWaitingOnSpecificState, falseState, state, done) => {
+module.exports = (elem, obsolete, ms, isWaitingOnSpecificState, falseState, state, done) => {
     /**
      * Maximum number of milliseconds to wait, default 3000
      * @type {Int}
