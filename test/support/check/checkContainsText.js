@@ -19,7 +19,7 @@ module.exports = (type, element, falseCase, done) => {
      */
     const text = browser[command](element);
 
-    if (falseCase) {
+    if (!!falseCase) {
         expect(text).to.not.be.empty();
     } else {
         expect(text).to.be.empty();

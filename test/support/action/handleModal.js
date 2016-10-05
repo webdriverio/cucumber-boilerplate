@@ -1,7 +1,6 @@
 /**
  * Handle a modal
- * @param  {String}   action    Action to perform on the modal (accept, dismiss,
- *                              text)
+ * @param  {String}   action    Action to perform on the modal (accept, dismiss)
  * @param  {String}   modalType Type of modal (alertbox, confirmbox, prompt)
  * @param  {Function} done      Function to execute when finished
  */

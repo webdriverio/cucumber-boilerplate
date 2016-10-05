@@ -1,9 +1,9 @@
 /**
  * Close all but the first tab
- * @param  {String}   windowType Type of object to close (window or tab)
- * @param  {Function} done       Function to execute when finished
+ * @param  {String}   obsolete Type of object to close (window or tab)
+ * @param  {Function} done     Function to execute when finished
  */
-module.exports = (windowType, done) => {
+module.exports = (obsolete, done) => {
     /**
      * Get all the window handles
      * @type {Object}
