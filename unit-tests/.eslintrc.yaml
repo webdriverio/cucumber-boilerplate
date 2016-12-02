@@ -1,0 +1,15 @@
+env:
+  jest: true
+
+globals:
+  global: true
+  _expect: true
+
+rules:
+  import/no-extraneous-dependencies: 'off'
+  import/extensions:
+    - 'error'
+    - 'never'
+  import/no-unresolved: 'off'
+
+
