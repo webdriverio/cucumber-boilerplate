@@ -12,8 +12,17 @@ globals:
 parserOptions:
   ecmaVersion: 6
 
+root: true
+
 rules:
-  strict: 'off'
+  comma-dangle:
+    - 'error'
+    - arrays: 'always-multiline'
+      objects: 'always-multiline'
+      imports: 'never'
+      exports: 'never'
+      functions: 'ignore'
+  global-require: 'off'
   indent:
     - 'error'
     - 4
@@ -35,6 +44,7 @@ rules:
         FunctionDeclaration: true
         MethodDefinition: true
         ClassDeclaration: true
+  strict: 'off'
   valid-jsdoc:
     - 'error'
     - requireReturn: false
