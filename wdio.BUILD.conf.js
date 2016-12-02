@@ -1,7 +1,7 @@
-var config = require('./wdio.conf.js').config;
+const config = require('./wdio.conf.js').config;
 
 config.capabilities = [{
-    browserName: 'phantomjs'
+    browserName: 'phantomjs',
 }];
 
 config.services = ['phantomjs'];
