@@ -27,11 +27,11 @@
     "babel-register": "~6.14.0",
     "chai": "~3.5.0",
     "cucumber": "~1.2.2",
-    "wdio-cucumber-framework": "~0.2.4",
-    "wdio-phantomjs-service": "~0.1.0",
-    "wdio-selenium-standalone-service": "~0.0.6",
-    "wdio-spec-reporter": "~0.0.3",
-    "webdriverio": "~4.2.11"
+    "wdio-cucumber-framework": "^0.2.13",
+    "wdio-phantomjs-service": "^0.2.2",
+    "wdio-selenium-standalone-service": "^0.0.7",
+    "wdio-spec-reporter": "^0.0.3",
+    "webdriverio": "^4.5.0"
   },
   "devDependencies": {
     "eslint": "~3.4.0",
