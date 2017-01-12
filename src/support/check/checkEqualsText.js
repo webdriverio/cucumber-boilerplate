@@ -33,30 +33,24 @@ module.exports = (type, element, falseCase, expectedText, done) => {
     let boolFalseCase = !!falseCase;
 
     // Check for empty element
-    if (
-        typeof doneCallback === 'undefined' &&
-        typeof parsedExpectedText === 'function'
-    ) {
+    if (!doneCallback && typeof parsedExpectedText === 'function') {
         doneCallback = parsedExpectedText;
         parsedExpectedText = '';
 
         boolFalseCase = !boolFalseCase;
-    } else if (
-        typeof doneCallback === 'undefined' &&
-        typeof parsedExpectedText === 'undefined' &&
-        typeof falseCase === 'function'
-    ) {
+    }
+
+    if (parsedExpectedText === undefined && falseCase === undefined) {
         parsedExpectedText = '';
         boolFalseCase = true;
-        doneCallback = falseCase;
     }
 
     const text = browser[command](element);
 
     if (boolFalseCase) {
-        expect(text).to.not.equal(parsedExpectedText);
+        parsedExpectedText.should.not.equal(text);
     } else {
-        expect(text).to.equal(parsedExpectedText);
+        parsedExpectedText.should.equal(text);
     }
 
     doneCallback();

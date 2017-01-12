@@ -1,4 +1,3 @@
-import checkContent from '../support/check/checkContent';
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
 import checkContainsText from '../support/check/checkContainsText';
 import checkCookieContent from '../support/check/checkCookieContent';
@@ -61,8 +60,8 @@ module.exports = function given() {
     );
 
     this.Given(
-        /^the (element|inputfield) "([^"]*)?" does( not)* contain the text "([^"]*)?"$/,
-        checkContent
+        /^the (element|inputfield) "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
+        checkEqualsText
     );
 
     this.Given(

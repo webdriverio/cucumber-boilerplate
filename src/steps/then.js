@@ -58,6 +58,11 @@ module.exports = function then() {
     );
 
     this.Then(
+        /^I expect that (element|inputfield) "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
+        checkEqualsText
+    );
+
+    this.Then(
         /^I expect that (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
         checkContainsText
     );
