@@ -11,7 +11,7 @@ module.exports = (elem, falseCase, expectedClassName, done) => {
      * List of all the classes of the element
      * @type {Array}
      */
-    let classesList = browser.getAttribute(elem, 'className').split(' ');
+    const classesList = browser.getAttribute(elem, 'className').split(' ');
 
     if (falseCase === 'does not have') {
         expect(classesList).to.not
