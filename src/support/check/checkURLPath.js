@@ -10,18 +10,15 @@ module.exports = (falseCase, expectedPath, done) => {
      * The URL of the current browser window
      * @type {String}
      */
-    let currentUrl = browser.url().value;
+    let currentUrl = browser.url().value.replace(/http(s?):\/\//, '');
 
     /**
      * The base URL of the current browser window
      * @type {Object}
      */
-    const domain = browser.options.baseUrl;
+    const domain = `${currentUrl.split('/')[0]}`;
 
-    // Remove the domain from the url
-    if (currentUrl.indexOf(domain) === 0) {
-        currentUrl = currentUrl.replace(domain, '');
-    }
+    currentUrl = currentUrl.replace(domain, '');
 
     if (falseCase) {
         expect(currentUrl).to.not
