@@ -1,8 +1,11 @@
 import checkContent from '../support/check/checkContent';
+import checkContainsAnyText from '../support/check/checkContainsAnyText';
+import checkContainsText from '../support/check/checkContainsText';
 import checkCookieContent from '../support/check/checkCookieContent';
 import checkCookieExists from '../support/check/checkCookieExists';
 import checkDimension from '../support/check/checkDimension';
 import checkElementExists from '../support/check/checkElementExists';
+import checkEqualsText from '../support/check/checkEqualsText';
 import checkModal from '../support/check/checkModal';
 import checkOffset from '../support/check/checkOffset';
 import checkProperty from '../support/check/checkProperty';
@@ -63,8 +66,13 @@ module.exports = function given() {
     );
 
     this.Given(
-        /^the (element|inputfield) "([^"]*)?" does( not)* contain any text$/,
-        checkContent
+        /^the (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
+        checkContainsText
+    );
+
+    this.Given(
+        /^the (element|inputfield) "([^"]*)?"( not)* contains any text$/,
+        checkContainsAnyText
     );
 
     this.Given(
