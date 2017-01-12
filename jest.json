@@ -14,7 +14,7 @@
     "!**/node_modules/**"
   ],
   "notify": true,
-  "setupTestFrameworkScriptFile": "unit-tests/setup.js",
+  "setupTestFrameworkScriptFile": "./unit-tests/setup.js",
   "testPathDirs": [
     "unit-tests/test/"
   ],

@@ -2,9 +2,9 @@ import checkElementExists from 'src/support/check/checkElementExists';
 
 describe(
     'checkElementExists', () => {
-        let done;
         let expectToHaveLengthOf;
-        let expectToHaveLengthAbove;
+        let expectToHaveLengthOfAtLeast;
+        let done;
 
         beforeEach(() => {
             global.browser = {
@@ -14,13 +14,17 @@ describe(
             };
 
             expectToHaveLengthOf = jest.fn();
-            expectToHaveLengthAbove = jest.fn();
+            expectToHaveLengthOfAtLeast = jest.fn();
 
             global.expect = jest.fn(() => ({
                 to: {
                     have: {
                         length: {
-                            above: expectToHaveLengthAbove,
+                            of: {
+                                at: {
+                                    least: expectToHaveLengthOfAtLeast,
+                                },
+                            },
                         },
                         lengthOf: expectToHaveLengthOf,
                     },
@@ -36,9 +40,9 @@ describe(
             _expect(global.browser.elements).toHaveBeenCalledTimes(1);
             _expect(global.browser.elements).toHaveBeenCalledWith('element1');
 
-            _expect(expectToHaveLengthAbove).toHaveBeenCalledTimes(1);
-            _expect(expectToHaveLengthAbove).toHaveBeenCalledWith(
-                0,
+            _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledTimes(1);
+            _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledWith(
+                1,
                 'Element with selector "element1" should exist on the page'
             );
 

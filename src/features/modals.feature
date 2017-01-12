@@ -23,7 +23,7 @@ Feature: Test modals
 
     Scenario: Test if confirm is canceled
         Given a confirmbox is not opened
-        And   the element "#confirmResult" does not contain any text
+        And   the element "#confirmResult" not contains any text
         When  I click on the element "#openConfirm"
         Then  I expect that a confirmbox is opened
         And   I expect that a alertbox contains the text "I am a confirm box!"
@@ -33,7 +33,7 @@ Feature: Test modals
 
     Scenario: Test if confirm is accepted
         Given a confirmbox is not opened
-        And   the element "#confirmResult" does not contain any text
+        And   the element "#confirmResult" not contains any text
         When  I click on the element "#openConfirm"
         Then  I expect that a confirmbox is opened
         When  I accept the confirmbox
@@ -42,7 +42,7 @@ Feature: Test modals
 
     Scenario: Test if prompt is opened & dismissed
         Given a prompt is not opened
-        And   the element "#promptResult" does not contain any text
+        And   the element "#promptResult" not contains any text
         When  I click on the element "#openPrompt"
         Then  I expect that a prompt is opened
         And   I expect that a alertbox contains the text "I am a prompt!"
@@ -52,16 +52,16 @@ Feature: Test modals
 
     Scenario: Test if prompt is accepted
         Given a prompt is not opened
-        And   the element "#promptResult" does not contain any text
+        And   the element "#promptResult" not contains any text
         When  I click on the element "#openPrompt"
         Then  I expect that a prompt is opened
         When  I accept the prompt
         Then  I expect that a prompt is not opened
-        And   I expect that element "#promptResult" does not contain any text
+        And   I expect that element "#promptResult" not contains any text
 
     Scenario: Test if prompt has text entered
         Given a prompt is not opened
-        And   the element "#promptResult" does not contain any text
+        And   the element "#promptResult" not contains any text
         When  I click on the element "#openPrompt"
         Then  I expect that a prompt is opened
         When  I enter "test 1 2 3" into the prompt

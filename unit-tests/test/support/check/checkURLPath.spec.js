@@ -9,12 +9,8 @@ describe(
         beforeEach(() => {
             global.browser = {
                 url: jest.fn(() => ({
-                    value: 'test',
+                    value: 'http://example.com/test',
                 })),
-            };
-
-            browser.options = {
-                baseUrl: 'http://www.example.com/',
             };
 
             expectToEqual = jest.fn();
@@ -43,7 +39,7 @@ describe(
                 _expect(expectToEqual)
                     .toHaveBeenCalledWith(
                         'test',
-                        'expected path to be "test" but found "test"'
+                        'expected path to be "test" but found "/test"'
                     );
 
                 _expect(done).toHaveBeenCalledTimes(1);
@@ -61,14 +57,14 @@ describe(
                 _expect(expectToNotEqual)
                     .toHaveBeenCalledWith(
                         'test',
-                        'expected path not to be "test"'
+                        'expected path not to be "/test"'
                     );
 
                 _expect(done).toHaveBeenCalledTimes(1);
             }
         );
 
-        it('Should replace the domain from the global config',
+        it('Should replace the domain from the current url',
             () => {
                 global.browser.url.mockReturnValueOnce({
                     value: 'http://www.example.com/test',
@@ -83,7 +79,7 @@ describe(
                 _expect(expectToNotEqual)
                     .toHaveBeenCalledWith(
                         'test',
-                        'expected path not to be "test"'
+                        'expected path not to be "/test"'
                     );
 
                 _expect(done).toHaveBeenCalledTimes(1);

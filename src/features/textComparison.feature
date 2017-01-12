@@ -7,22 +7,22 @@ Feature: Test text contents of elements
         Given I open the site "/"
 
     Scenario: Elements containing different text
-        Then  I expect that element "#textComparison1" does not contain the same text as element "#textComparison2"
+        Then  I expect that element "#textComparison1" not contains the same text as element "#textComparison2"
 
     Scenario: Elements containing the same text
-        Then  I expect that element "#textComparison1" does contain the same text as element "#textComparison3"
+        Then  I expect that element "#textComparison1" contains the same text as element "#textComparison3"
 
     Scenario: Elements containing no text
-        Then  I expect that element "#textComparison4" does contain the same text as element "#textComparison5"
+        Then  I expect that element "#textComparison4" contains the same text as element "#textComparison5"
 
     Scenario: Elements containing text and elements
-        Then  I expect that element "#textComparison1" does contain the same text as element "#textComparison6"
+        Then  I expect that element "#textComparison1" contains the same text as element "#textComparison6"
 
     Scenario: Elements containing text inside a child element
-        Then  I expect that element "#textComparison1" does contain the same text as element "#textComparison7"
+        Then  I expect that element "#textComparison1" contains the same text as element "#textComparison7"
 
     Scenario: Elements containing text with encoded strings
-        Then  I expect that element "#textComparison8" does contain the same text as element "#textComparison9"
+        Then  I expect that element "#textComparison8" contains the same text as element "#textComparison9"
 
     Scenario: Element containing different text
         Then I expect that element "#textDoesNotContainCucumber" not contains the text "This element contains cucumber"

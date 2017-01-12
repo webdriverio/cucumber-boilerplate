@@ -1,4 +1,4 @@
-import checkContent from 'src/support/check/checkContent';
+import checkContent from 'src/support/check/checkContainsAnyText';
 
 describe(
     'checkContent', () => {
@@ -70,25 +70,11 @@ describe(
             _expect(done).toHaveBeenCalledTimes(1);
         });
 
-        it('Should be able to validated against an expected string', () => {
-            checkContent('element', 'element4', true, 'test', done);
+        it('should handle no expected text and no falsecase', () => {
+            checkContent('element', 'element4', done);
 
             _expect(global.browser.getText).toHaveBeenCalledTimes(1);
             _expect(global.browser.getText).toHaveBeenCalledWith('element4');
-
-            _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
-
-            _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToNotEqual).toHaveBeenCalledWith('test');
-
-            _expect(done).toHaveBeenCalledTimes(1);
-        });
-
-        it('should handle no expected text and no falsecase', () => {
-            checkContent('element', 'element5', done);
-
-            _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-            _expect(global.browser.getText).toHaveBeenCalledWith('element5');
 
             _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
 
