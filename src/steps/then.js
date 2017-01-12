@@ -1,9 +1,10 @@
 import checkClass from '../support/check/checkClass';
+import checkContainsAnyText from '../support/check/checkContainsAnyText';
 import checkContainsText from '../support/check/checkContainsText';
-import checkContent from '../support/check/checkContent';
 import checkCookieContent from '../support/check/checkCookieContent';
 import checkCookieExists from '../support/check/checkCookieExists';
 import checkDimension from '../support/check/checkDimension';
+import checkEqualsText from '../support/check/checkEqualsText';
 import checkFocus from '../support/check/checkFocus';
 import checkInURLPath from '../support/check/checkInURLPath';
 import checkIsOpenedInNewWindow from
@@ -52,23 +53,23 @@ module.exports = function then() {
     );
 
     this.Then(
-        /^I expect that element "([^"]*)?" does( not)* contain the same text as element "([^"]*)?"$/,
+        /^I expect that element "([^"]*)?"( not)* contains the same text as element "([^"]*)?"$/,
         compareText
     );
 
     this.Then(
         /^I expect that (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
-        checkContent
+        checkContainsText
     );
 
     this.Then(
-        /^I expect that (element|inputfield) "([^"]*)?" does( not)* contain any text$/,
-        checkContent
+        /^I expect that (element|inputfield) "([^"]*)?"( not)* contains any text$/,
+        checkContainsAnyText
     );
 
     this.Then(
         /^I expect that (element|inputfield) "([^"]*)?" is( not)* empty$/,
-        checkContainsText
+        checkContainsAnyText
     );
 
     this.Then(

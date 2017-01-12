@@ -187,8 +187,8 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `there is (an|no) element "([^"]*)?" on the page` <br>Check if a element (does not) exist
 - `the title is( not)* "([^"]*)?"` <br>Check the title of the current browser window/tab
 - `the element "([^"]*)?" contains( not)* the same text as element "([^"]*)?"` <br>Compaire the text of two elements
-- `the (element|inputfield) "([^"]*)?" does( not)* contain the text "([^"]*)?"` <br>Check if a element contains the given text
-- `the (element|inputfield) "([^"]*)?" does( not)* contain any text` <br>Check if a element does not contain any text
+- `the (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if a element contains the given text
+- `the (element|inputfield) "([^"]*)?"( not)* contains any text` <br>Check if a element does not contain any text
 - `the page url is( not)* "([^"]*)?"` <br>Check the url of the current browser window/tab
 - `the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"` <br>Check the value of a element's (css) attribute
 - `the cookie "([^"]*)?" contains( not)* the value "([^"]*)?"` <br>Check the value of a cookie
@@ -206,9 +206,9 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `I expect that element "([^"]*)?" becomes( not)* visible` <br>Check if a certain element becomes visible
 - `I expect that element "([^"]*)?" is( not)* within the viewport` <br>Check if a certain element is within the current viewport
 - `I expect that element "([^"]*)?" does( not)* exist` <br>Check if a certain element exists
-- `I expect that element "([^"]*)?" does( not)* contain the same text as element "([^"]*)?"` <br>Compare the text of two elements
+- `I expect that element "([^"]*)?"( not)* contains the same text as element "([^"]*)?"` <br>Compare the text of two elements
 - `I expect that (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if a element or input field contains the given text
-- `I expect that (element|inputfield) "([^"]*)?" does( not)* contain any text` <br>Check if a element or input field contains any text
+- `I expect that (element|inputfield) "([^"]*)?"( not)* contains any text` <br>Check if a element or input field contains any text
 - `I expect that (element|inputfield) "([^"]*)?" is( not)* empty` <br>Check if a element or input field is empty
 - `I expect that the url is( not)* "([^"]*)?"` <br>Check if the the URL of the current browser window/tab is a certain string
 - `I expect that the path is( not)* "([^"]*)?"` <br>Check if the path of the URL of the current browser window/tab is a certain string
