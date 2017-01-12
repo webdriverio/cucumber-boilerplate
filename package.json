@@ -5,10 +5,10 @@
   "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
   "main": "test/runner.js",
   "scripts": {
-    "local-webserver": "http-server ./demo-app",
-    "test:validate": "eslint 'test/**/*.js' 'unit-tests/**/*.js'",
+    "local-webserver": "http-server ./demo-app -s",
+    "test:validate": "eslint 'src/**/*.js' 'unit-tests/**/*.js'",
     "test:unit": "jest --config=jest.json",
-    "test:features": "npm run-script local-webserver & wdio && kill $(lsof -t -i:8080)",
+    "test:features": "npm run-script local-webserver & (wdio; wdio_ret=$?; kill $(lsof -t -i:8080); exit $wdio_ret)",
     "test": "npm run test:validate && npm run test:unit && npm run test:features"
   },
   "repository": {
