@@ -11,7 +11,7 @@ Choose one of the following options:
 1. Download the latest stable release [here](https://github.com/webdriverio/cucumber-boilerplate/archive/master.zip) or
 2. Clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git`
 
-Then just embed the test directory into the root folder of your project and copy/install the [necessary dependencies
+Then just embed the `src` directory into the root folder of your project and copy/install the [necessary dependencies
 from the package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json)
 file and you are all set.
 
@@ -28,7 +28,7 @@ file and you are all set.
 
 Tests are written in [Gherkin syntax](http://docs.behat.org/en/latest/guides/1.gherkin.html#gherkin-syntax)
 that means that you write down what's supposed to happen in a real language. All test files are located in
-`./test/features/*` and have the file ending `.feature`. You will already find some test files in that
+`./src/features/*` and have the file ending `.feature`. You will already find some test files in that
 directory. They should demonstrate, how tests could look like. Just create a new file and write your first
 test.
 
@@ -144,7 +144,7 @@ Scenario: ...
 # Adding new steps and snippets
 
 The predefined snippets allow you to do a lot of common things but you might need extra snippets which
-are better aligned with your aims. To do so you will find all step definitions in `./test/steps`. They
+are better aligned with your aims. To do so you will find all step definitions in `./src/steps`. They
 are separated in `given`, `when` and `then`. 
 
 You define your snippet using regular expressions. This is pretty powerful as it allows you to create complex
