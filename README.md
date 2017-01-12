@@ -103,7 +103,7 @@ $ wdio wdio.STAGING.conf.js
 ```
 
 # Running single feature
-Sometimes its usefull to only execute a single feature file, to do so use the following command:
+Sometimes its useful to only execute a single feature file, to do so use the following command:
 
 ```sh
 $ wdio --spec ./test/features/select.feature
