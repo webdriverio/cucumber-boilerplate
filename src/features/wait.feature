@@ -32,12 +32,12 @@ Feature: Test waiting for actions
         Then  I wait on element "#waitForVisibleElement" for 1000ms to be visible
 
     Scenario: Test if element to contain a text
-        Given the element "#waitForContainsTextElement" does not contain any text
+        Given the element "#waitForContainsTextElement" not contains any text
         When  I click on the button "#waitForContainsTextBtn"
         Then  I wait on element "#waitForContainsTextElement" for 1000ms to contain a text
 
     Scenario: Test if element to contain a value
-        Given the inputfield "#waitForContainsValueElement" does not contain any text
+        Given the inputfield "#waitForContainsValueElement" not contains any text
         When  I click on the button "#waitForContainsValueBtn"
         Then  I wait on element "#waitForContainsValueElement" for 1000ms to contain a value
 
@@ -82,14 +82,14 @@ Feature: Test waiting for actions
     Scenario: Test if element to not contain a text
         When  I click on the button "#waitForContainsTextBtn"
         And   I pause for 1000ms
-        Then  I expect that element "#waitForContainsTextElement" does contain any text
+        Then  I expect that element "#waitForContainsTextElement" contains any text
         When  I click on the button "#waitForContainsTextBtn"
         Then  I wait on element "#waitForContainsTextElement" for 1000ms to not contain a text
 
     Scenario: Test if element to not contain a value
         When  I click on the button "#waitForContainsValueBtn"
         And   I pause for 1000ms
-        Then  I expect that inputfield "#waitForContainsValueElement" does contain any text
+        Then  I expect that inputfield "#waitForContainsValueElement" contains any text
         When  I click on the button "#waitForContainsValueBtn"
         Then  I wait on element "#waitForContainsValueElement" for 2000ms to not contain a value
 

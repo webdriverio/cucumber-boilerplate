@@ -7,7 +7,7 @@ Feature: Test the page title
 
     Scenario: Test if the demo app has the title "DEMO APP"
         Given the title is "DEMO APP"
-        Then  I expect that element "h1" does contain the same text as element ".subtitle"
+        Then  I expect that element "h1" contains the same text as element ".subtitle"
 
     Scenario: Test if the demo app does not have the title "Google"
         Given the title is not "Google"

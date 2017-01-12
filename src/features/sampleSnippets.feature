@@ -41,13 +41,13 @@ Feature: Sample Snippets test
 
     Scenario: add value to an input element
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the inputfield "//html/body/section/form/input[1]" does not contain the text "abc"
+        And   the inputfield "//html/body/section/form/input[1]" not contains the text "abc"
         When  I add "bc" to the inputfield "//html/body/section/form/input[1]"
         Then  I expect that inputfield "//html/body/section/form/input[1]" contains the text "abc"
 
     Scenario: set value to an input element
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the inputfield "//html/body/section/form/input[1]" does not contain the text "bc"
+        And   the inputfield "//html/body/section/form/input[1]" not contains the text "bc"
         When  I set "bc" to the inputfield "//html/body/section/form/input[1]"
         Then  I expect that inputfield "//html/body/section/form/input[1]" contains the text "bc"
 
@@ -55,11 +55,11 @@ Feature: Sample Snippets test
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         When  I set "test" to the inputfield "//html/body/section/form/input[1]"
         And   I clear the inputfield "//html/body/section/form/input[1]"
-        Then  I expect that inputfield "//html/body/section/form/input[1]" does not contain any text
+        Then  I expect that inputfield "//html/body/section/form/input[1]" not contains any text
 
     Scenario: drag n drop
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the inputfield ".searchinput" does not contain the text "Dropped!"
+        And   the inputfield ".searchinput" not contains the text "Dropped!"
         When  I drag element "#overlay" to element ".red"
         Then  I expect that inputfield ".searchinput" contains the text "Dropped!"
 
@@ -103,20 +103,20 @@ Feature: Sample Snippets test
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   the element "#secondPageLink" contains the same text as element "#secondPageLink"
         And   the element "#secondPageLink" contains not the same text as element "#githubRepo"
-        Then  I expect that element "#secondPageLink" does contain the same text as element "#secondPageLink"
-        And   I expect that element "#secondPageLink" does not contain the same text as element "#githubRepo"
+        Then  I expect that element "#secondPageLink" contains the same text as element "#secondPageLink"
+        And   I expect that element "#secondPageLink" not contains the same text as element "#githubRepo"
 
     Scenario: check text content
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the element "#secondPageLink" does contain the text "two"
-        And   the element "#secondPageLink" does not contain the text "andere linktext"
+        And   the element "#secondPageLink" contains the text "two"
+        And   the element "#secondPageLink" not contains the text "andere linktext"
         Then  I expect that element "#secondPageLink" contains the text "two"
         And   I expect that element "#secondPageLink" not contains the text "anderer linktext"
 
     Scenario: check input content
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the inputfield "//html/body/section/form/input[1]" does contain the text "a"
-        And   the inputfield "//html/body/section/form/input[1]" does not contain the text "aa"
+        And   the inputfield "//html/body/section/form/input[1]" contains the text "a"
+        And   the inputfield "//html/body/section/form/input[1]" not contains the text "aa"
         Then  I expect that inputfield "//html/body/section/form/input[1]" contains the text "a"
         And   I expect that inputfield "//html/body/section/form/input[1]" not contains the text "aa"
 
