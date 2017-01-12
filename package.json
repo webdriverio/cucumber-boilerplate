@@ -32,7 +32,7 @@
     "chai": "~3.5.0",
     "wdio-cucumber-framework": "~0.2.15",
     "wdio-phantomjs-service": "~0.2.2",
-    "wdio-selenium-standalone-service": "~0.0.6",
+    "wdio-selenium-standalone-service": "~0.0.7",
     "wdio-spec-reporter": "~0.0.5",
     "webdriverio": "~4.6.1"
   },
