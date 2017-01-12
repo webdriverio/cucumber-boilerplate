@@ -20,6 +20,4 @@ branches:
   only:
     - master
 
-before_script: "npm run-script local-webserver 2>&1 >/dev/null &"
-
-script: "eslint test/**/*.js && wdio wdio.BUILD.conf.js"
+script: "npm run-script test"
