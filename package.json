@@ -8,7 +8,7 @@
     "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" -n 1 -r; if [[ $REPLY =~ ^[Yy]$ ]]; then sudo rm -R .git .github demo-app test .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
     "local-webserver": "http-server ./demo-app -s",
     "test": "npm run test:validate && npm run test:unit && npm run test:features",
-    "test:features": "npm run-script local-webserver & (wdio; wdio_ret=$?; kill $(lsof -t -i:8080); exit $wdio_ret)",
+    "test:features": "npm run-script local-webserver & (wdio wdio.BUILD.conf.js; wdio_ret=$?; kill $(lsof -t -i:8080); exit $wdio_ret)",
     "test:unit": "jest --config=jest.json",
     "test:validate": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'"
   },
