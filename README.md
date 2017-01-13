@@ -11,9 +11,20 @@ Choose one of the following options:
 1. Download the latest stable release [here](https://github.com/webdriverio/cucumber-boilerplate/archive/master.zip) or
 2. Clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git`
 
-Then just embed the `src` directory into the root folder of your project and copy/install the [necessary dependencies
-from the package.json](https://github.com/webdriverio/cucumber-boilerplate/blob/master/package.json)
-file and you are all set.
+Then:
+- Copy the files to your project into a directory like `/integrationtests`
+
+- *On OSX/Linux:*
+-- Run `npm run clean`
+
+- *On Windows:*
+-- Remove the directories `/.git`, `/.github`, `/demo-app` & `/test`
+-- Remove the files `.travis.yml`, `jest.json` & `wdio.BUILD.conf.js`
+-- Remove all the demo features from the `/src/features` directory
+
+- Install the dependencies
+
+Now you are ready to write your own features.
 
 ## Features
 
