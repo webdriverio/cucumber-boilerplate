@@ -239,7 +239,7 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `I pause for (\d+)ms` <br>Pause for a certain number of milliseconds
 - `I set a cookie "([^"]*)?" with the content "([^"]*)?"` <br>Set the content of a cookie with the given name to  the given string
 - `I delete the cookie "([^"]*)?"` <br>Delete the cookie with the given name
-- `I press "([^"]*)?"` <br>Press a given key. You’ll find all supported characters [here](https://code.google.com/p/selenium/wiki/JsonWireProtocol#/session/:sessionId/element/:id/value). To do that, the value has to correspond to a key from the table.
+- `I press "([^"]*)?"` <br>Press a given key. You’ll find all supported characters [here](https://w3c.github.io/webdriver/webdriver-spec.html#keyboard-actions). To do that, the value has to correspond to a key from the table.
 - `I (accept|dismiss) the (alertbox|confirmbox|prompt)` <br>Accept or dismiss a modal window
 - `I enter "([^"]*)?" into the prompt` <br>Enter a given text into a modal prompt
 - `I scroll to element "([^"]*)?"` <br>Scroll to a given element
