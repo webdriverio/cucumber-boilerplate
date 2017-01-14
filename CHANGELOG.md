@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.0] - Unreleased
+## [1.1.0] - 2017-01-14
 ### Added 
 - Changelog
 - Unit-tests set-up using Jest
@@ -33,6 +33,7 @@ source of the project and separate if from the actual test code.
 - Updated readme
 - The demo app http-server now runs in silent mode to prevent console cluttering during tests
 - Updated contributing & pull request template with information about unit tests
+- Updated documentation link for keypress (thanks [@jjanssen](https://github.com/jjanssen))
 
 ### Fixed
 - Tests that where failing for unclear reasons
