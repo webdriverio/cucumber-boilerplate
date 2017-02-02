@@ -186,7 +186,7 @@ Scenario: check if username is present
 
 # List of predefined steps
 
-Check out all predefined snippets. You can see how they get used in [`sampleSnippets.feature`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/test/features/sampleSnippets.feature).
+Check out all predefined snippets. You can see how they get used in [`sampleSnippets.feature`](https://github.com/webdriverio/cucumber-boilerplate/blob/master/src/features/sampleSnippets.feature).
 
 ## Given steps
 
