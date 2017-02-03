@@ -1,10 +1,12 @@
-Cucumber Boilerplate [![Build Status](https://travis-ci.org/webdriverio/cucumber-boilerplate.svg?branch=master)](https://travis-ci.org/webdriverio/cucumber-boilerplate) [![Dependency Status](https://david-dm.org/webdriverio/cucumber-boilerplate.svg)](https://david-dm.org/webdriverio/cucumber-boilerplate) [![devDependency Status](https://david-dm.org/webdriverio/cucumber-boilerplate/dev-status.svg)](https://david-dm.org/webdriverio/cucumber-boilerplate/?type=dev) [![Code Climate](https://codeclimate.com/github/webdriverio/cucumber-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/webdriverio/cucumber-boilerplate) [![Test Coverage](https://codeclimate.com/github/webdriverio/cucumber-boilerplate/badges/coverage.svg)](https://codeclimate.com/github/webdriverio/cucumber-boilerplate/coverage)
+# Cucumber Boilerplate 
+
+[![Build Status](https://travis-ci.org/webdriverio/cucumber-boilerplate.svg?branch=master)](https://travis-ci.org/webdriverio/cucumber-boilerplate) [![Dependency Status](https://www.versioneye.com/user/projects/58932d83b166b5004053c63c/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/58932d83b166b5004053c63c) [![Code Climate](https://codeclimate.com/github/webdriverio/cucumber-boilerplate/badges/gpa.svg)](https://codeclimate.com/github/webdriverio/cucumber-boilerplate) [![Test Coverage](https://codeclimate.com/github/webdriverio/cucumber-boilerplate/badges/coverage.svg)](https://codeclimate.com/github/webdriverio/cucumber-boilerplate/coverage)
 
 ====================
 
 Boilerplate project to run WebdriverIO tests with [Cucumber](https://cucumber.io/) and brings **true** [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) to JavaScript. Instead of writing complicated test code that only developers can understand, Cucumber maps an ordinary language to code and allows to start with the test process in the early stages of your product development.
 
-# Quick start
+## Quick start
 
 Choose one of the following options:
 
