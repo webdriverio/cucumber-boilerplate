@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.1] - UNRELEASED
+### Added
+- Requirements section to the readme
+
+### Changed
+- Dependency monitor switched from David to VersionEye
+- Updated the readme to change the badges & fix the main heading
+- Updated dependencies
+
+### Fixed
+- CodeClimate integration & test-coverage
+- Missing cucumber dependency (problem when installing using Yarn as the peerdependency of the wdio-cucumber-framework is not installed)
+
+
 ## [1.1.0] - 2017-01-14
 ### Added 
 - Changelog
