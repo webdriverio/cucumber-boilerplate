@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.1] - UNRELEASED
+## [1.1.1] - 2017-03-03
 ### Added
 - Requirements section to the readme
 
