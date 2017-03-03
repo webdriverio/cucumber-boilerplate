@@ -6,16 +6,20 @@
 
 Boilerplate project to run WebdriverIO tests with [Cucumber](https://cucumber.io/) and brings **true** [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) to JavaScript. Instead of writing complicated test code that only developers can understand, Cucumber maps an ordinary language to code and allows to start with the test process in the early stages of your product development.
 
+## Requirements
+
+- Node version 4 or higher
+
 ## Quick start
 
 Choose one of the following options:
 
-1. Download the latest stable release [here](https://github.com/webdriverio/cucumber-boilerplate/archive/master.zip) or
-2. Clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git`
+1. Download the latest stable release [here](https://github.com/webdriverio/cucumber-boilerplate/archive/master.zip) or clone the git repo — `git clone https://github.com/webdriverio/cucumber-boilerplate.git`
 
-Then:
-- Copy the files to your project into a directory like `/integrationtests`
+2. Then:
+- Copy the files to your project into a directory like `/integrationtests` (note the hidden files!)
 
+3. Clean the project (Optional):
 - *On OSX/Linux:*
 -- Run `npm run clean`
 
@@ -24,7 +28,7 @@ Then:
 -- Remove the files `.travis.yml`, `jest.json` & `wdio.BUILD.conf.js`
 -- Remove all the demo features from the `/src/features` directory
 
-- Install the dependencies
+4. Install the dependencies (`npm install` or `yarn install`)
 
 Now you are ready to write your own features.
 
