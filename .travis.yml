@@ -21,6 +21,7 @@ addons:
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 
 script: "npm run-script test"
 
