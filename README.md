@@ -44,7 +44,7 @@ Now you are ready to write your own features.
 
 # How to write a test
 
-Tests are written in [Gherkin syntax](http://docs.behat.org/en/latest/guides/1.gherkin.html#gherkin-syntax)
+Tests are written in [Gherkin syntax](https://cucumber.io/docs/reference)
 that means that you write down what's supposed to happen in a real language. All test files are located in
 `./src/features/*` and have the file ending `.feature`. You will already find some test files in that
 directory. They should demonstrate, how tests could look like. Just create a new file and write your first
