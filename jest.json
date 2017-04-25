@@ -15,7 +15,7 @@
   ],
   "notify": true,
   "setupTestFrameworkScriptFile": "./test/setup.js",
-  "testPathDirs": [
+  "roots": [
     "test/"
   ],
   "moduleDirectories": [
