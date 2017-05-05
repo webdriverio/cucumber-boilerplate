@@ -137,28 +137,27 @@ If you want to run only specific tests you can mark your features with tags. The
 Feature: ...
 ```
 
-To run only the tests with specific tag(s) use the `--tags=` parameter like so:
+To run only the tests with specific tag(s) use the `--cucumberOpts.tags=` parameter like so:
 
 Only @Tag
 ```sh
-$ wdio --cucumberOpts.tags="@Tag"
+$ wdio --cucumberOpts.tags=@Tag
 ```
 
 Not @Tag
 ```sh
-$ wdio --cucumberOpts.tags="~@Tag"
+$ wdio --cucumberOpts.tags=~@Tag
 ```
 
 @Tag1 AND @Tag2
 ```sh
-$ wdio --cucumberOpts.tags="@Tag1","Tag2"
+$ wdio --cucumberOpts.tags=@Tag1 --cucumberOpts.tags=@Tag2
 ```
 
 @Tag1 OR @Tag2
 ```sh
-$ wdio --cucumberOpts.tags="@Tag1,@Tag2"
+$ wdio --cucumberOpts.tags=@Tag1,@Tag2
 ```
-Note this currently doesn't work as intended and will translate into an AND, [see following issue](https://github.com/webdriverio/wdio-cucumber-framework/issues/53)
 
 # Pending test
 
