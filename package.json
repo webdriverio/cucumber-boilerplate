@@ -30,7 +30,7 @@
     "babel-preset-es2015": "~6.24.0",
     "babel-register": "~6.24.0",
     "chai": "~3.5.0",
-    "cucumber": "~1.3.1",
+    "cucumber": "~2.1.0",
     "wdio-cucumber-framework": "~0.3.0",
     "wdio-phantomjs-service": "~0.2.2",
     "wdio-selenium-standalone-service": "~0.0.8",
