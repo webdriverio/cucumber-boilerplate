@@ -25,10 +25,10 @@ module.exports = (modalType, falseState, done) => {
     } catch (e) {
         if (!falseState) {
             expect(promptText).to
-            .equal(
-                null,
-                `A ${modalType} was not opened when it should have been opened`
-            );
+                .equal(
+                    null,
+                    `A ${modalType} was not opened when it should have been`
+                );
         }
     }
 

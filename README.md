@@ -9,7 +9,9 @@ Boilerplate project to run WebdriverIO tests with [Cucumber](https://cucumber.io
 
 ## Requirements
 
-- Node version 4 or higher
+- Node version 6 or higher
+
+Although this project works fine with NPM we recommend to use Yarn (>= 0.20.0) instead,  due to its speed & solid dependency locking mechanism. To keep things simple we use yarn in this guide, but feel free to replace this with NPM if that is what you are using.
 
 ## Quick start
 
@@ -22,14 +24,14 @@ Choose one of the following options:
 
 3. Clean the project (Optional):
 - *On OSX/Linux:*
--- Run `npm run clean`
+-- Run `yarn run clean`
 
 - *On Windows:*
 -- Remove the directories `/.git`, `/.github`, `/demo-app` & `/test`
 -- Remove the files `.travis.yml`, `jest.json` & `wdio.BUILD.conf.js`
 -- Remove all the demo features from the `/src/features` directory
 
-4. Install the dependencies (`npm install` or `yarn install`)
+4. Install the dependencies (`yarn install`)
 
 Now you are ready to write your own features.
 
@@ -76,13 +78,13 @@ query after doing a search. As you can see, it is pretty simple and understandab
 Start the local web server:
 
 ```sh
-$ npm run-script local-webserver
+$ yarn run local-webserver
 ```
 
 To run your tests just call the [WDIO runner](http://webdriver.io/guide/testrunner/gettingstarted.html):
 
 ```sh
-$ wdio
+$ yarn run wdio
 ```
 
 _please note_ The WDIO runner uses the configuration file `wdio.conf.js` by default.
@@ -117,14 +119,14 @@ Your environment-specific config file will get merged into the default config fi
 To run a test in a specific environment just add the desired configuration file as the first parameter:
 
 ```sh
-$ wdio wdio.STAGING.conf.js
+$ yarn run wdio wdio.STAGING.conf.js
 ```
 
 # Running single feature
 Sometimes its useful to only execute a single feature file, to do so use the following command:
 
 ```sh
-$ wdio --spec ./test/features/select.feature
+$ yarn run wdio -- --spec ./test/features/select.feature
 ```
 
 
@@ -140,7 +142,7 @@ Feature: ...
 To run only the tests with specific tag(s) use the `--tags=` parameter like so:
 
 ```sh
-$ wdio --tags=@Tag,@AnotherTag
+$ yarn run wdio -- --tags=@Tag,@AnotherTag
 ```
 
 You can add multiple tags separated by a comma
@@ -205,8 +207,9 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `there is (an|no) element "([^"]*)?" on the page` <br>Check if a element (does not) exist
 - `the title is( not)* "([^"]*)?"` <br>Check the title of the current browser window/tab
 - `the element "([^"]*)?" contains( not)* the same text as element "([^"]*)?"` <br>Compaire the text of two elements
-- `the (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if a element contains the given text
-- `the (element|inputfield) "([^"]*)?"( not)* contains any text` <br>Check if a element does not contain any text
+- `the element "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if a element contains the given text
+- `the element "([^"]*)?"( not)* contains any text` <br>Check if a element does not contain any text
+- `the element "([^"]*)?" is( not)* empty` <br>Check if a element is empty
 - `the page url is( not)* "([^"]*)?"` <br>Check the url of the current browser window/tab
 - `the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"` <br>Check the value of a element's (css) attribute
 - `the cookie "([^"]*)?" contains( not)* the value "([^"]*)?"` <br>Check the value of a cookie
@@ -225,9 +228,9 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `I expect that element "([^"]*)?" is( not)* within the viewport` <br>Check if a certain element is within the current viewport
 - `I expect that element "([^"]*)?" does( not)* exist` <br>Check if a certain element exists
 - `I expect that element "([^"]*)?"( not)* contains the same text as element "([^"]*)?"` <br>Compare the text of two elements
-- `I expect that (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if a element or input field contains the given text
-- `I expect that (element|inputfield) "([^"]*)?"( not)* contains any text` <br>Check if a element or input field contains any text
-- `I expect that (element|inputfield) "([^"]*)?" is( not)* empty` <br>Check if a element or input field is empty
+- `I expect that element "([^"]*)?"( not)* contains the text "([^"]*)?"` <br>Check if a element or input field contains the given text
+- `I expect that element "([^"]*)?"( not)* contains any text` <br>Check if a element or input field contains any text
+- `I expect that element "([^"]*)?" is( not)* empty` <br>Check if a element or input field is empty
 - `I expect that the url is( not)* "([^"]*)?"` <br>Check if the the URL of the current browser window/tab is a certain string
 - `I expect that the path is( not)* "([^"]*)?"` <br>Check if the path of the URL of the current browser window/tab is a certain string
 - `I expect the url to( not)* contain "([^"]*)?"` <br>Check if the URL of the current browser window/tab contains a certain string

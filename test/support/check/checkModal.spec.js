@@ -43,7 +43,7 @@ describe(
             _expect(expectToEqual).toHaveBeenCalledTimes(1);
             _expect(expectToEqual).toHaveBeenCalledWith(
                 null,
-                'A alertbox was not opened when it should have been opened'
+                'A alertbox was not opened when it should have been'
             );
 
             _expect(done).toHaveBeenCalledTimes(1);

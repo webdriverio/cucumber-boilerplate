@@ -107,10 +107,10 @@ describe(
 
                 _expect(expectToEqual).toHaveBeenCalledTimes(1);
                 _expect(expectToEqual).toHaveBeenCalledWith(
-                        'element-name',
-                        'Attribute of element "#elem3" should not contain ' +
-                        '"element-name", but "element-name"'
-                    );
+                    'element-name',
+                    'Attribute of element "#elem3" should not contain ' +
+                    '"element-name", but "element-name"'
+                );
 
                 _expect(done).toHaveBeenCalledTimes(1);
             }
