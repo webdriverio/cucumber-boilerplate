@@ -1,6 +1,6 @@
 {
   "name": "cucumber-boilerplate",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
   "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
   "scripts": {
