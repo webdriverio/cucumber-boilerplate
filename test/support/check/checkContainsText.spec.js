@@ -3,23 +3,30 @@ import checkContainsText from 'src/support/check/checkContainsText';
 describe(
     'checkContainsText', () => {
         let done;
-        let expectToEqual;
-        let expectToNotEqual;
+        let expectToContain;
+        let expectToNotContain;
 
         beforeEach(() => {
             global.browser = {
+                getAttribute: jest.fn((element) => {
+                    if (element === 'element1') {
+                        return null;
+                    }
+
+                    return '';
+                }),
                 getText: jest.fn(() => 'text'),
                 getValue: jest.fn(() => 'value'),
             };
 
-            expectToEqual = jest.fn();
-            expectToNotEqual = jest.fn();
+            expectToContain = jest.fn();
+            expectToNotContain = jest.fn();
 
             global.expect = jest.fn(() => ({
                 to: {
-                    equal: expectToEqual,
+                    contain: expectToContain,
                     not: {
-                        equal: expectToNotEqual,
+                        contain: expectToNotContain,
                     },
                 },
             }));
@@ -30,7 +37,7 @@ describe(
         it(
             'should call checkContainsText on the browser object',
             () => {
-                checkContainsText('element', 'element1', 'text', done);
+                checkContainsText('element1', 'text', done);
 
                 _expect(global.browser.getText).toHaveBeenCalledTimes(1);
                 _expect(global.browser.getText)
@@ -39,8 +46,8 @@ describe(
                 _expect(global.expect).toHaveBeenCalledTimes(1);
                 _expect(global.expect).toHaveBeenCalledWith('text');
 
-                _expect(expectToEqual).toHaveBeenCalledTimes(1);
-                _expect(expectToEqual).toHaveBeenCalledWith('text');
+                _expect(expectToContain).toHaveBeenCalledTimes(1);
+                _expect(expectToContain).toHaveBeenCalledWith('text');
 
                 _expect(done).toHaveBeenCalledTimes(1);
             }
@@ -49,7 +56,7 @@ describe(
         it(
             'should call checkContainsText on the browser object',
             () => {
-                checkContainsText('element', 'element1', ' not', 'text', done);
+                checkContainsText('element1', ' not', 'text', done);
 
                 _expect(global.browser.getText).toHaveBeenCalledTimes(1);
                 _expect(global.browser.getText)
@@ -58,8 +65,8 @@ describe(
                 _expect(global.expect).toHaveBeenCalledTimes(1);
                 _expect(global.expect).toHaveBeenCalledWith('text');
 
-                _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-                _expect(expectToNotEqual).toHaveBeenCalledWith('text');
+                _expect(expectToNotContain).toHaveBeenCalledTimes(1);
+                _expect(expectToNotContain).toHaveBeenCalledWith('text');
 
                 _expect(done).toHaveBeenCalledTimes(1);
             }
@@ -69,21 +76,20 @@ describe(
             'should call checkContainsText on the browser object',
             () => {
                 checkContainsText(
-                    'inputfield',
-                    'element1',
+                    'element2',
                     'text',
                     done
                 );
 
                 _expect(global.browser.getValue).toHaveBeenCalledTimes(1);
                 _expect(global.browser.getValue)
-                    .toHaveBeenCalledWith('element1');
+                    .toHaveBeenCalledWith('element2');
 
                 _expect(global.expect).toHaveBeenCalledTimes(1);
                 _expect(global.expect).toHaveBeenCalledWith('value');
 
-                _expect(expectToEqual).toHaveBeenCalledTimes(1);
-                _expect(expectToEqual).toHaveBeenCalledWith('text');
+                _expect(expectToContain).toHaveBeenCalledTimes(1);
+                _expect(expectToContain).toHaveBeenCalledWith('text');
 
                 _expect(done).toHaveBeenCalledTimes(1);
             }
@@ -93,8 +99,7 @@ describe(
             'should call checkContainsText on the browser object',
             () => {
                 checkContainsText(
-                    'inputfield',
-                    'element1',
+                    'element2',
                     ' not',
                     'text',
                     done
@@ -102,13 +107,13 @@ describe(
 
                 _expect(global.browser.getValue).toHaveBeenCalledTimes(1);
                 _expect(global.browser.getValue)
-                    .toHaveBeenCalledWith('element1');
+                    .toHaveBeenCalledWith('element2');
 
                 _expect(global.expect).toHaveBeenCalledTimes(1);
                 _expect(global.expect).toHaveBeenCalledWith('value');
 
-                _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-                _expect(expectToNotEqual).toHaveBeenCalledWith('text');
+                _expect(expectToNotContain).toHaveBeenCalledTimes(1);
+                _expect(expectToNotContain).toHaveBeenCalledWith('text');
 
                 _expect(done).toHaveBeenCalledTimes(1);
             }

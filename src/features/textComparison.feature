@@ -31,7 +31,7 @@ Feature: Test text contents of elements
         Then I expect that element "#textDoesContainCucumber" contains the text "This element contains cucumber"
 
     Scenario: Input containing different text
-        Then I expect that inputfield "#valueDoesNotContainCucumber" not contains the text "This input contains cucumber"
+        Then I expect that element "#valueDoesNotContainCucumber" not contains the text "This input contains cucumber"
 
     Scenario: Input containing the same text
-        Then I expect that inputfield "#valueDoesContainCucumber" contains the text "This input contains cucumber"
+        Then I expect that element "#valueDoesContainCucumber" contains the text "This input contains cucumber"

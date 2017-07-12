@@ -1,5 +1,6 @@
 import checkClass from '../support/check/checkClass';
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
+import checkIsEmpty from '../support/check/checkIsEmpty';
 import checkContainsText from '../support/check/checkContainsText';
 import checkCookieContent from '../support/check/checkCookieContent';
 import checkCookieExists from '../support/check/checkCookieExists';
@@ -58,23 +59,23 @@ module.exports = function then() {
     );
 
     this.Then(
-        /^I expect that (element|inputfield) "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
+        /^I expect that element "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
         checkEqualsText
     );
 
     this.Then(
-        /^I expect that (element|inputfield) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
+        /^I expect that element "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
         checkContainsText
     );
 
     this.Then(
-        /^I expect that (element|inputfield) "([^"]*)?"( not)* contains any text$/,
+        /^I expect that element "([^"]*)?"( not)* contains any text$/,
         checkContainsAnyText
     );
 
     this.Then(
-        /^I expect that (element|inputfield) "([^"]*)?" is( not)* empty$/,
-        checkContainsAnyText
+        /^I expect that element "([^"]*)?" is( not)* empty$/,
+        checkIsEmpty
     );
 
     this.Then(

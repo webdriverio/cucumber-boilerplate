@@ -8,6 +8,13 @@ describe(
 
         beforeEach(() => {
             global.browser = {
+                getAttribute: jest.fn((element) => {
+                    if (element === 'element1') {
+                        return '';
+                    }
+
+                    return null;
+                }),
                 getText: jest.fn(() => 'text'),
                 getValue: jest.fn(() => 'value'),
             };
@@ -28,7 +35,7 @@ describe(
         });
 
         it('Should handle input fields', () => {
-            checkContent('inputfield', 'element1', false, done);
+            checkContent('element1', false, done);
 
             _expect(global.browser.getText).not.toHaveBeenCalledTimes(1);
 
@@ -43,7 +50,7 @@ describe(
         });
 
         it('Should handle elements', () => {
-            checkContent('element', 'element2', false, done);
+            checkContent('element2', false, done);
 
             _expect(global.browser.getText).toHaveBeenCalledTimes(1);
             _expect(global.browser.getText).toHaveBeenCalledWith('element2');
@@ -57,7 +64,7 @@ describe(
         });
 
         it('Handle the false case', () => {
-            checkContent('element', 'element3', true, done);
+            checkContent('element3', true, done);
 
             _expect(global.browser.getText).toHaveBeenCalledTimes(1);
             _expect(global.browser.getText).toHaveBeenCalledWith('element3');
@@ -71,7 +78,7 @@ describe(
         });
 
         it('should handle no expected text and no falsecase', () => {
-            checkContent('element', 'element4', done);
+            checkContent('element4', done);
 
             _expect(global.browser.getText).toHaveBeenCalledTimes(1);
             _expect(global.browser.getText).toHaveBeenCalledWith('element4');

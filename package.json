@@ -1,13 +1,13 @@
 {
   "name": "cucumber-boilerplate",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
   "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
   "scripts": {
-    "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" -n 1 -r; if [[ $REPLY =~ ^[Yy]$ ]]; then sudo rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
+    "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" REPLY; if [[ $REPLY =~ ^[Yy]$ ]]; then rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
     "local-webserver": "http-server ./demo-app -s",
     "test": "npm run test:validate && npm run test:unit && npm run test:features",
-    "test:features": "npm run-script local-webserver & (wdio wdio.BUILD.conf.js; wdio_ret=$?; kill $(lsof -t -i:8080); exit $wdio_ret)",
+    "test:features": "npm run local-webserver & (wdio wdio.BUILD.conf.js; wdio_ret=$?; kill $(lsof -t -i:8080); exit $wdio_ret)",
     "test:unit": "jest --config=jest.json",
     "test:validate": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'"
   },
@@ -25,25 +25,26 @@
     "selenium"
   ],
   "author": "Christian Bromann <christian@saucelabs.com>",
+  "contributors": [
+    "W. van Kuipers <github@pwnd.nl>"
+  ],
   "license": "MIT",
   "dependencies": {
     "babel-preset-es2015": "~6.24.0",
     "babel-register": "~6.24.0",
     "chai": "~4.1.0",
-    "cucumber": "~2.2.0",
-    "wdio-cucumber-framework": "~0.3.0",
+    "wdio-cucumber-framework": "~0.3.1",
     "wdio-phantomjs-service": "~0.2.2",
-    "wdio-selenium-standalone-service": "~0.0.8",
+    "wdio-selenium-standalone-service": "~0.0.9",
     "wdio-spec-reporter": "~0.1.0",
-    "webdriverio": "~4.8.0"
+    "webdriverio": "4.7.1"
   },
   "devDependencies": {
-    "babel-jest": "~20.0.0",
     "babel-polyfill": "~6.23.0",
     "eslint": "~4.2.0",
     "eslint-config-airbnb-base": "~11.2.0",
-    "eslint-plugin-import": "~2.6.0",
+    "eslint-plugin-import": "~2.7.0",
     "http-server": "~0.10.0",
-    "jest": "~20.0.0"
+    "jest": "~20.0.4"
   }
 }

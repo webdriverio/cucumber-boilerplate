@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.2.0] - 2017-07-12
+### Added
+- Rules:
+    - [Given] `I expect that element "([^"]*)?" is( not)* empty$`
+
+### Changed
+- Switched to [Yarn]() for managing our packages
+- Readme to reflect Yarn changes
+- Updated dependencies
+- Removed no longer needed dependencies Cucumber and Babel-jest
+- Locked Webdriverio to 4.7.1 to make sure we don't upgrade before all deprecated functions will be fixed
+- Removed specific element/inputfield requirement from checkContainsAnyText, checkContainsText and checkEqualsText check's (thanks [cheapsteak](https://github.com/cheapsteak))
+
+### Fixed
+- `checkCointainsText` now correctly checks if the given element actualy contains the given text (thanks [inspiraller](https://github.com/inspiraller))
+- Removed unneeded sudo from `clean` script (thanks [l-hendriks](https://github.com/l-hendriks))
+- ESLint error's after upgrading ESLint
+- Resolved an issue with running `yarn run clean` in Bash (thanks [mondwan](https://github.com/mondwan))
+- Fixed `^I expect that element "([^"]*)?" is( not)* empty$` then rule (thanks [stevezxu](https://github.com/stevezxu))
+
+
 ## [1.1.1] - 2017-03-03
 ### Added
 - Requirements section to the readme
@@ -15,7 +36,7 @@
 
 
 ## [1.1.0] - 2017-01-14
-### Added 
+### Added
 - Changelog
 - Unit-tests set-up using Jest
 - Basic unit-tests for all Javascript code
@@ -26,12 +47,12 @@
 - Favicon to the demo-app
 
 ### Changed
-- Moved the boilerplate code from `test/` to `src/` to make clear it's the 
+- Moved the boilerplate code from `test/` to `src/` to make clear it's the
 source of the project and separate if from the actual test code.
 - ESLint configuration now matches ES6 `comma-dangle`
 - Updated dependencies
-    - `babel-reset-2015` 
-    - `babel-register` 
+    - `babel-reset-2015`
+    - `babel-register`
     - `wdio-phantomjs-service`
     - `webdriverio`
     - `wdio-cucumber-framework`

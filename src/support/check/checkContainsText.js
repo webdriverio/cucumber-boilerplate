@@ -1,18 +1,21 @@
 /**
  * Check if the given elements contains text
- * @param  {String}   type          Type of element (inputfield or element)
  * @param  {String}   element       Element selector
  * @param  {String}   falseCase     Whether to check if the content contains
  *                                  the given text or not
  * @param  {String}   expectedText  The text to check against
  * @param  {Function} done          Function to execute when finished
  */
-module.exports = (type, element, falseCase, expectedText, done) => {
+module.exports = (element, falseCase, expectedText, done) => {
     /**
      * The command to perform on the browser object
      * @type {String}
      */
-    const command = (type !== 'inputfield') ? 'getText' : 'getValue';
+    let command = 'getValue';
+
+    if (browser.getAttribute(element, 'value') === null) {
+        command = 'getText';
+    }
 
     /**
      * False case
@@ -47,9 +50,9 @@ module.exports = (type, element, falseCase, expectedText, done) => {
     }
 
     if (boolFalseCase) {
-        expect(text).to.not.equal(stringExpectedText);
+        expect(text).to.not.contain(stringExpectedText);
     } else {
-        expect(text).to.equal(stringExpectedText);
+        expect(text).to.contain(stringExpectedText);
     }
 
     doneCallback();
