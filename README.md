@@ -137,13 +137,27 @@ If you want to run only specific tests you can mark your features with tags. The
 Feature: ...
 ```
 
-To run only the tests with specific tag(s) use the `--tags=` parameter like so:
+To run only the tests with specific tag(s) use the `--cucumberOpts.tags=` parameter like so:
 
+Only @Tag
 ```sh
-$ wdio --tags=@Tag,@AnotherTag
+$ wdio --cucumberOpts.tags=@Tag
 ```
 
-You can add multiple tags separated by a comma
+Not @Tag
+```sh
+$ wdio --cucumberOpts.tags=~@Tag
+```
+
+@Tag1 AND @Tag2
+```sh
+$ wdio --cucumberOpts.tags=@Tag1 --cucumberOpts.tags=@Tag2
+```
+
+@Tag1 OR @Tag2
+```sh
+$ wdio --cucumberOpts.tags=@Tag1,@Tag2
+```
 
 # Pending test
 
