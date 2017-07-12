@@ -29,7 +29,7 @@
   "dependencies": {
     "babel-preset-es2015": "~6.24.0",
     "babel-register": "~6.24.0",
-    "chai": "~4.0.0",
+    "chai": "~4.1.0",
     "cucumber": "~2.2.0",
     "wdio-cucumber-framework": "~0.3.0",
     "wdio-phantomjs-service": "~0.2.2",
