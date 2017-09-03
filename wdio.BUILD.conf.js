@@ -1,9 +1,9 @@
-const config = require('./wdio.conf.js').config;
+const wdioConfig = require('./wdio.conf.js');
 
-config.capabilities = [{
+wdioConfig.config.capabilities = [{
     browserName: 'phantomjs',
 }];
 
-config.services = ['phantomjs'];
+wdioConfig.config.services = ['phantomjs'];
 
-exports.config = config;
+exports.config = wdioConfig.config;
