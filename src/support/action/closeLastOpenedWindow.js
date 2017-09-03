@@ -1,9 +1,10 @@
 /**
  * Close the last opened window
- * @param  {String}   type Type of object to close (window or tab)
- * @param  {Function} done Function to execute when finished
+ * @param  {String}   obsolete Type of object to close (window or tab)
  */
-module.exports = (type, done) => {
+/* eslint-disable no-unused-vars */
+module.exports = (obsolete) => {
+/* eslint-enable no-unused-vars */
     /**
      * The last opened window handle
      * @type {Object}
@@ -11,7 +12,6 @@ module.exports = (type, done) => {
     const lastWindowHandle = browser.windowHandles().value.slice(-1)[0];
 
     browser.window(lastWindowHandle);
-    browser.close();
 
-    done();
+    browser.close();
 };

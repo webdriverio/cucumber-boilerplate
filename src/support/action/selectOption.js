@@ -4,9 +4,8 @@
  *                                   text)
  * @param  {String}   selectionValue Value to select by
  * @param  {String}   selectElem     Element selector
- * @param  {Function} done           Function to execute when finished
  */
-module.exports = (selectionType, selectionValue, selectElem, done) => {
+module.exports = (selectionType, selectionValue, selectElem) => {
     /**
      * Arguments to pass to the selection method
      * @type {Array}
@@ -29,7 +28,7 @@ module.exports = (selectionType, selectionValue, selectElem, done) => {
     let command = '';
 
     switch (selectionType) {
-        case 'name' : {
+        case 'name': {
             command = 'selectByAttribute';
 
             // The selectByAttribute command expects the attribute name as it
@@ -39,12 +38,12 @@ module.exports = (selectionType, selectionValue, selectElem, done) => {
             break;
         }
 
-        case 'value' : {
+        case 'value': {
             command = 'selectByValue';
             break;
         }
 
-        case 'text' : {
+        case 'text': {
             command = 'selectByVisibleText';
             break;
         }
@@ -55,6 +54,4 @@ module.exports = (selectionType, selectionValue, selectElem, done) => {
     }
 
     element[command].apply(this, commandArguments);
-
-    done();
 };

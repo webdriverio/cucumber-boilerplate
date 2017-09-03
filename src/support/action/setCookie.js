@@ -3,13 +3,10 @@
  * be created
  * @param  {String}   cookieName    The name of the cookie
  * @param  {String}   cookieContent The value of the cookie
- * @param  {Function} done          Function to execute when finished
  */
-module.exports = (cookieName, cookieContent, done) => {
+module.exports = (cookieName, cookieContent) => {
     browser.setCookie({
         name: cookieName,
         value: cookieContent,
     });
-
-    done();
 };

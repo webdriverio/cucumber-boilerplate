@@ -3,9 +3,8 @@
  * @param  {String}   element   Element selector
  * @param  {String}   falseCase Whether to check if the element is visible
  *                              within the current viewport or not
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (element, falseCase, done) => {
+module.exports = (element, falseCase) => {
     /**
      * The state of visibility of the given element inside the viewport
      * @type {Boolean}
@@ -25,6 +24,4 @@ module.exports = (element, falseCase, done) => {
                 `Expected element "${element}" to be inside the viewport`
             );
     }
-
-    done();
 };

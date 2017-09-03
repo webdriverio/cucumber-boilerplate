@@ -1,3 +1,5 @@
+import { defineSupportCode } from 'cucumber';
+
 import checkClass from '../support/check/checkClass';
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
 import checkIsEmpty from '../support/check/checkIsEmpty';
@@ -27,144 +29,150 @@ import isVisible from '../support/check/isVisible';
 import waitFor from '../support/action/waitFor';
 import waitForVisible from '../support/action/waitForVisible';
 
-module.exports = function then() {
-    this.Then(
+
+defineSupportCode(({ Then }) => {
+    Then(
         /^I expect that the title is( not)* "([^"]*)?"$/,
         checkTitle
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* visible$/,
         isVisible
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" becomes( not)* visible$/,
         waitForVisible
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* within the viewport$/,
         checkWithinViewport
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" does( not)* exist$/,
         isExisting
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?"( not)* contains the same text as element "([^"]*)?"$/,
         compareText
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
         checkEqualsText
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
         checkContainsText
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?"( not)* contains any text$/,
         checkContainsAnyText
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* empty$/,
         checkIsEmpty
     );
 
-    this.Then(
+    Then(
         /^I expect that the url is( not)* "([^"]*)?"$/,
         checkURL
     );
 
-    this.Then(
+    Then(
         /^I expect that the path is( not)* "([^"]*)?"$/,
         checkURLPath
     );
 
-    this.Then(
+    Then(
         /^I expect the url to( not)* contain "([^"]*)?"$/,
         checkInURLPath
     );
 
-    this.Then(
+    Then(
         /^I expect that the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
         checkProperty
     );
 
-    this.Then(
+    Then(
         /^I expect that checkbox "([^"]*)?" is( not)* checked$/,
         checkSelected
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* selected$/,
         checkSelected
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* enabled$/,
         isEnabled
     );
 
-    this.Then(
+    Then(
         /^I expect that cookie "([^"]*)?"( not)* contains "([^"]*)?"$/,
         checkCookieContent
     );
 
-    this.Then(
+    Then(
         /^I expect that cookie "([^"]*)?"( not)* exists$/,
         checkCookieExists
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)$/,
         checkDimension
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
         checkOffset
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" (has|does not have) the class "([^"]*)?"$/,
         checkClass
     );
 
-    this.Then(
+    Then(
         /^I expect a new (window|tab) has( not)* been opened$/,
         checkNewWindow
     );
 
-    this.Then(
+    Then(
         /^I expect the url "([^"]*)?" is opened in a new (tab|window)$/,
         checkIsOpenedInNewWindow
     );
 
-    this.Then(
+    Then(
         /^I expect that element "([^"]*)?" is( not)* focused$/,
         checkFocus
     );
 
-    this.Then(
-        /^I wait on element "([^"]*)?"( for (\d+)ms)*( to( not)* (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*$/,
+    Then(
+        /^I wait on element "([^"]*)?"(?: for (\d+)ms)*(?: to( not)* (be checked|be enabled|be selected|be visible|contain a text|contain a value|exist))*$/,
+        {
+            wrapperOptions: {
+                retry: 3,
+            },
+        },
         waitFor
     );
 
-    this.Then(
+    Then(
         /^I expect that a (alertbox|confirmbox|prompt) is( not)* opened$/,
         checkModal
     );
 
-    this.Then(
+    Then(
         /^I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "([^"]*)?"$/,
         checkModalText
     );
-};
+});

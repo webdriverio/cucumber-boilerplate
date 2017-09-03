@@ -4,9 +4,8 @@
  * @param  {String}   falseCase     Whether to check if the content contains
  *                                  the given text or not
  * @param  {String}   expectedText  The text to check against
- * @param  {Function} done          Function to execute when finished
  */
-module.exports = (element, falseCase, expectedText, done) => {
+module.exports = (element, falseCase, expectedText) => {
     /**
      * The command to perform on the browser object
      * @type {String}
@@ -30,19 +29,12 @@ module.exports = (element, falseCase, expectedText, done) => {
     let stringExpectedText = expectedText;
 
     /**
-     * Callback to trigger when done
-     * @type {Function}
-     */
-    let doneCallback = done;
-
-    /**
      * The text of the element
      * @type {String}
      */
     const text = browser[command](element);
 
-    if (typeof expectedText === 'function') {
-        doneCallback = expectedText;
+    if (typeof expectedText === 'undefined') {
         stringExpectedText = falseCase;
         boolFalseCase = false;
     } else {
@@ -54,6 +46,4 @@ module.exports = (element, falseCase, expectedText, done) => {
     } else {
         expect(text).to.contain(stringExpectedText);
     }
-
-    doneCallback();
 };

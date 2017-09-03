@@ -4,9 +4,8 @@
  * @param  {String}   falseCase     Whether or not to check if the value matches
  *                                  or not
  * @param  {String}   expectedValue The value to check against
- * @param  {Function} done          Function to execute when finished
  */
-module.exports = (name, falseCase, expectedValue, done) => {
+module.exports = (name, falseCase, expectedValue) => {
     /**
      * The cookie retrieved from the browser object
      * @type {Object}
@@ -32,6 +31,4 @@ module.exports = (name, falseCase, expectedValue, done) => {
                 ` but got "${cookie.value}"`
             );
     }
-
-    done();
 };

@@ -3,9 +3,8 @@
  * @param  {[type]}   name      The name of the cookie
  * @param  {[type]}   falseCase Whether or not to check if the cookie exists or
  *                              not
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (name, falseCase, done) => {
+module.exports = (name, falseCase) => {
     /**
      * The cookie as retrieved from the browser
      * @type {Object}
@@ -23,6 +22,4 @@ module.exports = (name, falseCase, done) => {
             `Expected cookie "${name}" to exists but it does not`
         );
     }
-
-    done();
 };

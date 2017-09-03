@@ -4,9 +4,8 @@
  * @param  {String}   falseCase         Whether to check for the class to exist
  *                                      or not ('has', 'does not have')
  * @param  {String}   expectedClassName The class name to check
- * @param  {Function} done              Function to execute when finished
  */
-module.exports = (elem, falseCase, expectedClassName, done) => {
+module.exports = (elem, falseCase, expectedClassName) => {
     /**
      * List of all the classes of the element
      * @type {Array}
@@ -26,6 +25,4 @@ module.exports = (elem, falseCase, expectedClassName, done) => {
                 `Element ${elem} should have the class ${expectedClassName}`
             );
     }
-
-    done();
 };

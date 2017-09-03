@@ -5,9 +5,8 @@
  *                                 not
  * @param  {String}   expectedSize Expected size
  * @param  {String}   dimension    Dimension to check (broad or tall)
- * @param  {Function} done         Function to execute when finished
  */
-module.exports = (elem, falseCase, expectedSize, dimension, done) => {
+module.exports = (elem, falseCase, expectedSize, dimension) => {
     /**
      * The size of the given element
      * @type {Object}
@@ -52,6 +51,4 @@ module.exports = (elem, falseCase, expectedSize, dimension, done) => {
                 `${intExpectedSize}px, but is ${origionalSize}px`
             );
     }
-
-    done();
 };

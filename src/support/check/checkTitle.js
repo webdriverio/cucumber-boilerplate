@@ -3,9 +3,8 @@
  * @param  {Type}     falseCase     Whether to check if the title matches the
  *                                  expected value or not
  * @param  {Type}     expectedTitle The expected title
- * @param  {Function} done          Function to execute when finished
  */
-module.exports = (falseCase, expectedTitle, done) => {
+module.exports = (falseCase, expectedTitle) => {
     /**
      * The title of the current browser window
      * @type {String}
@@ -25,6 +24,4 @@ module.exports = (falseCase, expectedTitle, done) => {
                 `Expected title to be "${expectedTitle}" but found "${title}"`
             );
     }
-
-    done();
 };

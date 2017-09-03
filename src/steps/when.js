@@ -1,3 +1,5 @@
+import { defineSupportCode } from 'cucumber';
+
 import clearInputField from '../support/action/clearInputField';
 import clickElement from '../support/action/clickElement';
 import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow';
@@ -16,89 +18,90 @@ import setInputField from '../support/action/setInputField';
 import setPromptText from '../support/action/setPromptText';
 import submitForm from '../support/action/submitForm';
 
-module.exports = function when() {
-    this.When(
+
+defineSupportCode(({ When }) => {
+    When(
         /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,
         clickElement
     );
 
-    this.When(
+    When(
         /^I (add|set) "([^"]*)?" to the inputfield "([^"]*)?"$/,
         setInputField
     );
 
-    this.When(
+    When(
         /^I clear the inputfield "([^"]*)?"$/,
         clearInputField
     );
 
-    this.When(
+    When(
         /^I drag element "([^"]*)?" to element "([^"]*)?"$/,
         dragElement
     );
 
-    this.When(
+    When(
         /^I submit the form "([^"]*)?"$/,
         submitForm
     );
 
-    this.When(
+    When(
         /^I pause for (\d+)ms$/,
         pause
     );
 
-    this.When(
+    When(
         /^I set a cookie "([^"]*)?" with the content "([^"]*)?"$/,
         setCookie
     );
 
-    this.When(
+    When(
         /^I delete the cookie "([^"]*)?"$/,
         deleteCookie
     );
 
-    this.When(
+    When(
         /^I press "([^"]*)?"$/,
         pressButton
     );
 
-    this.When(
+    When(
         /^I (accept|dismiss) the (alertbox|confirmbox|prompt)$/,
         handleModal
     );
 
-    this.When(
+    When(
         /^I enter "([^"]*)?" into the prompt$/,
         setPromptText
     );
 
-    this.When(
+    When(
         /^I scroll to element "([^"]*)?"$/,
         scroll
     );
 
-    this.When(
+    When(
         /^I close the last opened (window|tab)$/,
         closeLastOpenedWindow
     );
 
-    this.When(
+    When(
         /^I focus the last opened (window|tab)$/,
         focusLastOpenedWindow
     );
 
-    this.When(
+    When(
         /^I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"$/,
         selectOptionByIndex
     );
 
-    this.When(
+    When(
         /^I select the option with the (name|value|text) "([^"]*)?" for element "([^"]*)?"$/,
         selectOption
     );
 
-    this.When(
-        /^I move to element "([^"]*)?"( with an offset of (\d+),(\d+))*$/,
+    When(
+        /^I move to element "([^"]*)?"(?: with an offset of (\d+),(\d+))*$/,
         moveToElement
     );
-};
+});

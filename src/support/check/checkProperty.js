@@ -7,9 +7,8 @@
  * @param  {String}   falseCase     Whether to check if the value of the
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
- * @param  {Function} done          Function to execute when finished
  */
-module.exports = (isCSS, attrName, elem, falseCase, expectedValue, done) => {
+module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
     /**
      * The command to use for fetching the expected value
      * @type {String}
@@ -51,6 +50,4 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue, done) => {
                 `"${attributeValue}", but "${expectedValue}"`
             );
     }
-
-    done();
 };

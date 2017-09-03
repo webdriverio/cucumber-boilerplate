@@ -1,26 +1,19 @@
 import clearInputField from 'src/support/action/clearInputField';
 
-describe(
-    'clearInputField', () => {
-        let element;
-        let done;
+describe('clearInputField', () => {
+    let element;
 
-        beforeEach(() => {
-            global.browser = {
-                clearElement: jest.fn(),
-            };
+    beforeEach(() => {
+        global.browser = {
+            clearElement: jest.fn(),
+        };
 
-            element = 'element_selector';
+        element = 'element_selector';
+    });
 
-            done = jest.fn();
-        });
+    it('should call clearElement on the browser', () => {
+        clearInputField(element);
 
-        it('should call clearElement on the browser', () => {
-            clearInputField(element, done);
-
-            expect(browser.clearElement).toHaveBeenCalledWith(element);
-
-            expect(done).toHaveBeenCalledTimes(1);
-        });
-    }
-);
+        expect(browser.clearElement).toHaveBeenCalledWith(element);
+    });
+});

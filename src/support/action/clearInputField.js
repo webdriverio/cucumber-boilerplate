@@ -1,10 +1,7 @@
 /**
- * Clear a given input field
+ * Clear a given input field (placeholder for WDIO's clearElement)
  * @param  {String}   element Element selector
- * @param  {Function} done    Function to execute when finished
  */
-module.exports = (element, done) => {
+module.exports = (element) => {
     browser.clearElement(element);
-
-    done();
 };

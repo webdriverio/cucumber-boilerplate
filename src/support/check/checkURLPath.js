@@ -3,9 +3,8 @@
  * @param  {String}   falseCase    Whether to check if the path matches the
  *                                 expected value or not
  * @param  {String}   expectedPath The expected path to match against
- * @param  {Function} done         Function to execute when finished
  */
-module.exports = (falseCase, expectedPath, done) => {
+module.exports = (falseCase, expectedPath) => {
     /**
      * The URL of the current browser window
      * @type {String}
@@ -31,6 +30,4 @@ module.exports = (falseCase, expectedPath, done) => {
                 `"${currentUrl}"`
             );
     }
-
-    done();
 };

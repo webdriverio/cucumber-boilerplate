@@ -3,9 +3,8 @@
  * @param  {String}   element   Element selector
  * @param  {String}   falseCase Whether to check if the element is elected or
  *                              not
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (element, falseCase, done) => {
+module.exports = (element, falseCase) => {
     /**
      * The selected state
      * @type {Boolean}
@@ -19,6 +18,4 @@ module.exports = (element, falseCase, done) => {
         expect(isSelected).to
             .equal(true, `"${element}" should be selected`);
     }
-
-    done();
 };

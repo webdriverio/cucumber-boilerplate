@@ -1,45 +1,32 @@
 import openWebsite from 'src/support/action/openWebsite';
 
-describe(
-    'openWebsite', () => {
-        let done;
+describe('openWebsite', () => {
+    beforeEach(() => {
+        global.browser = {
+            url: jest.fn(),
+            options: {
+                baseUrl: 'http://mysite.com',
+            },
+        };
+    });
 
-        beforeEach(() => {
-            global.browser = {
-                url: jest.fn(),
-                options: {
-                    baseUrl: 'http://mysite.com',
-                },
-            };
+    it('should call url with the given url if the first param is `url`', () => {
+        openWebsite('url', 'http://example.com');
 
-            done = jest.fn();
-        });
+        expect(global.browser.url).toHaveBeenCalledTimes(1);
+        expect(global.browser.url)
+            .toHaveBeenCalledWith('http://example.com');
+    });
 
-        it(
-            'should call url with the given url if the first param is `url`',
-            () => {
-                openWebsite('url', 'http://example.com', done);
+    it(
+        'should call url with the given path on the baseUrl if the first ' +
+        'param is `site`',
+        () => {
+            openWebsite('site', '/path/to/page');
 
-                expect(global.browser.url).toHaveBeenCalledTimes(1);
-                expect(global.browser.url)
-                    .toHaveBeenCalledWith('http://example.com');
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-
-        it(
-            'should call url with the given path on the baseUrl if the first ' +
-            'param is `site`',
-            () => {
-                openWebsite('site', '/path/to/page', done);
-
-                expect(global.browser.url).toHaveBeenCalledTimes(1);
-                expect(global.browser.url)
-                    .toHaveBeenCalledWith('http://mysite.com/path/to/page');
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-    }
-);
+            expect(global.browser.url).toHaveBeenCalledTimes(1);
+            expect(global.browser.url)
+                .toHaveBeenCalledWith('http://mysite.com/path/to/page');
+        }
+    );
+});

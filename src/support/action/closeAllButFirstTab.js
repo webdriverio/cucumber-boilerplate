@@ -1,9 +1,10 @@
 /**
  * Close all but the first tab
  * @param  {String}   obsolete Type of object to close (window or tab)
- * @param  {Function} done     Function to execute when finished
  */
-module.exports = (obsolete, done) => {
+/* eslint-disable no-unused-vars */
+module.exports = (obsolete) => {
+/* eslint-enable no-unused-vars */
     /**
      * Get all the window handles
      * @type {Object}
@@ -16,6 +17,4 @@ module.exports = (obsolete, done) => {
             browser.switchTab(handle).close();
         }
     });
-
-    done();
 };

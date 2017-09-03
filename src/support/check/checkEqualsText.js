@@ -4,9 +4,8 @@
  * @param  {String}   falseCase     Whether to check if the content equals the
  *                                  given text or not
  * @param  {String}   expectedText  The text to validate against
- * @param  {Function} done          Function to execute when finished
  */
-module.exports = (element, falseCase, expectedText, done) => {
+module.exports = (element, falseCase, expectedText) => {
     /**
      * The command to execute on the browser object
      * @type {String}
@@ -16,12 +15,6 @@ module.exports = (element, falseCase, expectedText, done) => {
     if (browser.getAttribute(element, 'value') === null) {
         command = 'getText';
     }
-
-    /**
-     * Function to execute when finished
-     * @type {Function}
-     */
-    let doneCallback = done;
 
     /**
      * The expected text to validate against
@@ -36,8 +29,7 @@ module.exports = (element, falseCase, expectedText, done) => {
     let boolFalseCase = !!falseCase;
 
     // Check for empty element
-    if (!doneCallback && typeof parsedExpectedText === 'function') {
-        doneCallback = parsedExpectedText;
+    if (typeof parsedExpectedText === 'function') {
         parsedExpectedText = '';
 
         boolFalseCase = !boolFalseCase;
@@ -55,6 +47,4 @@ module.exports = (element, falseCase, expectedText, done) => {
     } else {
         parsedExpectedText.should.equal(text);
     }
-
-    doneCallback();
 };
