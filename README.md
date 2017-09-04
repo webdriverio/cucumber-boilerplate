@@ -139,10 +139,10 @@ If you want to run only specific tests you can mark your features with tags. The
 Feature: ...
 ```
 
-To run only the tests with specific tag(s) use the `--tags=` parameter like so:
+To run only the tests with specific tag(s) use the `--cucumberOpts.tagExpression=` parameter like so:
 
 ```sh
-$ yarn run wdio -- --tags=@Tag,@AnotherTag
+$ yarn run wdio -- --cucumberOpts.tagExpression=@Tag,@AnotherTag
 ```
 
 You can add multiple tags separated by a comma
@@ -165,7 +165,7 @@ Scenario: ...
 
 The predefined snippets allow you to do a lot of common things but you might need extra snippets which
 are better aligned with your aims. To do so you will find all step definitions in `./src/steps`. They
-are separated in `given`, `when` and `then`. 
+are separated in `given`, `when` and `then`.
 
 You define your snippet using regular expressions. This is pretty powerful as it allows you to create complex
 sentences with multiple options. Everything that's within `"([^"]*)?"` gets captured and appended to the
