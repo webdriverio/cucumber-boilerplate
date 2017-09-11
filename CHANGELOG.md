@@ -2,13 +2,12 @@
 
 ## [1.3.0] - T.B.D.
 ### Added
-- Cucumber 3 as a dependency
 - More Node versions to Travis build
 - [Forever](https://www.npmjs.com/package/forever) for managing the `http-server` process
 
 ### Changed
 - Updated Chai, wdio-cucumber-framework & wdio-spec-reporter dependencies
-- Updated codebase to match new Cucumber 3 syntax & functionalities
+- Updated codebase to match new Cucumber 2 syntax & functionalities
 - Updated readme to reflect changes in the tags processing mechanism
 
 ### Fixed
