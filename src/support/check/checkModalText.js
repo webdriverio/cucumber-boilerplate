@@ -4,9 +4,8 @@
  *                                  (alertbox, confirmbox or prompt)
  * @param  {String}   falseState    Whether to check if the text matches or not
  * @param  {String}   expectedText  The text to check against
- * @param  {Function} done          Function to execute when finished
  */
-module.exports = (modalType, falseState, expectedText, done) => {
+module.exports = (modalType, falseState, expectedText) => {
     try {
         /**
          * The text of the current modal
@@ -33,6 +32,4 @@ module.exports = (modalType, falseState, expectedText, done) => {
             `A ${modalType} was not opened when it should have been opened`
         );
     }
-
-    done();
 };

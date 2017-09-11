@@ -2,9 +2,8 @@
  * Check if the given element is (not) visible
  * @param  {String}   element   Element selector
  * @param  {String}   falseCase Check for a visible or a hidden element
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (element, falseCase, done) => {
+module.exports = (element, falseCase) => {
     /**
      * Visible state of the give element
      * @type {String}
@@ -18,6 +17,4 @@ module.exports = (element, falseCase, done) => {
         expect(isVisible).to
             .equal(true, `Expected element "${element}" to be visible`);
     }
-
-    done();
 };

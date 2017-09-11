@@ -3,9 +3,8 @@
  * @param  {String}   falseCase       Whether to check if the given string is in
  *                                    the URL path or not
  * @param  {String}   expectedUrlPart The string to check for
- * @param  {Function} done            Function to execute when finished
  */
-module.exports = (falseCase, expectedUrlPart, done) => {
+module.exports = (falseCase, expectedUrlPart) => {
     /**
      * The URL of the current browser window
      * @type {String}
@@ -26,6 +25,4 @@ module.exports = (falseCase, expectedUrlPart, done) => {
                 `Expected URL "${currentUrl}" to contain "${expectedUrlPart}"`
             );
     }
-
-    done();
 };

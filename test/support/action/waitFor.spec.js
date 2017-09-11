@@ -1,163 +1,102 @@
 import waitFor from 'src/support/action/waitFor';
 
-describe(
-    'waitFor', () => {
-        let done;
+describe('waitFor', () => {
+    beforeEach(() => {
+        global.browser = {
+            waitForExist: jest.fn(),
+            waitForSelected: jest.fn(),
+            waitForEnabled: jest.fn(),
+            waitForVisible: jest.fn(),
+            waitForText: jest.fn(),
+            waitForValue: jest.fn(),
+        };
+    });
 
-        beforeEach(() => {
-            global.browser = {
-                waitForExist: jest.fn(),
-                waitForSelected: jest.fn(),
-                waitForEnabled: jest.fn(),
-                waitForVisible: jest.fn(),
-                waitForText: jest.fn(),
-                waitForValue: jest.fn(),
-            };
+    it('should call waitForExist on the browser object', () => {
+        waitFor('element', 1, undefined, '');
 
-            done = jest.fn();
-        });
+        expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForExist)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-        it(
-            'should call waitForExist on the browser object',
-            () => {
-                waitFor('element', '', 1, false, undefined, '', done);
+    it('should call waitForExist on the browser object', () => {
+        waitFor('element', 1, false, '');
 
-                expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForExist)
-                    .toHaveBeenCalledWith('element', 1, false);
+        expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForExist)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
+    it('should call waitForExist on the browser object', () => {
+        waitFor('element', 1, true, '');
 
-        it(
-            'should call waitForExist on the browser object',
-            () => {
-                waitFor('element', '', 1, false, false, '', done);
+        expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForExist)
+            .toHaveBeenCalledWith('element', 1, true);
+    });
 
-                expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForExist)
-                    .toHaveBeenCalledWith('element', 1, false);
+    it('should use a default value for the timeout', () => {
+        waitFor('element', 0, false, '');
 
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
+        expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForExist)
+            .toHaveBeenCalledWith('element', 3000, false);
+    });
 
-        it(
-            'should call waitForExist on the browser object',
-            () => {
-                waitFor('element', '', 1, false, true, '', done);
+    it('should call waitForSelected on the browser object', () => {
+        waitFor('element', 1, false, 'be checked');
 
-                expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForExist)
-                    .toHaveBeenCalledWith('element', 1, true);
+        expect(global.browser.waitForSelected).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForSelected)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
+    it('should call waitForEnabled on the browser object', () => {
+        waitFor('element', 1, false, 'be enabled');
 
-        it(
-            'should use a default value for the timeout',
-            () => {
-                waitFor('element', '', 0, false, false, '', done);
+        expect(global.browser.waitForEnabled).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForEnabled)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-                expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForExist)
-                    .toHaveBeenCalledWith('element', 3000, false);
+    it('should call waitForSelected on the browser object', () => {
+        waitFor('element', 1, false, 'be selected');
 
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
+        expect(global.browser.waitForSelected).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForSelected)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-        it(
-            'should call waitForSelected on the browser object',
-            () => {
-                waitFor('element', '', 1, true, false, 'be checked', done);
+    it('should call waitForVisible on the browser object', () => {
+        waitFor('element', 1, false, 'be visible');
 
-                expect(global.browser.waitForSelected).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForSelected)
-                    .toHaveBeenCalledWith('element', 1, false);
+        expect(global.browser.waitForVisible).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForVisible)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
+    it('should call waitForText on the browser object', () => {
+        waitFor('element', 1, false, 'contain a text');
 
-        it(
-            'should call waitForEnabled on the browser object',
-            () => {
-                waitFor('element', '', 1, true, false, 'be enabled', done);
+        expect(global.browser.waitForText).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForText)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-                expect(global.browser.waitForEnabled).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForEnabled)
-                    .toHaveBeenCalledWith('element', 1, false);
+    it('should call waitForValue on the browser object', () => {
+        waitFor('element', 1, false, 'contain a value');
 
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
+        expect(global.browser.waitForValue).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForValue)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
 
-        it(
-            'should call waitForSelected on the browser object',
-            () => {
-                waitFor('element', '', 1, true, false, 'be selected', done);
+    it('should call waitForExist on the browser object', () => {
+        waitFor('element', 1, false, 'exist');
 
-                expect(global.browser.waitForSelected).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForSelected)
-                    .toHaveBeenCalledWith('element', 1, false);
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-
-        it(
-            'should call waitForVisible on the browser object',
-            () => {
-                waitFor('element', '', 1, true, false, 'be visible', done);
-
-                expect(global.browser.waitForVisible).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForVisible)
-                    .toHaveBeenCalledWith('element', 1, false);
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-
-        it(
-            'should call waitForText on the browser object',
-            () => {
-                waitFor('element', '', 1, true, false, 'contain a text', done);
-
-                expect(global.browser.waitForText).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForText)
-                    .toHaveBeenCalledWith('element', 1, false);
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-
-        it(
-            'should call waitForValue on the browser object',
-            () => {
-                waitFor('element', '', 1, true, false, 'contain a value', done);
-
-                expect(global.browser.waitForValue).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForValue)
-                    .toHaveBeenCalledWith('element', 1, false);
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-
-        it(
-            'should call waitForExist on the browser object',
-            () => {
-                waitFor('element', '', 1, true, false, 'exist', done);
-
-                expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForExist)
-                    .toHaveBeenCalledWith('element', 1, false);
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-    }
-);
+        expect(global.browser.waitForExist).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForExist)
+            .toHaveBeenCalledWith('element', 1, false);
+    });
+});

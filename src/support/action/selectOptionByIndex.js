@@ -3,11 +3,10 @@
  * @param  {String}   index      The index of the option
  * @param  {String}   obsolete   The ordinal indicator of the index (unused)
  * @param  {String}   selectElem Element selector
- * @param  {Function} done       Function to execute when finished
  *
  * @todo  merge with selectOption
  */
-module.exports = (index, obsolete, selectElem, done) => {
+module.exports = (index, obsolete, selectElem) => {
     /**
      * The index of the option to select
      * @type {Int}
@@ -15,6 +14,4 @@ module.exports = (index, obsolete, selectElem, done) => {
     const optionIndex = parseInt(index, 10);
 
     browser.selectByIndex(selectElem, optionIndex);
-
-    done();
 };

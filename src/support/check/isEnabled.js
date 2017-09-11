@@ -3,9 +3,8 @@
  * @param  {String}   element   Element selector
  * @param  {String}   falseCase Whether to check if the given element is enabled
  *                              or not
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (element, falseCase, done) => {
+module.exports = (element, falseCase) => {
     /**
      * The enabled state of the given element
      * @type {Boolean}
@@ -19,6 +18,4 @@ module.exports = (element, falseCase, done) => {
         expect(isEnabled).to
             .equal(true, `Expected element "${element}" to be enabled`);
     }
-
-    done();
 };

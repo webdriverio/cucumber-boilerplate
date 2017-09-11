@@ -1,94 +1,81 @@
 import checkContent from 'src/support/check/checkContainsAnyText';
 
-describe(
-    'checkContent', () => {
-        let done;
-        let expectToEqual;
-        let expectToNotEqual;
+describe('checkContent', () => {
+    let expectToEqual;
+    let expectToNotEqual;
 
-        beforeEach(() => {
-            global.browser = {
-                getAttribute: jest.fn((element) => {
-                    if (element === 'element1') {
-                        return '';
-                    }
+    beforeEach(() => {
+        global.browser = {
+            getAttribute: jest.fn((element) => {
+                if (element === 'element1') {
+                    return '';
+                }
 
-                    return null;
-                }),
-                getText: jest.fn(() => 'text'),
-                getValue: jest.fn(() => 'value'),
-            };
+                return null;
+            }),
+            getText: jest.fn(() => 'text'),
+            getValue: jest.fn(() => 'value'),
+        };
 
-            expectToEqual = jest.fn();
-            expectToNotEqual = jest.fn();
+        expectToEqual = jest.fn();
+        expectToNotEqual = jest.fn();
 
-            global.expect = jest.fn(() => ({
-                to: {
-                    equal: expectToEqual,
-                    not: {
-                        equal: expectToNotEqual,
-                    },
+        global.expect = jest.fn(() => ({
+            to: {
+                equal: expectToEqual,
+                not: {
+                    equal: expectToNotEqual,
                 },
-            }));
+            },
+        }));
+    });
 
-            done = jest.fn();
-        });
+    it('Should handle input fields', () => {
+        checkContent('element1', false);
 
-        it('Should handle input fields', () => {
-            checkContent('element1', false, done);
+        _expect(global.browser.getText).not.toHaveBeenCalledTimes(1);
 
-            _expect(global.browser.getText).not.toHaveBeenCalledTimes(1);
+        _expect(global.browser.getValue).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getValue).toHaveBeenCalledWith('element1');
 
-            _expect(global.browser.getValue).toHaveBeenCalledTimes(1);
-            _expect(global.browser.getValue).toHaveBeenCalledWith('element1');
+        _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
+        _expect(expectToNotEqual)
+            .toHaveBeenCalledWith('');
+    });
 
-            _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToNotEqual)
-                .toHaveBeenCalledWith('');
+    it('Should handle elements', () => {
+        checkContent('element2', false);
 
-            _expect(done).toHaveBeenCalledTimes(1);
-        });
+        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getText).toHaveBeenCalledWith('element2');
 
-        it('Should handle elements', () => {
-            checkContent('element2', false, done);
+        _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
 
-            _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-            _expect(global.browser.getText).toHaveBeenCalledWith('element2');
+        _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
+        _expect(expectToNotEqual).toHaveBeenCalledWith('');
+    });
 
-            _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
+    it('Handle the false case', () => {
+        checkContent('element3', true);
 
-            _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToNotEqual).toHaveBeenCalledWith('');
+        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getText).toHaveBeenCalledWith('element3');
 
-            _expect(done).toHaveBeenCalledTimes(1);
-        });
+        _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
 
-        it('Handle the false case', () => {
-            checkContent('element3', true, done);
+        _expect(expectToEqual).toHaveBeenCalledTimes(1);
+        _expect(expectToEqual).toHaveBeenCalledWith('');
+    });
 
-            _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-            _expect(global.browser.getText).toHaveBeenCalledWith('element3');
+    it('should handle no expected text and no falsecase', () => {
+        checkContent('element4');
 
-            _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
+        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getText).toHaveBeenCalledWith('element4');
 
-            _expect(expectToEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToEqual).toHaveBeenCalledWith('');
+        _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
 
-            _expect(done).toHaveBeenCalledTimes(1);
-        });
-
-        it('should handle no expected text and no falsecase', () => {
-            checkContent('element4', done);
-
-            _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-            _expect(global.browser.getText).toHaveBeenCalledWith('element4');
-
-            _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
-
-            _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToNotEqual).toHaveBeenCalledWith('');
-
-            _expect(done).toHaveBeenCalledTimes(1);
-        });
-    }
-);
+        _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
+        _expect(expectToNotEqual).toHaveBeenCalledWith('');
+    });
+});

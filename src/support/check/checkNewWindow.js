@@ -3,9 +3,8 @@
  * @param  {String}   obsolete  The type of opened object (window or tab)
  * @param  {String}   falseCase Whether to check if a new window/tab was opened
  *                              or not
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (obsolete, falseCase, done) => {
+module.exports = (obsolete, falseCase) => {
     /**
      * The handles of all open windows/tabs
      * @type {Object}
@@ -19,6 +18,4 @@ module.exports = (obsolete, falseCase, done) => {
         expect(windowHandles.length).to.not
             .equal(1, 'A new window has been opened');
     }
-
-    done();
 };

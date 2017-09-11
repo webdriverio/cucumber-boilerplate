@@ -1,3 +1,5 @@
+import { defineSupportCode } from 'cucumber';
+
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
 import checkIsEmpty from '../support/check/checkIsEmpty';
 import checkContainsText from '../support/check/checkContainsText';
@@ -19,109 +21,110 @@ import isVisible from '../support/check/isVisible';
 import openWebsite from '../support/action/openWebsite';
 import resizeScreenSize from '../support/action/resizeScreenSize';
 
-module.exports = function given() {
-    this.Given(
+
+defineSupportCode(({ Given }) => {
+    Given(
         /^I open the (url|site) "([^"]*)?"$/,
         openWebsite
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?" is( not)* visible$/,
         isVisible
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?" is( not)* enabled$/,
         isEnabled
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?" is( not)* selected$/,
         checkSelected
     );
 
-    this.Given(
+    Given(
         /^the checkbox "([^"]*)?" is( not)* checked$/,
         checkSelected
     );
 
-    this.Given(
+    Given(
         /^there is (an|no) element "([^"]*)?" on the page$/,
         checkElementExists
     );
 
-    this.Given(
+    Given(
         /^the title is( not)* "([^"]*)?"$/,
         checkTitle
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?" contains( not)* the same text as element "([^"]*)?"$/,
         compareText
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
         checkEqualsText
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
         checkContainsText
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?"( not)* contains any text$/,
         checkContainsAnyText
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?" is( not)* empty$/,
         checkIsEmpty
     );
 
-    this.Given(
+    Given(
         /^the page url is( not)* "([^"]*)?"$/,
         checkUrl
     );
 
-    this.Given(
+    Given(
         /^the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
         checkProperty
     );
 
-    this.Given(
+    Given(
         /^the cookie "([^"]*)?" contains( not)* the value "([^"]*)?"$/,
         checkCookieContent
     );
 
-    this.Given(
+    Given(
         /^the cookie "([^"]*)?" does( not)* exist$/,
         checkCookieExists
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?" is( not)* ([\d]+)px (broad|tall)$/,
         checkDimension
     );
 
-    this.Given(
+    Given(
         /^the element "([^"]*)?" is( not)* positioned at ([\d]+)px on the (x|y) axis$/,
         checkOffset
     );
 
-    this.Given(
+    Given(
         /^I have a screen that is ([\d]+) by ([\d]+) pixels$/,
         resizeScreenSize
     );
 
-    this.Given(
+    Given(
         /^I have closed all but the first (window|tab)$/,
         closeAllButFirstTab
     );
 
-    this.Given(
+    Given(
         /^a (alertbox|confirmbox|prompt) is( not)* opened$/,
         checkModal
     );
-};
+});

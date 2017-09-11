@@ -1,41 +1,25 @@
 import waitForVisible from 'src/support/action/waitForVisible';
 
-describe(
-    'waitForVisible', () => {
-        let done;
+describe('waitForVisible', () => {
+    beforeEach(() => {
+        global.browser = {
+            waitForVisible: jest.fn(),
+        };
+    });
 
-        beforeEach(() => {
-            global.browser = {
-                waitForVisible: jest.fn(),
-            };
+    it('should call waitForVisible on the browser object', () => {
+        waitForVisible('element', true);
 
-            done = jest.fn();
-        });
+        expect(global.browser.waitForVisible).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForVisible)
+            .toHaveBeenCalledWith('element', 10000, true);
+    });
 
-        it(
-            'should call waitForVisible on the browser object',
-            () => {
-                waitForVisible('element', true, done);
+    it('should call waitForVisible on the browser object', () => {
+        waitForVisible('element', false);
 
-                expect(global.browser.waitForVisible).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForVisible)
-                    .toHaveBeenCalledWith('element', 10000, true);
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-
-        it(
-            'should call waitForVisible on the browser object',
-            () => {
-                waitForVisible('element', false, done);
-
-                expect(global.browser.waitForVisible).toHaveBeenCalledTimes(1);
-                expect(global.browser.waitForVisible)
-                    .toHaveBeenCalledWith('element', 10000, false);
-
-                expect(done).toHaveBeenCalledTimes(1);
-            }
-        );
-    }
-);
+        expect(global.browser.waitForVisible).toHaveBeenCalledTimes(1);
+        expect(global.browser.waitForVisible)
+            .toHaveBeenCalledWith('element', 10000, false);
+    });
+});

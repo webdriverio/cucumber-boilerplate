@@ -2,9 +2,10 @@
  * Check if the given URL was opened in a new window
  * @param  {String}   expectedUrl The URL to check for
  * @param  {String}   obsolete    Indicator for the type (window or tab) unused
- * @param  {Function} done        Function to execute when finished
  */
-module.exports = (expectedUrl, obsolete, done) => {
+/* eslint-disable no-unused-vars */
+module.exports = (expectedUrl, obsolete) => {
+/* eslint-enable no-unused-vars */
     /**
      * All the current window handles
      * @type {Object}
@@ -32,6 +33,4 @@ module.exports = (expectedUrl, obsolete, done) => {
         .contain(expectedUrl, 'The popup has a incorrect url');
 
     browser.close();
-
-    done();
 };

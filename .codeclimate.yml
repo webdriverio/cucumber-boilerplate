@@ -1,7 +1,7 @@
 engines:
   eslint:
     enabled: true
-    channel: "eslint-3"
+    channel: "eslint-4"
 
 exclude_paths:
 - "demo-app/"

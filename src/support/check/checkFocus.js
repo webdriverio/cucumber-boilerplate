@@ -3,9 +3,8 @@
  * @param  {String}   selector  Element selector
  * @param  {String}   falseCase Whether to check if the given element has focus
  *                              or not
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (selector, falseCase, done) => {
+module.exports = (selector, falseCase) => {
     /**
      * Value of the hasFocus function for the given element
      * @type {Boolean}
@@ -19,6 +18,4 @@ module.exports = (selector, falseCase, done) => {
         expect(hasFocus).to
             .equal(true, 'Expected element to be focused, but it is not');
     }
-
-    done();
 };

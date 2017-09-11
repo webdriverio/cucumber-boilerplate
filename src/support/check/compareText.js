@@ -4,9 +4,8 @@
  * @param  {String}   falseCase Whether to check if the contents of both
  *                              elements match or not
  * @param  {String}   element2  Element selector for the second element
- * @param  {Function} done      Function to execute when finished
  */
-module.exports = (element1, falseCase, element2, done) => {
+module.exports = (element1, falseCase, element2) => {
     /**
      * The text of the first element
      * @type {String}
@@ -30,6 +29,4 @@ module.exports = (element1, falseCase, element2, done) => {
             `Expected text to be "${text1}" but found "${text2}"`
         );
     }
-
-    done();
 };

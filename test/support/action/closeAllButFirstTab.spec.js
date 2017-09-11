@@ -1,34 +1,26 @@
 import closeAllButFirstTab from 'src/support/action/closeAllButFirstTab';
 
-describe(
-    'closeAllButFirstTab', () => {
-        let done;
+describe('closeAllButFirstTab', () => {
+    beforeEach(() => {
+        global.browser = {
+            windowHandles: jest.fn(() => ({
+                value: [
+                    'one',
+                    'two',
+                    'three',
+                ],
+            })),
+            switchTab: jest.fn(() => ({
+                close() {},
+            })),
+        };
+    });
 
-        beforeEach(() => {
-            global.browser = {
-                windowHandles: jest.fn(() => ({
-                    value: [
-                        'one',
-                        'two',
-                        'three',
-                    ],
-                })),
-                switchTab: jest.fn(() => ({
-                    close() {},
-                })),
-            };
+    it('should call closeAllButFirstTab on the browser', () => {
+        closeAllButFirstTab('');
 
-            done = jest.fn();
-        });
+        expect(global.browser.windowHandles).toHaveBeenCalledTimes(1);
 
-        it('should call closeAllButFirstTab on the browser', () => {
-            closeAllButFirstTab('', done);
-
-            expect(global.browser.windowHandles).toHaveBeenCalledTimes(1);
-
-            expect(global.browser.switchTab).toHaveBeenCalledTimes(2);
-
-            expect(done).toHaveBeenCalledTimes(1);
-        });
-    }
-);
+        expect(global.browser.switchTab).toHaveBeenCalledTimes(2);
+    });
+});
