@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.3.0] - T.B.D.
+## [1.3.0] - 2017-09-11
 ### Added
 - More Node versions to Travis build
 - [Forever](https://www.npmjs.com/package/forever) for managing the `http-server` process
