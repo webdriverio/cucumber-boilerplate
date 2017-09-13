@@ -223,6 +223,7 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 ## Then steps
 
 - `I expect that the title is( not)* "([^"]*)?"` <br>Check the title of the current browser window/tab
+- `I expect that element "([^"]*)?" does( not)* appear exactly "([^"]*)?" times` <br>Checks that the element is on the page a specific number of times
 - `I expect that element "([^"]*)?" is( not)* visible` <br>Check if a certain element is visible
 - `I expect that element "([^"]*)?" becomes( not)* visible` <br>Check if a certain element becomes visible
 - `I expect that element "([^"]*)?" is( not)* within the viewport` <br>Check if a certain element is within the current viewport
