@@ -41,3 +41,24 @@ Feature: Test select elements
         Then I expect that element "#selectElementTest option:nth-child(4)" is not selected
         When I select the option with the text "Option #4" for element "#selectElementTest"
         Then I expect that element "#selectElementTest option:nth-child(4)" is selected
+
+    Scenario: Test if we can select a option by its value using XPath selectors only
+        Then I expect that element "#selectElementTest option:nth-child(2)" is not selected
+        When I select the option with the value "second" for element "//select[@id='selectElementTest']"
+        Then I expect that element "#selectElementTest option:nth-child(2)" is selected
+
+    Scenario: Test if we can select a option by its index using XPath selectors
+        Then I expect that element "#selectElementTest option:nth-child(4)" is not selected
+        When I select the 3rd option for element "//select[@id='selectElementTest']"
+        Then I expect that element "#selectElementTest option:nth-child(4)" is selected
+
+    Scenario: Test if we can select a option by its visible text using XPath selectors
+        Then I expect that element "#selectElementTest option:nth-child(3)" is not selected
+        When I select the option with the text "Option #3" for element "//select[@id='selectElementTest']"
+        Then I expect that element "#selectElementTest option:nth-child(3)" is selected
+
+    Scenario: Test if we can select a option by its name using XPath selectors
+        Then I expect that element "#selectElementTest option:nth-child(2)" is not selected
+        When I select the option with the name "secondOption" for element "//select[@id='selectElementTest']"
+        Then I expect that element "#selectElementTest option:nth-child(2)" is selected
+

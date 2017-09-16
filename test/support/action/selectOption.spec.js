@@ -11,19 +11,14 @@ describe('selectOption', () => {
         selectByVisibleText = jest.fn();
 
         global.browser = {
-            element: jest.fn(() => ({
-                selectByAttribute,
-                selectByValue,
-                selectByVisibleText,
-            })),
+            selectByAttribute,
+            selectByValue,
+            selectByVisibleText,
         };
     });
 
     it('should call selectByAttribute on the browser object', () => {
         selectOption('name', 'option1', 'element1');
-
-        expect(global.browser.element).toHaveBeenCalledTimes(1);
-        expect(global.browser.element).toHaveBeenCalledWith('element1');
 
         expect(selectByAttribute).toHaveBeenCalledTimes(1);
         expect(selectByAttribute)
@@ -33,9 +28,6 @@ describe('selectOption', () => {
     it('should call selectByValue on the browser object', () => {
         selectOption('value', 'value1', 'element2');
 
-        expect(global.browser.element).toHaveBeenCalledTimes(1);
-        expect(global.browser.element).toHaveBeenCalledWith('element2');
-
         expect(selectByValue).toHaveBeenCalledTimes(1);
         expect(selectByValue)
             .toHaveBeenCalledWith('element2', 'value1');
@@ -43,9 +35,6 @@ describe('selectOption', () => {
 
     it('should call selectByVisibleText on the browser object', () => {
         selectOption('text', 'text1', 'element3');
-
-        expect(global.browser.element).toHaveBeenCalledTimes(1);
-        expect(global.browser.element).toHaveBeenCalledWith('element3');
 
         expect(selectByVisibleText).toHaveBeenCalledTimes(1);
         expect(selectByVisibleText)
@@ -57,8 +46,5 @@ describe('selectOption', () => {
 
         expect(spySelectOption.bind(null, 'test', 'option1', 'element1'))
             .toThrow();
-
-        expect(global.browser.element).toHaveBeenCalledTimes(1);
-        expect(global.browser.element).toHaveBeenCalledWith('element1');
     });
 });

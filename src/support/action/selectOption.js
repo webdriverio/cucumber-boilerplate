@@ -16,12 +16,6 @@ module.exports = (selectionType, selectionValue, selectElem) => {
     ];
 
     /**
-     * The select element
-     * @type {Object}
-     */
-    const element = browser.element(selectElem);
-
-    /**
      * The method to use for selecting the option
      * @type {String}
      */
@@ -53,5 +47,5 @@ module.exports = (selectionType, selectionValue, selectElem) => {
         }
     }
 
-    element[command].apply(this, commandArguments);
+    browser[command](...commandArguments);
 };
