@@ -31,7 +31,7 @@ branches:
     - master
     - /^greenkeeper/.*$/
 
-script: "yarn run test"
+script: "npm install -S cucumber@2.3.1 && yarn run test"
 
 after_success:
   - yarn install -g codeclimate-test-reporter
