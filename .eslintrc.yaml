@@ -23,6 +23,7 @@ rules:
       exports: 'never'
       functions: 'ignore'
   global-require: 'off'
+  import/no-extraneous-dependencies: 0
   indent:
     - 'error'
     - 4
