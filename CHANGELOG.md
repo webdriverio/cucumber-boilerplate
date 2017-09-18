@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.1] - 2017-09-18
+### Added
+- Add missing tests to select.feature (thanks [silkentrance](https://github.com/silkentrance))
+
+### Fixed
+- Fixed selectOption action (thanks [silkentrance](https://github.com/silkentrance))
+- Updated Jest & ESLint dependencies
+- Fixed ESLint ruleing for `import/no-extraneous-dependencies`
+- Fixed `babel-jest` not loaded automatically with Jest 21.x.x
+
 ## [1.3.0] - 2017-09-11
 ### Added
 - More Node versions to Travis build
@@ -23,7 +33,7 @@
     - [Given] `I expect that element "([^"]*)?" is( not)* empty$`
 
 ### Changed
-- Switched to [Yarn]() for managing our packages
+- Switched to [Yarn](https://yarnpkg.com/) for managing our packages
 - Readme to reflect Yarn changes
 - Updated dependencies
 - Removed no longer needed dependencies Cucumber and Babel-jest
