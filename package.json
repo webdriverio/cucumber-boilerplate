@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "babel-polyfill": "~6.26.0",
-    "eslint": "~4.6.0",
+    "eslint": "~4.7.0",
     "eslint-config-airbnb-base": "~12.0.0",
     "eslint-plugin-import": "~2.7.0",
     "forever": "~0.15.3",
