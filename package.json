@@ -47,6 +47,6 @@
     "eslint-plugin-import": "~2.7.0",
     "forever": "~0.15.3",
     "http-server": "~0.10.0",
-    "jest": "~21.1.0"
+    "jest": "~21.2.0"
   }
 }
