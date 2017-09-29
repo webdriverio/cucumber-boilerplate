@@ -17,7 +17,7 @@ import setCookie from '../support/action/setCookie';
 import setInputField from '../support/action/setInputField';
 import setPromptText from '../support/action/setPromptText';
 import submitForm from '../support/action/submitForm';
-
+import performBrowserFunction from '../support/action/performBrowserFunction';
 
 defineSupportCode(({ When }) => {
     When(
@@ -104,4 +104,9 @@ defineSupportCode(({ When }) => {
         /^I move to element "([^"]*)?"(?: with an offset of (\d+),(\d+))*$/,
         moveToElement
     );
+
+    When(
+       /^I use the browserfunctionality to (refresh the page|go back|go forward|close the browser)$/,
+       performBrowserFunction
+   );
 });
