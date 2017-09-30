@@ -36,7 +36,7 @@ defineSupportCode(({ Then }) => {
         /^I expect that the title is( not)* "([^"]*)?"$/,
         checkTitle
     );
-    
+
     Then(
         /^I expect that element "([^"]*)?" does( not)* appear exactly "([^"]*)?" times$/,
         checkIfElementExists
