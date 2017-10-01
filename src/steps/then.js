@@ -28,6 +28,7 @@ import isExisting from '../support/check/isExisting';
 import isVisible from '../support/check/isVisible';
 import waitFor from '../support/action/waitFor';
 import waitForVisible from '../support/action/waitForVisible';
+import checkOrderContentTableColumn from '../support/check/checkOrderContentTableColumn';
 
 
 defineSupportCode(({ Then }) => {
@@ -174,5 +175,10 @@ defineSupportCode(({ Then }) => {
     Then(
         /^I expect that a (alertbox|confirmbox|prompt)( not)* contains the text "([^"]*)?"$/,
         checkModalText
+    );
+
+    Then(
+        /^I expect that the values in the (first|second|third|fourth|fifth) column starting at the (first|second|third|fourth|fifth) row of the table "([^"]*)?" are sorted (asc|desc)$/,
+        checkOrderContentTableColumn
     );
 });
