@@ -28,12 +28,18 @@ import isExisting from '../support/check/isExisting';
 import isVisible from '../support/check/isVisible';
 import waitFor from '../support/action/waitFor';
 import waitForVisible from '../support/action/waitForVisible';
+import checkIfElementExists from '../support/lib/checkIfElementExists';
 
 
 defineSupportCode(({ Then }) => {
     Then(
         /^I expect that the title is( not)* "([^"]*)?"$/,
         checkTitle
+    );
+
+    Then(
+        /^I expect that element "([^"]*)?" does( not)* appear exactly "([^"]*)?" times$/,
+        checkIfElementExists
     );
 
     Then(
