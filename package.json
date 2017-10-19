@@ -44,7 +44,7 @@
     "babel-polyfill": "~6.26.0",
     "eslint": "~4.9.0",
     "eslint-config-airbnb-base": "~12.1.0",
-    "eslint-plugin-import": "~2.7.0",
+    "eslint-plugin-import": "~2.8.0",
     "forever": "~0.15.3",
     "http-server": "~0.10.0",
     "jest": "~21.2.0"
