@@ -31,7 +31,7 @@ describe('checkContainsText', () => {
     });
 
     it('should call checkContainsText on the browser object', () => {
-        checkContainsText('element1', 'text');
+        checkContainsText('element', 'element1', 'text');
 
         _expect(global.browser.getText).toHaveBeenCalledTimes(1);
         _expect(global.browser.getText)
@@ -45,7 +45,7 @@ describe('checkContainsText', () => {
     });
 
     it('should call checkContainsText on the browser object', () => {
-        checkContainsText('element1', ' not', 'text');
+        checkContainsText('element', 'element1', ' not', 'text');
 
         _expect(global.browser.getText).toHaveBeenCalledTimes(1);
         _expect(global.browser.getText)
@@ -59,7 +59,22 @@ describe('checkContainsText', () => {
     });
 
     it('should call checkContainsText on the browser object', () => {
+        checkContainsText('button', 'button1', 'text');
+
+        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getText)
+            .toHaveBeenCalledWith('button1');
+
+        _expect(global.expect).toHaveBeenCalledTimes(1);
+        _expect(global.expect).toHaveBeenCalledWith('text');
+
+        _expect(expectToContain).toHaveBeenCalledTimes(1);
+        _expect(expectToContain).toHaveBeenCalledWith('text');
+    });
+
+    it('should call checkContainsText on the browser object', () => {
         checkContainsText(
+            'element',
             'element2',
             'text'
         );
@@ -77,6 +92,7 @@ describe('checkContainsText', () => {
 
     it('should call checkContainsText on the browser object', () => {
         checkContainsText(
+            'element',
             'element2',
             ' not',
             'text'
