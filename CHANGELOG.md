@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.2] - 2017-10-31
+### Fixed
+- Fixed required Node & Yarn versions in the readme
+- Added `checkIfElementExists` to readme & then step definitions (thanks [canvaspixels](https://github.com/canvaspixels))
+
+### Changed
+- Updated dependencies
+
 ## [1.3.1] - 2017-09-18
 ### Added
 - Add missing tests to select.feature (thanks [silkentrance](https://github.com/silkentrance))

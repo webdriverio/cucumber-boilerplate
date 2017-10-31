@@ -9,9 +9,9 @@ Boilerplate project to run WebdriverIO tests with [Cucumber](https://cucumber.io
 
 ## Requirements
 
-- Node version 6 or higher
+- Node version 4.8 or higher
 
-Although this project works fine with NPM we recommend to use Yarn (>= 0.20.0) instead,  due to its speed & solid dependency locking mechanism. To keep things simple we use yarn in this guide, but feel free to replace this with NPM if that is what you are using.
+Although this project works fine with NPM we recommend to use Yarn (>= 1.0.0) instead,  due to its speed & solid dependency locking mechanism. To keep things simple we use yarn in this guide, but feel free to replace this with NPM if that is what you are using.
 
 ## Quick start
 
