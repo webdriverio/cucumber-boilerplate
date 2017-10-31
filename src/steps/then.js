@@ -68,22 +68,22 @@ defineSupportCode(({ Then }) => {
     );
 
     Then(
-        /^I expect that element "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
+        /^I expect that (button|element) "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
         checkEqualsText
     );
 
     Then(
-        /^I expect that element "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
+        /^I expect that (button|element) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
         checkContainsText
     );
 
     Then(
-        /^I expect that element "([^"]*)?"( not)* contains any text$/,
+        /^I expect that (button|element) "([^"]*)?"( not)* contains any text$/,
         checkContainsAnyText
     );
 
     Then(
-        /^I expect that element "([^"]*)?" is( not)* empty$/,
+        /^I expect that (button|element) "([^"]*)?" is( not)* empty$/,
         checkIsEmpty
     );
 

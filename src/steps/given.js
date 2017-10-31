@@ -64,22 +64,22 @@ defineSupportCode(({ Given }) => {
     );
 
     Given(
-        /^the element "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
+        /^the (button|element) "([^"]*)?"( not)* matches the text "([^"]*)?"$/,
         checkEqualsText
     );
 
     Given(
-        /^the element "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
+        /^the (button|element) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
         checkContainsText
     );
 
     Given(
-        /^the element "([^"]*)?"( not)* contains any text$/,
+        /^the (button|element) "([^"]*)?"( not)* contains any text$/,
         checkContainsAnyText
     );
 
     Given(
-        /^the element "([^"]*)?" is( not)* empty$/,
+        /^the (button|element) "([^"]*)?" is( not)* empty$/,
         checkIsEmpty
     );
 
