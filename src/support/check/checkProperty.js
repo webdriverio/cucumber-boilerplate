@@ -28,10 +28,10 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
     let attributeValue = browser[command](elem, attrName);
 
     /**
-     * when getting something with a color WebdriverIO returns a color
+     * when getting something with a color or font-weight WebdriverIO returns a
      * object but we want to assert against a string
      */
-    if (attrName.indexOf('color') > -1) {
+    if (attrName.match(/(color|font-weight)/)) {
         attributeValue = attributeValue.value;
     }
 
