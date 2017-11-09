@@ -37,7 +37,7 @@
     "wdio-phantomjs-service": "~0.2.2",
     "wdio-selenium-standalone-service": "~0.0.9",
     "wdio-spec-reporter": "~0.1.2",
-    "webdriverio": "4.9.3"
+    "webdriverio": "4.9.5"
   },
   "devDependencies": {
     "babel-jest": "~21.2.0",
