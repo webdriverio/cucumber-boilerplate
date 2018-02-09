@@ -1,7 +1,7 @@
 @Pending
 Feature: Test modals
     As a developer
-    I want to be able to test the onening, closing and contens of modal windows
+    I want to be able to test the opening, closing and content of modal windows
 
     Background:
         Given I open the site "/"
