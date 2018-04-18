@@ -142,10 +142,10 @@ Feature: ...
 To run only the tests with specific tag(s) use the `--cucumberOpts.tagExpression=` parameter like so:
 
 ```sh
-$ yarn run wdio -- --cucumberOpts.tagExpression=@Tag,@AnotherTag
+$ yarn run wdio -- --cucumberOpts.tagExpression='@Tag or @AnotherTag'
 ```
 
-You can add multiple tags separated by a comma
+For more tag options please see the [Cucumber.js documentation](https://docs.cucumber.io/tag-expressions/)
 
 # Pending test
 
