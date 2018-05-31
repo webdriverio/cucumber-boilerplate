@@ -1,5 +1,3 @@
-const { Given } = require('cucumber');
-
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
 import checkIsEmpty from '../support/check/checkIsEmpty';
 import checkContainsText from '../support/check/checkContainsText';
@@ -20,6 +18,8 @@ import isEnabled from '../support/check/isEnabled';
 import isVisible from '../support/check/isVisible';
 import openWebsite from '../support/action/openWebsite';
 import resizeScreenSize from '../support/action/resizeScreenSize';
+
+const { Given } = require('cucumber');
 
 
 Given(

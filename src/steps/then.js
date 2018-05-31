@@ -1,5 +1,3 @@
-const { Then } = require('cucumber');
-
 import checkClass from '../support/check/checkClass';
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
 import checkIsEmpty from '../support/check/checkIsEmpty';
@@ -29,6 +27,8 @@ import isVisible from '../support/check/isVisible';
 import waitFor from '../support/action/waitFor';
 import waitForVisible from '../support/action/waitForVisible';
 import checkIfElementExists from '../support/lib/checkIfElementExists';
+
+const { Then } = require('cucumber');
 
 
 Then(

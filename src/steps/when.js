@@ -1,5 +1,3 @@
-const { When } = require('cucumber');
-
 import clearInputField from '../support/action/clearInputField';
 import clickElement from '../support/action/clickElement';
 import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow';
@@ -17,6 +15,8 @@ import setCookie from '../support/action/setCookie';
 import setInputField from '../support/action/setInputField';
 import setPromptText from '../support/action/setPromptText';
 import submitForm from '../support/action/submitForm';
+
+const { When } = require('cucumber');
 
 
 When(
