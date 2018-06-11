@@ -40,13 +40,14 @@
     "webdriverio": "4.12.0"
   },
   "devDependencies": {
-    "babel-jest": "~23.0.0-alpha.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.0.1",
     "babel-polyfill": "~6.26.0",
     "eslint": "~4.19.0",
     "eslint-config-airbnb-base": "~12.1.0",
     "eslint-plugin-import": "~2.12.0",
     "forever": "~0.15.3",
     "http-server": "~0.11.0",
-    "jest": "~22.1.0"
+    "jest": "~23.0.0"
   }
 }
