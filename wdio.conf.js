@@ -152,6 +152,9 @@ exports.config = {
             './src/steps/given.js',
             './src/steps/then.js',
             './src/steps/when.js',
+            // Or search a (sub)folder for JS files with a wildcard
+            // works since version 1.1 of the wdio-cucumber-framework
+            './src/**/*.js',
         ],
         // <string> specify a custom snippet syntax
         snippetSyntax: undefined,
