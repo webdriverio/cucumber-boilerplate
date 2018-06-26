@@ -36,7 +36,7 @@
     "wdio-cucumber-framework": "~2.1.0",
     "wdio-phantomjs-service": "~0.2.2",
     "wdio-selenium-standalone-service": "~0.0.9",
-    "wdio-spec-reporter": "~0.1.2",
+    "wdio-spec-reporter": "~5.0.0-alpha.7",
     "webdriverio": "4.13.0"
   },
   "devDependencies": {
