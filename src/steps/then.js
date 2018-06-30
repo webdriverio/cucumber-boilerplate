@@ -15,6 +15,7 @@ import checkModalText from '../support/check/checkModalText';
 import checkNewWindow from '../support/check/checkNewWindow';
 import checkOffset from '../support/check/checkOffset';
 import checkProperty from '../support/check/checkProperty';
+import checkFontProperty from '../support/check/checkFontProperty';
 import checkSelected from '../support/check/checkSelected';
 import checkTitle from '../support/check/checkTitle';
 import checkURL from '../support/check/checkURL';
@@ -104,6 +105,11 @@ Then(
 Then(
     /^I expect that the( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
     checkProperty
+);
+
+Then(
+    /^I expect that the font( css)* attribute "([^"]*)?" from element "([^"]*)?" is( not)* "([^"]*)?"$/,
+    checkFontProperty
 );
 
 Then(
