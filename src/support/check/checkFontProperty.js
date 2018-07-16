@@ -31,11 +31,7 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
      * when getting something with a color or font-weight WebdriverIO returns a
      * object but we want to assert against a string
      */
-    if (
-        attrName.match(
-            /(font-size|line-height|display|font-weight|line-height|display)/
-        )
-    ) {
+    if (attrName.match(/(font-size|line-height|display|font-weight|line-height|display)/)) {
         attributeValue = attributeValue.value;
     }
 
