@@ -27,8 +27,8 @@ module.exports = (name, falseCase, expectedValue) => {
         expect(cookie.value).to
             .equal(
                 expectedValue,
-                `expected cookie "${name}" to have value "${expectedValue}"` +
-                ` but got "${cookie.value}"`
+                `expected cookie "${name}" to have value "${expectedValue}"`
+                + ` but got "${cookie.value}"`
             );
     }
 };

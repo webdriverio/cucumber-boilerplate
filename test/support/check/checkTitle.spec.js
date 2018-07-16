@@ -32,8 +32,8 @@ describe('checkTitle', () => {
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 'page title',
-                'Expected title to be "page title" but found ' +
-                '"page title"'
+                'Expected title to be "page title" but found '
+                + '"page title"'
             );
     });
 

@@ -15,8 +15,8 @@ module.exports = (falseCase, expectedUrlPart) => {
         expect(currentUrl).to.not
             .contain(
                 expectedUrlPart,
-                `Expected URL "${currentUrl}" not to contain ` +
-                `"${expectedUrlPart}"`
+                `Expected URL "${currentUrl}" not to contain `
+                + `"${expectedUrlPart}"`
             );
     } else {
         expect(currentUrl).to

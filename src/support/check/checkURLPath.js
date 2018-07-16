@@ -26,8 +26,8 @@ module.exports = (falseCase, expectedPath) => {
         expect(currentUrl).to
             .equal(
                 expectedPath,
-                `expected path to be "${expectedPath}" but found ` +
-                `"${currentUrl}"`
+                `expected path to be "${expectedPath}" but found `
+                + `"${currentUrl}"`
             );
     }
 };

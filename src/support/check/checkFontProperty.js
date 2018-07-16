@@ -19,7 +19,7 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
      * Te label to identify the attribute by
      * @type {String}
      */
-    const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
+    const attrType = isCSS ? 'CSS attribute' : 'Attribute';
 
     /**
      * The actual attribute value
@@ -31,23 +31,25 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
      * when getting something with a color or font-weight WebdriverIO returns a
      * object but we want to assert against a string
      */
-    if (attrName.match(/(font-size|line-height|display|font-weight|line-height|display)/)) {
+    if (
+        attrName.match(
+            /(font-size|line-height|display|font-weight|line-height|display)/
+        )
+    ) {
         attributeValue = attributeValue.value;
     }
 
     if (falseCase) {
-        expect(attributeValue).to.not
-            .equal(
-                expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
-                `"${attributeValue}"`
-            );
+        expect(attributeValue).to.not.equal(
+            expectedValue,
+            `${attrType} of element "${elem}" should not contain `
+                + `"${attributeValue}"`
+        );
     } else {
-        expect(attributeValue).to
-            .equal(
-                expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
-                `"${attributeValue}", but "${expectedValue}"`
-            );
+        expect(attributeValue).to.equal(
+            expectedValue,
+            `${attrType} of element "${elem}" should not contain `
+                + `"${attributeValue}", but "${expectedValue}"`
+        );
     }
 };

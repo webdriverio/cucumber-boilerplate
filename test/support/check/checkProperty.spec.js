@@ -43,8 +43,8 @@ describe('checkProperty', () => {
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 'black',
-                'CSS attribute of element "#elem1" should not ' +
-                'contain "black", but "black"'
+                'CSS attribute of element "#elem1" should not '
+                + 'contain "black", but "black"'
             );
     });
 
@@ -66,8 +66,8 @@ describe('checkProperty', () => {
         _expect(expectToNotEqual)
             .toHaveBeenCalledWith(
                 '1px',
-                'CSS attribute of element "#elem2" should not ' +
-                'contain "1px"'
+                'CSS attribute of element "#elem2" should not '
+                + 'contain "1px"'
             );
     });
 
@@ -92,8 +92,8 @@ describe('checkProperty', () => {
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual).toHaveBeenCalledWith(
             'element-name',
-            'Attribute of element "#elem3" should not contain ' +
-            '"element-name", but "element-name"'
+            'Attribute of element "#elem3" should not contain '
+            + '"element-name", but "element-name"'
         );
     });
 });

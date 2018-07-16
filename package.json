@@ -43,7 +43,7 @@
     "babel-core": "~6.26.3",
     "babel-jest": "~23.0.1",
     "babel-polyfill": "~6.26.0",
-    "eslint": "~5.0.0",
+    "eslint": "eslint@^4.19.1",
     "eslint-config-airbnb-base": "~13.0.0",
     "eslint-plugin-import": "~2.13.0",
     "forever": "~0.15.3",
