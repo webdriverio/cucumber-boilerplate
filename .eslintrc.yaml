@@ -32,6 +32,7 @@ rules:
     - 'error'
     - 80
     - ignorePattern: '\s*\/\^(.*)\$\/,$'
+    - ignoreRegExpLiterals: true
   new-cap:
     - 'error'
     - newIsCap: true
