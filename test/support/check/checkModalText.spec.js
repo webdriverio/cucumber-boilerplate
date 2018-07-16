@@ -32,8 +32,8 @@ describe('checkModalText', () => {
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 'test',
-                'Expected the text of alertbox not to equal ' +
-                '"test", instead found "test"'
+                'Expected the text of alertbox not to equal '
+                + '"test", instead found "test"'
             );
     });
 
@@ -47,8 +47,8 @@ describe('checkModalText', () => {
         _expect(expectToNotEqual)
             .toHaveBeenCalledWith(
                 'test',
-                'Expected the text of confirmbox not to equal ' +
-                '"test"'
+                'Expected the text of confirmbox not to equal '
+                + '"test"'
             );
     });
 

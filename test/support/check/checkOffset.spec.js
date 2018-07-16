@@ -38,16 +38,16 @@ describe('checkOffset', () => {
             _expect(expectToEqual)
                 .toHaveBeenCalledWith(
                     100,
-                    'Element "#elem1" should be positioned at ' +
-                    '100px on the x axis, but was ' +
-                    'found at 100px'
+                    'Element "#elem1" should be positioned at '
+                    + '100px on the x axis, but was '
+                    + 'found at 100px'
                 );
         }
     );
 
     it(
-        'Should test if the element is not positioned at the expected ' +
-        'location',
+        'Should test if the element is not positioned at the expected '
+        + 'location',
         () => {
             checkOffset('#elem2', true, 200, 'y');
 
@@ -62,8 +62,8 @@ describe('checkOffset', () => {
             _expect(expectToNotEqual)
                 .toHaveBeenCalledWith(
                     200,
-                    'Element "#elem2" should not be positioned at ' +
-                    '200px on the y axis'
+                    'Element "#elem2" should not be positioned at '
+                    + '200px on the y axis'
                 );
         }
     );

@@ -23,16 +23,16 @@ module.exports = (elem, falseCase, expectedPosition, axis) => {
         expect(location).to.not
             .equal(
                 intExpectedPosition,
-                `Element "${elem}" should not be positioned at ` +
-                `${intExpectedPosition}px on the ${axis} axis`
+                `Element "${elem}" should not be positioned at `
+                + `${intExpectedPosition}px on the ${axis} axis`
             );
     } else {
         expect(location).to
             .equal(
                 intExpectedPosition,
-                `Element "${elem}" should be positioned at ` +
-                `${intExpectedPosition}px on the ${axis} axis, but was found ` +
-                `at ${location}px`
+                `Element "${elem}" should be positioned at `
+                + `${intExpectedPosition}px on the ${axis} axis, but was found `
+                + `at ${location}px`
             );
     }
 };

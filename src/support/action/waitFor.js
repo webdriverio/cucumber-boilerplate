@@ -7,8 +7,7 @@
  * @param  {String}   state                    State to check for (default
  *                                             existence)
  */
-module.exports =
-(elem, ms, falseState, state) => {
+module.exports = (elem, ms, falseState, state) => {
     /**
      * Maximum number of milliseconds to wait, default 3000
      * @type {Int}
@@ -44,8 +43,8 @@ module.exports =
         }
 
         if (parsedState) {
-            command = `waitFor${parsedState[0].toUpperCase()}` +
-                `${parsedState.slice(1)}`;
+            command = `waitFor${parsedState[0].toUpperCase()}`
+                + `${parsedState.slice(1)}`;
         }
     }
 

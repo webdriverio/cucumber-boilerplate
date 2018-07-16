@@ -34,8 +34,8 @@ describe('checkInURLPath', () => {
         _expect(expectShouldContain)
             .toHaveBeenCalledWith(
                 'test',
-                'Expected URL "http://www.example.com/test" to contain ' +
-                '"test"'
+                'Expected URL "http://www.example.com/test" to contain '
+                + '"test"'
             );
     });
 
@@ -49,8 +49,8 @@ describe('checkInURLPath', () => {
         _expect(expectShouldNotContain)
             .toHaveBeenCalledWith(
                 'test2',
-                'Expected URL "http://www.example.com/test" not to ' +
-                'contain "test2"'
+                'Expected URL "http://www.example.com/test" not to '
+                + 'contain "test2"'
             );
     });
 });

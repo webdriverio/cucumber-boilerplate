@@ -19,8 +19,8 @@ describe('openWebsite', () => {
     });
 
     it(
-        'should call url with the given path on the baseUrl if the first ' +
-        'param is `site`',
+        'should call url with the given path on the baseUrl if the first '
+        + 'param is `site`',
         () => {
             openWebsite('site', '/path/to/page');
 

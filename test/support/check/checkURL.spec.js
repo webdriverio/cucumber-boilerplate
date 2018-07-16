@@ -34,8 +34,8 @@ describe('checkURL', () => {
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 'http://www.example.com/test',
-                'expected url to be "http://www.example.com/test" ' +
-                'but found "http://www.example.com/test"'
+                'expected url to be "http://www.example.com/test" '
+                + 'but found "http://www.example.com/test"'
             );
     });
 
