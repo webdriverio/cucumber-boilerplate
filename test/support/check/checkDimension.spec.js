@@ -36,8 +36,8 @@ describe('checkDimension', () => {
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 200,
-                'Element "element1" should have a height of ' +
-                '200px, but is 200px'
+                'Element "element1" should have a height of '
+                + '200px, but is 200px'
             );
     });
 
@@ -52,8 +52,8 @@ describe('checkDimension', () => {
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 100,
-                'Element "element2" should have a width of ' +
-                '100px, but is 100px'
+                'Element "element2" should have a width of '
+                + '100px, but is 100px'
             );
     });
 

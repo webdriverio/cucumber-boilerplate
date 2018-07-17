@@ -63,8 +63,8 @@ describe('checkCookieContent', () => {
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 'value2',
-                'expected cookie "cookie1" to have value "value2" but got' +
-                ' "value1"'
+                'expected cookie "cookie1" to have value "value2" but got'
+                + ' "value1"'
             );
     });
 });

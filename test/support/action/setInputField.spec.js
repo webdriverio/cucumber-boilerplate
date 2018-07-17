@@ -48,8 +48,8 @@ describe('setInputField', () => {
         _expect(expectToHaveLengthOf).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOf).toHaveBeenCalledWith(
             1,
-            'Element with selector "element" should exist ' +
-            'exactly 1 time(s)'
+            'Element with selector "element" should exist '
+            + 'exactly 1 time(s)'
         );
     });
 
@@ -65,8 +65,8 @@ describe('setInputField', () => {
         _expect(expectToHaveLengthOf).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOf).toHaveBeenCalledWith(
             1,
-            'Element with selector "element" should exist ' +
-            'exactly 1 time(s)'
+            'Element with selector "element" should exist '
+            + 'exactly 1 time(s)'
         );
     });
 
@@ -82,8 +82,8 @@ describe('setInputField', () => {
         _expect(expectToHaveLengthOf).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOf).toHaveBeenCalledWith(
             1,
-            'Element with selector "element" should exist ' +
-            'exactly 1 time(s)'
+            'Element with selector "element" should exist '
+            + 'exactly 1 time(s)'
         );
     });
 
@@ -99,8 +99,8 @@ describe('setInputField', () => {
         _expect(expectToHaveLengthOf).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOf).toHaveBeenCalledWith(
             1,
-            'Element with selector "element" should exist ' +
-            'exactly 1 time(s)'
+            'Element with selector "element" should exist '
+            + 'exactly 1 time(s)'
         );
     });
 
@@ -116,8 +116,8 @@ describe('setInputField', () => {
         _expect(expectToHaveLengthOf).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOf).toHaveBeenCalledWith(
             1,
-            'Element with selector "element" should exist ' +
-            'exactly 1 time(s)'
+            'Element with selector "element" should exist '
+            + 'exactly 1 time(s)'
         );
     });
 });

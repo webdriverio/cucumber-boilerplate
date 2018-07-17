@@ -8,8 +8,8 @@ describe('moveToElement', () => {
     });
 
     it(
-        'should call moveToObject with only the element when no x and y ' +
-        'are provided',
+        'should call moveToObject with only the element when no x and y '
+        + 'are provided',
         () => {
             moveToElement('element', undefined, undefined);
 

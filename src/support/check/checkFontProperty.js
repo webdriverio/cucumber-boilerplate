@@ -19,7 +19,7 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
      * Te label to identify the attribute by
      * @type {String}
      */
-    const attrType = (isCSS ? 'CSS attribute' : 'Attribute');
+    const attrType = isCSS ? 'CSS attribute' : 'Attribute';
 
     /**
      * The actual attribute value
@@ -36,18 +36,16 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
     }
 
     if (falseCase) {
-        expect(attributeValue).to.not
-            .equal(
-                expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
-                `"${attributeValue}"`
-            );
+        expect(attributeValue).to.not.equal(
+            expectedValue,
+            `${attrType} of element "${elem}" should not contain `
+                + `"${attributeValue}"`
+        );
     } else {
-        expect(attributeValue).to
-            .equal(
-                expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
-                `"${attributeValue}", but "${expectedValue}"`
-            );
+        expect(attributeValue).to.equal(
+            expectedValue,
+            `${attrType} of element "${elem}" should not contain `
+                + `"${attributeValue}", but "${expectedValue}"`
+        );
     }
 };

@@ -13,8 +13,8 @@ module.exports = (elementType, element, falseCase) => {
     let command = 'getValue';
 
     if (
-        elementType === 'button' ||
-        browser.getAttribute(element, 'value') === null
+        elementType === 'button'
+        || browser.getAttribute(element, 'value') === null
     ) {
         command = 'getText';
     }
