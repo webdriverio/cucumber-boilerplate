@@ -46,7 +46,10 @@ exports.config = {
         // make sure that not more than 5 instance gets started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
+        browserName: 'firefox',
+        chromeOptions: {
+            args: ['--headless', '--disable-gpu'],
+        }
     }],
     //
     // ===================
@@ -61,7 +64,7 @@ exports.config = {
     //
     // Level of logging verbosity: silent | verbose | command | data | result |
     // error
-    logLevel: 'error',
+    logLevel: 'silent',
     //
     // Enables colors for log output.
     coloredLogs: true,
