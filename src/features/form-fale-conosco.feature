@@ -4,7 +4,7 @@ Feature: Submitting "Fale Conosco" form
 	I want to be able to submit this forms
 
 	Background:
-		Given I open the url "http://localhost:8000/fale-conosco"
+		Given I open the url "/fale-conosco"
 
 	Scenario: Test form successfully
 		When  I add "Terminator" to the inputfield "#content input[name=nome]"
@@ -28,7 +28,7 @@ Feature: Submitting "Fale Conosco" form
             And   I add "No, no, no, no." to the inputfield "#content [name='mensagem']"
             And   I add "I'm an invalid data" to the inputfield "#content [name='telefone']"
             And   I click on the button "#content .button.medium"
-        Then  I expect that element "#content .telefone .inputBox" has the class "invalid"
+        Then  I wait on element ".popup-message" to not be visible
 
 	Scenario: Test invalid email
         When  I add "Terminator" to the inputfield "#content input[name=nome]"
@@ -36,4 +36,4 @@ Feature: Submitting "Fale Conosco" form
             And   I add "No, no, no, no." to the inputfield "#content [name='mensagem']"
             And   I add "(83) 98886-4544" to the inputfield "#content [name='telefone']"
             And   I click on the button "#content .button.medium"
-        Then  I expect that element "#content .telefone .inputBox" has the class "invalid"
+        Then  I wait on element ".popup-message" to not be visible
