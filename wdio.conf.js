@@ -47,6 +47,9 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
+        // chromeOptions: {
+        //     args: ['--headless', '--disable-gpu'],
+        // }
     }],
     //
     // ===================
@@ -61,7 +64,7 @@ exports.config = {
     //
     // Level of logging verbosity: silent | verbose | command | data | result |
     // error
-    logLevel: 'error',
+    logLevel: 'silent',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -71,7 +74,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://localhost:8000',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -105,7 +108,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They
     // enhance your test setup with almost no effort. Unlike plugins, they don't
     // add new commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+    services: ['phantomjs'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
