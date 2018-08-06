@@ -11,4 +11,5 @@ module.exports = (type, page) => {
     const url = (type === 'url') ? page : browser.options.baseUrl + page;
 
     browser.url(url);
+    browser.pause(parseInt(3000, 10));
 };
