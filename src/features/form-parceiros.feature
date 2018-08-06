@@ -7,10 +7,10 @@ Feature: Submitting "Parceiros" form
 		Given I open the url "/parceiros"
 
     Scenario: Test form successfully
-        When  I add "Terminator" to the inputfield "#content input[name=nome]"
-            And   I add "Sarah Connor" to the inputfield "#content [name='corretora']"
-            And   I add "(83) 98886-4544" to the inputfield "#content [name='telefone']"
-            And   I add "theend@skynet.me" to the inputfield "#content [name='email']"
+        When  I add "Terminator" to the inputfield "#content [name=nome]"
+            And   I add "Sarah Connor" to the inputfield "#content [name=corretora]"
+            And   I add "(83) 98886-4544" to the inputfield "#content [name=telefone]"
+            And   I add "theend@skynet.me" to the inputfield "#content [name=email]"
             And   I click on the button "#content .partners .button.medium"
         Then  I wait on element ".popup-message" to be visible
             And   I expect that element ".formBox .popup-message" contains the text "Mensagem enviada."
