@@ -23,7 +23,7 @@ module.exports = (elem, falseCase, expectedSize, dimension) => {
      * The size property to check against
      * @type {Int}
      */
-    let origionalSize = elementSize.height;
+    let originalSize = elementSize.height;
 
     /**
      * The label of the checked property
@@ -32,23 +32,23 @@ module.exports = (elem, falseCase, expectedSize, dimension) => {
     let label = 'height';
 
     if (dimension === 'broad') {
-        origionalSize = elementSize.width;
+        originalSize = elementSize.width;
         label = 'width';
     }
 
     if (falseCase) {
-        expect(origionalSize).to.not
+        expect(originalSize).to.not
             .equal(
                 intExpectedSize,
                 `Element "${elem}" should not have a ${label} of ` +
                 `${intExpectedSize}px`
             );
     } else {
-        expect(origionalSize).to
+        expect(originalSize).to
             .equal(
                 intExpectedSize,
                 `Element "${elem}" should have a ${label} of ` +
-                `${intExpectedSize}px, but is ${origionalSize}px`
+                `${intExpectedSize}px, but is ${originalSize}px`
             );
     }
 };
