@@ -22,7 +22,7 @@ module.exports = (modalType, falseState, expectedText) => {
         } else {
             expect(text).to.equal(
                 expectedText,
-                `Expected the text of ${modalType} not to equal ` +
+                `Expected the text of ${modalType} to equal ` +
                 `"${expectedText}", instead found "${text}"`
             );
         }
