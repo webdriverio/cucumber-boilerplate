@@ -39,14 +39,14 @@ module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
         expect(attributeValue).to.not
             .equal(
                 expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
+                `${attrType}: ${attrName} of element "${elem}" should not contain ` +
                 `"${attributeValue}"`
             );
     } else {
         expect(attributeValue).to
             .equal(
                 expectedValue,
-                `${attrType} of element "${elem}" should not contain ` +
+                `${attrType}: ${attrName} of element "${elem}" should contain ` +
                 `"${attributeValue}", but "${expectedValue}"`
             );
     }
