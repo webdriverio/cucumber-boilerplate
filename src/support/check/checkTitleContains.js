@@ -6,7 +6,7 @@
  */
 module.exports = (falseCase, expectedTitle) => {
     /**
-     * The title of the current browser window
+     * The actual title of the current browser window
      * @type {String}
      */
     const title = browser.getTitle();
@@ -21,7 +21,8 @@ module.exports = (falseCase, expectedTitle) => {
         expect(title).to
             .contain(
                 expectedTitle,
-                `Expected title to contain "${expectedTitle}" but found "${title}"`
+                `Expected title to contain "${expectedTitle}" 
+                        but found "${title}"`
             );
     }
 };
