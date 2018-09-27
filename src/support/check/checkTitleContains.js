@@ -13,13 +13,13 @@ module.exports = (falseCase, expectedTitle) => {
 
     if (falseCase) {
         expect(title).to.not
-            .equal(
+            .contain(
                 expectedTitle,
                 `Expected title not to contain "${expectedTitle}"`
             );
     } else {
         expect(title).to
-            .equal(
+            .contain(
                 expectedTitle,
                 `Expected title to contain "${expectedTitle}" but found "${title}"`
             );
