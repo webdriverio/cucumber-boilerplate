@@ -18,6 +18,7 @@ import checkProperty from '../support/check/checkProperty';
 import checkFontProperty from '../support/check/checkFontProperty';
 import checkSelected from '../support/check/checkSelected';
 import checkTitle from '../support/check/checkTitle';
+import checkTitleContains from '../support/check/checkTitleContains';
 import checkURL from '../support/check/checkURL';
 import checkURLPath from '../support/check/checkURLPath';
 import checkWithinViewport from '../support/check/checkWithinViewport';
@@ -35,6 +36,11 @@ const { Then } = require('cucumber');
 Then(
     /^I expect that the title is( not)* "([^"]*)?"$/,
     checkTitle
+);
+
+Then(
+    /^I expect that the title ( not)* contains "([^"]*)?"$/,
+    checkTitleContains
 );
 
 Then(
