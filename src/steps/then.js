@@ -39,7 +39,7 @@ Then(
 );
 
 Then(
-    /^I expect that the title ( not)* contains "([^"]*)?"$/,
+    /^I expect that the title( not)* contains "([^"]*)?"$/,
     checkTitleContains
 );
 
