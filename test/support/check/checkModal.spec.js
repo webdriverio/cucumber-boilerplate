@@ -6,7 +6,7 @@ describe('checkModal', () => {
 
     beforeEach(() => {
         global.browser = {
-            alertText: jest.fn(() => 'test'),
+            getAlertText: jest.fn(() => 'test'),
         };
 
         expectToEqual = jest.fn();
@@ -23,7 +23,7 @@ describe('checkModal', () => {
     });
 
     it('Should test if alertbox is opened', () => {
-        global.browser.alertText = jest.fn(() => {
+        global.browser.getAlertText = jest.fn(() => {
             throw new Error();
         });
 
@@ -33,8 +33,8 @@ describe('checkModal', () => {
             _expect(e);
         }
 
-        _expect(global.browser.alertText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.alertText).toHaveBeenCalledWith();
+        _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getAlertText).toHaveBeenCalledWith();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual).toHaveBeenCalledWith(
@@ -46,8 +46,8 @@ describe('checkModal', () => {
     it('Should test if confirmbox is not opened', () => {
         checkModal('confirmbox', true);
 
-        _expect(global.browser.alertText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.alertText).toHaveBeenCalledWith();
+        _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getAlertText).toHaveBeenCalledWith();
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual).toHaveBeenCalledWith(
@@ -57,7 +57,7 @@ describe('checkModal', () => {
     });
 
     it('Should test if alertbox is not opened', () => {
-        global.browser.alertText = jest.fn(() => {
+        global.browser.getAlertText = jest.fn(() => {
             throw new Error();
         });
 
@@ -67,8 +67,8 @@ describe('checkModal', () => {
             _expect(e);
         }
 
-        _expect(global.browser.alertText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.alertText).toHaveBeenCalledWith();
+        _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getAlertText).toHaveBeenCalledWith();
 
         _expect(expectToEqual).not.toHaveBeenCalled();
         _expect(expectToNotEqual).not.toHaveBeenCalled();
@@ -77,8 +77,8 @@ describe('checkModal', () => {
     it('Should test if confirmbox is opened', () => {
         checkModal('confirmbox', false);
 
-        _expect(global.browser.alertText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.alertText).toHaveBeenCalledWith();
+        _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getAlertText).toHaveBeenCalledWith();
 
         _expect(expectToEqual).not.toHaveBeenCalled();
         _expect(expectToNotEqual).not.toHaveBeenCalled();

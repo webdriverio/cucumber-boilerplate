@@ -9,12 +9,14 @@ module.exports = (obsolete) => {
      * Get all the window handles
      * @type {Object}
      */
-    const windowHandles = browser.windowHandles().value;
+    const windowHandles = browser.getWindowHandles();
 
     // Close all tabs but the first one
+    windowHandles.reverse();
     windowHandles.forEach((handle, index) => {
-        if (index > 0) {
-            browser.switchTab(handle).close();
+        browser.switchToWindow(handle);
+        if (index < windowHandles.length - 1) {
+            browser.closeWindow();
         }
     });
 };

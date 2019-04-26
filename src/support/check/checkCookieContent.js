@@ -10,8 +10,7 @@ module.exports = (name, falseCase, expectedValue) => {
      * The cookie retrieved from the browser object
      * @type {Object}
      */
-    const cookie = browser.getCookie(name);
-
+    const cookie = browser.getCookies(name)[0];
     expect(cookie.name).to.equal(
         name,
         `no cookie found with the name "${name}"`
@@ -27,8 +26,8 @@ module.exports = (name, falseCase, expectedValue) => {
         expect(cookie.value).to
             .equal(
                 expectedValue,
-                `expected cookie "${name}" to have value "${expectedValue}"` +
-                ` but got "${cookie.value}"`
+                `expected cookie "${name}" to have value "${expectedValue}"`
+                + ` but got "${cookie.value}"`
             );
     }
 };

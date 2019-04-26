@@ -4,7 +4,7 @@
  */
 module.exports = (modalText) => {
     try {
-        browser.alertText(modalText);
+        browser.sendAlertText(modalText);
     } catch (e) {
         assert(e, 'A prompt was not open when it should have been open');
     }

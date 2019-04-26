@@ -6,9 +6,7 @@ describe('checkURL', () => {
 
     beforeEach(() => {
         global.browser = {
-            url: jest.fn(() => ({
-                value: 'http://www.example.com/test',
-            })),
+            getUrl: jest.fn(() => 'http://www.example.com/test'),
         };
 
         expectToEqual = jest.fn();
@@ -27,15 +25,15 @@ describe('checkURL', () => {
     it('Should test if the current URL matches the expected value', () => {
         checkURL(false, 'http://www.example.com/test');
 
-        _expect(global.browser.url).toHaveBeenCalledTimes(1);
-        _expect(global.browser.url).toHaveBeenCalledWith();
+        _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getUrl).toHaveBeenCalledWith();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 'http://www.example.com/test',
-                'expected url to be "http://www.example.com/test" ' +
-                'but found "http://www.example.com/test"'
+                'expected url to be "http://www.example.com/test" '
+                + 'but found "http://www.example.com/test"'
             );
     });
 
@@ -44,8 +42,8 @@ describe('checkURL', () => {
         () => {
             checkURL(true, 'http://www.example.com/test');
 
-            _expect(global.browser.url).toHaveBeenCalledTimes(1);
-            _expect(global.browser.url).toHaveBeenCalledWith();
+            _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
+            _expect(global.browser.getUrl).toHaveBeenCalledWith();
 
             _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
             _expect(expectToNotEqual)

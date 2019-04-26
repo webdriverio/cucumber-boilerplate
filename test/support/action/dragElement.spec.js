@@ -1,18 +1,18 @@
 import dragElement from 'src/support/action/dragElement';
 
+let dragElementMock;
+
 describe('dragElement', () => {
     beforeEach(() => {
-        global.browser = {
-            dragAndDrop: jest.fn(),
-        };
+        dragElementMock = jest.fn();
+        global.$ = jest.fn().mockReturnValue({
+            dragAndDrop: dragElementMock,
+        });
     });
 
     it('should call dragAndDrop on the browser', () => {
         dragElement('source', 'destination');
 
-        expect(global.browser.dragAndDrop).toHaveBeenCalledTimes(1);
-
-        expect(global.browser.dragAndDrop)
-            .toHaveBeenCalledWith('source', 'destination');
+        expect(dragElementMock).toHaveBeenCalledTimes(1);
     });
 });

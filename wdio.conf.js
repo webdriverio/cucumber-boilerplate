@@ -1,3 +1,5 @@
+const path = require('path');
+
 exports.config = {
     //
     // ==================
@@ -10,7 +12,7 @@ exports.config = {
     // `wdio` will be called from there.
     //
     specs: [
-        './src/features/**/*.feature',
+        './src/features/attribute.feature',
     ],
     // Patterns to exclude.
     exclude: [
@@ -34,7 +36,7 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 5,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
@@ -54,14 +56,9 @@ exports.config = {
     // ===================
     // Define all options that are relevant for the WebdriverIO instance here
     //
-    // By default WebdriverIO commands are executed in a synchronous way using
-    // the wdio-sync package. If you still want to run your tests in an async
-    // way e.g. using promises you can set the sync option to false.
-    sync: true,
-    //
     // Level of logging verbosity: silent | verbose | command | data | result |
     // error
-    logLevel: 'error',
+    logLevel: 'trace',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -69,8 +66,8 @@ exports.config = {
     // Saves a screenshot to a given path if a command fails.
     screenshotPath: './errorShots/',
     //
-    // Set a base URL in order to shorten url command calls. If your url
-    // parameter starts with "/", then the base url gets prepended.
+    // Set a base URL in order to shorten getUrl command calls. If your getUrl
+    // parameter starts with "/", then the base getUrl gets prepended.
     baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
@@ -106,6 +103,7 @@ exports.config = {
     // enhance your test setup with almost no effort. Unlike plugins, they don't
     // add new commands. Instead, they hook themselves up into the test process.
     services: ['selenium-standalone'],
+    outputDir: path.join(__dirname, 'logs'),
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -154,7 +152,7 @@ exports.config = {
             './src/steps/when.js',
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
-            //'./src/**/*.js',
+            // './src/**/*.js',
         ],
         // <string> specify a custom snippet syntax
         snippetSyntax: undefined,

@@ -12,7 +12,7 @@ module.exports = (modalType, falseState) => {
     let promptText = '';
 
     try {
-        promptText = browser.alertText();
+        promptText = browser.getAlertText();
 
         if (falseState) {
             expect(promptText).to.not

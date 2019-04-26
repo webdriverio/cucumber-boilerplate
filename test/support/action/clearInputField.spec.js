@@ -1,19 +1,20 @@
 import clearInputField from 'src/support/action/clearInputField';
 
+let clearElementMock;
+
 describe('clearInputField', () => {
     let element;
 
     beforeEach(() => {
-        global.browser = {
-            clearElement: jest.fn(),
-        };
-
+        clearElementMock = jest.fn();
+        global.$ = jest.fn().mockReturnValue({
+            clearValue: clearElementMock,
+        });
         element = 'element_selector';
     });
 
     it('should call clearElement on the browser', () => {
         clearInputField(element);
-
-        expect(browser.clearElement).toHaveBeenCalledWith(element);
+        expect(clearElementMock).toHaveBeenCalled();
     });
 });

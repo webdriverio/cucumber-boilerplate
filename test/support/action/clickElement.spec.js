@@ -1,19 +1,22 @@
 import clickElement from 'src/support/action/clickElement';
 
+let clickMock;
+let doubleClickMock;
+
 describe('clickElement', () => {
     let expectToHaveLengthOf;
     let expectToHaveLengthOfAtLeast;
 
     beforeEach(() => {
-        global.browser = {
-            click: jest.fn(),
-            doubleClick: jest.fn(),
-            elements: jest.fn(() => ({
-                value: ['1'],
-            })).mockImplementationOnce(() => ({
-                value: [],
-            })),
-        };
+        global.$$ = jest.fn(() => ['1'])
+            .mockImplementationOnce(() => []);
+
+        clickMock = jest.fn();
+        doubleClickMock = jest.fn();
+        global.$ = jest.fn().mockReturnValue({
+            click: clickMock,
+            doubleClick: doubleClickMock,
+        });
 
         expectToHaveLengthOf = jest.fn();
         expectToHaveLengthOfAtLeast = jest.fn();
@@ -37,7 +40,8 @@ describe('clickElement', () => {
     it('should fail if the given element does not exist', () => {
         clickElement('click', 'element', 'element0');
 
-        _expect(browser.click).toHaveBeenCalledWith('element0');
+        _expect(global.$).toHaveBeenCalledWith('element0');
+        _expect(clickMock).toHaveBeenCalled();
 
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledWith(
@@ -49,7 +53,8 @@ describe('clickElement', () => {
     it('should call click on the browser', () => {
         clickElement('click', 'element', 'element1');
 
-        _expect(browser.click).toHaveBeenCalledWith('element1');
+        _expect(global.$).toHaveBeenCalledWith('element1');
+        _expect(clickMock).toHaveBeenCalled();
 
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledWith(
@@ -61,7 +66,8 @@ describe('clickElement', () => {
     it('should call doubleClick on the browser', () => {
         clickElement('doubleClick', 'element', 'element2');
 
-        _expect(browser.doubleClick).toHaveBeenCalledWith('element2');
+        _expect(global.$).toHaveBeenCalledWith('element2');
+        _expect(doubleClickMock).toHaveBeenCalled();
 
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledWith(
@@ -73,7 +79,8 @@ describe('clickElement', () => {
     it('should click a link when type is `link`', () => {
         clickElement('click', 'link', 'element3');
 
-        _expect(browser.click).toHaveBeenCalledWith('=element3');
+        _expect(global.$).toHaveBeenCalledWith('=element3');
+        _expect(clickMock).toHaveBeenCalled();
 
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOfAtLeast).toHaveBeenCalledWith(

@@ -8,6 +8,8 @@ globals:
   assert: true
   browser: true
   expect: true
+  $: true
+  $$: true
 
 parserOptions:
   ecmaVersion: 6

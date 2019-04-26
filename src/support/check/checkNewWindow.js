@@ -9,7 +9,7 @@ module.exports = (obsolete, falseCase) => {
      * The handles of all open windows/tabs
      * @type {Object}
      */
-    const windowHandles = browser.windowHandles().value;
+    const windowHandles = browser.getWindowHandles();
 
     if (falseCase) {
         expect(windowHandles.length).to

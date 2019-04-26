@@ -9,7 +9,7 @@ module.exports = (falseCase, expectedUrl) => {
      * The current browser window's URL
      * @type {String}
      */
-    const currentUrl = browser.url().value;
+    const currentUrl = browser.getUrl();
 
     if (falseCase) {
         expect(currentUrl).to.not
@@ -18,8 +18,8 @@ module.exports = (falseCase, expectedUrl) => {
         expect(currentUrl).to
             .equal(
                 expectedUrl,
-                `expected url to be "${expectedUrl}" but found ` +
-                `"${currentUrl}"`
+                `expected url to be "${expectedUrl}" but found `
+                + `"${currentUrl}"`
             );
     }
 };

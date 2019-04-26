@@ -9,16 +9,16 @@ module.exports = (name, falseCase) => {
      * The cookie as retrieved from the browser
      * @type {Object}
      */
-    const cookie = browser.getCookie(name);
+    const cookie = browser.getCookies(name);
 
     if (falseCase) {
-        expect(cookie).to.equal(
-            null,
+        expect(cookie.length).to.equal(
+            0,
             `Expected cookie "${name}" not to exists but it does`
         );
     } else {
-        expect(cookie).to.not.equal(
-            null,
+        expect(cookie.length).to.not.equal(
+            0,
             `Expected cookie "${name}" to exists but it does not`
         );
     }

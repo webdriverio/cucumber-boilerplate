@@ -1,13 +1,16 @@
-import isVisible from 'src/support/check/isVisible';
+import isDisplayed from 'src/support/check/isDisplayed';
 
-describe('isVisible', () => {
+let isDisplayedMock;
+
+describe('isDisplayed', () => {
     let expectToEqual;
     let expectToNotEqual;
 
     beforeEach(() => {
-        global.browser = {
-            isVisible: jest.fn(() => true),
-        };
+        isDisplayedMock = jest.fn();
+        global.$ = jest.fn().mockReturnValue({
+            isDisplayed: isDisplayedMock,
+        });
 
         expectToEqual = jest.fn();
         expectToNotEqual = jest.fn();
@@ -23,32 +26,28 @@ describe('isVisible', () => {
     });
 
     it('Should test if the element is visible', () => {
-        isVisible('#elem1', false);
+        isDisplayed('#elem1', false);
 
-        _expect(global.browser.isVisible).toHaveBeenCalled();
-        _expect(global.browser.isVisible)
-            .toHaveBeenCalledWith('#elem1');
+        _expect(isDisplayedMock).toHaveBeenCalled();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 true,
-                'Expected element "#elem1" to be visible'
+                'Expected element "#elem1" to be displayed'
             );
     });
 
     it('Should test if the element is not visible', () => {
-        isVisible('#elem2', true);
+        isDisplayed('#elem2', true);
 
-        _expect(global.browser.isVisible).toHaveBeenCalledTimes(1);
-        _expect(global.browser.isVisible)
-            .toHaveBeenCalledWith('#elem2');
+        _expect(isDisplayedMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual)
             .toHaveBeenCalledWith(
                 true,
-                'Expected element "#elem2" not to be visible'
+                'Expected element "#elem2" not to be displayed'
             );
     });
 });

@@ -1,12 +1,12 @@
 /**
  * Check if the given elements text is the same as the given text
  * @param  {String}   elementType   Element type (element or button)
- * @param  {String}   element       Element selector
+ * @param  {String}   selector       Element selector
  * @param  {String}   falseCase     Whether to check if the content equals the
  *                                  given text or not
  * @param  {String}   expectedText  The text to validate against
  */
-module.exports = (elementType, element, falseCase, expectedText) => {
+module.exports = (elementType, selector, falseCase, expectedText) => {
     /**
      * The command to execute on the browser object
      * @type {String}
@@ -14,8 +14,8 @@ module.exports = (elementType, element, falseCase, expectedText) => {
     let command = 'getValue';
 
     if (
-        elementType === 'button' ||
-        browser.getAttribute(element, 'value') === null
+        elementType === 'button'
+        || $(selector).getAttribute('value') === null
     ) {
         command = 'getText';
     }
@@ -44,7 +44,7 @@ module.exports = (elementType, element, falseCase, expectedText) => {
         boolFalseCase = true;
     }
 
-    const text = browser[command](element);
+    const text = browser[command](selector);
 
     if (boolFalseCase) {
         parsedExpectedText.should.not.equal(text);

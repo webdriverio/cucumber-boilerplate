@@ -1,14 +1,19 @@
 import checkProperty from 'src/support/check/checkProperty';
 
+let getCSSMock;
+let getAttributeMock;
+
 describe('checkProperty', () => {
     let expectToEqual;
     let expectToNotEqual;
 
     beforeEach(() => {
-        global.browser = {
-            getCssProperty: jest.fn(() => {}),
-            getAttribute: jest.fn(() => 'element-name'),
-        };
+        getCSSMock = jest.fn(() => {});
+        getAttributeMock = jest.fn(() => 'element-name');
+        global.$ = jest.fn().mockReturnValue({
+            getCSSProperty: getCSSMock,
+            getAttribute: getAttributeMock,
+        });
 
         expectToEqual = jest.fn();
         expectToNotEqual = jest.fn();
@@ -24,50 +29,43 @@ describe('checkProperty', () => {
     });
 
     it('Should test if the element has the correct color', () => {
-        global.browser.getCssProperty.mockReturnValueOnce({
-            value: 'black',
-        });
+        getCSSMock.mockReturnValueOnce({ value: 'black' });
 
         checkProperty(true, 'color', '#elem1', false, 'black');
 
-        _expect(global.browser.getCssProperty).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getCssProperty)
-            .toHaveBeenCalledWith(
-                '#elem1',
-                'color'
-            );
+        _expect(getCSSMock).toHaveBeenCalledTimes(1);
+        _expect(getCSSMock).toHaveBeenCalledWith('color');
 
-        _expect(global.browser.getAttribute).not.toHaveBeenCalled();
+        _expect(getAttributeMock).not.toHaveBeenCalled();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual)
             .toHaveBeenCalledWith(
                 'black',
-                'CSS attribute of element "#elem1" should not ' +
-                'contain "black", but "black"'
+                'CSS attribute: color of element "#elem1" should '
+                + 'contain "black", but "black"'
             );
     });
 
     it('Should test if the element does not have a width of 1px', () => {
-        global.browser.getCssProperty.mockReturnValueOnce('1px');
+        getCSSMock.mockReturnValueOnce('1px');
 
         checkProperty(true, 'width', '#elem2', true, '1px');
 
-        _expect(global.browser.getCssProperty).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getCssProperty)
+        _expect(getCSSMock).toHaveBeenCalledTimes(1);
+        _expect(getCSSMock)
             .toHaveBeenCalledWith(
-                '#elem2',
                 'width'
             );
 
-        _expect(global.browser.getAttribute).not.toHaveBeenCalled();
+        _expect(getAttributeMock).not.toHaveBeenCalled();
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual)
             .toHaveBeenCalledWith(
                 '1px',
-                'CSS attribute of element "#elem2" should not ' +
-                'contain "1px"'
+                'CSS attribute: width of element "#elem2" should not '
+                + 'contain "1px"'
             );
     });
 
@@ -80,20 +78,16 @@ describe('checkProperty', () => {
             'element-name'
         );
 
-        _expect(global.browser.getAttribute).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getAttribute)
-            .toHaveBeenCalledWith(
-                '#elem3',
-                'name'
-            );
+        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
+        _expect(getAttributeMock).toHaveBeenCalledWith('name');
 
-        _expect(global.browser.getCssProperty).not.toHaveBeenCalled();
+        _expect(getCSSMock).not.toHaveBeenCalled();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual).toHaveBeenCalledWith(
             'element-name',
-            'Attribute of element "#elem3" should not contain ' +
-            '"element-name", but "element-name"'
+            'Attribute: name of element "#elem3" should contain '
+            + '"element-name", but "element-name"'
         );
     });
 });
