@@ -1,16 +1,17 @@
 import scroll from 'src/support/action/scroll';
 
+let scrollIntoViewMock;
+
 describe('scroll', () => {
     beforeEach(() => {
-        global.browser = {
-            scroll: jest.fn(),
-        };
+        scrollIntoViewMock = jest.fn();
+        global.$ = jest.fn().mockReturnValue({
+            scrollIntoView: scrollIntoViewMock,
+        });
     });
 
-    it('should call scroll on the browser object', () => {
+    it('should call scrollIntoView on the browser object', () => {
         scroll('element');
-
-        expect(global.browser.scroll).toHaveBeenCalledTimes(1);
-        expect(global.browser.scroll).toHaveBeenCalledWith('element');
+        expect(scrollIntoViewMock).toHaveBeenCalledTimes(1);
     });
 });

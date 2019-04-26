@@ -1,17 +1,19 @@
 import selectOptionByIndex from 'src/support/action/selectOptionByIndex';
 
+let selectByIndexMock;
+
 describe('selectOptionByIndex', () => {
     beforeEach(() => {
-        global.browser = {
-            selectByIndex: jest.fn(),
-        };
+        selectByIndexMock = jest.fn();
+        global.$ = jest.fn().mockReturnValue({
+            selectByIndex: selectByIndexMock,
+        });
     });
 
     it('should call selectByIndex on the browser object', () => {
         selectOptionByIndex(1, '', 'element');
 
-        expect(global.browser.selectByIndex).toHaveBeenCalledTimes(1);
-        expect(global.browser.selectByIndex)
-            .toHaveBeenCalledWith('element', 1);
+        expect(selectByIndexMock).toHaveBeenCalledTimes(1);
+        expect(selectByIndexMock).toHaveBeenCalledWith(1);
     });
 });

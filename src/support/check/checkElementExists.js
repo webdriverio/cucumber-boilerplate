@@ -4,9 +4,9 @@ import checkIfElementExists from '../lib/checkIfElementExists';
  * Check if the given element exists
  * @param  {String}   isExisting Whether the element should be existing or not
  *                               (an or no)
- * @param  {String}   elem       Element selector
+ * @param  {String}   selector       Element selector
  */
-module.exports = (isExisting, elem) => {
+module.exports = (isExisting, selector) => {
     /**
      * Falsecase assertion
      * @type {Boolean}
@@ -17,5 +17,5 @@ module.exports = (isExisting, elem) => {
         falseCase = false;
     }
 
-    checkIfElementExists(elem, falseCase);
+    checkIfElementExists(selector, falseCase);
 };

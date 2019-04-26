@@ -9,7 +9,7 @@ module.exports = (selector, falseCase) => {
      * Value of the hasFocus function for the given element
      * @type {Boolean}
      */
-    const hasFocus = browser.hasFocus(selector);
+    const hasFocus = $(selector).isFocused();
 
     if (falseCase) {
         expect(hasFocus).to.not

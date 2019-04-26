@@ -1,21 +1,18 @@
-import resizeScreenSize from 'src/support/action/resizeScreenSize';
+import setWindowSize from 'src/support/action/setWindowSize';
 
-describe('resizeScreenSize', () => {
+describe('setWindowSize', () => {
     beforeEach(() => {
         global.browser = {
-            windowHandleSize: jest.fn(),
+            setWindowSize: jest.fn(),
         };
     });
 
-    it('should call windowHandleSize on the browser object', () => {
-        resizeScreenSize(1, 2);
+    it('should call setWindowSize on the browser object', () => {
+        setWindowSize(1, 2);
 
-        expect(global.browser.windowHandleSize)
+        expect(global.browser.setWindowSize)
             .toHaveBeenCalledTimes(1);
-        expect(global.browser.windowHandleSize)
-            .toHaveBeenCalledWith({
-                width: 1,
-                height: 2,
-            });
+        expect(global.browser.setWindowSize)
+            .toHaveBeenCalledWith(1, 2);
     });
 });

@@ -21,4 +21,4 @@ Feature: Test the attributes of a given element
         Then  I expect that the css attribute "border" from element "#cssAttributeComparison" is not "0"
 
     Scenario: The CSS attribute "font-weight" of a element should be "bold"
-        Then  I expect that the css attribute "font-weight" from element "#cssAttributeComparison" is "bold"
+        Then  I expect that the css attribute "font-weight" from element "#cssAttributeComparison" is "700"

@@ -7,17 +7,10 @@ describe('checkIsOpenedInNewWindow', () => {
 
     beforeEach(() => {
         global.browser = {
-            windowHandles: jest.fn(() => ({
-                value: [
-                    'window1',
-                    'window2',
-                ],
-            })),
-            window: jest.fn(() => {}),
-            url: jest.fn(() => ({
-                value: 'http://www.example.com/test',
-            })),
-            close: jest.fn(() => {}),
+            getWindowHandles: jest.fn(() => ['window1', 'window2']),
+            switchToWindow: jest.fn(() => {}),
+            getUrl: jest.fn(() => 'http://www.example.com/test'),
+            closeWindow: jest.fn(() => {}),
         };
 
         expectLengthShouldNotEqual = jest.fn();
@@ -42,11 +35,7 @@ describe('checkIsOpenedInNewWindow', () => {
             throw new Error();
         });
 
-        global.browser.windowHandles.mockReturnValueOnce({
-            value: [
-                'window1',
-            ],
-        });
+        global.browser.getWindowHandles.mockReturnValueOnce(['window1']);
 
         try {
             checkIsOpenedInNewWindow(
@@ -57,14 +46,14 @@ describe('checkIsOpenedInNewWindow', () => {
             _expect(e);
         }
 
-        _expect(global.browser.windowHandles).toHaveBeenCalledTimes(1);
-        _expect(global.browser.windowHandles).toHaveBeenCalledWith();
+        _expect(global.browser.getWindowHandles).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();
 
-        _expect(global.browser.window).not.toHaveBeenCalled();
+        _expect(global.browser.switchToWindow).not.toHaveBeenCalled();
 
-        _expect(global.browser.url).not.toHaveBeenCalled();
+        _expect(global.browser.getUrl).not.toHaveBeenCalled();
 
-        _expect(global.browser.close).not.toHaveBeenCalled();
+        _expect(global.browser.closeWindow).not.toHaveBeenCalled();
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect).toHaveBeenCalledWith([
@@ -83,23 +72,23 @@ describe('checkIsOpenedInNewWindow', () => {
             ''
         );
 
-        _expect(global.browser.windowHandles).toHaveBeenCalledTimes(1);
-        _expect(global.browser.windowHandles).toHaveBeenCalledWith();
+        _expect(global.browser.getWindowHandles).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();
 
-        _expect(global.browser.window).toHaveBeenCalledTimes(1);
-        _expect(global.browser.window).toHaveBeenCalledWith('window2');
+        _expect(global.browser.switchToWindow).toHaveBeenCalledTimes(1);
+        _expect(global.browser.switchToWindow).toHaveBeenCalledWith('window2');
 
-        _expect(global.browser.url).toHaveBeenCalledTimes(1);
-        _expect(global.browser.url).toHaveBeenCalledWith();
+        _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
+        _expect(global.browser.getUrl).toHaveBeenCalledWith();
 
-        _expect(global.browser.close).toHaveBeenCalledTimes(1);
-        _expect(global.browser.close).toHaveBeenCalledWith();
+        _expect(global.browser.closeWindow).toHaveBeenCalledTimes(1);
+        _expect(global.browser.closeWindow).toHaveBeenCalledWith();
 
         _expect(expectLengthShouldNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectShouldContain).toHaveBeenCalledTimes(1);
         _expect(expectShouldContain).toHaveBeenCalledWith(
             'http://www.example.com/test',
-            'The popup has a incorrect url'
+            'The popup has a incorrect getUrl'
         );
     });
 });

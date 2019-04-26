@@ -5,11 +5,7 @@ describe('isExisting', () => {
     let expectToHaveLengthOf;
 
     beforeEach(() => {
-        global.browser = {
-            elements: jest.fn(() => ({
-                value: ['1'],
-            })),
-        };
+        global.$$ = jest.fn().mockReturnValue(['1']);
 
         expectToHaveLengthAbove = jest.fn();
         expectToHaveLengthOf = jest.fn();
@@ -29,8 +25,8 @@ describe('isExisting', () => {
     it('Should test if the element exists', () => {
         isExisting('#elem1', false);
 
-        _expect(global.browser.elements).toHaveBeenCalledTimes(1);
-        _expect(global.browser.elements).toHaveBeenCalledWith('#elem1');
+        _expect(global.$$).toHaveBeenCalledTimes(1);
+        _expect(global.$$).toHaveBeenCalledWith('#elem1');
 
         _expect(expectToHaveLengthAbove).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthAbove)
@@ -43,8 +39,8 @@ describe('isExisting', () => {
     it('Should test if the element does not exist', () => {
         isExisting('#elem2', true);
 
-        _expect(global.browser.elements).toHaveBeenCalledTimes(1);
-        _expect(global.browser.elements).toHaveBeenCalledWith('#elem2');
+        _expect(global.$$).toHaveBeenCalledTimes(1);
+        _expect(global.$$).toHaveBeenCalledWith('#elem2');
 
         _expect(expectToHaveLengthOf).toHaveBeenCalledTimes(1);
         _expect(expectToHaveLengthOf)

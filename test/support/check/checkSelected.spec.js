@@ -1,15 +1,16 @@
 import checkSelected from 'src/support/check/checkSelected';
 
+let isSelectedMock;
+
 describe('checkSelected', () => {
     let expectToEqual;
     let expectToNotEqual;
 
     beforeEach(() => {
-        global.browser = {
-            isSelected: jest.fn(() => ({
-                value: 'black',
-            })),
-        };
+        isSelectedMock = jest.fn(() => true);
+        global.$ = jest.fn().mockReturnValue({
+            isSelected: isSelectedMock,
+        });
 
         expectToEqual = jest.fn();
         expectToNotEqual = jest.fn();
@@ -27,9 +28,7 @@ describe('checkSelected', () => {
     it('Should test if the element is selected', () => {
         checkSelected('#elem1', false);
 
-        _expect(global.browser.isSelected).toHaveBeenCalledTimes(1);
-        _expect(global.browser.isSelected)
-            .toHaveBeenCalledWith('#elem1');
+        _expect(isSelectedMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual)
@@ -42,9 +41,7 @@ describe('checkSelected', () => {
     it('Should test if the element is not selected', () => {
         checkSelected('#elem2', true);
 
-        _expect(global.browser.isSelected).toHaveBeenCalledTimes(1);
-        _expect(global.browser.isSelected)
-            .toHaveBeenCalledWith('#elem2');
+        _expect(isSelectedMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual)

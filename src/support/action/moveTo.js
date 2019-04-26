@@ -1,10 +1,10 @@
 /**
- * Move to the given element with an optional offset on a X and Y position
- * @param  {String}   element  Element selector
+ * Move to the given selector with an optional offset on a X and Y position
+ * @param  {String}   selector  Element selector
  * @param  {String}   x        X coordinate to move to
  * @param  {String}   y        Y coordinate to move to
  */
-module.exports = (element, x, y) => {
+module.exports = (selector, x, y) => {
     /**
      * X coordinate
      * @type {Int}
@@ -17,5 +17,5 @@ module.exports = (element, x, y) => {
      */
     const intY = parseInt(y, 10) || undefined;
 
-    browser.moveToObject(element, intX, intY);
+    $(selector).moveTo(intX, intY);
 };

@@ -9,7 +9,7 @@ module.exports = (falseCase, expectedPath) => {
      * The URL of the current browser window
      * @type {String}
      */
-    let currentUrl = browser.url().value.replace(/http(s?):\/\//, '');
+    let currentUrl = browser.getUrl().replace(/http(s?):\/\//, '');
 
     /**
      * The base URL of the current browser window
@@ -26,8 +26,8 @@ module.exports = (falseCase, expectedPath) => {
         expect(currentUrl).to
             .equal(
                 expectedPath,
-                `expected path to be "${expectedPath}" but found ` +
-                `"${currentUrl}"`
+                `expected path to be "${expectedPath}" but found `
+                + `"${currentUrl}"`
             );
     }
 };

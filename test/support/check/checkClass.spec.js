@@ -3,11 +3,13 @@ import checkClass from 'src/support/check/checkClass';
 describe('checkClass', () => {
     let expectToIncludeStub;
     let expectToNotIncludeStub;
+    let getAttributeMock;
 
     beforeEach(() => {
-        global.browser = {
-            getAttribute: jest.fn(() => 'class1 class2'),
-        };
+        getAttributeMock = jest.fn(() => 'class1 class2');
+        global.$ = jest.fn().mockReturnValue({
+            getAttribute: getAttributeMock,
+        });
 
         expectToIncludeStub = jest.fn();
         expectToNotIncludeStub = jest.fn();
@@ -25,9 +27,9 @@ describe('checkClass', () => {
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'has', 'class1');
 
-        _expect(global.browser.getAttribute).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getAttribute)
-            .toHaveBeenCalledWith('element1', 'className');
+        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
+        _expect(getAttributeMock)
+            .toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect)
@@ -44,9 +46,9 @@ describe('checkClass', () => {
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'has', 'class3');
 
-        _expect(global.browser.getAttribute).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getAttribute)
-            .toHaveBeenCalledWith('element1', 'className');
+        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
+        _expect(getAttributeMock)
+            .toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect)
@@ -63,9 +65,9 @@ describe('checkClass', () => {
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'does not have', 'class3');
 
-        _expect(global.browser.getAttribute).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getAttribute)
-            .toHaveBeenCalledWith('element1', 'className');
+        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
+        _expect(getAttributeMock)
+            .toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect)
@@ -82,9 +84,9 @@ describe('checkClass', () => {
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'does not have', 'class1');
 
-        _expect(global.browser.getAttribute).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getAttribute)
-            .toHaveBeenCalledWith('element1', 'className');
+        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
+        _expect(getAttributeMock)
+            .toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect)

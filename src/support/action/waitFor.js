@@ -1,14 +1,12 @@
 /**
- * Wait for the given element to be checked, enabled, selected, visible, contain
- * a text, contain a value or to exist
- * @param  {String}   elem                     Element selector
+ * Wait for the given element to be enabled, displayed, or to exist
+* @param  {String}   selector                  Element selector
  * @param  {String}   ms                       Wait duration (optional)
  * @param  {String}   falseState               Check for opposite state
  * @param  {String}   state                    State to check for (default
  *                                             existence)
  */
-module.exports =
-(elem, ms, falseState, state) => {
+module.exports = (selector, ms, falseState, state) => {
     /**
      * Maximum number of milliseconds to wait, default 3000
      * @type {Int}
@@ -38,14 +36,9 @@ module.exports =
             ? state.split(/\s/)[state.split(/\s/).length - 1]
             : state;
 
-        // Check box checked state translates to selected state
-        if (parsedState === 'checked') {
-            parsedState = 'selected';
-        }
-
         if (parsedState) {
-            command = `waitFor${parsedState[0].toUpperCase()}` +
-                `${parsedState.slice(1)}`;
+            command = `waitFor${parsedState[0].toUpperCase()}`
+                + `${parsedState.slice(1)}`;
         }
     }
 
@@ -53,5 +46,5 @@ module.exports =
         boolFalseState = false;
     }
 
-    browser[command](elem, intMs, boolFalseState);
+    $(selector)[command](intMs, boolFalseState);
 };

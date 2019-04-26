@@ -23,21 +23,21 @@ Feature: Sample Snippets test
 
     Scenario: click on button
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the element ".btn1_clicked" is not visible
+        And   the element ".btn1_clicked" is not displayed
         When  I click on the button ".btn1"
-        Then  I expect that element ".btn1_clicked" is visible
+        Then  I expect that element ".btn1_clicked" is displayed
 
     Scenario: double click on a button
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the element ".btn1_dblclicked" is not visible
+        And   the element ".btn1_dblclicked" is not displayed
         When  I doubleclick on the element ".btn1"
-        Then  I expect that element ".btn1_dblclicked" is visible
+        Then  I expect that element ".btn1_dblclicked" is displayed
 
     Scenario: click on element
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the element ".btn1_clicked" is not visible
+        And   the element ".btn1_clicked" is not displayed
         When  I click on the element ".btn1"
-        Then  I expect that element ".btn1_clicked" is visible
+        Then  I expect that element ".btn1_clicked" is displayed
 
     Scenario: add value to an input element
         Given I open the url "http://webdriverjs.christian-bromann.com/"
@@ -63,27 +63,21 @@ Feature: Sample Snippets test
         When  I drag element "#overlay" to element ".red"
         Then  I expect that element ".searchinput" contains the text "Dropped!"
 
-    Scenario: submit form
-        Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   there is no element ".gotDataA" on the page
-        When  I submit the form ".send"
-        Then  I expect that element ".gotDataA" is visible
-
     Scenario: wait for element
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   there is no element ".lateElem" on the page
-        Then  I wait on element ".lateElem" for 5000ms to be visible
+        Then  I wait on element ".lateElem" for 5000ms to be displayed
 
     Scenario: wait for element using default wait time
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   there is no element ".lateElem" on the page
-        Then  I wait on element ".lateElem" to be visible
+        Then  I wait on element ".lateElem" to be displayed
 
     Scenario: pause
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   there is no element ".lateElem" on the page
         When  I pause for 3000ms
-        Then  I expect that element ".lateElem" is visible
+        Then  I expect that element ".lateElem" is displayed
 
     Scenario: query title
         Given I open the url "http://webdriverjs.christian-bromann.com/"
@@ -94,10 +88,10 @@ Feature: Sample Snippets test
 
     Scenario: check visibility
         Given I open the url "http://webdriverjs.christian-bromann.com/"
-        And   the element ".btn1" is visible
-        And   the element ".btn1_clicked" is not visible
-        Then  I expect that element ".btn1" is visible
-        And   I expect that element ".btn1_clicked" is not visible
+        And   the element ".btn1" is displayed
+        And   the element ".btn1_clicked" is not displayed
+        Then  I expect that element ".btn1" is displayed
+        And   I expect that element ".btn1_clicked" is not displayed
 
     Scenario: compare texts
         Given I open the url "http://webdriverjs.christian-bromann.com/"
@@ -120,14 +114,14 @@ Feature: Sample Snippets test
         Then  I expect that element "//html/body/section/form/input[1]" contains the text "a"
         And   I expect that element "//html/body/section/form/input[1]" not contains the text "aa"
 
-    Scenario: check attribut
+    Scenario: check attribute
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   the attribute "data-foundby" from element "#newWindow" is "partial link text"
         And   the attribute "data-foundby" from element "#newWindow" is not "something else"
         Then  I expect that the attribute "data-foundby" from element "#newWindow" is "partial link text"
         And   I expect that the attribute "data-foundby" from element "#newWindow" is not "something else"
 
-    Scenario: check css attribut
+    Scenario: check css attribute
         Given I open the url "http://webdriverjs.christian-bromann.com/"
         And   the css attribute "background-color" from element ".red" is "rgba(255,0,0,1)"
         And   the css attribute "background-color" from element ".red" is not "rgba(0,255,0,1)"

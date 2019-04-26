@@ -1,13 +1,16 @@
 import checkFocus from 'src/support/check/checkFocus';
 
+let hasFocusMock;
+
 describe('checkFocus', () => {
     let expectToEqual;
     let expectToNotEqual;
 
     beforeEach(() => {
-        global.browser = {
-            hasFocus: jest.fn(() => true),
-        };
+        hasFocusMock = jest.fn(() => true);
+        global.$ = jest.fn().mockReturnValue({
+            isFocused: hasFocusMock,
+        });
 
         expectToEqual = jest.fn();
         expectToNotEqual = jest.fn();
@@ -25,8 +28,7 @@ describe('checkFocus', () => {
     it('Should test if the element has focus', () => {
         checkFocus('element1', false);
 
-        _expect(global.browser.hasFocus).toHaveBeenCalledTimes(1);
-        _expect(global.browser.hasFocus).toHaveBeenCalledWith('element1');
+        _expect(hasFocusMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual)
@@ -39,8 +41,7 @@ describe('checkFocus', () => {
     it('Should test if the element does not have the focus', () => {
         checkFocus('element1', true);
 
-        _expect(global.browser.hasFocus).toHaveBeenCalledTimes(1);
-        _expect(global.browser.hasFocus).toHaveBeenCalledWith('element1');
+        _expect(hasFocusMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual)

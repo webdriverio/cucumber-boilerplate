@@ -1,3 +1,5 @@
+import { Given } from 'cucumber';
+
 import checkContainsAnyText from '../support/check/checkContainsAnyText';
 import checkIsEmpty from '../support/check/checkIsEmpty';
 import checkContainsText from '../support/check/checkContainsText';
@@ -15,12 +17,9 @@ import checkUrl from '../support/check/checkURL';
 import closeAllButFirstTab from '../support/action/closeAllButFirstTab';
 import compareText from '../support/check/compareText';
 import isEnabled from '../support/check/isEnabled';
-import isVisible from '../support/check/isVisible';
+import isDisplayed from '../support/check/isDisplayed';
 import openWebsite from '../support/action/openWebsite';
-import resizeScreenSize from '../support/action/resizeScreenSize';
-
-const { Given } = require('cucumber');
-
+import setWindowSize from '../support/action/setWindowSize';
 
 Given(
     /^I open the (url|site) "([^"]*)?"$/,
@@ -28,8 +27,8 @@ Given(
 );
 
 Given(
-    /^the element "([^"]*)?" is( not)* visible$/,
-    isVisible
+    /^the element "([^"]*)?" is( not)* displayed$/,
+    isDisplayed
 );
 
 Given(
@@ -68,7 +67,7 @@ Given(
 );
 
 Given(
-    /^the (button|element) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
+    /^the (button|element|container) "([^"]*)?"( not)* contains the text "([^"]*)?"$/,
     checkContainsText
 );
 
@@ -114,7 +113,7 @@ Given(
 
 Given(
     /^I have a screen that is ([\d]+) by ([\d]+) pixels$/,
-    resizeScreenSize
+    setWindowSize
 );
 
 Given(

@@ -9,14 +9,14 @@ module.exports = (falseCase, expectedUrlPart) => {
      * The URL of the current browser window
      * @type {String}
      */
-    const currentUrl = browser.url().value;
+    const currentUrl = browser.getUrl();
 
     if (falseCase) {
         expect(currentUrl).to.not
             .contain(
                 expectedUrlPart,
-                `Expected URL "${currentUrl}" not to contain ` +
-                `"${expectedUrlPart}"`
+                `Expected URL "${currentUrl}" not to contain `
+                + `"${expectedUrlPart}"`
             );
     } else {
         expect(currentUrl).to

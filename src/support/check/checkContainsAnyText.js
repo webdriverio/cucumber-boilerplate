@@ -1,11 +1,11 @@
 /**
  * Check if the given elements contains text
  * @param  {String}   elementType   Element type (element or button)
- * @param  {String}   element       Element selector
+ * @param  {String}   selector       Element selector
  * @param  {String}   falseCase     Whether to check if the content contains
  *                                  text or not
  */
-module.exports = (elementType, element, falseCase) => {
+module.exports = (elementType, selector, falseCase) => {
     /**
      * The command to perform on the browser object
      * @type {String}
@@ -13,8 +13,8 @@ module.exports = (elementType, element, falseCase) => {
     let command = 'getValue';
 
     if (
-        elementType === 'button' ||
-        browser.getAttribute(element, 'value') === null
+        elementType === 'button'
+        || $(selector).getAttribute('value') === null
     ) {
         command = 'getText';
     }
@@ -29,7 +29,7 @@ module.exports = (elementType, element, falseCase) => {
      * The text of the element
      * @type {String}
      */
-    const text = browser[command](element);
+    const text = $(selector)[command]();
 
     if (typeof falseCase === 'undefined') {
         boolFalseCase = false;

@@ -11,19 +11,19 @@ module.exports = (modalType, falseState, expectedText) => {
          * The text of the current modal
          * @type {String}
          */
-        const text = browser.alertText();
+        const text = browser.getAlertText();
 
         if (falseState) {
             expect(text).to.not.equal(
                 expectedText,
-                `Expected the text of ${modalType} not to equal ` +
-                `"${expectedText}"`
+                `Expected the text of ${modalType} not to equal `
+                + `"${expectedText}"`
             );
         } else {
             expect(text).to.equal(
                 expectedText,
-                `Expected the text of ${modalType} to equal ` +
-                `"${expectedText}", instead found "${text}"`
+                `Expected the text of ${modalType} to equal `
+                + `"${expectedText}", instead found "${text}"`
             );
         }
     } catch (e) {

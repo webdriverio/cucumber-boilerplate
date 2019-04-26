@@ -9,4 +9,4 @@ Feature: Github test
         And   I clear the inputfield "#password"
         And   I add "1111" to the inputfield "#password"
         And   I click on the button "[value='Sign in']"
-        Then  I expect that element "#js-flash-container .flash-error" is visible
+        Then  I expect that element "#js-flash-container .flash-error" is displayed

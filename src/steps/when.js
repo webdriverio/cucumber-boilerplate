@@ -1,11 +1,11 @@
 import clearInputField from '../support/action/clearInputField';
 import clickElement from '../support/action/clickElement';
 import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow';
-import deleteCookie from '../support/action/deleteCookie';
+import deleteCookies from '../support/action/deleteCookies';
 import dragElement from '../support/action/dragElement';
 import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow';
 import handleModal from '../support/action/handleModal';
-import moveToElement from '../support/action/moveToElement';
+import moveTo from '../support/action/moveTo';
 import pause from '../support/action/pause';
 import pressButton from '../support/action/pressButton';
 import scroll from '../support/action/scroll';
@@ -14,7 +14,6 @@ import selectOptionByIndex from '../support/action/selectOptionByIndex';
 import setCookie from '../support/action/setCookie';
 import setInputField from '../support/action/setInputField';
 import setPromptText from '../support/action/setPromptText';
-import submitForm from '../support/action/submitForm';
 
 const { When } = require('cucumber');
 
@@ -40,11 +39,6 @@ When(
 );
 
 When(
-    /^I submit the form "([^"]*)?"$/,
-    submitForm
-);
-
-When(
     /^I pause for (\d+)ms$/,
     pause
 );
@@ -56,7 +50,7 @@ When(
 
 When(
     /^I delete the cookie "([^"]*)?"$/,
-    deleteCookie
+    deleteCookies
 );
 
 When(
@@ -101,5 +95,5 @@ When(
 
 When(
     /^I move to element "([^"]*)?"(?: with an offset of (\d+),(\d+))*$/,
-    moveToElement
+    moveTo
 );

@@ -37,5 +37,5 @@ Feature: Test if new windows/tabs are being opened
         Then  I expect a new window has been opened
         When  I focus the last opened window
         Then  I expect that the url is "http://example.com/"
-        When  I close the last opened window
-        Then  I expect that the url is "http://localhost:8080/"
+        # When  I close the last opened window
+        # Then  I expect that the url is "http://localhost:8080/"

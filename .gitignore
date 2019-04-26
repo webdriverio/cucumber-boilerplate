@@ -8,3 +8,10 @@ node_modules
 
 errorShots
 coverage
+
+# Editor files
+.idea
+.vscode
+!.vscode/extensions.json
+package-lock.json
+yarn.lock

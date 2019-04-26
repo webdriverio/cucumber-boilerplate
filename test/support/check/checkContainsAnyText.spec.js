@@ -3,19 +3,19 @@ import checkContent from 'src/support/check/checkContainsAnyText';
 describe('checkContent', () => {
     let expectToEqual;
     let expectToNotEqual;
+    let getTextMock;
+    let getValueMock;
+    let getAttributeMock;
 
     beforeEach(() => {
-        global.browser = {
-            getAttribute: jest.fn((element) => {
-                if (element === 'element1') {
-                    return '';
-                }
-
-                return null;
-            }),
-            getText: jest.fn(() => 'text'),
-            getValue: jest.fn(() => 'value'),
-        };
+        getTextMock = jest.fn(() => 'text');
+        getValueMock = jest.fn(() => 'value');
+        getAttributeMock = jest.fn(() => null);
+        global.$ = jest.fn().mockReturnValue({
+            getText: getTextMock,
+            getValue: getValueMock,
+            getAttribute: getAttributeMock,
+        });
 
         expectToEqual = jest.fn();
         expectToNotEqual = jest.fn();
@@ -31,25 +31,23 @@ describe('checkContent', () => {
     });
 
     it('Should handle input fields', () => {
+        getAttributeMock.mockReturnValueOnce(() => '');
         checkContent('element', 'element1', false);
 
-        _expect(global.browser.getText).not.toHaveBeenCalledTimes(1);
+        _expect(getTextMock).not.toHaveBeenCalledTimes(1);
 
-        _expect(global.browser.getValue).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getValue).toHaveBeenCalledWith('element1');
+        _expect(getValueMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith('');
+        _expect(expectToNotEqual).toHaveBeenCalledWith('');
     });
 
     it('Should handle elements', () => {
         checkContent('element', 'element2', false);
 
-        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getText).toHaveBeenCalledWith('element2');
+        _expect(getTextMock).toHaveBeenCalledTimes(1);
 
-        _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
+        _expect(getValueMock).not.toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual).toHaveBeenCalledWith('');
@@ -58,10 +56,9 @@ describe('checkContent', () => {
     it('Should handle buttons', () => {
         checkContent('button', 'button1', false);
 
-        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getText).toHaveBeenCalledWith('button1');
+        _expect(getTextMock).toHaveBeenCalledTimes(1);
 
-        _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
+        _expect(getValueMock).not.toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual).toHaveBeenCalledWith('');
@@ -70,10 +67,9 @@ describe('checkContent', () => {
     it('Handle the false case', () => {
         checkContent('element', 'element3', true);
 
-        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getText).toHaveBeenCalledWith('element3');
+        _expect(getTextMock).toHaveBeenCalledTimes(1);
 
-        _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
+        _expect(getValueMock).not.toHaveBeenCalledTimes(1);
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
         _expect(expectToEqual).toHaveBeenCalledWith('');
@@ -82,10 +78,9 @@ describe('checkContent', () => {
     it('should handle no expected text and no falsecase', () => {
         checkContent('element', 'element4');
 
-        _expect(global.browser.getText).toHaveBeenCalledTimes(1);
-        _expect(global.browser.getText).toHaveBeenCalledWith('element4');
+        _expect(getTextMock).toHaveBeenCalledTimes(1);
 
-        _expect(global.browser.getValue).not.toHaveBeenCalledTimes(1);
+        _expect(getValueMock).not.toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual).toHaveBeenCalledWith('');
