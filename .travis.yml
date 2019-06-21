@@ -15,7 +15,7 @@ env:
 
 addons:
   addons:
-    chrome: 75
+    chrome: stable
   apt:
     sources:
       - ubuntu-toolchain-r-test
