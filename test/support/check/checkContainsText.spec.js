@@ -6,15 +6,18 @@ describe('checkContainsText', () => {
     let getTextMock;
     let getValueMock;
     let getAttributeMock;
+    let waitForDisplayedMock;
 
     beforeEach(() => {
         getTextMock = jest.fn(() => 'text');
         getValueMock = jest.fn(() => 'value');
         getAttributeMock = jest.fn(() => '');
+        waitForDisplayedMock = jest.fn(() => true);
         global.$ = jest.fn().mockReturnValue({
             getText: getTextMock,
             getValue: getValueMock,
             getAttribute: getAttributeMock,
+            waitForDisplayed: waitForDisplayedMock,
         });
 
         expectToContain = jest.fn();
