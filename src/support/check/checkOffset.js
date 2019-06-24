@@ -17,7 +17,7 @@ module.exports = (selector, falseCase, expectedPosition, axis) => {
      * Parsed expected position
      * @type {Int}
      */
-    const intExpectedPosition = parseInt(expectedPosition, 10);
+    const intExpectedPosition = parseFloat(expectedPosition);
 
     if (falseCase) {
         expect(location).to.not
