@@ -31,11 +31,10 @@ describe('checkNewWindow', () => {
         _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                1,
-                'A new window has been opened'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            1,
+            'A new window has been opened'
+        );
     });
 
     it('Should test if a new window is not opened', () => {
@@ -45,10 +44,9 @@ describe('checkNewWindow', () => {
         _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                1,
-                'A new window should not have been opened'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            1,
+            'A new window should not have been opened'
+        );
     });
 });

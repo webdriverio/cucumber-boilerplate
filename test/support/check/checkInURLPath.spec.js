@@ -29,12 +29,11 @@ describe('checkInURLPath', () => {
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
 
         _expect(expectShouldContain).toHaveBeenCalledTimes(1);
-        _expect(expectShouldContain)
-            .toHaveBeenCalledWith(
-                'test',
-                'Expected URL "http://www.example.com/test" to contain '
-                + '"test"'
-            );
+        _expect(expectShouldContain).toHaveBeenCalledWith(
+            'test',
+            'Expected URL "http://www.example.com/test" to contain '
+            + '"test"'
+        );
     });
 
     it('Should test if URL does not contain the given value', () => {
@@ -44,11 +43,10 @@ describe('checkInURLPath', () => {
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
 
         _expect(expectShouldNotContain).toHaveBeenCalledTimes(1);
-        _expect(expectShouldNotContain)
-            .toHaveBeenCalledWith(
-                'test2',
-                'Expected URL "http://www.example.com/test" not to '
-                + 'contain "test2"'
-            );
+        _expect(expectShouldNotContain).toHaveBeenCalledWith(
+            'test2',
+            'Expected URL "http://www.example.com/test" not to '
+            + 'contain "test2"'
+        );
     });
 });

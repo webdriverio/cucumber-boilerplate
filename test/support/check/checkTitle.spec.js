@@ -29,12 +29,11 @@ describe('checkTitle', () => {
         _expect(global.browser.getTitle).toHaveBeenCalledWith();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                'page title',
-                'Expected title to be "page title" but found '
-                + '"page title"'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            'page title',
+            'Expected title to be "page title" but found '
+            + '"page title"'
+        );
     });
 
     it('Should test if the title does not match the given text', () => {
@@ -44,10 +43,9 @@ describe('checkTitle', () => {
         _expect(global.browser.getTitle).toHaveBeenCalledWith();
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                'page title',
-                'Expected title not to be "page title"'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            'page title',
+            'Expected title not to be "page title"'
+        );
     });
 });

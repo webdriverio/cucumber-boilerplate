@@ -48,17 +48,11 @@ describe('checkIsOpenedInNewWindow', () => {
 
         _expect(global.browser.getWindowHandles).toHaveBeenCalledTimes(1);
         _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();
-
         _expect(global.browser.switchToWindow).not.toHaveBeenCalled();
-
         _expect(global.browser.getUrl).not.toHaveBeenCalled();
-
         _expect(global.browser.closeWindow).not.toHaveBeenCalled();
-
         _expect(global.expect).toHaveBeenCalledTimes(1);
-        _expect(global.expect).toHaveBeenCalledWith([
-            'window1',
-        ]);
+        _expect(global.expect).toHaveBeenCalledWith(['window1']);
 
         _expect(global.expect).toThrow();
 
@@ -67,20 +61,14 @@ describe('checkIsOpenedInNewWindow', () => {
     });
 
     it('Should not fail if the URL of the popup does match', () => {
-        checkIsOpenedInNewWindow(
-            'http://www.example.com/test',
-            ''
-        );
+        checkIsOpenedInNewWindow('http://www.example.com/test', '');
 
         _expect(global.browser.getWindowHandles).toHaveBeenCalledTimes(1);
         _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();
-
         _expect(global.browser.switchToWindow).toHaveBeenCalledTimes(1);
         _expect(global.browser.switchToWindow).toHaveBeenCalledWith('window2');
-
         _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
-
         _expect(global.browser.closeWindow).toHaveBeenCalledTimes(1);
         _expect(global.browser.closeWindow).toHaveBeenCalledWith();
 

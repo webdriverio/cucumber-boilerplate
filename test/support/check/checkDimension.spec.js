@@ -34,12 +34,11 @@ describe('checkDimension', () => {
         _expect(getSizeMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                200,
-                'Element "element1" should have a height of '
-                + '200px, but is 200px'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            200,
+            'Element "element1" should have a height of '
+            + '200px, but is 200px'
+        );
     });
 
     it('Should test the width of an element against a given value', () => {
@@ -48,12 +47,11 @@ describe('checkDimension', () => {
         _expect(getSizeMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                100,
-                'Element "element2" should have a width of '
-                + '100px, but is 100px'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            100,
+            'Element "element2" should have a width of '
+            + '100px, but is 100px'
+        );
     });
 
     it('Should test the height of an element against a given value', () => {
@@ -62,10 +60,9 @@ describe('checkDimension', () => {
         _expect(getSizeMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                200,
-                'Element "element3" should not have a height of 200px'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            200,
+            'Element "element3" should not have a height of 200px'
+        );
     });
 });

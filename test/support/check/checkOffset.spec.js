@@ -34,13 +34,12 @@ describe('checkOffset', () => {
             _expect(getLocationMock).toHaveBeenCalledWith('x');
 
             _expect(expectToEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToEqual)
-                .toHaveBeenCalledWith(
-                    100,
-                    'Element "#elem1" should be positioned at '
-                    + '100px on the x axis, but was '
-                    + 'found at 100px'
-                );
+            _expect(expectToEqual).toHaveBeenCalledWith(
+                100,
+                'Element "#elem1" should be positioned at '
+                + '100px on the x axis, but was '
+                + 'found at 100px'
+            );
         }
     );
 
@@ -54,12 +53,11 @@ describe('checkOffset', () => {
             _expect(getLocationMock).toHaveBeenCalledWith('y');
 
             _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToNotEqual)
-                .toHaveBeenCalledWith(
-                    200,
-                    'Element "#elem2" should not be positioned at '
-                    + '200px on the y axis'
-                );
+            _expect(expectToNotEqual).toHaveBeenCalledWith(
+                200,
+                'Element "#elem2" should not be positioned at '
+                + '200px on the y axis'
+            );
         }
     );
 });

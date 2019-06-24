@@ -31,11 +31,10 @@ describe('isDisplayed', () => {
         _expect(isDisplayedMock).toHaveBeenCalled();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                true,
-                'Expected element "#elem1" to be displayed'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            true,
+            'Expected element "#elem1" to be displayed'
+        );
     });
 
     it('Should test if the element is not visible', () => {
@@ -44,10 +43,9 @@ describe('isDisplayed', () => {
         _expect(isDisplayedMock).toHaveBeenCalledTimes(1);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                true,
-                'Expected element "#elem2" not to be displayed'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            true,
+            'Expected element "#elem2" not to be displayed'
+        );
     });
 });

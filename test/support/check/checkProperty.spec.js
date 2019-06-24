@@ -52,9 +52,7 @@ describe('checkProperty', () => {
         checkProperty(true, 'width', '#elem2', true, '1px');
 
         _expect(getCSSMock).toHaveBeenCalledTimes(1);
-        _expect(getCSSMock).toHaveBeenCalledWith(
-            'width'
-        );
+        _expect(getCSSMock).toHaveBeenCalledWith('width');
 
         _expect(getAttributeMock).not.toHaveBeenCalled();
 
