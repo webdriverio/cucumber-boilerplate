@@ -44,6 +44,7 @@
     "babel-preset-env": "~1.7.0",
     "babel-register": "~6.26.0",
     "chai": "~4.1.2",
+    "eslint-plugin-wdio": "^5.7.8",
     "webdriverio": "^5.10.7"
   },
   "devDependencies": {
@@ -53,7 +54,7 @@
     "chromedriver": "~75.0.0",
     "cucumber": "^5.1.0",
     "eslint": "~5.0.0",
-    "eslint-config-airbnb-base": "~13.0.0",
+    "eslint-config-airbnb-base": "~13.1.0",
     "eslint-plugin-import": "~2.13.0",
     "forever": "~0.15.3",
     "http-server": "~0.11.0",
