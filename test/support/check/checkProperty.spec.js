@@ -39,12 +39,11 @@ describe('checkProperty', () => {
         _expect(getAttributeMock).not.toHaveBeenCalled();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                'black',
-                'CSS attribute: color of element "#elem1" should '
-                + 'contain "black", but "black"'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            'black',
+            'CSS attribute: color of element "#elem1" should '
+            + 'contain "black", but "black"'
+        );
     });
 
     it('Should test if the element does not have a width of 1px', () => {
@@ -53,20 +52,18 @@ describe('checkProperty', () => {
         checkProperty(true, 'width', '#elem2', true, '1px');
 
         _expect(getCSSMock).toHaveBeenCalledTimes(1);
-        _expect(getCSSMock)
-            .toHaveBeenCalledWith(
-                'width'
-            );
+        _expect(getCSSMock).toHaveBeenCalledWith(
+            'width'
+        );
 
         _expect(getAttributeMock).not.toHaveBeenCalled();
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                '1px',
-                'CSS attribute: width of element "#elem2" should not '
-                + 'contain "1px"'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            '1px',
+            'CSS attribute: width of element "#elem2" should not '
+            + 'contain "1px"'
+        );
     });
 
     it('Should test if the element has the correct name', () => {

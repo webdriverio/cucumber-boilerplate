@@ -37,7 +37,7 @@ module.exports = (elementType, selector, falseCase, expectedText) => {
      * @type {String}
      */
     const elem = $(selector);
-    elem.waitForVisible();
+    elem.waitForDisplayed();
     const text = elem[command]();
 
     if (typeof expectedText === 'undefined') {
