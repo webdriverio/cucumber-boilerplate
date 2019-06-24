@@ -2,14 +2,16 @@ env:
   es6: true
   node: true
 
-extends: 'airbnb-base'
+plugins:
+  - wdio
+
+extends:
+  - 'airbnb-base'
+  - plugin:wdio/recommended
 
 globals:
   assert: true
-  browser: true
   expect: true
-  $: true
-  $$: true
 
 parserOptions:
   ecmaVersion: 6
