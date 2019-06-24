@@ -9,7 +9,7 @@ Boilerplate project to run WebdriverIO tests with [Cucumber](https://cucumber.io
 
 ## Requirements
 
-- Node version 6 or higher
+- Node version 8 or higher
 - A preconfigured Selenium Grid, preinstalled browser driver or cloud provider account
 
 Although this project works fine with NPM we recommend to use Yarn (>= 1.0.0) instead,  due to its speed & solid dependency locking mechanism. To keep things simple we use yarn in this guide, but feel free to replace this with NPM if that is what you are using.
@@ -129,7 +129,7 @@ $ yarn run wdio wdio.STAGING.conf.js
 Sometimes it's useful to only execute a single feature file, to do so use the following command:
 
 ```sh
-$ yarn run wdio -- --spec ./test/features/select.feature
+$ npx wdio wdio.conf.js --spec ./test/features/select.feature
 ```
 
 
@@ -145,7 +145,7 @@ Feature: ...
 To run only the tests with specific tag(s) use the `--cucumberOpts.tagExpression=` parameter like so:
 
 ```sh
-$ yarn run wdio -- --cucumberOpts.tagExpression='@Tag or @AnotherTag'
+$ npx wdio wdio.conf.js --cucumberOpts.tagExpression='@Tag or @AnotherTag'
 ```
 
 For more tag options please see the [Cucumber.js documentation](https://docs.cucumber.io/tag-expressions/)
