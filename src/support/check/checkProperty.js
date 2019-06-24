@@ -31,7 +31,7 @@ module.exports = (isCSS, attrName, selector, falseCase, expectedValue) => {
 
     // eslint-disable-next-line
     expectedValue = isFinite(expectedValue) ?
-        parseInt(expectedValue, 10)
+        parseFloat(expectedValue)
         : expectedValue;
 
     /**
