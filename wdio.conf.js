@@ -12,7 +12,7 @@ exports.config = {
     // `wdio` will be called from there.
     //
     specs: [
-        './src/features/attribute.feature',
+        './src/features/**/*.feature',
     ],
     // Patterns to exclude.
     exclude: [

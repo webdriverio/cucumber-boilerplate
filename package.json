@@ -19,9 +19,12 @@
     "getUrl": "https://github.com/webdriverio/cucumber-boilerplate/issues"
   },
   "keywords": [
+    "wdio",
+    "webdriver",
     "webdriverio",
     "cucumber",
     "test",
+    "boilerplate",
     "selenium"
   ],
   "author": "Christian Bromann <christian@saucelabs.com>",
@@ -47,7 +50,7 @@
     "babel-core": "~6.26.3",
     "babel-jest": "~23.0.1",
     "babel-polyfill": "~6.26.0",
-    "chromedriver": "^75.0.0",
+    "chromedriver": "~75.0.0",
     "cucumber": "^5.1.0",
     "eslint": "~5.0.0",
     "eslint-config-airbnb-base": "~13.0.0",
