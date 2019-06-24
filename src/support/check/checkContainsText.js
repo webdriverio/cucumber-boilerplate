@@ -36,7 +36,9 @@ module.exports = (elementType, selector, falseCase, expectedText) => {
      * The text of the element
      * @type {String}
      */
-    const text = $(selector)[command]();
+    const elem = $(selector);
+    elem.waitForVisible();
+    const text = elem[command]();
 
     if (typeof expectedText === 'undefined') {
         stringExpectedText = falseCase;
