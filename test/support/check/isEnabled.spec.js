@@ -29,25 +29,21 @@ describe('isEnabled', () => {
         isEnabled('#elem1', false);
 
         _expect(isEnabledMock).toHaveBeenCalledTimes(1);
-
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                true,
-                'Expected element "#elem1" to be enabled'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            true,
+            'Expected element "#elem1" to be enabled'
+        );
     });
 
     it('Should test if the element is not enabled', () => {
         isEnabled('#elem2', true);
 
         _expect(isEnabledMock).toHaveBeenCalledTimes(1);
-
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                true,
-                'Expected element "#elem2" not to be enabled'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            true,
+            'Expected element "#elem2" not to be enabled'
+        );
     });
 });

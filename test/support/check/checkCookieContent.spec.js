@@ -32,11 +32,10 @@ describe('checkCookieContent', () => {
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie2');
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                'cookie2',
-                'no cookie found with the name "cookie2"'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            'cookie2',
+            'no cookie found with the name "cookie2"'
+        );
     });
 
     it('Handle the false case', () => {
@@ -46,11 +45,10 @@ describe('checkCookieContent', () => {
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                'value2',
-                'expected cookie "cookie1" not to have value "value2"'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            'value2',
+            'expected cookie "cookie1" not to have value "value2"'
+        );
     });
 
     it('Should be able to validated against an expected string', () => {
@@ -60,11 +58,10 @@ describe('checkCookieContent', () => {
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');
 
         _expect(expectToEqual).toHaveBeenCalledTimes(2);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                'value2',
-                'expected cookie "cookie1" to have value "value2" but got'
-                + ' "value1"'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            'value2',
+            'expected cookie "cookie1" to have value "value2" but got'
+            + ' "value1"'
+        );
     });
 });

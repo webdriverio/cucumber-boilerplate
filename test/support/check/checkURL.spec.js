@@ -29,12 +29,11 @@ describe('checkURL', () => {
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                'http://www.example.com/test',
-                'expected url to be "http://www.example.com/test" '
-                + 'but found "http://www.example.com/test"'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            'http://www.example.com/test',
+            'expected url to be "http://www.example.com/test" '
+            + 'but found "http://www.example.com/test"'
+        );
     });
 
     it(
@@ -46,11 +45,10 @@ describe('checkURL', () => {
             _expect(global.browser.getUrl).toHaveBeenCalledWith();
 
             _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-            _expect(expectToNotEqual)
-                .toHaveBeenCalledWith(
-                    'http://www.example.com/test',
-                    'expected url not to be "http://www.example.com/test"'
-                );
+            _expect(expectToNotEqual).toHaveBeenCalledWith(
+                'http://www.example.com/test',
+                'expected url not to be "http://www.example.com/test"'
+            );
         }
     );
 });

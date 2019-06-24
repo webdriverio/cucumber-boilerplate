@@ -31,11 +31,10 @@ describe('compareText', () => {
         _expect(getTextMock).toHaveBeenCalledTimes(2);
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                'test',
-                'Expected text to be "test" but found "test"'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            'test',
+            'Expected text to be "test" but found "test"'
+        );
     });
 
     it('Should test if the text of the given element is not the same', () => {
@@ -44,10 +43,9 @@ describe('compareText', () => {
         _expect(getTextMock).toHaveBeenCalledTimes(2);
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                'test',
-                'Expected text not to be "test"'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            'test',
+            'Expected text not to be "test"'
+        );
     });
 });

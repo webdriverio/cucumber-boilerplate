@@ -29,12 +29,11 @@ describe('checkModalText', () => {
         _expect(global.browser.getAlertText).toHaveBeenCalledWith();
 
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToEqual)
-            .toHaveBeenCalledWith(
-                'test',
-                'Expected the text of alertbox to equal '
-                + '"test", instead found "test"'
-            );
+        _expect(expectToEqual).toHaveBeenCalledWith(
+            'test',
+            'Expected the text of alertbox to equal '
+            + '"test", instead found "test"'
+        );
     });
 
     it('Should test if getAlertText does not contain the given value', () => {
@@ -44,12 +43,11 @@ describe('checkModalText', () => {
         _expect(global.browser.getAlertText).toHaveBeenCalledWith();
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
-        _expect(expectToNotEqual)
-            .toHaveBeenCalledWith(
-                'test',
-                'Expected the text of confirmbox not to equal '
-                + '"test"'
-            );
+        _expect(expectToNotEqual).toHaveBeenCalledWith(
+            'test',
+            'Expected the text of confirmbox not to equal '
+            + '"test"'
+        );
     });
 
     it('Should test if getAlertText does not contain the given value', () => {
