@@ -10,7 +10,7 @@ Feature: Test the position of a given element
         When  I scroll to element "#square100x100"
 
     Scenario: The element #square100x100 is at XX pixels on the X axis
-        Then  I expect that element "#square100x100" is positioned at 40px on the x axis
+        Then  I expect that element "#square100x100" is positioned at 32.5px on the x axis
 
     @Pending
     Scenario: The element #square100x100 is at XX pixels on the Y axis
