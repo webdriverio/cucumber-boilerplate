@@ -8,7 +8,7 @@
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
  */
-module.exports = (isCSS, attrName, elem, falseCase, expectedValue) => {
+export default (isCSS, attrName, elem, falseCase, expectedValue) => {
     /**
      * The command to use for fetching the expected value
      * @type {String}

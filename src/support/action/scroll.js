@@ -2,6 +2,6 @@
  * Scroll the page to the given element
  * @param  {String}   selector Element selector
  */
-module.exports = (selector) => {
+export default (selector) => {
     $(selector).scrollIntoView();
 };

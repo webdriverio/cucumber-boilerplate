@@ -5,7 +5,7 @@
  *                                      or not ('has', 'does not have')
  * @param  {String}   expectedClassName The class name to check
  */
-module.exports = (selector, falseCase, expectedClassName) => {
+export default (selector, falseCase, expectedClassName) => {
     /**
      * List of all the classes of the element
      * @type {Array}

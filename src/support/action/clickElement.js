@@ -6,7 +6,7 @@ import checkIfElementExists from '../lib/checkIfElementExists';
  * @param  {String}   type    Type of the element (link or selector)
  * @param  {String}   selector Element selector
  */
-module.exports = (action, type, selector) => {
+export default (action, type, selector) => {
     /**
      * Element to perform the action on
      * @type {String}

@@ -2,6 +2,6 @@
  * Perform a key press
  * @param  {String}   key  The key to press
  */
-module.exports = (key) => {
+export default (key) => {
     browser.keys(key);
 };

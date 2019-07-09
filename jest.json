@@ -14,15 +14,12 @@
     "!**/node_modules/**"
   ],
   "notify": true,
-  "setupTestFrameworkScriptFile": "./test/setup.js",
+  "setupFilesAfterEnv": ["./test/setup.js"],
   "roots": [
     "test/"
   ],
   "moduleDirectories": [
     "node_modules",
     "."
-  ],
-  "transform": {
-    "^.+\\.js$": "babel-jest"
-  }
+  ]
 }

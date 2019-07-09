@@ -5,7 +5,7 @@
  * @param  {String}   selectionValue Value to select by
  * @param  {String}   selector     Element selector
  */
-module.exports = (selectionType, selectionValue, selector) => {
+export default (selectionType, selectionValue, selector) => {
     /**
      * The method to use for selecting the option
      * @type {String}

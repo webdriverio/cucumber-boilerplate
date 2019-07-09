@@ -4,7 +4,7 @@
  * @param  {String}   obsolete    Indicator for the type (window or tab) unused
  */
 /* eslint-disable no-unused-vars */
-module.exports = (expectedUrl, obsolete) => {
+export default (expectedUrl, obsolete) => {
 /* eslint-enable no-unused-vars */
     /**
      * All the current window handles

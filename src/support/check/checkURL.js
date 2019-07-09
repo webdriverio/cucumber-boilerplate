@@ -4,7 +4,7 @@
  *                                expected value or not
  * @param  {String}   expectedUrl The expected URL to check against
  */
-module.exports = (falseCase, expectedUrl) => {
+export default (falseCase, expectedUrl) => {
     /**
      * The current browser window's URL
      * @type {String}

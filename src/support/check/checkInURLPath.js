@@ -4,7 +4,7 @@
  *                                    the URL path or not
  * @param  {String}   expectedUrlPart The string to check for
  */
-module.exports = (falseCase, expectedUrlPart) => {
+export default (falseCase, expectedUrlPart) => {
     /**
      * The URL of the current browser window
      * @type {String}

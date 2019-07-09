@@ -4,7 +4,7 @@
  * @param  {String}   falseCase Whether to check if the given selector
  *                              is enabled or not
  */
-module.exports = (selector, falseCase) => {
+export default (selector, falseCase) => {
     /**
      * The enabled state of the given selector
      * @type {Boolean}

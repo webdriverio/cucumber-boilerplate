@@ -6,7 +6,7 @@
  *                                  the given text or not
  * @param  {String}   expectedText  The text to check against
  */
-module.exports = (elementType, selector, falseCase, expectedText) => {
+export default (elementType, selector, falseCase, expectedText) => {
     /**
      * The command to perform on the browser object
      * @type {String}

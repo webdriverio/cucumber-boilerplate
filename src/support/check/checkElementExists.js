@@ -6,7 +6,7 @@ import checkIfElementExists from '../lib/checkIfElementExists';
  *                               (an or no)
  * @param  {String}   selector       Element selector
  */
-module.exports = (isExisting, selector) => {
+export default (isExisting, selector) => {
     /**
      * Falsecase assertion
      * @type {Boolean}

@@ -6,7 +6,7 @@
  *
  * @todo  merge with selectOption
  */
-module.exports = (index, obsolete, selector) => {
+export default (index, obsolete, selector) => {
     /**
      * The index of the option to select
      * @type {Int}

@@ -5,7 +5,7 @@
  * @param  {String}   falseState    Whether to check if the text matches or not
  * @param  {String}   expectedText  The text to check against
  */
-module.exports = (modalType, falseState, expectedText) => {
+export default (modalType, falseState, expectedText) => {
     try {
         /**
          * The text of the current modal

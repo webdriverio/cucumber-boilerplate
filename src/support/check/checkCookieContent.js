@@ -5,7 +5,7 @@
  *                                  or not
  * @param  {String}   expectedValue The value to check against
  */
-module.exports = (name, falseCase, expectedValue) => {
+export default (name, falseCase, expectedValue) => {
     /**
      * The cookie retrieved from the browser object
      * @type {Object}

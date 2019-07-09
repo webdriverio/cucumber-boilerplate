@@ -3,7 +3,7 @@
  * @param  {String}   selector   Element selector
  * @param  {String}   falseCase Check for a visible or a hidden element
  */
-module.exports = (selector, falseCase) => {
+export default (selector, falseCase) => {
     /**
      * Visible state of the give element
      * @type {String}

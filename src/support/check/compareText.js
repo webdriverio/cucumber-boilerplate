@@ -5,7 +5,7 @@
  *                              elements match or not
  * @param  {String}   selector2  Element selector for the second element
  */
-module.exports = (selector1, falseCase, selector2) => {
+export default (selector1, falseCase, selector2) => {
     /**
      * The text of the first element
      * @type {String}

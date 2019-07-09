@@ -3,7 +3,7 @@
  * @param  {String}   type Type of navigation (getUrl or site)
  * @param  {String}   page The URL to navigate to
  */
-module.exports = (type, page) => {
+export default (type, page) => {
     /**
      * The URL to navigate to
      * @type {String}

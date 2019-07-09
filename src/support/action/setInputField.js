@@ -7,7 +7,7 @@ import checkIfElementExists from '../lib/checkIfElementExists';
  * @param  {String}   value   The value to set the selector to
  * @param  {String}   selector Element selector
  */
-module.exports = (method, value, selector) => {
+export default (method, value, selector) => {
     /**
      * The command to perform on the browser object (addValue or setValue)
      * @type {String}

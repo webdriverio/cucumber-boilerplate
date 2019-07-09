@@ -4,7 +4,7 @@
  * @param  {String}   falseCase Whether to check if a new window/tab was opened
  *                              or not
  */
-module.exports = (obsolete, falseCase) => {
+export default (obsolete, falseCase) => {
     /**
      * The handles of all open windows/tabs
      * @type {Object}
