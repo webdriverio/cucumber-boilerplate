@@ -5,7 +5,7 @@
  * @param  {String}   falseCase     Whether to check if the content contains
  *                                  text or not
  */
-module.exports = (elementType, selector, falseCase) => {
+export default (elementType, selector, falseCase) => {
     /**
      * The command to perform on the browser object
      * @type {String}

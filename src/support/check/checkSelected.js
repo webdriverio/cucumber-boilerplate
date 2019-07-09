@@ -4,7 +4,7 @@
  * @param  {String}   falseCase Whether to check if the element is elected or
  *                              not
  */
-module.exports = (selector, falseCase) => {
+export default (selector, falseCase) => {
     /**
      * The selected state
      * @type {Boolean}

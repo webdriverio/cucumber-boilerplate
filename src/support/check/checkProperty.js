@@ -1,5 +1,3 @@
-/* global isFinite */
-
 /**
  * Check the given property of the given element
  * @param  {String}   isCSS         Whether to check for a CSS property or an
@@ -10,7 +8,7 @@
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
  */
-module.exports = (isCSS, attrName, selector, falseCase, expectedValue) => {
+export default (isCSS, attrName, selector, falseCase, expectedValue) => {
     /**
      * The command to use for fetching the expected value
      * @type {String}

@@ -4,7 +4,7 @@
  * @param  {String}   falseCase Whether to check if the given element has focus
  *                              or not
  */
-module.exports = (selector, falseCase) => {
+export default (selector, falseCase) => {
     /**
      * Value of the hasFocus function for the given element
      * @type {Boolean}

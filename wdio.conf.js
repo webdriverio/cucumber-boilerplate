@@ -124,9 +124,7 @@ exports.config = {
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> filetype:compiler used for processing required features
-        compiler: [
-            'js:babel-register',
-        ],
+        compiler: [],
         // <boolean< Treat ambiguous definitions as errors
         failAmbiguousDefinitions: true,
         // <boolean> invoke formatters without executing steps
@@ -210,10 +208,9 @@ exports.config = {
     // afterHook: function afterHook() {
     // },
     //
-    // Function to be executed before a test (in Mocha/Jasmine) or a step (in
-    // Cucumber) starts.
-    // beforeTest: function beforeTest(test) {
-    // },
+    beforeSession: function beforeTest() {
+        require('@babel/register');
+    },
     //
     // Runs before a WebdriverIO command gets executed.
     // beforeCommand: function beforeCommand(commandName, args) {

@@ -4,7 +4,7 @@
  *                               confirmbox or prompt)
  * @param  {String}   falseState Whether to check if the modal was opened or not
  */
-module.exports = (modalType, falseState) => {
+export default (modalType, falseState) => {
     /**
      * The text of the prompt
      * @type {String}

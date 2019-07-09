@@ -6,7 +6,7 @@
  * @param  {String}   expectedSize Expected size
  * @param  {String}   dimension    Dimension to check (broad or tall)
  */
-module.exports = (selector, falseCase, expectedSize, dimension) => {
+export default (selector, falseCase, expectedSize, dimension) => {
     /**
      * The size of the given element
      * @type {Object}

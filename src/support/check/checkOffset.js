@@ -6,7 +6,7 @@
  * @param  {String}   expectedPosition  The position to check against
  * @param  {String}   axis              The axis to check on (x or y)
  */
-module.exports = (selector, falseCase, expectedPosition, axis) => {
+export default (selector, falseCase, expectedPosition, axis) => {
     /**
      * Get the location of the element on the given axis
      * @type {[type]}

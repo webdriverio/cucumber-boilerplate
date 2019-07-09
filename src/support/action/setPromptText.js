@@ -2,7 +2,7 @@
  * Set the text of the current prompt
  * @param  {String}   modalText The text to set to the prompt
  */
-module.exports = (modalText) => {
+export default (modalText) => {
     try {
         browser.sendAlertText(modalText);
     } catch (e) {

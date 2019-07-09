@@ -5,7 +5,7 @@
  * @param  {Number}  exactly  Check if the element exists exactly this number
  *                            of times
  */
-module.exports = (selector, falsCase, exactly) => {
+export default (selector, falsCase, exactly) => {
     /**
      * The number of elements found in the DOM
      * @type {Int}

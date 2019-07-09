@@ -4,7 +4,7 @@
  * @param  {[type]}   falseCase Whether or not to check if the cookie exists or
  *                              not
  */
-module.exports = (name, falseCase) => {
+export default (name, falseCase) => {
     /**
      * The cookie as retrieved from the browser
      * @type {Object}

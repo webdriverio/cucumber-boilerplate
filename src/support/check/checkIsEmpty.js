@@ -1,6 +1,6 @@
 import checkContainsAnyText from './checkContainsAnyText';
 
-module.exports = (elementType, element, falseCase) => {
+export default (elementType, element, falseCase) => {
     let newFalseCase = true;
 
     if (typeof falseCase === 'function') {

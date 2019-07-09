@@ -4,7 +4,7 @@
  * @param  {String}   x        X coordinate to move to
  * @param  {String}   y        Y coordinate to move to
  */
-module.exports = (selector, x, y) => {
+export default (selector, x, y) => {
     /**
      * X coordinate
      * @type {Int}

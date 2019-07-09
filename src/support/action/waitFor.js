@@ -6,7 +6,7 @@
  * @param  {String}   state                    State to check for (default
  *                                             existence)
  */
-module.exports = (selector, ms, falseState, state) => {
+export default (selector, ms, falseState, state) => {
     /**
      * Maximum number of milliseconds to wait, default 3000
      * @type {Int}

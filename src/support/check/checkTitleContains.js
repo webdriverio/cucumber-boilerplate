@@ -4,7 +4,7 @@
  *                                  expected value or not
  * @param  {Type}     expectedTitle The expected title
  */
-module.exports = (falseCase, expectedTitle) => {
+export default (falseCase, expectedTitle) => {
     /**
      * The actual title of the current browser window
      * @type {String}
