@@ -123,8 +123,8 @@ exports.config = {
     cucumberOpts: {
         // <boolean> show full backtrace for errors
         backtrace: false,
-        // <string[]> filetype:compiler used for processing required features
-        compiler: [],
+        // <string[]> module used for processing required features
+        requireModule: ['@babel/register'],
         // <boolean< Treat ambiguous definitions as errors
         failAmbiguousDefinitions: true,
         // <boolean> invoke formatters without executing steps
@@ -208,9 +208,8 @@ exports.config = {
     // afterHook: function afterHook() {
     // },
     //
-    beforeSession: function beforeTest() {
-        require('@babel/register');
-    },
+    // beforeSession: function beforeTest() {
+    // },
     //
     // Runs before a WebdriverIO command gets executed.
     // beforeCommand: function beforeCommand(commandName, args) {
