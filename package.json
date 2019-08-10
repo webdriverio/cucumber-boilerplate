@@ -54,7 +54,7 @@
     "babel-jest": "^24.8.0",
     "chromedriver": "^75.0.0",
     "eslint": "^6.0.0",
-    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.0",
     "forever": "^0.15.3",
     "http-server": "^0.11.0",
