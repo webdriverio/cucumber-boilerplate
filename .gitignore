@@ -13,5 +13,4 @@ coverage
 .idea
 .vscode
 !.vscode/extensions.json
-package-lock.json
 yarn.lock
