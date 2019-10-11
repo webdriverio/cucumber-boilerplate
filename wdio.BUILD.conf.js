@@ -16,7 +16,7 @@ wdioConfig.config.capabilities = [{
 }];
 
 wdioConfig.port = 9516;
-wdioConfig.config.services = ['chromedriver'];
+wdioConfig.config.services = ['chromedriver', 'static-server'];
 wdioConfig.config.path = '/';
 wdioConfig.chromeDriverArgs = ['--port=9516', '--url-base=\'/\''];
 
