@@ -1,6 +1,6 @@
-const wdioConfig = require('./wdio.conf.js');
+const { config } = require('./wdio.conf.js');
 
-wdioConfig.config.capabilities = [{
+config.capabilities = [{
     browserName: 'chrome',
     'goog:chromeOptions': {
         args: [
@@ -15,9 +15,32 @@ wdioConfig.config.capabilities = [{
     },
 }];
 
-wdioConfig.port = 9516;
-wdioConfig.config.services = ['chromedriver', 'static-server'];
-wdioConfig.config.path = '/';
-wdioConfig.chromeDriverArgs = ['--port=9516', '--url-base=\'/\''];
+config.port = 9516;
+config.services = [
+    [
+        'chromedriver',
+        {
+            chromeDriverArgs: ['--port=9516', '--url-base=\'/\''],
+        },
+    ],
+    ['static-server'],
+];
+config.staticServerPort = 8080;
+config.staticServerFolders = [
+    { mount: '/', path: './demo-app' },
+];
+config.path = '/';
+config.beforeFeature = () => {
+    /**
+     * check if static website is up and cancel if not
+     */
+    browser.url('/');
+    const pageTitle = browser.getTitle();
+    if (pageTitle !== 'DEMO APP') {
+        console.error(`Demo app is not up, found ${pageTitle}`);
+        console.log(browser.getPageSource());
+        process.exit(1);
+    }
+};
 
-exports.config = wdioConfig.config;
+exports.config = config;
