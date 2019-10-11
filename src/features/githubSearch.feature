@@ -13,8 +13,6 @@ Scenario: search for webdriverio repository
     And   the element "[placeholder='Search GitHub']" not contains any text
     And   I clear the inputfield "[placeholder='Search GitHub']"
     And   I add "webdriverio" to the inputfield "[placeholder='Search GitHub']"
-    And   I press "Space"
-    And   I add "selenium" to the inputfield "[placeholder='Search GitHub']"
     When  I press "Enter"
-    Then  I expect that element ".header-search-input" contains the text "webdriverio selenium"
+    Then  I expect that element ".header-search-input" contains the text "webdriverio"
     And   I expect that container ".repo-list-item:first-child" contains the text "Next-gen WebDriver test automation framework for Node.js"
