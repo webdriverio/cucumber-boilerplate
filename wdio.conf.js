@@ -103,7 +103,7 @@ exports.config = {
     // enhance your test setup with almost no effort. Unlike plugins, they don't
     // add new commands. Instead, they hook themselves up into the test process.
     services: ['static-server'],
-    outputDir: path.join(__dirname, 'logs'),
+    outputDir: process.env.CI ? null : path.join(__dirname, 'logs'),
     staticServerPort: 8080,
     staticServerFolders: [
         { mount: '/', path: './demo-app' },
