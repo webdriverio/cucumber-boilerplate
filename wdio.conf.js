@@ -58,9 +58,6 @@ exports.config = {
     // error
     logLevel: 'trace',
     //
-    // Enables colors for log output.
-    coloredLogs: true,
-    //
     // Saves a screenshot to a given path if a command fails.
     screenshotPath: './errorShots/',
     //
@@ -204,7 +201,7 @@ exports.config = {
     // afterHook: function afterHook() {
     // },
     //
-    // beforeSession: function beforeTest() {
+    // beforeSession: function beforeSession() {
     // },
     //
     // Runs before a WebdriverIO command gets executed.
@@ -213,11 +210,6 @@ exports.config = {
     //
     // Runs after a WebdriverIO command gets executed
     // afterCommand: function afterCommand(commandName, args, result, error) {
-    // },
-    //
-    // Function to be executed after a test (in Mocha/Jasmine) or a step (in
-    // Cucumber) starts.
-    // afterTest: function afterTest(test) {
     // },
     //
     // Hook that gets executed after the suite has ended
