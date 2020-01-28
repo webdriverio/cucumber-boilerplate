@@ -53,7 +53,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.0",
     "babel-jest": "^24.8.0",
-    "chromedriver": "^78.0.1",
+    "chromedriver": "^79.0.1",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.0",
