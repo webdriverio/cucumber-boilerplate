@@ -36,7 +36,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/register": "^7.7.0",
-    "@types/cucumber": "^4.0.5",
+    "@types/cucumber": "^6.0.1",
     "@wdio/cli": "^5.16.0",
     "@wdio/config": "^5.16.0",
     "@wdio/cucumber-framework": "^5.16.0",
