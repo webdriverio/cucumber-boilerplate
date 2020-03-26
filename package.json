@@ -44,7 +44,7 @@
     "@wdio/selenium-standalone-service": "^5.11.0",
     "@wdio/spec-reporter": "^5.15.2",
     "@wdio/static-server-service": "^5.14.4",
-    "@wdio/sync": "^5.16.0",
+    "@wdio/sync": "^6.0.1",
     "chai": "^4.1.2",
     "eslint-plugin-wdio": "^5.7.8",
     "wdio-chromedriver-service": "^5.0.2",
