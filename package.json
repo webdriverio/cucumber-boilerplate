@@ -41,7 +41,7 @@
     "@wdio/config": "^5.16.0",
     "@wdio/cucumber-framework": "^5.16.0",
     "@wdio/local-runner": "^5.16.1",
-    "@wdio/selenium-standalone-service": "^5.11.0",
+    "@wdio/selenium-standalone-service": "^6.0.1",
     "@wdio/spec-reporter": "^5.15.2",
     "@wdio/static-server-service": "^5.14.4",
     "@wdio/sync": "^5.16.0",
