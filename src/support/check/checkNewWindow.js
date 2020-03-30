@@ -12,10 +12,10 @@ export default (obsolete, falseCase) => {
     const windowHandles = browser.getWindowHandles();
 
     if (falseCase) {
-        expect(windowHandles.length).to
-            .equal(1, 'A new window should not have been opened');
+        expect(windowHandles)
+            .toHaveLength(1, 'A new window should not have been opened');
     } else {
-        expect(windowHandles.length).to.not
-            .equal(1, 'A new window has been opened');
+        expect(windowHandles)
+            .not.toHaveLength(1, 'A new window has been opened');
     }
 };

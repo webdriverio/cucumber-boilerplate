@@ -34,7 +34,7 @@ rules:
     - SwitchCase: 1
   max-len:
     - 'error'
-    - 80
+    - 100
     - ignorePattern: '\s*\/\^(.*)\$\/,$'
   new-cap:
     - 'error'

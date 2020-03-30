@@ -14,22 +14,19 @@ export default (modalType, falseState, expectedText) => {
         const text = browser.getAlertText();
 
         if (falseState) {
-            expect(text).to.not.equal(
+            expect(text).not.toEqual(
                 expectedText,
                 `Expected the text of ${modalType} not to equal `
                 + `"${expectedText}"`
             );
         } else {
-            expect(text).to.equal(
+            expect(text).toEqual(
                 expectedText,
                 `Expected the text of ${modalType} to equal `
                 + `"${expectedText}", instead found "${text}"`
             );
         }
     } catch (e) {
-        assert(
-            e,
-            `A ${modalType} was not opened when it should have been opened`
-        );
+        throw new Error(`A ${modalType} was not opened when it should have been opened`);
     }
 };

@@ -175,7 +175,7 @@ sentences with multiple options. Everything that's within `"([^"]*)?"` gets capt
 callback. The last argument is always a callback function that you need to call when your step is done.
 You can access the browser and your WebdriverIO instance with `browser`.
 
-To assert values this boilerplate project comes with a [Chai](http://chaijs.com/) integration.
+To assert values this boilerplate project uses WebdriverIOs embedded assertion library called [expect-webdriverio](https://www.npmjs.com/package/expect-webdriverio).
 
 # Comments
 

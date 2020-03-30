@@ -17,16 +17,10 @@ describe('checkIsOpenedInNewWindow', () => {
         expectShouldContain = jest.fn();
 
         global.expect = jest.fn(() => ({
-            length: {
-                to: {
-                    not: {
-                        equal: expectLengthShouldNotEqual,
-                    },
-                },
+            not: {
+                toHaveLength: expectLengthShouldNotEqual,
             },
-            to: {
-                contain: expectShouldContain,
-            },
+            toContain: expectShouldContain,
         }));
     });
 

@@ -48,8 +48,8 @@ export default (elementType, selector, falseCase, expectedText) => {
     }
 
     if (boolFalseCase) {
-        expect(text).to.not.contain(stringExpectedText);
+        expect(text).not.toContain(stringExpectedText);
     } else {
-        expect(text).to.contain(stringExpectedText);
+        expect(text).toContain(stringExpectedText);
     }
 };

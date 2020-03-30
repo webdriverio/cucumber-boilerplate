@@ -15,19 +15,17 @@ export default (modalType, falseState) => {
         promptText = browser.getAlertText();
 
         if (falseState) {
-            expect(promptText).to.not
-                .equal(
-                    null,
-                    `A ${modalType} was opened when it shouldn't`
-                );
+            expect(promptText).not.toEqual(
+                null,
+                `A ${modalType} was opened when it shouldn't`
+            );
         }
     } catch (e) {
         if (!falseState) {
-            expect(promptText).to
-                .equal(
-                    null,
-                    `A ${modalType} was not opened when it should have been`
-                );
+            expect(promptText).toEqual(
+                null,
+                `A ${modalType} was not opened when it should have been`
+            );
         }
     }
 };

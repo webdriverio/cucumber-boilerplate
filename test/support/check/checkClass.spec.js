@@ -15,11 +15,9 @@ describe('checkClass', () => {
         expectToNotIncludeStub = jest.fn();
 
         global.expect = jest.fn(() => ({
-            to: {
-                include: expectToIncludeStub,
-                not: {
-                    include: expectToNotIncludeStub,
-                },
+            toContain: expectToIncludeStub,
+            not: {
+                toContain: expectToNotIncludeStub,
             },
         }));
     });

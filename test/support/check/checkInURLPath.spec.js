@@ -13,11 +13,9 @@ describe('checkInURLPath', () => {
         expectShouldNotContain = jest.fn();
 
         global.expect = jest.fn(() => ({
-            to: {
-                not: {
-                    contain: expectShouldNotContain,
-                },
-                contain: expectShouldContain,
+            toContain: expectShouldContain,
+            not: {
+                toContain: expectShouldNotContain,
             },
         }));
     });

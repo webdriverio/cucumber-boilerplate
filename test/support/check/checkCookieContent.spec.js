@@ -16,11 +16,9 @@ describe('checkCookieContent', () => {
         expectToNotEqual = jest.fn();
 
         global.expect = jest.fn(() => ({
-            to: {
-                equal: expectToEqual,
-                not: {
-                    equal: expectToNotEqual,
-                },
+            toBe: expectToEqual,
+            not: {
+                toBe: expectToNotEqual,
             },
         }));
     });

@@ -38,8 +38,8 @@ export default (elementType, selector, falseCase) => {
     }
 
     if (boolFalseCase) {
-        expect(text).to.equal('');
+        expect(text).toBe('');
     } else {
-        expect(text).to.not.equal('');
+        expect(text).not.toBe('');
     }
 };

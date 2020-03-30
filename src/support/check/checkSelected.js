@@ -12,10 +12,10 @@ export default (selector, falseCase) => {
     const isSelected = $(selector).isSelected();
 
     if (falseCase) {
-        expect(isSelected).to.not
-            .equal(true, `"${selector}" should not be selected`);
+        expect(isSelected)
+            .not.toEqual(true, `"${selector}" should not be selected`);
     } else {
-        expect(isSelected).to
-            .equal(true, `"${selector}" should be selected`);
+        expect(isSelected)
+            .toEqual(true, `"${selector}" should be selected`);
     }
 };

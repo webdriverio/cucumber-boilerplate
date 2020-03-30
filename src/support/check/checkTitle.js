@@ -12,16 +12,14 @@ export default (falseCase, expectedTitle) => {
     const title = browser.getTitle();
 
     if (falseCase) {
-        expect(title).to.not
-            .equal(
-                expectedTitle,
-                `Expected title not to be "${expectedTitle}"`
-            );
+        expect(title).not.toEqual(
+            expectedTitle,
+            `Expected title not to be "${expectedTitle}"`
+        );
     } else {
-        expect(title).to
-            .equal(
-                expectedTitle,
-                `Expected title to be "${expectedTitle}" but found "${title}"`
-            );
+        expect(title).toEqual(
+            expectedTitle,
+            `Expected title to be "${expectedTitle}" but found "${title}"`
+        );
     }
 };

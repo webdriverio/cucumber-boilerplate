@@ -13,15 +13,14 @@ export default (selector, falseCase, expectedClassName) => {
     const classesList = $(selector).getAttribute('className').split(' ');
 
     if (falseCase === 'does not have') {
-        expect(classesList).to.not
-            .include(expectedClassName,
-                `Element ${selector} should not have the class `
-                    + `${expectedClassName}`);
+        expect(classesList).not.toContain(
+            expectedClassName,
+            `Element ${selector} should not have the class ${expectedClassName}`
+        );
     } else {
-        expect(classesList).to
-            .include(
-                expectedClassName,
-                `Element ${selector} should have the class ${expectedClassName}`
-            );
+        expect(classesList).toContain(
+            expectedClassName,
+            `Element ${selector} should have the class ${expectedClassName}`
+        );
     }
 };

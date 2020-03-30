@@ -12,16 +12,14 @@ export default (selector, falseCase) => {
     const isDisplayed = $(selector).isDisplayedInViewport();
 
     if (falseCase) {
-        expect(isDisplayed).to.not
-            .equal(
-                true,
-                `Expected element "${selector}" to be outside the viewport`
-            );
+        expect(isDisplayed).not.toEqual(
+            true,
+            `Expected element "${selector}" to be outside the viewport`
+        );
     } else {
-        expect(isDisplayed).to
-            .equal(
-                true,
-                `Expected element "${selector}" to be inside the viewport`
-            );
+        expect(isDisplayed).toEqual(
+            true,
+            `Expected element "${selector}" to be inside the viewport`
+        );
     }
 };

@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.0] - 2020-03-3ß
+### Changed
+- Updated WebdriverIO dependencies to v6
+- Removed Chai and use [`expect-webdriverio`](https://www.npmjs.com/package/expect-webdriverio) as assertion library
+
 ## [1.3.2] - 2017-10-31
 ### Fixed
 - Fixed required Node & Yarn versions in the readme

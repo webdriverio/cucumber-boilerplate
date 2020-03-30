@@ -40,14 +40,16 @@ export default (isCSS, attrName, selector, falseCase, expectedValue) => {
         attributeValue = attributeValue.value;
     }
     if (falseCase) {
-        expect(attributeValue).to.not
-            .equal(expectedValue,
-                `${attrType}: ${attrName} of element "${selector}" should `
-                + `not contain "${attributeValue}"`);
+        expect(attributeValue).not.toEqual(
+            expectedValue,
+            `${attrType}: ${attrName} of element "${selector}" should `
+            + `not contain "${attributeValue}"`
+        );
     } else {
-        expect(attributeValue).to
-            .equal(expectedValue,
-                `${attrType}: ${attrName} of element "${selector}" should `
-                + `contain "${attributeValue}", but "${expectedValue}"`);
+        expect(attributeValue).toEqual(
+            expectedValue,
+            `${attrType}: ${attrName} of element "${selector}" should `
+            + `contain "${attributeValue}", but "${expectedValue}"`
+        );
     }
 };

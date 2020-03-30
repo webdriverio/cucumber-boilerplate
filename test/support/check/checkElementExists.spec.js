@@ -11,18 +11,8 @@ describe('checkElementExists', () => {
         expectToHaveLengthOfAtLeast = jest.fn();
 
         global.expect = jest.fn(() => ({
-            to: {
-                have: {
-                    length: {
-                        of: {
-                            at: {
-                                least: expectToHaveLengthOfAtLeast,
-                            },
-                        },
-                    },
-                    lengthOf: expectToHaveLengthOf,
-                },
-            },
+            toBeGreaterThanOrEqual: expectToHaveLengthOfAtLeast,
+            toHaveLength: expectToHaveLengthOf,
         }));
     });
 

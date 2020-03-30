@@ -11,14 +11,8 @@ describe('isExisting', () => {
         expectToHaveLengthOf = jest.fn();
 
         global.expect = jest.fn(() => ({
-            to: {
-                have: {
-                    length: {
-                        above: expectToHaveLengthAbove,
-                    },
-                    lengthOf: expectToHaveLengthOf,
-                },
-            },
+            toBeGreaterThan: expectToHaveLengthAbove,
+            toHaveLength: expectToHaveLengthOf,
         }));
     });
 

@@ -15,12 +15,10 @@ describe('checkNewWindow', () => {
         expectToNotEqual = jest.fn();
 
         global.expect = jest.fn(() => ({
-            to: {
-                not: {
-                    equal: expectToNotEqual,
-                },
-                equal: expectToEqual,
+            not: {
+                toHaveLength: expectToNotEqual,
             },
+            toHaveLength: expectToEqual,
         }));
     });
 

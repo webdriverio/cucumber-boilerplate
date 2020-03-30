@@ -19,12 +19,12 @@ export default (selector1, falseCase, selector2) => {
     const text2 = $(selector2).getText();
 
     if (falseCase) {
-        expect(text1).to.not.equal(
+        expect(text1).not.toEqual(
             text2,
             `Expected text not to be "${text1}"`
         );
     } else {
-        expect(text1).to.equal(
+        expect(text1).toEqual(
             text2,
             `Expected text to be "${text1}" but found "${text2}"`
         );

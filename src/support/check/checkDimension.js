@@ -37,18 +37,16 @@ export default (selector, falseCase, expectedSize, dimension) => {
     }
 
     if (falseCase) {
-        expect(originalSize).to.not
-            .equal(
-                intExpectedSize,
-                `Element "${selector}" should not have a ${label} of `
-                + `${intExpectedSize}px`
-            );
+        expect(originalSize).not.toBe(
+            intExpectedSize,
+            `Element "${selector}" should not have a ${label} of `
+            + `${intExpectedSize}px`
+        );
     } else {
-        expect(originalSize).to
-            .equal(
-                intExpectedSize,
-                `Element "${selector}" should have a ${label} of `
-                + `${intExpectedSize}px, but is ${originalSize}px`
-            );
+        expect(originalSize).toBe(
+            intExpectedSize,
+            `Element "${selector}" should have a ${label} of `
+            + `${intExpectedSize}px, but is ${originalSize}px`
+        );
     }
 };

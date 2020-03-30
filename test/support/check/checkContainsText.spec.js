@@ -24,11 +24,9 @@ describe('checkContainsText', () => {
         expectToNotContain = jest.fn();
 
         global.expect = jest.fn(() => ({
-            to: {
-                contain: expectToContain,
-                not: {
-                    contain: expectToNotContain,
-                },
+            toContain: expectToContain,
+            not: {
+                toContain: expectToNotContain,
             },
         }));
     });

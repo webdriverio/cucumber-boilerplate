@@ -1,10 +1,9 @@
 /**
  * Check if the given URL was opened in a new window
  * @param  {String}   expectedUrl The URL to check for
- * @param  {String}   obsolete    Indicator for the type (window or tab) unused
  */
 /* eslint-disable no-unused-vars */
-export default (expectedUrl, obsolete) => {
+export default (expectedUrl) => {
 /* eslint-enable no-unused-vars */
     /**
      * All the current window handles
@@ -12,7 +11,7 @@ export default (expectedUrl, obsolete) => {
      */
     const windowHandles = browser.getWindowHandles();
 
-    expect(windowHandles).length.to.not.equal(1, 'A popup was not opened');
+    expect(windowHandles).not.toHaveLength(1, 'A popup was not opened');
 
     /**
      * The last opened window handle
@@ -29,8 +28,10 @@ export default (expectedUrl, obsolete) => {
      */
     const windowUrl = browser.getUrl();
 
-    expect(windowUrl).to
-        .contain(expectedUrl, 'The popup has a incorrect getUrl');
+    expect(windowUrl).toContain(
+        expectedUrl,
+        'The popup has a incorrect getUrl'
+    );
 
     browser.closeWindow();
 };

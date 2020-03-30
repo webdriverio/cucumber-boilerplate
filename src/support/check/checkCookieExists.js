@@ -12,12 +12,12 @@ export default (name, falseCase) => {
     const cookie = browser.getCookies(name);
 
     if (falseCase) {
-        expect(cookie.length).to.equal(
+        expect(cookie).toHaveLength(
             0,
             `Expected cookie "${name}" not to exists but it does`
         );
     } else {
-        expect(cookie.length).to.not.equal(
+        expect(cookie).not.toHaveLength(
             0,
             `Expected cookie "${name}" to exists but it does not`
         );

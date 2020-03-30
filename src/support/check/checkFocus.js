@@ -12,10 +12,14 @@ export default (selector, falseCase) => {
     const hasFocus = $(selector).isFocused();
 
     if (falseCase) {
-        expect(hasFocus).to.not
-            .equal(true, 'Expected element to not be focused, but it is');
+        expect(hasFocus).not.toBe(
+            true,
+            'Expected element to not be focused, but it is'
+        );
     } else {
-        expect(hasFocus).to
-            .equal(true, 'Expected element to be focused, but it is not');
+        expect(hasFocus).toBe(
+            true,
+            'Expected element to be focused, but it is not'
+        );
     }
 };
