@@ -16,7 +16,7 @@ export default (selector, falseCase) => {
             `Expected element "${selector}" not to exist`
         );
     } else {
-        expect(elements).toBeGreaterThan(
+        expect(elements.length).toBeGreaterThan(
             0,
             `Expected element "${selector}" to exist`
         );

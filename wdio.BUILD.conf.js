@@ -25,11 +25,15 @@ config.services = [
             chromeDriverArgs: ['--port=9516', '--url-base=\'/\''],
         },
     ],
-    ['static-server'],
-];
-config.staticServerPort = 8080;
-config.staticServerFolders = [
-    { mount: '/', path: './demo-app' },
+    [
+        'static-server',
+        {
+            port: 8080,
+            folders: [
+                { mount: '/', path: path.join(__dirname, 'demo-app') },
+            ],
+        },
+    ],
 ];
 config.path = '/';
 config.beforeFeature = () => {
