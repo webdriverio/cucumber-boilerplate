@@ -8,7 +8,7 @@ notifications:
   email: false
 
 node_js:
-  - 10.16.3
+  - 10.19.0
 
 env:
   - CXX=g++-4.8
@@ -19,8 +19,10 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
+      - dpkg
       - g++-4.8
-  code_climate:
+
+code_climate:
     repo_token: b087813d4296a775b39b1465f365d52e6e8f62c6ee3150392345b0911bd186ee
 
 branches:

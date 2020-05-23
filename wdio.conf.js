@@ -1,8 +1,7 @@
 const path = require('path');
 const { hooks } = require('./src/support/hooks');
 
-exports.config = Object.assign({}, {
-    //
+exports.config = { //
     // ====================
     // Runner Configuration
     // ====================
@@ -160,7 +159,6 @@ exports.config = Object.assign({}, {
             './src/steps/given.js',
             './src/steps/then.js',
             './src/steps/when.js',
-            './src/support/hooks.js',
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
             // './src/**/*.js',
@@ -178,5 +176,5 @@ exports.config = Object.assign({}, {
         // <number> timeout for step definitions
         timeout: 20000,
     },
-
-}, hooks);
+    ...hooks,
+};
