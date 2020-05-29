@@ -7,7 +7,6 @@
 // an array of methods. If one of them returns with a promise,
 // WebdriverIO will wait until that promise is resolved to continue.
 //
-
 exports.hooks = {
     /**
      * Gets executed once before all workers get launched.
