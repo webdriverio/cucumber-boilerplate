@@ -1,7 +1,8 @@
 const path = require('path');
 const { hooks } = require('./src/support/hooks');
 
-exports.config = { //
+exports.config = {
+    //
     // ====================
     // Runner Configuration
     // ====================
