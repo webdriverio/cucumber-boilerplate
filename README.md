@@ -203,7 +203,7 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 ## Given steps
 
 - `I open the (url|site) "([^"]*)?"` <br>Open a site in the current browser window/tab
-- `the element "([^"]*)?" is( not)* visible` <br>Check the (in)visibility of an element
+- `the element "([^"]*)?" is( not)* displayed` <br>Check the (in)visibility of an element
 - `the element "([^"]*)?" is( not)* enabled` <br>Check if an element is (not) enabled
 - `the element "([^"]*)?" is( not)* selected` <br>Check if an element is (not) selected
 - `the checkbox "([^"]*)?" is( not)* checked` <br>Check if a checkbox is (not) checked
