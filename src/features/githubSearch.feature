@@ -6,7 +6,7 @@ Feature: Github test
 Scenario: open URL
     Given I open the url "https://github.com/"
     Then  I expect the url to contain "github.com"
-    And   I expect that the title is "The world’s leading software development platform · GitHub"
+    And   I expect that the title is "GitHub: Where the world builds software · GitHub"
 
 Scenario: search for webdriverio repository
     Given I open the url "https://github.com/search"
