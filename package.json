@@ -29,7 +29,8 @@
     "test": "run-s test:*",
     "test:lint": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'",
     "test:unit": "jest --config=jest.json --detectOpenHandles",
-    "test:features": "wdio wdio.BUILD.conf.js"
+    "test:features": "wdio wdio.BUILD.conf.js",
+    "wdio": "wdio wdio.conf.js"
   },
   "dependencies": {},
   "devDependencies": {

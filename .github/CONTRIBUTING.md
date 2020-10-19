@@ -6,7 +6,7 @@ Please fork, add specs, and send pull requests! Do keep in mind that this is a g
 The project contains a [editorconfig](http://editorconfig.org/) and [eslint](http://eslint.org/) configuration file, builds will run ESLint with this configuration. To run ESLint localy use the following command:
 
 ```sh
-npm run test:validate
+npm run test:lint
 ```
 
 
@@ -18,7 +18,7 @@ When you add/change a feature test you should add/change a corresponding test(s)
 As stated above the command for validating the code using ESLint is:
 
 ```sh
-npm run test:validate
+npm run test:lint
 ```
 
 To run all unit tests use the following command:
