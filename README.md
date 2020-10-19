@@ -81,7 +81,7 @@ query after doing a search. As you can see, it is pretty simple and understandab
 Start the local web server:
 
 ```sh
-$ yarn run local-webserver
+$ yarn run test
 ```
 
 To run your tests just call the [WDIO runner](http://webdriver.io/guide/testrunner/gettingstarted.html):
