@@ -17,7 +17,6 @@ import setPromptText from '../support/action/setPromptText';
 
 const { When } = require('cucumber');
 
-
 When(
     /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,
     clickElement
