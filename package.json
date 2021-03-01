@@ -46,7 +46,7 @@
     "@wdio/local-runner": "^6.0.8",
     "@wdio/selenium-standalone-service": "^6.0.8",
     "@wdio/spec-reporter": "^6.0.8",
-    "@wdio/static-server-service": "^6.0.8",
+    "@wdio/static-server-service": "^7.0.7",
     "@wdio/sync": "^6.0.8",
     "babel-jest": "^26.0.1",
     "chromedriver": "^85.0.1",
