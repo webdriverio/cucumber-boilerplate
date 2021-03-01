@@ -53,7 +53,7 @@
     "eslint": "^7.14.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-wdio": "^6.0.8",
+    "eslint-plugin-wdio": "^7.0.0",
     "http-server": "^0.12.1",
     "jest": "^26.2.2",
     "npm-run-all": "^4.1.5",
