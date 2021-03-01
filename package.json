@@ -47,7 +47,7 @@
     "@wdio/selenium-standalone-service": "^6.0.8",
     "@wdio/spec-reporter": "^6.0.8",
     "@wdio/static-server-service": "^6.0.8",
-    "@wdio/sync": "^6.0.8",
+    "@wdio/sync": "^7.0.8",
     "babel-jest": "^26.0.1",
     "chromedriver": "^85.0.1",
     "eslint": "^7.14.0",
