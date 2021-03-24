@@ -166,7 +166,6 @@ export const config: WebdriverIO.Config = {
         ],
         scenarioLevelReporter: false,
         order: 'defined',
-        featureDefaultLanguage: 'english',
         // <string> specify a custom snippet syntax
         snippetSyntax: undefined,
         // <boolean> fail if there are any undefined or pending steps
