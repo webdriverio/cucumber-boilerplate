@@ -148,7 +148,7 @@ export const config: WebdriverIO.Config = {
         ignoreUndefinedDefinitions: false,
         // <string[]> ("extension:module") require files with the given
         // EXTENSION after requiring MODULE (repeatable)
-        name: [],
+        names: [],
         // <boolean> hide step definition snippets for pending steps
         snippets: true,
         // <boolean> hide source uris
@@ -164,6 +164,9 @@ export const config: WebdriverIO.Config = {
             // works since version 1.1 of the wdio-cucumber-framework
             // './src/**/*.js',
         ],
+        scenarioLevelReporter: false,
+        order: 'defined',
+        featureDefaultLanguage: 'english',
         // <string> specify a custom snippet syntax
         snippetSyntax: undefined,
         // <boolean> fail if there are any undefined or pending steps
@@ -176,6 +179,6 @@ export const config: WebdriverIO.Config = {
         tagsInTitle: false,
         // <number> timeout for step definitions
         timeout: 20000,
-    },
+    } as WebdriverIO.CucumberOpts,
     ...hooks,
 };

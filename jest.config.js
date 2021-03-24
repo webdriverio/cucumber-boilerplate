@@ -21,7 +21,7 @@ module.exports = {
         },
     },
     collectCoverageFrom: [
-        'src/**/*.js',
+        'src/**/*.ts',
         '!**/node_modules/**',
     ],
     notify: true,
