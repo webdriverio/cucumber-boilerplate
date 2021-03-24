@@ -1,0 +1,26 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 14
+        - name: Install Dependencies
+          uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
+          with:
+            args: yarn install
+        - name: Test
+          uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
+          with:
+            args: yarn run test
+        - uses: actions/upload-artifact@v1
+          if: failure()
+          with:
+            name: logs
+            path: logs
