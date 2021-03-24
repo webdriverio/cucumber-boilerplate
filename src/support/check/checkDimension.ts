@@ -1,5 +1,5 @@
 import type { Selector } from 'webdriverio';
-import type { RectReturn } from '@wdio/protocols'
+import type { RectReturn } from '@wdio/protocols';
 
 /**
  * Check the dimensions of the given element

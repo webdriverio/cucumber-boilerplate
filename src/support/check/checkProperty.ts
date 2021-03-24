@@ -15,7 +15,8 @@ export default (
     attrName: string,
     selector: Selector,
     falseCase: boolean,
-    expectedValue: number | string) => {
+    expectedValue: number | string
+) => {
     /**
      * The command to use for fetching the expected value
      * @type {String}
@@ -44,8 +45,10 @@ export default (
      * object but we want to assert against a string
      */
     if (attrName.match(/(color|font-weight)/)) {
-        attributeValue = attributeValue;
+        // @ts-expect-error
+        attributeValue = attributeValue.value;
     }
+
     if (falseCase) {
         expect(attributeValue).not.toEqual(
             expectedValue,

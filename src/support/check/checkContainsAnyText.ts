@@ -40,7 +40,7 @@ export default (
     if (typeof falseCase === 'undefined') {
         boolFalseCase = false;
     } else {
-        boolFalseCase = !!falseCase;
+        boolFalseCase = Boolean(falseCase);
     }
 
     if (boolFalseCase) {

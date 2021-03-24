@@ -9,7 +9,9 @@ describe('closeAllButFirstTab', () => {
                 'three',
             ]),
             switchToWindow: jest.fn(() => ({
-                close() {},
+                close() {
+                    // foo
+                },
             })),
             closeWindow: jest.fn(),
         };

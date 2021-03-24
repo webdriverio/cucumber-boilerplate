@@ -8,7 +8,9 @@ describe('checkProperty', () => {
     let expectToNotEqual;
 
     beforeEach(() => {
-        getCSSMock = jest.fn(() => {});
+        getCSSMock = jest.fn(() => {
+            // foo
+        });
         getAttributeMock = jest.fn(() => 'element-name');
         global.$ = jest.fn().mockReturnValue({
             getCSSProperty: getCSSMock,

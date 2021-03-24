@@ -27,13 +27,16 @@
   "scripts": {
     "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" REPLY; if [[ $REPLY =~ ^[Yy]$ ]]; then rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
     "test": "run-s test:*",
-    "test:lint": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'",
-    "test:unit": "jest --config=jest.json --detectOpenHandles",
-    "test:features": "wdio wdio.BUILD.conf.js",
-    "wdio": "wdio wdio.conf.js"
+    "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
+    "test:unit": "jest --config=jest.config.js --detectOpenHandles",
+    "test:features": "wdio run wdio.BUILD.conf.ts",
+    "wdio": "wdio run wdio.conf.ts"
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^26.0.21",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
     "@wdio/cli": "^7.2.3",
     "@wdio/config": "^7.2.1",
     "@wdio/cucumber-framework": "^7.2.1",
@@ -43,15 +46,17 @@
     "@wdio/static-server-service": "^7.2.1",
     "@wdio/sync": "^7.2.3",
     "chromedriver": "^88.0.0",
-    "eslint": "^7.14.0",
+    "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-wdio": "^6.0.8",
     "http-server": "^0.12.1",
     "jest": "^26.2.2",
+    "jest-circus": "^26.6.3",
     "npm-run-all": "^4.1.5",
+    "ts-jest": "^26.5.4",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.5",
+    "typescript": "^4.2.3",
     "wdio-chromedriver-service": "^7.0.0",
     "webdriverio": "^7.0.7"
   }

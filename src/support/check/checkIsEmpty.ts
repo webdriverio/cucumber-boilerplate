@@ -5,7 +5,8 @@ import checkContainsAnyText from './checkContainsAnyText';
 export default (
     elementType: 'button' | 'element',
     element: Selector,
-    falseCase: ' not' | Function) => {
+    falseCase: ' not'
+) => {
     let newFalseCase = true;
 
     if (typeof falseCase === 'function') {

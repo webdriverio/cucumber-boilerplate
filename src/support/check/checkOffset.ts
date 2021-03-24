@@ -12,7 +12,8 @@ export default (
     selector: Selector,
     falseCase: boolean,
     expectedPosition: string,
-    axis: 'x' | 'y') => {
+    axis: 'x' | 'y'
+) => {
     /**
      * Get the location of the element on the given axis
      * @type {[type]}

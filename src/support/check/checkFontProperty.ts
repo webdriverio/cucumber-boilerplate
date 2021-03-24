@@ -40,7 +40,8 @@ export default (
      * object but we want to assert against a string
      */
     if (attrName.match(/(font-size|line-height|display|font-weight)/)) {
-        attributeValue = attributeValue;
+        // @ts-expect-error
+        attributeValue = attributeValue.value;
     }
 
     if (falseCase) {

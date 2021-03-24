@@ -21,6 +21,6 @@ export default (selector: Selector, x: string, y: string) => {
 
     $(selector).moveTo({
         xOffset: intX,
-        yOffset: intY
+        yOffset: intY,
     });
 };

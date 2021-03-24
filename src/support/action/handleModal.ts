@@ -11,7 +11,8 @@ export default (
      * The command to perform on the browser object
      * @type {String}
      */
-    let command = `${action.slice(0, 1).toLowerCase()}${action.slice(1)}Alert` as 'acceptAlert' | 'dismissAlert';
+    let command = `${action.slice(0, 1).toLowerCase()}${action.slice(1)}Alert` as
+        'acceptAlert' | 'dismissAlert';
 
     /**
      * Alert boxes can't be dismissed, this causes Chrome to crash during tests

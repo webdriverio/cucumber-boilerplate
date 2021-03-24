@@ -16,6 +16,6 @@ export default (selector: Selector, falseCase: any) => {
 
     $(selector).waitForDisplayed({
         timeout: ms,
-        reverse: Boolean(falseCase)
+        reverse: Boolean(falseCase),
     });
 };
