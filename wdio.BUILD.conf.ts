@@ -40,11 +40,11 @@ buildConfig.beforeFeature = () => {
     /**
      * check if static website is up and cancel if not
      */
-    browser.url('/');
-    const pageTitle = browser.getTitle();
+    (browser as WebdriverIO.Browser).url('/');
+    const pageTitle = (browser as WebdriverIO.Browser).getTitle();
     if (pageTitle !== 'DEMO APP') {
         console.error(`Demo app is not up, found ${pageTitle}`);
-        console.log(browser.getPageSource());
+        console.log((browser as WebdriverIO.Browser).getPageSource());
         process.exit(1);
     }
 };
