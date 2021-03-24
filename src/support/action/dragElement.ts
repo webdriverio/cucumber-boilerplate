@@ -8,4 +8,4 @@ import { Selector } from 'webdriverio';
 export default (selector: Selector, destination: Selector) => {
     const target = $(destination);
     $(selector).dragAndDrop(target);
-}
+};

@@ -8,9 +8,13 @@ describe('checkIsOpenedInNewWindow', () => {
     beforeEach(() => {
         global.browser = {
             getWindowHandles: jest.fn(() => ['window1', 'window2']),
-            switchToWindow: jest.fn(() => {}),
+            switchToWindow: jest.fn(() => {
+                // foo
+            }),
             getUrl: jest.fn(() => 'http://www.example.com/test'),
-            closeWindow: jest.fn(() => {}),
+            closeWindow: jest.fn(() => {
+                // foo
+            }),
         };
 
         expectLengthShouldNotEqual = jest.fn();

@@ -1,22 +1,23 @@
-env:
-  es6: true
-  node: true
+root: true
+
+parser: '@typescript-eslint/parser'
 
 plugins:
   - wdio
+  - "@typescript-eslint"
 
 extends:
-  - 'airbnb-base'
+  - airbnb-base
   - plugin:wdio/recommended
+  - plugin:@typescript-eslint/recommended
 
 globals:
   assert: true
   expect: true
 
-parserOptions:
-  ecmaVersion: 6
-
-root: true
+env:
+  es6: true
+  node: true
 
 rules:
   comma-dangle:
@@ -28,6 +29,7 @@ rules:
       functions: 'ignore'
   global-require: 'off'
   import/no-extraneous-dependencies: 0
+  import/prefer-default-export: 0
   indent:
     - 'error'
     - 4
@@ -54,3 +56,7 @@ rules:
     - 'error'
     - requireReturn: false
       matchDescription: '.+'
+  "@typescript-eslint/ban-ts-comment": 0
+  "@typescript-eslint/explicit-module-boundary-types": 0
+  import/no-unresolved: 0
+  import/extensions: 0

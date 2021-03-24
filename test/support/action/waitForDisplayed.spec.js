@@ -15,7 +15,10 @@ describe('waitForVisible', () => {
 
         expect(waitForDisplayedMock).toHaveBeenCalledTimes(1);
         expect(waitForDisplayedMock)
-            .toHaveBeenCalledWith(10000, true);
+            .toHaveBeenCalledWith({
+                timeout: 10000,
+                reverse: true,
+            });
     });
 
     it('should call waitForVisible on the browser object', () => {
@@ -23,6 +26,9 @@ describe('waitForVisible', () => {
 
         expect(waitForDisplayedMock).toHaveBeenCalledTimes(1);
         expect(waitForDisplayedMock)
-            .toHaveBeenCalledWith(10000, false);
+            .toHaveBeenCalledWith({
+                timeout: 10000,
+                reverse: false,
+            });
     });
 });

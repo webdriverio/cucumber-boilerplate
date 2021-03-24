@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { config as buildConfig } from './wdio.conf.js';
+import { config as buildConfig } from './wdio.conf';
 
 buildConfig.capabilities = [{
     browserName: 'chrome',

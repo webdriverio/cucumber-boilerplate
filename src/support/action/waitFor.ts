@@ -1,6 +1,6 @@
 import type { Selector } from 'webdriverio';
 
-type WaitForCommands = 'waitForClickable' | 'waitForDisplayed' | 'waitForEnabled' | 'waitForExist'
+type WaitForCommands = 'waitForClickable' | 'waitForDisplayed' | 'waitForEnabled' | 'waitForExist';
 
 /**
  * Wait for the given element to be enabled, displayed, or to exist
@@ -57,6 +57,6 @@ export default (
 
     $(selector)[command]({
         timeout: intMs,
-        reverse: boolFalseState
+        reverse: boolFalseState,
     });
 };

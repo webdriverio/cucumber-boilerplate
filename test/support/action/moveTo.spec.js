@@ -17,7 +17,10 @@ describe('moveTo', () => {
             moveTo('element', undefined, undefined);
 
             expect(moveToMock).toHaveBeenCalledTimes(1);
-            expect(moveToMock).toHaveBeenCalledWith(undefined, undefined);
+            expect(moveToMock).toHaveBeenCalledWith({
+                xOffset: undefined,
+                yOffset: undefined,
+            });
         }
     );
 
@@ -25,20 +28,29 @@ describe('moveTo', () => {
         moveTo('element', 1, undefined);
 
         expect(moveToMock).toHaveBeenCalledTimes(1);
-        expect(moveToMock).toHaveBeenCalledWith(1, undefined);
+        expect(moveToMock).toHaveBeenCalledWith({
+            xOffset: 1,
+            yOffset: undefined,
+        });
     });
 
     it('should call moveToObject with y when provided as int', () => {
         moveTo('element', undefined, 1);
 
         expect(moveToMock).toHaveBeenCalledTimes(1);
-        expect(moveToMock).toHaveBeenCalledWith(undefined, 1);
+        expect(moveToMock).toHaveBeenCalledWith({
+            xOffset: undefined,
+            yOffset: 1,
+        });
     });
 
     it('should call moveToObject with x and y when provided as int', () => {
         moveTo('element', 1, 2);
 
         expect(moveToMock).toHaveBeenCalledTimes(1);
-        expect(moveToMock).toHaveBeenCalledWith(1, 2);
+        expect(moveToMock).toHaveBeenCalledWith({
+            xOffset: 1,
+            yOffset: 2,
+        });
     });
 });

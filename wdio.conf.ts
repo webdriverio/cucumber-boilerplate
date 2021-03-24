@@ -136,7 +136,7 @@ export const config: WebdriverIO.Config = {
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> module used for processing required features
-        requireModule: ['@babel/register'],
+        requireModule: [],
         // <boolean< Treat ambiguous definitions as errors
         failAmbiguousDefinitions: true,
         // <boolean> invoke formatters without executing steps
@@ -157,9 +157,9 @@ export const config: WebdriverIO.Config = {
         profile: [],
         // <string[]> (file/dir) require files before executing features
         require: [
-            './src/steps/given.js',
-            './src/steps/then.js',
-            './src/steps/when.js',
+            './src/steps/given.ts',
+            './src/steps/then.ts',
+            './src/steps/when.ts',
             // Or search a (sub)folder for JS files with a wildcard
             // works since version 1.1 of the wdio-cucumber-framework
             // './src/**/*.js',
