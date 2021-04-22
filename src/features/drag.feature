@@ -12,6 +12,6 @@ Feature: Test draggable elements
 
     Scenario: Drag to dropzone
         When  I drag element "#draggable" to element "#droppable"
-        # Then  I expect that element "#droppable" contains the text "Dropped!"
-        # And   I expect that element "#draggable" is not positioned at 42px on the x axis
-        # And   I expect that element "#draggable" is positioned at 180px on the y axis
+        Then  I expect that element "#droppable" contains the text "Dropped!"
+        And   I expect that element "#draggable" is not positioned at 42px on the x axis
+        And   I expect that element "#draggable" is positioned at 180px on the y axis
