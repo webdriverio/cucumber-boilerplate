@@ -22,7 +22,7 @@ export default (
 
     if (
         ['button', 'container'].includes(elementType)
-        || $(selector).getAttribute('value') === null
+        || $(selector).getProperty('value') === null
     ) {
         command = 'getText';
     }

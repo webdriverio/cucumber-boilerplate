@@ -16,7 +16,13 @@ export default (
      * List of all the classes of the element
      * @type {Array}
      */
-    const classesList = $(selector).getAttribute('className').split(' ');
+    const className = $(selector).getProperty('className');
+
+    if (!className) {
+        throw new Error(`Element with selector "${selector}" did't had a class name`);
+    }
+
+    const classesList = className.toString().split(' ');
 
     if (falseCase === 'does not have') {
         expect(classesList).not.toContain(
