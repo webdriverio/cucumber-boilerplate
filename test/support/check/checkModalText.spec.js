@@ -6,7 +6,7 @@ describe('checkModalText', () => {
 
     beforeEach(() => {
         global.browser = {
-            getAlertText: jest.fn(() => 'test'),
+            getAlertText: jest.fn(() => Promise.resolve('test')),
         };
 
         expectToEqual = jest.fn();
@@ -20,8 +20,8 @@ describe('checkModalText', () => {
         }));
     });
 
-    it('Should test if getAlertText contains the given value', () => {
-        checkModalText('alertbox', false, 'test');
+    it('Should test if getAlertText contains the given value', async () => {
+        await checkModalText('alertbox', false, 'test');
 
         _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
         _expect(global.browser.getAlertText).toHaveBeenCalledWith();
@@ -34,8 +34,8 @@ describe('checkModalText', () => {
         );
     });
 
-    it('Should test if getAlertText does not contain the given value', () => {
-        checkModalText('confirmbox', true, 'test');
+    it('Should test if getAlertText does not contain the given value', async () => {
+        await checkModalText('confirmbox', true, 'test');
 
         _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
         _expect(global.browser.getAlertText).toHaveBeenCalledWith();
@@ -48,13 +48,13 @@ describe('checkModalText', () => {
         );
     });
 
-    it('Should test if getAlertText does not contain the given value', () => {
+    it('Should test if getAlertText does not contain the given value', async () => {
         global.browser.getAlertText = jest.fn(() => {
             throw new Error();
         });
 
         try {
-            checkModalText('confirmbox', false, 'test');
+            await checkModalText('confirmbox', false, 'test');
         } catch (e) {
             _expect(e);
         }

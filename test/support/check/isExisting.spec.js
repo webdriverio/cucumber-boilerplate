@@ -5,7 +5,7 @@ describe('isExisting', () => {
     let expectToHaveLengthOf;
 
     beforeEach(() => {
-        global.$$ = jest.fn().mockReturnValue(['1']);
+        global.$$ = jest.fn().mockResolvedValue(['1']);
 
         expectToHaveLengthAbove = jest.fn();
         expectToHaveLengthOf = jest.fn();
@@ -16,8 +16,8 @@ describe('isExisting', () => {
         }));
     });
 
-    it('Should test if the element exists', () => {
-        isExisting('#elem1', false);
+    it('Should test if the element exists', async () => {
+        await isExisting('#elem1', false);
 
         _expect(global.$$).toHaveBeenCalledTimes(1);
         _expect(global.$$).toHaveBeenCalledWith('#elem1');
@@ -29,8 +29,8 @@ describe('isExisting', () => {
         );
     });
 
-    it('Should test if the element does not exist', () => {
-        isExisting('#elem2', true);
+    it('Should test if the element does not exist', async () => {
+        await isExisting('#elem2', true);
 
         _expect(global.$$).toHaveBeenCalledTimes(1);
         _expect(global.$$).toHaveBeenCalledWith('#elem2');

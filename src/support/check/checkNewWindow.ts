@@ -4,12 +4,12 @@
  * @param  {String}   falseCase Whether to check if a new window/tab was opened
  *                              or not
  */
-export default (obsolete: never, falseCase: boolean) => {
+export default async (obsolete: never, falseCase: boolean) => {
     /**
      * The handles of all open windows/tabs
      * @type {Object}
      */
-    const windowHandles = browser.getWindowHandles();
+    const windowHandles = await browser.getWindowHandles();
 
     if (falseCase) {
         expect(windowHandles)

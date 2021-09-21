@@ -7,8 +7,8 @@ describe('setWindowSize', () => {
         };
     });
 
-    it('should call setWindowSize on the browser object', () => {
-        setWindowSize(1, 2);
+    it('should call setWindowSize on the browser object', async () => {
+        await setWindowSize(1, 2);
 
         expect(global.browser.setWindowSize)
             .toHaveBeenCalledTimes(1);

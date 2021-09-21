@@ -13,8 +13,8 @@ describe('clearInputField', () => {
         element = 'element_selector';
     });
 
-    it('should call clearElement on the browser', () => {
-        clearInputField(element);
+    it('should call clearElement on the browser', async () => {
+        await clearInputField(element);
         expect(clearElementMock).toHaveBeenCalled();
     });
 });

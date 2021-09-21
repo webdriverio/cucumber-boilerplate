@@ -10,7 +10,7 @@ import type { Selector } from 'webdriverio';
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
  */
-export default (
+export default async (
     isCSS: boolean,
     attrName: string,
     elem: Selector,
@@ -33,7 +33,7 @@ export default (
      * The actual attribute value
      * @type {Mixed}
      */
-    let attributeValue = $(elem)[command](attrName);
+    let attributeValue = await $(elem)[command](attrName);
 
     /**
      * when getting something with a color or font-weight WebdriverIO returns a

@@ -7,7 +7,7 @@ import { Selector } from 'webdriverio';
  * @param  {Number}  exactly   Check if the element exists exactly this number
  *                             of times
  */
-export default (
+export default async (
     selector: Selector,
     falseCase?: boolean,
     exactly?: string | number
@@ -16,7 +16,7 @@ export default (
      * The number of elements found in the DOM
      * @type {Int}
      */
-    const nrOfElements = $$(selector);
+    const nrOfElements = await $$(selector);
 
     if (falseCase === true) {
         expect(nrOfElements).toHaveLength(

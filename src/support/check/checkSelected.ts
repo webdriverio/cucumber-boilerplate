@@ -6,12 +6,12 @@ import type { Selector } from 'webdriverio';
  * @param  {String}   falseCase Whether to check if the element is elected or
  *                              not
  */
-export default (selector: Selector, falseCase: boolean) => {
+export default async (selector: Selector, falseCase: boolean) => {
     /**
      * The selected state
      * @type {Boolean}
      */
-    const isSelected = $(selector).isSelected();
+    const isSelected = await $(selector).isSelected();
 
     if (falseCase) {
         expect(isSelected)

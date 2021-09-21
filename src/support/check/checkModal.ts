@@ -4,7 +4,7 @@
  *                               confirmbox or prompt)
  * @param  {String}   falseState Whether to check if the modal was opened or not
  */
-export default (
+export default async (
     modalType: 'alertbox' | 'confirmbox' | 'prompt',
     falseState: string
 ) => {
@@ -15,7 +15,7 @@ export default (
     let promptText = '';
 
     try {
-        promptText = browser.getAlertText();
+        promptText = await browser.getAlertText();
 
         if (falseState) {
             expect(promptText).not.toEqual(

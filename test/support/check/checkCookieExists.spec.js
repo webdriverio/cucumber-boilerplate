@@ -20,13 +20,13 @@ describe('checkCookieExists', () => {
         }));
     });
 
-    it('Should succeed if a cookie was found with the given name', () => {
-        global.browser.getCookies.mockReturnValueOnce({
+    it('Should succeed if a cookie was found with the given name', async () => {
+        global.browser.getCookies.mockResolvedValueOnce({
             name: 'cookie1',
             value: 'value1',
         });
 
-        checkCookieExists('cookie1', false);
+        await checkCookieExists('cookie1', false);
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');
@@ -38,10 +38,10 @@ describe('checkCookieExists', () => {
         );
     });
 
-    it('Should fail if no cookie was found with the given name', () => {
-        global.browser.getCookies.mockReturnValueOnce([]);
+    it('Should fail if no cookie was found with the given name', async () => {
+        global.browser.getCookies.mockResolvedValueOnce([]);
 
-        checkCookieExists('cookie2', true);
+        await checkCookieExists('cookie2', true);
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie2');

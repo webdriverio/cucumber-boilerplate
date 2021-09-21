@@ -6,7 +6,7 @@ describe('checkURL', () => {
 
     beforeEach(() => {
         global.browser = {
-            getUrl: jest.fn(() => 'http://www.example.com/test'),
+            getUrl: jest.fn(() => Promise.resolve('http://www.example.com/test')),
         };
 
         expectToEqual = jest.fn();
@@ -20,8 +20,8 @@ describe('checkURL', () => {
         }));
     });
 
-    it('Should test if the current URL matches the expected value', () => {
-        checkURL(false, 'http://www.example.com/test');
+    it('Should test if the current URL matches the expected value', async () => {
+        await checkURL(false, 'http://www.example.com/test');
 
         _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
@@ -36,8 +36,8 @@ describe('checkURL', () => {
 
     it(
         'Should test if the current URL doesn\'t match the expected value',
-        () => {
-            checkURL(true, 'http://www.example.com/test');
+        async () => {
+            await checkURL(true, 'http://www.example.com/test');
 
             _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
             _expect(global.browser.getUrl).toHaveBeenCalledWith();

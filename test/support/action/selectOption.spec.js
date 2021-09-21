@@ -17,31 +17,29 @@ describe('selectOption', () => {
         });
     });
 
-    it('should call selectByAttribute on the browser object', () => {
-        selectOption('name', 'option1', 'element1');
+    it('should call selectByAttribute on the browser object', async () => {
+        await selectOption('name', 'option1', 'element1');
 
         expect(selectByAttribute).toHaveBeenCalledTimes(1);
         expect(selectByAttribute).toHaveBeenCalledWith('name', 'option1');
     });
 
-    it('should call selectByValue on the browser object', () => {
-        selectOption('value', 'value1', 'element2');
+    it('should call selectByValue on the browser object', async () => {
+        await selectOption('value', 'value1', 'element2');
 
         expect(selectByAttribute).toHaveBeenCalledTimes(1);
         expect(selectByAttribute).toHaveBeenCalledWith('value', 'value1');
     });
 
-    it('should call selectByText on the browser object', () => {
-        selectOption('text', 'text1', 'element3');
+    it('should call selectByText on the browser object', async () => {
+        await selectOption('text', 'text1', 'element3');
 
         expect(selectByVisibleText).toHaveBeenCalledTimes(1);
         expect(selectByVisibleText).toHaveBeenCalledWith('text1');
     });
 
-    it('should throw an error when an unknown selection type is passed', () => {
-        const spySelectOption = jest.fn(selectOption);
-
-        expect(spySelectOption.bind(null, 'test', 'option1', 'element1'))
-            .toThrow();
+    it('should throw an error when an unknown selection type is passed', async () => {
+        await expect(selectOption('test', 'option1', 'element1'))
+            .rejects.toEqual(new Error('Unknown selection type "test"'));
     });
 });

@@ -7,7 +7,7 @@ describe('isEnabled', () => {
     let expectToNotEqual;
 
     beforeEach(() => {
-        isEnabledMock = jest.fn(() => true);
+        isEnabledMock = jest.fn(() => Promise.resolve(true));
         global.$ = jest.fn().mockReturnValue({
             isEnabled: isEnabledMock,
         });
@@ -23,8 +23,8 @@ describe('isEnabled', () => {
         }));
     });
 
-    it('Should test if the element is enabled', () => {
-        isEnabled('#elem1', false);
+    it('Should test if the element is enabled', async () => {
+        await isEnabled('#elem1', false);
 
         _expect(isEnabledMock).toHaveBeenCalledTimes(1);
         _expect(expectToEqual).toHaveBeenCalledTimes(1);
@@ -34,8 +34,8 @@ describe('isEnabled', () => {
         );
     });
 
-    it('Should test if the element is not enabled', () => {
-        isEnabled('#elem2', true);
+    it('Should test if the element is not enabled', async () => {
+        await isEnabled('#elem2', true);
 
         _expect(isEnabledMock).toHaveBeenCalledTimes(1);
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);

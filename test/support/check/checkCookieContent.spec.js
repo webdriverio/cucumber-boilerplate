@@ -6,7 +6,7 @@ describe('checkCookieContent', () => {
 
     beforeEach(() => {
         global.browser = {
-            getCookies: jest.fn(() => ([{
+            getCookies: jest.fn(() => Promise.resolve([{
                 name: 'cookie1',
                 value: 'value1',
             }])),
@@ -23,8 +23,8 @@ describe('checkCookieContent', () => {
         }));
     });
 
-    it('Should fail if no cookie was found with the given name', () => {
-        checkCookieContent('cookie2', true, '');
+    it('Should fail if no cookie was found with the given name', async () => {
+        await checkCookieContent('cookie2', true, '');
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie2');
@@ -36,8 +36,8 @@ describe('checkCookieContent', () => {
         );
     });
 
-    it('Handle the false case', () => {
-        checkCookieContent('cookie1', true, 'value2');
+    it('Handle the false case', async () => {
+        await checkCookieContent('cookie1', true, 'value2');
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');
@@ -49,8 +49,8 @@ describe('checkCookieContent', () => {
         );
     });
 
-    it('Should be able to validated against an expected string', () => {
-        checkCookieContent('cookie1', false, 'value2');
+    it('Should be able to validated against an expected string', async () => {
+        await checkCookieContent('cookie1', false, 'value2');
 
         _expect(global.browser.getCookies).toHaveBeenCalledTimes(1);
         _expect(global.browser.getCookies).toHaveBeenCalledWith('cookie1');

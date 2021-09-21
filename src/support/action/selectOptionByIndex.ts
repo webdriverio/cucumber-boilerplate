@@ -8,7 +8,7 @@ import { Selector } from 'webdriverio';
  *
  * @todo  merge with selectOption
  */
-export default (
+export default async (
     index: string,
     obsolete: never,
     selector: Selector
@@ -19,5 +19,5 @@ export default (
      */
     const optionIndex = parseInt(index, 10);
 
-    $(selector).selectByIndex(optionIndex);
+    await $(selector).selectByIndex(optionIndex);
 };

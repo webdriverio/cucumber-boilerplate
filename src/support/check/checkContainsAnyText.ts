@@ -7,7 +7,7 @@ import type { Selector } from 'webdriverio';
  * @param  {String}   falseCase     Whether to check if the content contains
  *                                  text or not
  */
-export default (
+export default async (
     elementType: 'element' | 'button',
     selector: Selector,
     falseCase?: any
@@ -20,7 +20,7 @@ export default (
 
     if (
         elementType === 'button'
-        || $(selector).getAttribute('value') === null
+        || (await $(selector).getAttribute('value')) === null
     ) {
         command = 'getText';
     }
@@ -35,7 +35,7 @@ export default (
      * The text of the element
      * @type {String}
      */
-    const text = $(selector)[command]();
+    const text = await $(selector)[command]();
 
     if (typeof falseCase === 'undefined') {
         boolFalseCase = false;

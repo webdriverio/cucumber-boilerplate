@@ -11,7 +11,7 @@ describe('checkProperty', () => {
         getCSSMock = jest.fn(() => {
             // foo
         });
-        getAttributeMock = jest.fn(() => 'element-name');
+        getAttributeMock = jest.fn(() => Promise.resolve('element-name'));
         global.$ = jest.fn().mockReturnValue({
             getCSSProperty: getCSSMock,
             getAttribute: getAttributeMock,
@@ -28,10 +28,10 @@ describe('checkProperty', () => {
         }));
     });
 
-    it('Should test if the element has the correct color', () => {
+    it('Should test if the element has the correct color', async () => {
         getCSSMock.mockReturnValueOnce({ value: 'black' });
 
-        checkProperty(true, 'color', '#elem1', false, 'black');
+        await checkProperty(true, 'color', '#elem1', false, 'black');
 
         _expect(getCSSMock).toHaveBeenCalledTimes(1);
         _expect(getCSSMock).toHaveBeenCalledWith('color');
@@ -46,10 +46,10 @@ describe('checkProperty', () => {
         );
     });
 
-    it('Should test if the element does not have a width of 1px', () => {
+    it('Should test if the element does not have a width of 1px', async () => {
         getCSSMock.mockReturnValueOnce('1px');
 
-        checkProperty(true, 'width', '#elem2', true, '1px');
+        await checkProperty(true, 'width', '#elem2', true, '1px');
 
         _expect(getCSSMock).toHaveBeenCalledTimes(1);
         _expect(getCSSMock).toHaveBeenCalledWith('width');
@@ -64,8 +64,8 @@ describe('checkProperty', () => {
         );
     });
 
-    it('Should test if the element has the correct name', () => {
-        checkProperty(
+    it('Should test if the element has the correct name', async () => {
+        await checkProperty(
             false,
             'name',
             '#elem3',

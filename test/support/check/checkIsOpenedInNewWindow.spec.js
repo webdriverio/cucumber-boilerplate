@@ -7,14 +7,14 @@ describe('checkIsOpenedInNewWindow', () => {
 
     beforeEach(() => {
         global.browser = {
-            getWindowHandles: jest.fn(() => ['window1', 'window2']),
-            switchToWindow: jest.fn(() => {
+            getWindowHandles: jest.fn(() => Promise.resolve(['window1', 'window2'])),
+            switchToWindow: jest.fn(() => Promise.resolve({
                 // foo
-            }),
-            getUrl: jest.fn(() => 'http://www.example.com/test'),
-            closeWindow: jest.fn(() => {
+            })),
+            getUrl: jest.fn(() => Promise.resolve('http://www.example.com/test')),
+            closeWindow: jest.fn(() => Promise.resolve({
                 // foo
-            }),
+            })),
         };
 
         expectLengthShouldNotEqual = jest.fn();
@@ -28,7 +28,7 @@ describe('checkIsOpenedInNewWindow', () => {
         }));
     });
 
-    it('Should fail if no popup was opened', () => {
+    it('Should fail if no popup was opened', async () => {
         global.expect = jest.fn(() => {
             throw new Error();
         });
@@ -36,7 +36,7 @@ describe('checkIsOpenedInNewWindow', () => {
         global.browser.getWindowHandles.mockReturnValueOnce(['window1']);
 
         try {
-            checkIsOpenedInNewWindow(
+            await checkIsOpenedInNewWindow(
                 'http://www.example.com/test',
                 ''
             );
@@ -58,8 +58,8 @@ describe('checkIsOpenedInNewWindow', () => {
         _expect(expectShouldContain).not.toHaveBeenCalled();
     });
 
-    it('Should not fail if the URL of the popup does match', () => {
-        checkIsOpenedInNewWindow('http://www.example.com/test', '');
+    it('Should not fail if the URL of the popup does match', async () => {
+        await checkIsOpenedInNewWindow('http://www.example.com/test', '');
 
         _expect(global.browser.getWindowHandles).toHaveBeenCalledTimes(1);
         _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();

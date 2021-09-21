@@ -4,12 +4,12 @@
  *                                  expected value or not
  * @param  {Type}     expectedTitle The expected title
  */
-export default (falseCase: boolean, expectedTitle: string) => {
+export default async (falseCase: boolean, expectedTitle: string) => {
     /**
      * The actual title of the current browser window
      * @type {String}
      */
-    const title = browser.getTitle();
+    const title = await browser.getTitle();
 
     if (falseCase) {
         expect(title).not.toContain(

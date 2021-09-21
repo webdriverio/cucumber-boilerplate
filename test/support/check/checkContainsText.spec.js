@@ -9,9 +9,9 @@ describe('checkContainsText', () => {
     let waitForDisplayedMock;
 
     beforeEach(() => {
-        getTextMock = jest.fn(() => 'text');
-        getValueMock = jest.fn(() => 'value');
-        getPropertyMock = jest.fn(() => '');
+        getTextMock = jest.fn(() => Promise.resolve('text'));
+        getValueMock = jest.fn(() => Promise.resolve('value'));
+        getPropertyMock = jest.fn(() => Promise.resolve(''));
         waitForDisplayedMock = jest.fn(() => true);
         global.$ = jest.fn().mockReturnValue({
             getText: getTextMock,
@@ -31,34 +31,34 @@ describe('checkContainsText', () => {
         }));
     });
 
-    it('should call checkContainsText on the element object', () => {
+    it('should call checkContainsText on the element object', async () => {
         getPropertyMock.mockReturnValueOnce(() => null);
-        checkContainsText('element', 'element1', 'text');
+        await checkContainsText('element', 'element1', 'text');
 
-        // _expect(getTextMock).toHaveBeenCalledTimes(1);
+        _expect(getPropertyMock).toHaveBeenCalledTimes(1);
 
-        // _expect(global.expect).toHaveBeenCalledTimes(1);
-        // _expect(global.expect).toHaveBeenCalledWith('text');
-        //
-        // _expect(expectToContain).toHaveBeenCalledTimes(1);
-        // _expect(expectToContain).toHaveBeenCalledWith('text');
+        _expect(global.expect).toHaveBeenCalledTimes(1);
+        _expect(global.expect).toHaveBeenCalledWith('value');
+
+        _expect(expectToContain).toHaveBeenCalledTimes(1);
+        _expect(expectToContain).toHaveBeenCalledWith('text');
     });
 
-    it('should call checkContainsText on the element object', () => {
+    it('should call checkContainsText on the element object', async () => {
         getPropertyMock.mockReturnValueOnce(() => null);
-        checkContainsText('element', 'element1', ' not', 'text');
+        await checkContainsText('element', 'element1', ' not', 'text');
 
-        // _expect(getTextMock).toHaveBeenCalledTimes(1);
+        _expect(getPropertyMock).toHaveBeenCalledTimes(1);
 
-        // _expect(global.expect).toHaveBeenCalledTimes(1);
-        // _expect(global.expect).toHaveBeenCalledWith('text');
-        //
-        // _expect(expectToNotContain).toHaveBeenCalledTimes(1);
-        // _expect(expectToNotContain).toHaveBeenCalledWith('text');
+        _expect(global.expect).toHaveBeenCalledTimes(1);
+        _expect(global.expect).toHaveBeenCalledWith('value');
+
+        _expect(expectToNotContain).toHaveBeenCalledTimes(1);
+        _expect(expectToNotContain).toHaveBeenCalledWith('text');
     });
 
-    it('should call checkContainsText on the element object', () => {
-        checkContainsText('button', 'button1', 'text');
+    it('should call checkContainsText on the element object', async () => {
+        await checkContainsText('button', 'button1', 'text');
 
         _expect(getTextMock).toHaveBeenCalledTimes(1);
 
@@ -69,8 +69,8 @@ describe('checkContainsText', () => {
         _expect(expectToContain).toHaveBeenCalledWith('text');
     });
 
-    it('should call checkContainsText on the element object', () => {
-        checkContainsText('element', 'element2', 'text');
+    it('should call checkContainsText on the element object', async () => {
+        await checkContainsText('element', 'element2', 'text');
 
         _expect(getValueMock).toHaveBeenCalledTimes(1);
 
@@ -81,8 +81,8 @@ describe('checkContainsText', () => {
         _expect(expectToContain).toHaveBeenCalledWith('text');
     });
 
-    it('should call checkContainsText on the element object', () => {
-        checkContainsText('element', 'element2', ' not', 'text');
+    it('should call checkContainsText on the element object', async () => {
+        await checkContainsText('element', 'element2', ' not', 'text');
 
         _expect(getValueMock).toHaveBeenCalledTimes(1);
 

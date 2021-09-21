@@ -7,7 +7,7 @@ import type { Selector } from 'webdriverio';
  *                                          or not ('has', 'does not have')
  * @param  {String}   expectedClassName     The class name to check
  */
-export default (
+export default async (
     selector: Selector,
     falseCase: string,
     expectedClassName: string
@@ -16,7 +16,7 @@ export default (
      * List of all the classes of the element
      * @type {Array}
      */
-    const className = $(selector).getProperty('className');
+    const className = await $(selector).getProperty('className');
 
     if (typeof className === 'undefined' || className === null) {
         throw new Error(`Element with selector "${selector}" did't had a class name`);

@@ -10,8 +10,8 @@ describe('selectOptionByIndex', () => {
         });
     });
 
-    it('should call selectByIndex on the browser object', () => {
-        selectOptionByIndex(1, '', 'element');
+    it('should call selectByIndex on the browser object', async () => {
+        await selectOptionByIndex(1, '', 'element');
 
         expect(selectByIndexMock).toHaveBeenCalledTimes(1);
         expect(selectByIndexMock).toHaveBeenCalledWith(1);

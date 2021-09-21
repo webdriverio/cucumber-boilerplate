@@ -7,7 +7,7 @@ describe('checkDimension', () => {
     let expectToNotEqual;
 
     beforeEach(() => {
-        getSizeMock = jest.fn(() => ({
+        getSizeMock = jest.fn(() => Promise.resolve({
             width: 100,
             height: 200,
         }));
@@ -26,8 +26,8 @@ describe('checkDimension', () => {
         }));
     });
 
-    it('Should test the height of an element against a given value', () => {
-        checkDimension('element1', false, 200, 'tall');
+    it('Should test the height of an element against a given value', async () => {
+        await checkDimension('element1', false, 200, 'tall');
 
         _expect(getSizeMock).toHaveBeenCalledTimes(1);
 
@@ -39,8 +39,8 @@ describe('checkDimension', () => {
         );
     });
 
-    it('Should test the width of an element against a given value', () => {
-        checkDimension('element2', false, 100, 'broad');
+    it('Should test the width of an element against a given value', async () => {
+        await checkDimension('element2', false, 100, 'broad');
 
         _expect(getSizeMock).toHaveBeenCalledTimes(1);
 
@@ -52,8 +52,8 @@ describe('checkDimension', () => {
         );
     });
 
-    it('Should test the height of an element against a given value', () => {
-        checkDimension('element3', true, 200, 'tall');
+    it('Should test the height of an element against a given value', async () => {
+        await checkDimension('element3', true, 200, 'tall');
 
         _expect(getSizeMock).toHaveBeenCalledTimes(1);
 
