@@ -18,7 +18,7 @@ export default (
      */
     const className = $(selector).getProperty('className');
 
-    if (!className) {
+    if (typeof className === 'undefined' || className === null) {
         throw new Error(`Element with selector "${selector}" did't had a class name`);
     }
 
