@@ -13,10 +13,12 @@ export default async (obsolete: never) => {
 
     // Close all tabs but the first one
     windowHandles.reverse();
-    await Promise.all(windowHandles.map(async (handle, index) => {
+
+    for (const [index, handle] of Object.entries(windowHandles)) {
         await browser.switchToWindow(handle);
-        if (index < windowHandles.length - 1) {
+
+        if (parseInt(index, 10) < windowHandles.length - 1) {
             await browser.closeWindow();
         }
-    }));
+    }
 };
