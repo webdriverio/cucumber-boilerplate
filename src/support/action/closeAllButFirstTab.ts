@@ -3,7 +3,7 @@
  * @param  {String}   obsolete Type of object to close (window or tab)
  */
 /* eslint-disable no-unused-vars */
-export default () => {
+export default (obsolete: never) => {
 /* eslint-enable no-unused-vars */
     /**
      * Get all the window handles
