@@ -5,18 +5,18 @@ describe('checkContainsText', () => {
     let expectToNotContain;
     let getTextMock;
     let getValueMock;
-    let getAttributeMock;
+    let getPropertyMock;
     let waitForDisplayedMock;
 
     beforeEach(() => {
         getTextMock = jest.fn(() => 'text');
         getValueMock = jest.fn(() => 'value');
-        getAttributeMock = jest.fn(() => '');
+        getPropertyMock = jest.fn(() => '');
         waitForDisplayedMock = jest.fn(() => true);
         global.$ = jest.fn().mockReturnValue({
             getText: getTextMock,
             getValue: getValueMock,
-            getAttribute: getAttributeMock,
+            getProperty: getPropertyMock,
             waitForDisplayed: waitForDisplayedMock,
         });
 
@@ -32,7 +32,7 @@ describe('checkContainsText', () => {
     });
 
     it('should call checkContainsText on the element object', () => {
-        getAttributeMock.mockReturnValueOnce(() => null);
+        getPropertyMock.mockReturnValueOnce(() => null);
         checkContainsText('element', 'element1', 'text');
 
         // _expect(getTextMock).toHaveBeenCalledTimes(1);
@@ -45,7 +45,7 @@ describe('checkContainsText', () => {
     });
 
     it('should call checkContainsText on the element object', () => {
-        getAttributeMock.mockReturnValueOnce(() => null);
+        getPropertyMock.mockReturnValueOnce(() => null);
         checkContainsText('element', 'element1', ' not', 'text');
 
         // _expect(getTextMock).toHaveBeenCalledTimes(1);

@@ -3,12 +3,12 @@ import checkClass from 'src/support/check/checkClass';
 describe('checkClass', () => {
     let expectToIncludeStub;
     let expectToNotIncludeStub;
-    let getAttributeMock;
+    let getPropertyMock;
 
     beforeEach(() => {
-        getAttributeMock = jest.fn(() => 'class1 class2');
+        getPropertyMock = jest.fn(() => 'class1 class2');
         global.$ = jest.fn().mockReturnValue({
-            getAttribute: getAttributeMock,
+            getProperty: getPropertyMock,
         });
 
         expectToIncludeStub = jest.fn();
@@ -22,11 +22,20 @@ describe('checkClass', () => {
         }));
     });
 
+    it('should fail if no property was found', () => {
+        getPropertyMock = jest.fn(() => null);
+        global.$ = jest.fn().mockReturnValue({
+            getProperty: getPropertyMock,
+        });
+        _expect(() => checkClass('element1', 'has', 'class1'))
+            .toThrow();
+    });
+
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'has', 'class1');
 
-        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
-        _expect(getAttributeMock).toHaveBeenCalledWith('className');
+        _expect(getPropertyMock).toHaveBeenCalledTimes(1);
+        _expect(getPropertyMock).toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect).toHaveBeenCalledWith(['class1', 'class2']);
@@ -41,8 +50,8 @@ describe('checkClass', () => {
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'has', 'class3');
 
-        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
-        _expect(getAttributeMock).toHaveBeenCalledWith('className');
+        _expect(getPropertyMock).toHaveBeenCalledTimes(1);
+        _expect(getPropertyMock).toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect).toHaveBeenCalledWith(['class1', 'class2']);
@@ -57,8 +66,8 @@ describe('checkClass', () => {
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'does not have', 'class3');
 
-        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
-        _expect(getAttributeMock).toHaveBeenCalledWith('className');
+        _expect(getPropertyMock).toHaveBeenCalledTimes(1);
+        _expect(getPropertyMock).toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
         _expect(global.expect).toHaveBeenCalledWith(['class1', 'class2']);
@@ -73,8 +82,8 @@ describe('checkClass', () => {
     it('should call checkClass on the browser object', () => {
         checkClass('element1', 'does not have', 'class1');
 
-        _expect(getAttributeMock).toHaveBeenCalledTimes(1);
-        _expect(getAttributeMock)
+        _expect(getPropertyMock).toHaveBeenCalledTimes(1);
+        _expect(getPropertyMock)
             .toHaveBeenCalledWith('className');
 
         _expect(global.expect).toHaveBeenCalledTimes(1);
