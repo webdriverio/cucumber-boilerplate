@@ -23,8 +23,8 @@ describe('isDisplayed', () => {
         }));
     });
 
-    it('Should test if the element is visible', () => {
-        isDisplayed('#elem1', false);
+    it('Should test if the element is visible', async () => {
+        await isDisplayed('#elem1', false);
 
         _expect(isDisplayedMock).toHaveBeenCalled();
 
@@ -35,8 +35,8 @@ describe('isDisplayed', () => {
         );
     });
 
-    it('Should test if the element is not visible', () => {
-        isDisplayed('#elem2', true);
+    it('Should test if the element is not visible', async () => {
+        await isDisplayed('#elem2', true);
 
         _expect(isDisplayedMock).toHaveBeenCalledTimes(1);
 

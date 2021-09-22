@@ -9,7 +9,7 @@ import type { RectReturn } from '@wdio/protocols';
  * @param  {String}   expectedSize Expected size
  * @param  {String}   dimension    Dimension to check (broad or tall)
  */
-export default (
+export default async (
     selector: Selector,
     falseCase: boolean,
     expectedSize: string,
@@ -19,7 +19,8 @@ export default (
      * The size of the given element
      * @type {Object}
      */
-    const elementSize = $(selector).getSize() as RectReturn;
+    // @ts-expect-error
+    const elementSize = await $(selector).getSize() as RectReturn;
 
     /**
      * Parsed size to check for

@@ -7,7 +7,7 @@ describe('checkFocus', () => {
     let expectToNotEqual;
 
     beforeEach(() => {
-        hasFocusMock = jest.fn(() => true);
+        hasFocusMock = jest.fn(() => Promise.resolve(true));
         global.$ = jest.fn().mockReturnValue({
             isFocused: hasFocusMock,
         });
@@ -23,8 +23,8 @@ describe('checkFocus', () => {
         }));
     });
 
-    it('Should test if the element has focus', () => {
-        checkFocus('element1', false);
+    it('Should test if the element has focus', async () => {
+        await checkFocus('element1', false);
 
         _expect(hasFocusMock).toHaveBeenCalledTimes(1);
 
@@ -35,8 +35,8 @@ describe('checkFocus', () => {
         );
     });
 
-    it('Should test if the element does not have the focus', () => {
-        checkFocus('element1', true);
+    it('Should test if the element does not have the focus', async () => {
+        await checkFocus('element1', true);
 
         _expect(hasFocusMock).toHaveBeenCalledTimes(1);
 

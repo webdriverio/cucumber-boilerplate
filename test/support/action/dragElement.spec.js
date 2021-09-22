@@ -10,8 +10,8 @@ describe('dragElement', () => {
         });
     });
 
-    it('should call dragAndDrop on the browser', () => {
-        dragElement('source', 'destination');
+    it('should call dragAndDrop on the browser', async () => {
+        await dragElement('source', 'destination');
 
         expect(dragElementMock).toHaveBeenCalledTimes(1);
     });

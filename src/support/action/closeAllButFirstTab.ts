@@ -3,20 +3,22 @@
  * @param  {String}   obsolete Type of object to close (window or tab)
  */
 /* eslint-disable no-unused-vars */
-export default (obsolete: never) => {
+export default async (obsolete: never) => {
 /* eslint-enable no-unused-vars */
     /**
      * Get all the window handles
      * @type {Object}
      */
-    const windowHandles = browser.getWindowHandles();
+    const windowHandles = await browser.getWindowHandles();
 
     // Close all tabs but the first one
     windowHandles.reverse();
-    windowHandles.forEach((handle, index) => {
-        browser.switchToWindow(handle);
-        if (index < windowHandles.length - 1) {
-            browser.closeWindow();
+
+    for (const [index, handle] of Object.entries(windowHandles)) {
+        await browser.switchToWindow(handle);
+
+        if (parseInt(index, 10) < windowHandles.length - 1) {
+            await browser.closeWindow();
         }
-    });
+    }
 };

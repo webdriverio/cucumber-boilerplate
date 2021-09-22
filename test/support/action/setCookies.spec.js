@@ -7,8 +7,8 @@ describe('setCookie', () => {
         };
     });
 
-    it('should call setCookie on the browser object', () => {
-        setCookie('cookieName', 'cookieContent');
+    it('should call setCookie on the browser object', async () => {
+        await setCookie('cookieName', 'cookieContent');
 
         expect(global.browser.setCookies).toHaveBeenCalledTimes(1);
         expect(global.browser.setCookies)

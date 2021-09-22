@@ -7,7 +7,7 @@ describe('checkOffset', () => {
     let expectToNotEqual;
 
     beforeEach(() => {
-        getLocationMock = jest.fn(() => 100);
+        getLocationMock = jest.fn(() => Promise.resolve(100));
         global.$ = jest.fn().mockReturnValue({
             getLocation: getLocationMock,
         });
@@ -25,8 +25,8 @@ describe('checkOffset', () => {
 
     it(
         'Should test if the element is positioned at the expected location',
-        () => {
-            checkOffset('#elem1', false, 100, 'x');
+        async () => {
+            await checkOffset('#elem1', false, 100, 'x');
 
             _expect(getLocationMock).toHaveBeenCalledTimes(1);
             _expect(getLocationMock).toHaveBeenCalledWith('x');
@@ -44,8 +44,8 @@ describe('checkOffset', () => {
     it(
         'Should test if the element is not positioned at the expected '
         + 'location',
-        () => {
-            checkOffset('#elem2', true, 200, 'y');
+        async () => {
+            await checkOffset('#elem2', true, 200, 'y');
 
             _expect(getLocationMock).toHaveBeenCalledTimes(1);
             _expect(getLocationMock).toHaveBeenCalledWith('y');

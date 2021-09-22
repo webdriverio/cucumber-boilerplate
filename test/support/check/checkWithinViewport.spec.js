@@ -23,8 +23,8 @@ describe('checkWithinViewport', () => {
         }));
     });
 
-    it('Should test if the element is visible within the viewport', () => {
-        checkWithinViewport('#elem1', false);
+    it('Should test if the element is visible within the viewport', async () => {
+        await checkWithinViewport('#elem1', false);
 
         _expect(isDisplayedInViewportMock)
             .toHaveBeenCalledTimes(1);
@@ -38,8 +38,8 @@ describe('checkWithinViewport', () => {
         );
     });
 
-    it('Should test if the element is not visible within the viewport', () => {
-        checkWithinViewport('#elem2', true);
+    it('Should test if the element is not visible within the viewport', async () => {
+        await checkWithinViewport('#elem2', true);
 
         _expect(isDisplayedInViewportMock).toHaveBeenCalledTimes(1);
         _expect(global.$).toHaveBeenCalledWith('#elem2');

@@ -8,7 +8,7 @@ import checkIfElementExists from '../lib/checkIfElementExists';
  *                               (an or no)
  * @param  {String}   selector   Element selector
  */
-export default (isExisting: string, selector: Selector) => {
+export default async (isExisting: string, selector: Selector) => {
     /**
      * Falsecase assertion
      * @type {Boolean}
@@ -19,5 +19,5 @@ export default (isExisting: string, selector: Selector) => {
         falseCase = false;
     }
 
-    checkIfElementExists(selector, falseCase);
+    await checkIfElementExists(selector, falseCase);
 };

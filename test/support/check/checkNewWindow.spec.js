@@ -6,7 +6,7 @@ describe('checkNewWindow', () => {
 
     beforeEach(() => {
         global.browser = {
-            getWindowHandles: jest.fn(() => ({
+            getWindowHandles: jest.fn(() => Promise.resolve({
                 value: ['window1'],
             })),
         };
@@ -22,8 +22,8 @@ describe('checkNewWindow', () => {
         }));
     });
 
-    it('Should test if a new window is opened', () => {
-        checkNewWindow('', false);
+    it('Should test if a new window is opened', async () => {
+        await checkNewWindow('', false);
 
         _expect(global.browser.getWindowHandles).toHaveBeenCalledTimes(1);
         _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();
@@ -35,8 +35,8 @@ describe('checkNewWindow', () => {
         );
     });
 
-    it('Should test if a new window is not opened', () => {
-        checkNewWindow('', true);
+    it('Should test if a new window is not opened', async () => {
+        await checkNewWindow('', true);
 
         _expect(global.browser.getWindowHandles).toHaveBeenCalledTimes(1);
         _expect(global.browser.getWindowHandles).toHaveBeenCalledWith();

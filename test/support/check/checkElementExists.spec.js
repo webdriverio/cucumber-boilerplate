@@ -5,7 +5,7 @@ describe('checkElementExists', () => {
     let expectToHaveLengthOfAtLeast;
 
     beforeEach(() => {
-        global.$$ = jest.fn(() => 1);
+        global.$$ = jest.fn(() => Promise.resolve(1));
 
         expectToHaveLengthOf = jest.fn();
         expectToHaveLengthOfAtLeast = jest.fn();
@@ -16,8 +16,8 @@ describe('checkElementExists', () => {
         }));
     });
 
-    it('Should test if the element exists', () => {
-        checkElementExists('an', 'element1');
+    it('Should test if the element exists', async () => {
+        await checkElementExists('an', 'element1');
 
         _expect(global.$$).toHaveBeenCalledTimes(1);
         _expect(global.$$).toHaveBeenCalledWith('element1');
@@ -29,8 +29,8 @@ describe('checkElementExists', () => {
         );
     });
 
-    it('Should test if the element does not exist', () => {
-        checkElementExists('no', 'element2');
+    it('Should test if the element does not exist', async () => {
+        await checkElementExists('no', 'element2');
 
         _expect(global.$$).toHaveBeenCalledTimes(1);
         _expect(global.$$).toHaveBeenCalledWith('element2');

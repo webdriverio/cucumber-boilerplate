@@ -8,7 +8,7 @@ import type { Selector } from 'webdriverio';
  *                                  given text or not
  * @param  {String}   expectedText  The text to validate against
  */
-export default (
+export default async (
     elementType: 'element' | 'button',
     selector: Selector,
     falseCase: boolean,
@@ -22,7 +22,7 @@ export default (
 
     if (
         elementType === 'button'
-        || $(selector).getAttribute('value') === null
+        || (await $(selector).getAttribute('value')) === null
     ) {
         command = 'getText';
     }
@@ -51,7 +51,7 @@ export default (
         boolFalseCase = true;
     }
 
-    const text = $(selector)[command]();
+    const text = await $(selector)[command]();
 
     if (boolFalseCase) {
         expect(parsedExpectedText).not.toBe(text);

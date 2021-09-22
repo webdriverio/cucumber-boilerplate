@@ -6,7 +6,7 @@ describe('checkURLPath', () => {
 
     beforeEach(() => {
         global.browser = {
-            getUrl: jest.fn(() => 'http://example.com/test'),
+            getUrl: jest.fn(() => Promise.resolve('http://example.com/test')),
         };
 
         expectToEqual = jest.fn();
@@ -20,8 +20,8 @@ describe('checkURLPath', () => {
         }));
     });
 
-    it('Should test if the URL path matches the given value', () => {
-        checkURLPath(false, 'test');
+    it('Should test if the URL path matches the given value', async () => {
+        await checkURLPath(false, 'test');
 
         _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
@@ -33,8 +33,8 @@ describe('checkURLPath', () => {
         );
     });
 
-    it('Should test if the URL path does not match the given value', () => {
-        checkURLPath(true, 'test');
+    it('Should test if the URL path does not match the given value', async () => {
+        await checkURLPath(true, 'test');
 
         _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
@@ -46,12 +46,12 @@ describe('checkURLPath', () => {
         );
     });
 
-    it('Should replace the domain from the current getUrl', () => {
+    it('Should replace the domain from the current getUrl', async () => {
         global.browser.getUrl.mockReturnValueOnce(
             'http://www.example.com/test'
         );
 
-        checkURLPath(true, 'test');
+        await checkURLPath(true, 'test');
 
         _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
         _expect(global.browser.getUrl).toHaveBeenCalledWith();

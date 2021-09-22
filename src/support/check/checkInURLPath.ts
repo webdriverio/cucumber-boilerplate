@@ -4,12 +4,12 @@
  *                                    the URL path or not
  * @param  {String}   expectedUrlPart The string to check for
  */
-export default (falseCase: boolean, expectedUrlPart: string) => {
+export default async (falseCase: boolean, expectedUrlPart: string) => {
     /**
      * The URL of the current browser window
      * @type {String}
      */
-    const currentUrl = browser.getUrl();
+    const currentUrl = await browser.getUrl();
 
     if (falseCase) {
         expect(currentUrl).not.toContain(

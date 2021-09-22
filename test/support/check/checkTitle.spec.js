@@ -6,7 +6,7 @@ describe('checkTitle', () => {
 
     beforeEach(() => {
         global.browser = {
-            getTitle: jest.fn(() => 'page title'),
+            getTitle: jest.fn(() => Promise.resolve('page title')),
         };
 
         expectToEqual = jest.fn();
@@ -20,8 +20,8 @@ describe('checkTitle', () => {
         }));
     });
 
-    it('Should test if the title matches the given text', () => {
-        checkTitle(false, 'page title');
+    it('Should test if the title matches the given text', async () => {
+        await checkTitle(false, 'page title');
 
         _expect(global.browser.getTitle).toHaveBeenCalledTimes(1);
         _expect(global.browser.getTitle).toHaveBeenCalledWith();
@@ -34,8 +34,8 @@ describe('checkTitle', () => {
         );
     });
 
-    it('Should test if the title does not match the given text', () => {
-        checkTitle(true, 'page title');
+    it('Should test if the title does not match the given text', async () => {
+        await checkTitle(true, 'page title');
 
         _expect(global.browser.getTitle).toHaveBeenCalledTimes(1);
         _expect(global.browser.getTitle).toHaveBeenCalledWith();

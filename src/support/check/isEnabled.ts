@@ -6,12 +6,12 @@ import type { Selector } from 'webdriverio';
  * @param  {String}   falseCase Whether to check if the given selector
  *                              is enabled or not
  */
-export default (selector: Selector, falseCase: boolean) => {
+export default async (selector: Selector, falseCase: boolean) => {
     /**
      * The enabled state of the given selector
      * @type {Boolean}
      */
-    const isEnabled = $(selector).isEnabled();
+    const isEnabled = await $(selector).isEnabled();
 
     if (falseCase) {
         expect(isEnabled).not.toEqual(

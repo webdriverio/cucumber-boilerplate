@@ -7,7 +7,7 @@ describe('compareText', () => {
     let expectToNotEqual;
 
     beforeEach(() => {
-        getTextMock = jest.fn(() => 'test');
+        getTextMock = jest.fn(() => Promise.resolve('test'));
         global.$ = jest.fn().mockReturnValue({
             getText: getTextMock,
         });
@@ -23,8 +23,8 @@ describe('compareText', () => {
         }));
     });
 
-    it('Should test if the text of the given element is the same', () => {
-        compareText('#elem1', false, '#elem2');
+    it('Should test if the text of the given element is the same', async () => {
+        await compareText('#elem1', false, '#elem2');
 
         _expect(getTextMock).toHaveBeenCalledTimes(2);
 
@@ -35,8 +35,8 @@ describe('compareText', () => {
         );
     });
 
-    it('Should test if the text of the given element is not the same', () => {
-        compareText('#elem3', true, '#elem4');
+    it('Should test if the text of the given element is not the same', async () => {
+        await compareText('#elem3', true, '#elem4');
 
         _expect(getTextMock).toHaveBeenCalledTimes(2);
 

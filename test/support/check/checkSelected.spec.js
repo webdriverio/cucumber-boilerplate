@@ -7,7 +7,7 @@ describe('checkSelected', () => {
     let expectToNotEqual;
 
     beforeEach(() => {
-        isSelectedMock = jest.fn(() => true);
+        isSelectedMock = jest.fn(() => Promise.resolve(true));
         global.$ = jest.fn().mockReturnValue({
             isSelected: isSelectedMock,
         });
@@ -23,8 +23,8 @@ describe('checkSelected', () => {
         }));
     });
 
-    it('Should test if the element is selected', () => {
-        checkSelected('#elem1', false);
+    it('Should test if the element is selected', async () => {
+        await checkSelected('#elem1', false);
 
         _expect(isSelectedMock).toHaveBeenCalledTimes(1);
 
@@ -35,8 +35,8 @@ describe('checkSelected', () => {
         );
     });
 
-    it('Should test if the element is not selected', () => {
-        checkSelected('#elem2', true);
+    it('Should test if the element is not selected', async () => {
+        await checkSelected('#elem2', true);
 
         _expect(isSelectedMock).toHaveBeenCalledTimes(1);
 

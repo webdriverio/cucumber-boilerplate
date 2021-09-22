@@ -17,8 +17,8 @@ describe('waitFor', () => {
         });
     });
 
-    it('should call waitForExist on the element object', () => {
-        waitFor('element', 1, undefined, '');
+    it('should call waitForExist on the element object', async () => {
+        await waitFor('element', 1, undefined, '');
 
         expect(waitForExist).toHaveBeenCalledTimes(1);
         expect(waitForExist).toHaveBeenCalledWith({
@@ -27,8 +27,8 @@ describe('waitFor', () => {
         });
     });
 
-    it('should call waitForExist on the element object', () => {
-        waitFor('element', 1, false, '');
+    it('should call waitForExist on the element object', async () => {
+        await waitFor('element', 1, false, '');
 
         expect(waitForExist).toHaveBeenCalledTimes(1);
         expect(waitForExist).toHaveBeenCalledWith({
@@ -37,8 +37,8 @@ describe('waitFor', () => {
         });
     });
 
-    it('should call waitForExist on the element object', () => {
-        waitFor('element', 1, true, '');
+    it('should call waitForExist on the element object', async () => {
+        await waitFor('element', 1, true, '');
 
         expect(waitForExist).toHaveBeenCalledTimes(1);
         expect(waitForExist).toHaveBeenCalledWith({
@@ -47,8 +47,8 @@ describe('waitFor', () => {
         });
     });
 
-    it('should use a default value for the timeout', () => {
-        waitFor('element', 0, false, '');
+    it('should use a default value for the timeout', async () => {
+        await waitFor('element', 0, false, '');
 
         expect(waitForExist).toHaveBeenCalledTimes(1);
         expect(waitForExist).toHaveBeenCalledWith({
@@ -57,8 +57,8 @@ describe('waitFor', () => {
         });
     });
 
-    it('should call waitForEnabled on the browser object', () => {
-        waitFor('element', 1, false, 'be enabled');
+    it('should call waitForEnabled on the browser object', async () => {
+        await waitFor('element', 1, false, 'be enabled');
 
         expect(waitForEnabled).toHaveBeenCalledTimes(1);
         expect(waitForEnabled).toHaveBeenCalledWith({
@@ -67,8 +67,8 @@ describe('waitFor', () => {
         });
     });
 
-    it('should call waitForVisible on the element object', () => {
-        waitFor('element', 1, false, 'be displayed');
+    it('should call waitForVisible on the element object', async () => {
+        await waitFor('element', 1, false, 'be displayed');
 
         expect(waitForDisplayed).toHaveBeenCalledTimes(1);
         expect(waitForDisplayed).toHaveBeenCalledWith({
@@ -77,8 +77,8 @@ describe('waitFor', () => {
         });
     });
 
-    it('should call waitForExist on the element object', () => {
-        waitFor('element', 1, false, 'exist');
+    it('should call waitForExist on the element object', async () => {
+        await waitFor('element', 1, false, 'exist');
 
         expect(waitForExist).toHaveBeenCalledTimes(1);
         expect(waitForExist).toHaveBeenCalledWith({

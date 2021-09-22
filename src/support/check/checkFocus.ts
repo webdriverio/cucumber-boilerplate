@@ -6,12 +6,12 @@ import type { Selector } from 'webdriverio';
  * @param  {String}   falseCase Whether to check if the given element has focus
  *                              or not
  */
-export default (selector: Selector, falseCase: boolean) => {
+export default async (selector: Selector, falseCase: boolean) => {
     /**
      * Value of the hasFocus function for the given element
      * @type {Boolean}
      */
-    const hasFocus = $(selector).isFocused();
+    const hasFocus = await $(selector).isFocused();
 
     if (falseCase) {
         expect(hasFocus).not.toBe(

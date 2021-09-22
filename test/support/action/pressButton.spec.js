@@ -7,8 +7,8 @@ describe('pressButton', () => {
         };
     });
 
-    it('should call keys on the browser object', () => {
-        pressButton('e');
+    it('should call keys on the browser object', async () => {
+        await pressButton('e');
 
         expect(global.browser.keys).toHaveBeenCalledTimes(1);
         expect(global.browser.keys).toHaveBeenCalledWith('e');

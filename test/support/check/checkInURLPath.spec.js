@@ -6,7 +6,7 @@ describe('checkInURLPath', () => {
 
     beforeEach(() => {
         global.browser = {
-            getUrl: jest.fn(() => 'http://www.example.com/test'),
+            getUrl: jest.fn(() => Promise.resolve('http://www.example.com/test')),
         };
 
         expectShouldContain = jest.fn();
@@ -20,8 +20,8 @@ describe('checkInURLPath', () => {
         }));
     });
 
-    it('Should test if URL contains the given value', () => {
-        checkInURLPath(false, 'test');
+    it('Should test if URL contains the given value', async () => {
+        await checkInURLPath(false, 'test');
 
         _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
         _expect(global.browser.getUrl).toHaveBeenCalledWith();
@@ -34,8 +34,8 @@ describe('checkInURLPath', () => {
         );
     });
 
-    it('Should test if URL does not contain the given value', () => {
-        checkInURLPath(true, 'test2');
+    it('Should test if URL does not contain the given value', async () => {
+        await checkInURLPath(true, 'test2');
 
         _expect(global.browser.getUrl).toHaveBeenCalledTimes(1);
         _expect(global.browser.getUrl).toHaveBeenCalledWith();

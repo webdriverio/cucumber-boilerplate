@@ -7,14 +7,14 @@ import type { Selector } from 'webdriverio';
  *
  * @todo  merge with waitfor
  */
-export default (selector: Selector, falseCase: any) => {
+export default async (selector: Selector, falseCase: any) => {
     /**
      * Maximum number of milliseconds to wait for
      * @type {Int}
      */
     const ms = 10000;
 
-    $(selector).waitForDisplayed({
+    await $(selector).waitForDisplayed({
         timeout: ms,
         reverse: Boolean(falseCase),
     });

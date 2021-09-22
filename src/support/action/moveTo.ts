@@ -6,7 +6,7 @@ import { Selector } from 'webdriverio';
  * @param  {String}   x        X coordinate to move to
  * @param  {String}   y        Y coordinate to move to
  */
-export default (selector: Selector, x: string, y: string) => {
+export default async (selector: Selector, x: string, y: string) => {
     /**
      * X coordinate
      * @type {Int}
@@ -19,7 +19,7 @@ export default (selector: Selector, x: string, y: string) => {
      */
     const intY = parseInt(y, 10) || undefined;
 
-    $(selector).moveTo({
+    await $(selector).moveTo({
         xOffset: intX,
         yOffset: intY,
     });

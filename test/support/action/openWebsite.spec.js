@@ -10,8 +10,8 @@ describe('openWebsite', () => {
         };
     });
 
-    it('should call url with the given url if the first param is `url`', () => {
-        openWebsite('url', 'http://example.com');
+    it('should call url with the given url if the first param is `url`', async () => {
+        await openWebsite('url', 'http://example.com');
 
         expect(global.browser.url).toHaveBeenCalledTimes(1);
         expect(global.browser.url)
@@ -21,8 +21,8 @@ describe('openWebsite', () => {
     it(
         'should call url with the given path on the baseUrl if the first '
         + 'param is `site`',
-        () => {
-            openWebsite('site', '/path/to/page');
+        async () => {
+            await openWebsite('site', '/path/to/page');
 
             expect(global.browser.url).toHaveBeenCalledTimes(1);
             expect(global.browser.url)

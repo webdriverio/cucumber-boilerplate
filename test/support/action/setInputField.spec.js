@@ -14,9 +14,9 @@ describe('setInputField', () => {
             setValue: setValueMock,
         });
 
-        global.$$ = jest.fn(() => (['1']))
-            .mockImplementationOnce(() => [])
-            .mockImplementationOnce(() => ['1', '2']);
+        global.$$ = jest.fn(() => Promise.resolve(['1']))
+            .mockImplementationOnce(() => Promise.resolve([]))
+            .mockImplementationOnce(() => Promise.resolve(['1', '2']));
 
         expectToHaveLengthOf = jest.fn();
         expectToHaveLengthOfAtLeast = jest.fn();
@@ -27,8 +27,8 @@ describe('setInputField', () => {
         }));
     });
 
-    it('should fail if the element is not on the page', () => {
-        setInputField('add', 'value', 'element');
+    it('should fail if the element is not on the page', async () => {
+        await setInputField('add', 'value', 'element');
 
         _expect(addValueMock).toHaveBeenCalledTimes(1);
         _expect(addValueMock).toHaveBeenCalledWith('value');
@@ -43,8 +43,8 @@ describe('setInputField', () => {
         );
     });
 
-    it('should fail if there is more than 1 element on the page', () => {
-        setInputField('add', 'value', 'element');
+    it('should fail if there is more than 1 element on the page', async () => {
+        await setInputField('add', 'value', 'element');
 
         _expect(addValueMock).toHaveBeenCalledTimes(1);
         _expect(addValueMock).toHaveBeenCalledWith('value');
@@ -59,8 +59,8 @@ describe('setInputField', () => {
         );
     });
 
-    it('should be able to add a value to an element', () => {
-        setInputField('add', 'value', 'element');
+    it('should be able to add a value to an element', async () => {
+        await setInputField('add', 'value', 'element');
 
         _expect(addValueMock).toHaveBeenCalledTimes(1);
         _expect(addValueMock).toHaveBeenCalledWith('value');
@@ -75,8 +75,8 @@ describe('setInputField', () => {
         );
     });
 
-    it('should be able to set the value of an element', () => {
-        setInputField('set', 'value', 'element');
+    it('should be able to set the value of an element', async () => {
+        await setInputField('set', 'value', 'element');
 
         _expect(setValueMock).toHaveBeenCalledTimes(1);
         _expect(setValueMock).toHaveBeenCalledWith('value');
@@ -91,8 +91,8 @@ describe('setInputField', () => {
         );
     });
 
-    it('should be able to set an empty value of an element', () => {
-        setInputField('set', '', 'element');
+    it('should be able to set an empty value of an element', async () => {
+        await setInputField('set', '', 'element');
 
         _expect(setValueMock).toHaveBeenCalledTimes(1);
         _expect(setValueMock).toHaveBeenCalledWith('');

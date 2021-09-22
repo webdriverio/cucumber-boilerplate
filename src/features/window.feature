@@ -18,10 +18,6 @@ Feature: Test if new windows/tabs are being opened
         When  I click on the element "#linkNewWindow"
         Then  I expect a new window has been opened
 
-    Scenario: Test if a window/tab from "google.com" has the correct url
-        When  I click on the element "#linkNewWindow"
-        Then  I expect the url "http://example.com/" is opened in a new window
-
     Scenario: Test all opened windows/tabs are now closed
         Given the page url is "http://localhost:8080/"
         Then  I expect a new window has not been opened

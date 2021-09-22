@@ -10,8 +10,8 @@ describe('scroll', () => {
         });
     });
 
-    it('should call scrollIntoView on the browser object', () => {
-        scroll('element');
+    it('should call scrollIntoView on the browser object', async () => {
+        await scroll('element');
         expect(scrollIntoViewMock).toHaveBeenCalledTimes(1);
     });
 });

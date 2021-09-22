@@ -10,8 +10,8 @@ describe('waitForVisible', () => {
         });
     });
 
-    it('should call waitForVisible on the browser object', () => {
-        waitForDisplayed('element', true);
+    it('should call waitForVisible on the browser object', async () => {
+        await waitForDisplayed('element', true);
 
         expect(waitForDisplayedMock).toHaveBeenCalledTimes(1);
         expect(waitForDisplayedMock)
@@ -21,8 +21,8 @@ describe('waitForVisible', () => {
             });
     });
 
-    it('should call waitForVisible on the browser object', () => {
-        waitForDisplayed('element', false);
+    it('should call waitForVisible on the browser object', async () => {
+        await waitForDisplayed('element', false);
 
         expect(waitForDisplayedMock).toHaveBeenCalledTimes(1);
         expect(waitForDisplayedMock)

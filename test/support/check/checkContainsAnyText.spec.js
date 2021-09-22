@@ -8,9 +8,9 @@ describe('checkContent', () => {
     let getAttributeMock;
 
     beforeEach(() => {
-        getTextMock = jest.fn(() => 'text');
-        getValueMock = jest.fn(() => 'value');
-        getAttributeMock = jest.fn(() => null);
+        getTextMock = jest.fn(() => Promise.resolve('text'));
+        getValueMock = jest.fn(() => Promise.resolve('value'));
+        getAttributeMock = jest.fn(() => Promise.resolve(null));
         global.$ = jest.fn().mockReturnValue({
             getText: getTextMock,
             getValue: getValueMock,
@@ -28,9 +28,9 @@ describe('checkContent', () => {
         }));
     });
 
-    it('Should handle input fields', () => {
-        getAttributeMock.mockReturnValueOnce(() => '');
-        checkContent('element', 'element1', false);
+    it('Should handle input fields', async () => {
+        getAttributeMock.mockResolvedValueOnce('');
+        await checkContent('element', 'element1', false);
 
         _expect(getTextMock).not.toHaveBeenCalledTimes(1);
 
@@ -40,8 +40,8 @@ describe('checkContent', () => {
         _expect(expectToNotEqual).toHaveBeenCalledWith('');
     });
 
-    it('Should handle elements', () => {
-        checkContent('element', 'element2', false);
+    it('Should handle elements', async () => {
+        await checkContent('element', 'element2', false);
 
         _expect(getTextMock).toHaveBeenCalledTimes(1);
 
@@ -51,8 +51,8 @@ describe('checkContent', () => {
         _expect(expectToNotEqual).toHaveBeenCalledWith('');
     });
 
-    it('Should handle buttons', () => {
-        checkContent('button', 'button1', false);
+    it('Should handle buttons', async () => {
+        await checkContent('button', 'button1', false);
 
         _expect(getTextMock).toHaveBeenCalledTimes(1);
 
@@ -62,8 +62,8 @@ describe('checkContent', () => {
         _expect(expectToNotEqual).toHaveBeenCalledWith('');
     });
 
-    it('Handle the false case', () => {
-        checkContent('element', 'element3', true);
+    it('Handle the false case', async () => {
+        await checkContent('element', 'element3', true);
 
         _expect(getTextMock).toHaveBeenCalledTimes(1);
 
@@ -73,8 +73,8 @@ describe('checkContent', () => {
         _expect(expectToEqual).toHaveBeenCalledWith('');
     });
 
-    it('should handle no expected text and no falsecase', () => {
-        checkContent('element', 'element4');
+    it('should handle no expected text and no falsecase', async () => {
+        await checkContent('element', 'element4');
 
         _expect(getTextMock).toHaveBeenCalledTimes(1);
 

@@ -10,7 +10,7 @@ type WaitForCommands = 'waitForClickable' | 'waitForDisplayed' | 'waitForEnabled
  * @param  {String}   state                    State to check for (default
  *                                             existence)
  */
-export default (
+export default async (
     selector: Selector,
     ms: string,
     falseState: boolean,
@@ -55,7 +55,7 @@ export default (
         boolFalseState = false;
     }
 
-    $(selector)[command]({
+    await $(selector)[command]({
         timeout: intMs,
         reverse: boolFalseState,
     });

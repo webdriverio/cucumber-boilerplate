@@ -8,7 +8,7 @@ import type { Selector } from 'webdriverio';
  * @param  {String}   expectedPosition  The position to check against
  * @param  {String}   axis              The axis to check on (x or y)
  */
-export default (
+export default async (
     selector: Selector,
     falseCase: boolean,
     expectedPosition: string,
@@ -18,7 +18,7 @@ export default (
      * Get the location of the element on the given axis
      * @type {[type]}
      */
-    const location = $(selector).getLocation(axis);
+    const location = await $(selector).getLocation(axis);
 
     /**
      * Parsed expected position

@@ -9,26 +9,24 @@ describe('setPromptText', () => {
         global.assert = jest.fn();
     });
 
-    it('should call getAlertText on the browser object', () => {
-        setPromptText('modalText');
+    it('should call getAlertText on the browser object', async () => {
+        await setPromptText('modalText');
 
         expect(global.browser.sendAlertText).toHaveBeenCalledTimes(1);
         expect(global.browser.sendAlertText)
             .toHaveBeenCalledWith('modalText');
     });
 
-    it('should call fail when no prompt is open', () => {
-        const error = new Error();
-        global.browser.sendAlertText = jest.fn(() => {
-            throw error;
-        });
+    it('should call fail when no prompt is open', async () => {
+        const error = new Error('bug');
+        global.browser.sendAlertText = jest.fn().mockRejectedValue(error);
 
-        setPromptText('modalText2');
+        await setPromptText('modalText2');
 
         expect(global.browser.sendAlertText).toHaveBeenCalledTimes(1);
         expect(global.browser.sendAlertText)
             .toHaveBeenCalledWith('modalText2');
-        expect(global.browser.sendAlertText).toThrow();
+        expect(global.browser.sendAlertText).rejects.toEqual(error);
 
         expect(global.assert).toHaveBeenCalledTimes(1);
         expect(global.assert)

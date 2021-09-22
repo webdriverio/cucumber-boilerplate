@@ -7,11 +7,10 @@ describe('deleteCookies', () => {
         };
     });
 
-    it('should call deleteCookies on the browser', () => {
-        deleteCookies('test');
+    it('should call deleteCookies on the browser', async () => {
+        await deleteCookies('test');
 
         expect(global.browser.deleteCookies).toHaveBeenCalledTimes(1);
-
         expect(global.browser.deleteCookies).toHaveBeenCalledWith('test');
     });
 });

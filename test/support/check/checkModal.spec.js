@@ -6,7 +6,7 @@ describe('checkModal', () => {
 
     beforeEach(() => {
         global.browser = {
-            getAlertText: jest.fn(() => 'test'),
+            getAlertText: jest.fn(() => Promise.resolve('test')),
         };
 
         expectToEqual = jest.fn();
@@ -20,13 +20,13 @@ describe('checkModal', () => {
         }));
     });
 
-    it('Should test if alertbox is opened', () => {
+    it('Should test if alertbox is opened', async () => {
         global.browser.getAlertText = jest.fn(() => {
             throw new Error();
         });
 
         try {
-            checkModal('alertbox', false);
+            await checkModal('alertbox', false);
         } catch (e) {
             _expect(e);
         }
@@ -41,8 +41,8 @@ describe('checkModal', () => {
         );
     });
 
-    it('Should test if confirmbox is not opened', () => {
-        checkModal('confirmbox', true);
+    it('Should test if confirmbox is not opened', async () => {
+        await checkModal('confirmbox', true);
 
         _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
         _expect(global.browser.getAlertText).toHaveBeenCalledWith();
@@ -54,13 +54,13 @@ describe('checkModal', () => {
         );
     });
 
-    it('Should test if alertbox is not opened', () => {
+    it('Should test if alertbox is not opened', async () => {
         global.browser.getAlertText = jest.fn(() => {
             throw new Error();
         });
 
         try {
-            checkModal('alertbox', true);
+            await checkModal('alertbox', true);
         } catch (e) {
             _expect(e);
         }
@@ -72,8 +72,8 @@ describe('checkModal', () => {
         _expect(expectToNotEqual).not.toHaveBeenCalled();
     });
 
-    it('Should test if confirmbox is opened', () => {
-        checkModal('confirmbox', false);
+    it('Should test if confirmbox is opened', async () => {
+        await checkModal('confirmbox', false);
 
         _expect(global.browser.getAlertText).toHaveBeenCalledTimes(1);
         _expect(global.browser.getAlertText).toHaveBeenCalledWith();
