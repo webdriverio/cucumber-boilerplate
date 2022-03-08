@@ -24,7 +24,6 @@ module.exports = {
         'src/**/*.ts',
         '!**/node_modules/**',
     ],
-    notify: true,
     setupFilesAfterEnv: ['./test/setup.js'],
     roots: [
         'test/',
