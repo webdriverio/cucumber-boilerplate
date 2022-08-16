@@ -1,5 +1,9 @@
-import path from 'path';
-import { hooks } from './src/support/hooks';
+import url from 'node:url';
+import path from 'node:path';
+
+import { hooks } from './src/support/hooks.js';
+
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 export const config: WebdriverIO.Config = {
     //
@@ -42,7 +46,7 @@ export const config: WebdriverIO.Config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 5,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -69,7 +73,7 @@ export const config: WebdriverIO.Config = {
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'trace',
-    outputDir: path.join(__dirname, '/logs'),
+    outputDir: path.join(dirname, '/logs'),
     //
     // Set specific log levels per logger
     // loggers:

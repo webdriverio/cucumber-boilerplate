@@ -1,4 +1,4 @@
-import { Selector } from 'webdriverio';
+import type { Selector } from 'webdriverio';
 
 /**
  * Clear a given input field (placeholder for WDIO's clearElement)

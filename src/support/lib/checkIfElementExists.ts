@@ -1,4 +1,4 @@
-import { Selector } from 'webdriverio';
+import type { Selector } from 'webdriverio';
 
 /**
  * Check if the given element exists in the DOM one or more times

@@ -1,4 +1,4 @@
-import { Selector } from 'webdriverio';
+import type { Selector } from 'webdriverio';
 
 /**
  * Drag a element to a given destination

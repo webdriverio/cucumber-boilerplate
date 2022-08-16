@@ -1,4 +1,4 @@
-import { Selector } from 'webdriverio';
+import type { Selector } from 'webdriverio';
 
 /**
  * Scroll the page to the given element

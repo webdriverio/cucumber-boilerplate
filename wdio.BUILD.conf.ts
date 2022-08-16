@@ -1,6 +1,9 @@
-import path from 'path';
+import url from 'node:url';
+import path from 'node:path';
 
-import { config as buildConfig } from './wdio.conf';
+import { config as buildConfig } from './wdio.conf.js';
+
+const dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 buildConfig.capabilities = [{
     browserName: 'chrome',
@@ -30,7 +33,7 @@ buildConfig.services = [
         {
             port: 8080,
             folders: [
-                { mount: '/', path: path.join(__dirname, 'demo-app') },
+                { mount: '/', path: path.join(dirname, 'demo-app') },
             ],
         },
     ],
@@ -50,7 +53,7 @@ buildConfig.beforeFeature = async () => {
 };
 
 if (process.env.CI) {
-    buildConfig.outputDir = path.join(__dirname, 'logs');
+    buildConfig.outputDir = path.join(dirname, 'logs');
 }
 
 export const config = buildConfig;

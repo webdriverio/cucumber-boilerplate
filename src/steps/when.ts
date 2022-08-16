@@ -1,21 +1,21 @@
 import { When } from '@cucumber/cucumber';
 
-import clearInputField from '../support/action/clearInputField';
-import clickElement from '../support/action/clickElement';
-import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow';
-import deleteCookies from '../support/action/deleteCookies';
-import dragElement from '../support/action/dragElement';
-import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow';
-import handleModal from '../support/action/handleModal';
-import moveTo from '../support/action/moveTo';
-import pause from '../support/action/pause';
-import pressButton from '../support/action/pressButton';
-import scroll from '../support/action/scroll';
-import selectOption from '../support/action/selectOption';
-import selectOptionByIndex from '../support/action/selectOptionByIndex';
-import setCookie from '../support/action/setCookie';
-import setInputField from '../support/action/setInputField';
-import setPromptText from '../support/action/setPromptText';
+import clearInputField from '../support/action/clearInputField.js';
+import clickElement from '../support/action/clickElement.js';
+import closeLastOpenedWindow from '../support/action/closeLastOpenedWindow.js';
+import deleteCookies from '../support/action/deleteCookies.js';
+import dragElement from '../support/action/dragElement.js';
+import focusLastOpenedWindow from '../support/action/focusLastOpenedWindow.js';
+import handleModal from '../support/action/handleModal.js';
+import moveTo from '../support/action/moveTo.js';
+import pause from '../support/action/pause.js';
+import pressButton from '../support/action/pressButton.js';
+import scroll from '../support/action/scroll.js';
+import selectOption from '../support/action/selectOption.js';
+import selectOptionByIndex from '../support/action/selectOptionByIndex.js';
+import setCookie from '../support/action/setCookie.js';
+import setInputField from '../support/action/setInputField.js';
+import setPromptText from '../support/action/setPromptText.js';
 
 When(
     /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,
@@ -74,17 +74,17 @@ When(
 
 When(
     /^I close the last opened (window|tab)$/,
-    closeLastOpenedWindow
+    closeLastOpenedWindow as any
 );
 
 When(
     /^I focus the last opened (window|tab)$/,
-    focusLastOpenedWindow
+    focusLastOpenedWindow as any
 );
 
 When(
     /^I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"$/,
-    selectOptionByIndex
+    selectOptionByIndex as any
 );
 
 When(
