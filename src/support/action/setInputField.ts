@@ -1,6 +1,6 @@
 import type { Selector } from 'webdriverio';
 
-import checkIfElementExists from '../lib/checkIfElementExists.js';
+import checkIfElementExists from '../lib/checkIfElementExists';
 
 /**
  * Set the value of the given input field to a new value or add a value to the
