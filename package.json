@@ -29,8 +29,8 @@
     "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" REPLY; if [[ $REPLY =~ ^[Yy]$ ]]; then rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
     "test": "run-s test:*",
     "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
-    "test:unit": "jest --config=jest.config.js --detectOpenHandles",
-    "test:features": "wdio run wdio.BUILD.conf.ts",
+    "test:unit": "jest --config=jest.config.cjs --detectOpenHandles",
+    "test:features": "node --loader ts-node/esm ./node_modules/.bin/wdio run wdio.BUILD.conf.ts",
     "wdio": "node --loader ts-node/esm ./node_modules/.bin/wdio run wdio.BUILD.conf.ts"
   },
   "dependencies": {},
