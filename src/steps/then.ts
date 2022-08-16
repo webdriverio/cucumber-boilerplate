@@ -1,36 +1,36 @@
 import { Then } from '@cucumber/cucumber';
 
-import checkClass from '../support/check/checkClass';
-import checkContainsAnyText from '../support/check/checkContainsAnyText';
-import checkIsEmpty from '../support/check/checkIsEmpty';
-import checkContainsText from '../support/check/checkContainsText';
-import checkCookieContent from '../support/check/checkCookieContent';
-import checkCookieExists from '../support/check/checkCookieExists';
-import checkDimension from '../support/check/checkDimension';
-import checkEqualsText from '../support/check/checkEqualsText';
-import checkFocus from '../support/check/checkFocus';
-import checkInURLPath from '../support/check/checkInURLPath';
+import checkClass from '../support/check/checkClass.js';
+import checkContainsAnyText from '../support/check/checkContainsAnyText.js';
+import checkIsEmpty from '../support/check/checkIsEmpty.js';
+import checkContainsText from '../support/check/checkContainsText.js';
+import checkCookieContent from '../support/check/checkCookieContent.js';
+import checkCookieExists from '../support/check/checkCookieExists.js';
+import checkDimension from '../support/check/checkDimension.js';
+import checkEqualsText from '../support/check/checkEqualsText.js';
+import checkFocus from '../support/check/checkFocus.js';
+import checkInURLPath from '../support/check/checkInURLPath.js';
 import checkIsOpenedInNewWindow from
-    '../support/check/checkIsOpenedInNewWindow';
-import checkModal from '../support/check/checkModal';
-import checkModalText from '../support/check/checkModalText';
-import checkNewWindow from '../support/check/checkNewWindow';
-import checkOffset from '../support/check/checkOffset';
-import checkProperty from '../support/check/checkProperty';
-import checkFontProperty from '../support/check/checkFontProperty';
-import checkSelected from '../support/check/checkSelected';
-import checkTitle from '../support/check/checkTitle';
-import checkTitleContains from '../support/check/checkTitleContains';
-import checkURL from '../support/check/checkURL';
-import checkURLPath from '../support/check/checkURLPath';
-import checkWithinViewport from '../support/check/checkWithinViewport';
-import compareText from '../support/check/compareText';
-import isEnabled from '../support/check/isEnabled';
-import isExisting from '../support/check/isExisting';
-import isVisible from '../support/check/isDisplayed';
-import waitFor from '../support/action/waitFor';
-import waitForVisible from '../support/action/waitForDisplayed';
-import checkIfElementExists from '../support/lib/checkIfElementExists';
+    '../support/check/checkIsOpenedInNewWindow.js';
+import checkModal from '../support/check/checkModal.js';
+import checkModalText from '../support/check/checkModalText.js';
+import checkNewWindow from '../support/check/checkNewWindow.js';
+import checkOffset from '../support/check/checkOffset.js';
+import checkProperty from '../support/check/checkProperty.js';
+import checkFontProperty from '../support/check/checkFontProperty.js';
+import checkSelected from '../support/check/checkSelected.js';
+import checkTitle from '../support/check/checkTitle.js';
+import checkTitleContains from '../support/check/checkTitleContains.js';
+import checkURL from '../support/check/checkURL.js';
+import checkURLPath from '../support/check/checkURLPath.js';
+import checkWithinViewport from '../support/check/checkWithinViewport.js';
+import compareText from '../support/check/compareText.js';
+import isEnabled from '../support/check/isEnabled.js';
+import isExisting from '../support/check/isExisting.js';
+import isVisible from '../support/check/isDisplayed.js';
+import waitFor from '../support/action/waitFor.js';
+import waitForVisible from '../support/action/waitForDisplayed.js';
+import checkIfElementExists from '../support/lib/checkIfElementExists.js';
 
 Then(
     /^I expect that the title is( not)* "([^"]*)?"$/,
@@ -159,12 +159,12 @@ Then(
 
 Then(
     /^I expect a new (window|tab) has( not)* been opened$/,
-    checkNewWindow
+    checkNewWindow as any
 );
 
 Then(
     /^I expect the url "([^"]*)?" is opened in a new (tab|window)$/,
-    checkIsOpenedInNewWindow
+    checkIsOpenedInNewWindow as any
 );
 
 Then(

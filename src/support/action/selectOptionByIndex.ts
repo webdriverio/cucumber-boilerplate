@@ -1,4 +1,4 @@
-import { Selector } from 'webdriverio';
+import type { Selector } from 'webdriverio';
 
 /**
  * Select a option from a select element by it's index
