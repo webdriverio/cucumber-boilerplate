@@ -1,4 +1,4 @@
-import clickElement from 'src/support/action/clickElement';
+import clickElement from '../../src/support/action/clickElement';
 
 let clickMock;
 let doubleClickMock;
