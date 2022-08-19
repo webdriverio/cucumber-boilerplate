@@ -38,14 +38,14 @@
     "@types/jest": "^27.5.0",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
-    "@wdio/cli": "next",
-    "@wdio/config": "next",
-    "@wdio/cucumber-framework": "next",
-    "@wdio/globals": "next",
-    "@wdio/local-runner": "next",
-    "@wdio/selenium-standalone-service": "next",
-    "@wdio/spec-reporter": "next",
-    "@wdio/static-server-service": "next",
+    "@wdio/cli": "^8.0.0-alpha.249",
+    "@wdio/config": "^8.0.0-alpha.249",
+    "@wdio/cucumber-framework": "^8.0.0-alpha.249",
+    "@wdio/globals": "^8.0.0-alpha.249",
+    "@wdio/local-runner": "^8.0.0-alpha.249",
+    "@wdio/selenium-standalone-service": "^8.0.0-alpha.249",
+    "@wdio/spec-reporter": "^8.0.0-alpha.249",
+    "@wdio/static-server-service": "^8.0.0-alpha.249",
     "chromedriver": "^104.0.0",
     "eslint": "^8.14.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -58,7 +58,7 @@
     "ts-jest": "^28.0.0",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4",
-    "wdio-chromedriver-service": "next",
-    "webdriverio": "next"
+    "wdio-chromedriver-service": "^8.0.0-alpha.1",
+    "webdriverio": "^8.0.0-alpha.249"
   }
 }
