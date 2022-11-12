@@ -7,7 +7,7 @@ import type { Selector } from 'webdriverio';
  *
  * @todo  merge with waitfor
  */
-export default async (selector: Selector, falseCase: any) => {
+export default async (selector: Selector, falseCase: unknown) => {
     /**
      * Maximum number of milliseconds to wait for
      * @type {Int}

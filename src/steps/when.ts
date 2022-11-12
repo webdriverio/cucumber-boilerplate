@@ -74,17 +74,17 @@ When(
 
 When(
     /^I close the last opened (window|tab)$/,
-    closeLastOpenedWindow as any
+    closeLastOpenedWindow as never
 );
 
 When(
     /^I focus the last opened (window|tab)$/,
-    focusLastOpenedWindow as any
+    focusLastOpenedWindow as never
 );
 
 When(
     /^I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"$/,
-    selectOptionByIndex as any
+    selectOptionByIndex as never
 );
 
 When(

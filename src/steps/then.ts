@@ -159,12 +159,12 @@ Then(
 
 Then(
     /^I expect a new (window|tab) has( not)* been opened$/,
-    checkNewWindow as any
+    checkNewWindow as never
 );
 
 Then(
     /^I expect the url "([^"]*)?" is opened in a new (tab|window)$/,
-    checkIsOpenedInNewWindow as any
+    checkIsOpenedInNewWindow as never
 );
 
 Then(

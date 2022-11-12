@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import url from 'node:url';
 import path from 'node:path';
 
