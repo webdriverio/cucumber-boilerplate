@@ -118,7 +118,7 @@ Given(
 
 Given(
     /^I have closed all but the first (window|tab)$/,
-    closeAllButFirstTab as any
+    closeAllButFirstTab as never
 );
 
 Given(
