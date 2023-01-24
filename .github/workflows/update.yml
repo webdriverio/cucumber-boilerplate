@@ -1,0 +1,47 @@
+# this workflow merges requests from Dependabot if tests are passing
+# ref https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+# and https://github.com/dependabot/fetch-metadata
+name: Auto-merge
+
+# `pull_request_target` means this uses code in the base branch, not the PR.
+on: pull_request_target
+
+# Dependabot PRs' tokens have read permissions by default and thus we must enable write permissions.
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+
+    steps:
+      - name: Fetch PR metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1.3.5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for PR CI
+        # Don't merge updates to GitHub Actions versions automatically.
+        # (Some repos may wish to limit by version range (major/minor/patch), or scope (dep vs dev-dep), too.)
+        if: contains(steps.metadata.outputs.package-ecosystem, 'npm')
+        uses: lewagon/wait-on-check-action@v1.2.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 30 # seconds
+          running-workflow-name: dependencies # wait for all checks except this one
+          allowed-conclusions: success # all other checks must pass, being skipped or cancelled is not sufficient
+
+      - name: Auto-merge dependabot PRs
+        # Don't merge updates to GitHub Actions versions automatically.
+        # (Some repos may wish to limit by version range (major/minor/patch), or scope (dep vs dev-dep), too.)
+        if: contains(steps.metadata.outputs.package-ecosystem, 'npm')
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # The "auto" flag will only merge once all of the target branch's required checks
+        # are met. Configure those in the "branch protection" settings for each repo.
+        run: gh pr merge --auto --squash "$PR_URL"
