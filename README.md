@@ -3,7 +3,7 @@ Cucumber Boilerplate [![Test](https://github.com/webdriverio/cucumber-boilerplat
 
 Boilerplate project to run WebdriverIO (alpha v8) tests with [Cucumber](https://cucumber.io/) and brings **true** [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) to JavaScript. Instead of writing complicated test code that only developers can understand, Cucumber maps an ordinary language to code and allows to start with the test process in the early stages of your product development.
 
-__Note:__ As this version is not stable yet there might be some bugs. Checkout the [`v7`](https://github.com/webdriverio/cucumber-boilerplate/tree/v7) branch to see this boilerplate using a stable version.
+__Note:__ If you are still using an older WebdriverIO version, check out the [`v7`](https://github.com/webdriverio/cucumber-boilerplate/tree/v7) branch.
 
 ## Requirements
 
