@@ -45,7 +45,7 @@
     "@wdio/selenium-standalone-service": "^8.7.0",
     "@wdio/spec-reporter": "^8.7.0",
     "@wdio/static-server-service": "^8.7.0",
-    "chromedriver": "^113.0.0",
+    "chromedriver": "^114.0.1",
     "eslint": "^8.38.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
