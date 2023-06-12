@@ -268,7 +268,6 @@ Check out all predefined snippets. You can see how they get used in [`sampleSnip
 - `I scroll to element "([^"]*)?"` <br>Scroll to a given element
 - `I close the last opened (window|tab)` <br>Close the last opened browser window/tab
 - `I focus the last opened (window|tab)` <br>Focus the last opened browser window/tab
-- `I log in to site with username "([^"]*)?" and password "([^"]*)?"` <br>Login to a site with the given username and password
 - `I select the (\d+)(st|nd|rd|th) option for element "([^"]*)?"` <br>Select an option based on it's index
 - `I select the option with the (name|value|text) "([^"]*)?" for element "([^"]*)?"` <br>Select an option based on its name, value or visible text
 - `I move to element "([^"]*)?"( with an offset of (\d+),(\d+))` <br>Move the mouse by an (optional) offset of the specified element
