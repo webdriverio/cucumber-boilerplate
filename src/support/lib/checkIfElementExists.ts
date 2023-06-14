@@ -26,7 +26,7 @@ export default async (
         );
     } else if (exactly) {
         expect(nrOfElements).toHaveLength(
-            exactly,
+            +exactly,
             // @ts-expect-error
             `Element with selector "${selector}" should exist exactly ${exactly} time(s)`
         );
