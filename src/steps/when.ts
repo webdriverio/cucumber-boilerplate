@@ -16,6 +16,7 @@ import selectOptionByIndex from '../support/action/selectOptionByIndex.js';
 import setCookie from '../support/action/setCookie.js';
 import setInputField from '../support/action/setInputField.js';
 import setPromptText from '../support/action/setPromptText.js';
+import switchIFrame from '../support/action/switchIFrame.js';
 
 When(
     /^I (click|doubleclick) on the (link|button|element) "([^"]*)?"$/,
@@ -95,4 +96,9 @@ When(
 When(
     /^I move to element "([^"]*)?"(?: with an offset of (\d+),(\d+))*$/,
     moveTo
+);
+
+When(
+    /^I switch to the iframe "([^"]*)?"$/,
+    switchIFrame
 );
