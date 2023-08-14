@@ -13,8 +13,6 @@ jobs:
             node-version: 18
         - name: Install Dependencies
           run: npm install
-          env:
-            DETECT_CHROMEDRIVER_VERSION: true
         - name: Test
           run: npm test
         - uses: actions/upload-artifact@v1

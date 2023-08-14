@@ -21,14 +21,7 @@ buildConfig.capabilities = [{
     },
 }];
 
-buildConfig.port = 9516;
 buildConfig.services = [
-    [
-        'chromedriver',
-        {
-            chromeDriverArgs: ['--port=9516', '--url-base=\'/\''],
-        },
-    ],
     [
         'static-server',
         {
