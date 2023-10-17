@@ -1,0 +1,20 @@
+name: Setup Project
+description: "sets the node version & initializes core dependencies"
+runs:
+    using: composite
+    steps:
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+
+        - name: Cache dependencies
+          id: cache
+          uses: actions/cache@v3
+          with:
+            path: ./node_modules
+            key: modules-${{ hashFiles('package-lock.json') }}
+
+        - name: Install dependencies
+          shell: bash
+          if: steps.cache.outputs.cache-hit != 'true'
+          run: npm ci --ignore-scripts
