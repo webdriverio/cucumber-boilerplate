@@ -28,8 +28,14 @@ jobs:
             - uses: ./.github/workflows/actions/setup
             - name: E2E Test
               run: npm run test:features -- --shard ${{ matrix.shard }}
+            - name: Replace slashes in shard for artifact name
+              if: failure()
+              run: |
+                  SHARD_NAME=$(echo "${{ matrix.shard }}" | sed 's/\//\-/g')
+                  echo "::set-output name=shard_name::$SHARD_NAME"
+                  id: replace_slashes
             - uses: actions/upload-artifact@v1
               if: failure()
               with:
-                name: logs-${{ matrix.shard }}
-                path: logs
+                  name: logs-${{ steps.replace_slashes.outputs.shard_name }}
+                  path: logs
