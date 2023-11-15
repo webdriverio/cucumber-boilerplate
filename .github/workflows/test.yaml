@@ -18,16 +18,17 @@ jobs:
             - name: Unit Test
               run: npm run test:unit
     e2e:
+        name: 🧪 Test (${{ matrix.shard }}/${{ strategy.job-total }})
         runs-on: ubuntu-latest
         needs: [lint, unit]
         strategy:
             matrix:
-                shard: [1/4, 2/4, 3/4, 4/4]
+                shard: [1, 2, 3, 4]
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/workflows/actions/setup
             - name: E2E Test
-              run: npm run test:features -- --shard ${{ matrix.shard }}
+              run: npm run test:features -- --shard ${{ matrix.shard }}/${{ strategy.job-total }}
             - uses: actions/upload-artifact@v1
               if: failure()
               with:
