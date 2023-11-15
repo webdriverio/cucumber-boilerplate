@@ -30,12 +30,9 @@ jobs:
               run: npm run test:features -- --shard ${{ matrix.shard }}
             - name: Replace slashes in shard for artifact name
               if: failure()
-              run: |
-                  SHARD_NAME=$(echo "${{ matrix.shard }}" | sed 's/\//\-/g')
-                  echo "::set-output name=shard_name::$SHARD_NAME"
-                  id: replace_slashes
+              run: echo "SHARD_NAME=$(echo ${{ matrix.shard }} | tr '/' '_')" >> $GITHUB_ENV
             - uses: actions/upload-artifact@v1
               if: failure()
               with:
-                  name: logs-${{ steps.replace_slashes.outputs.shard_name }}
+                  name: logs-${{ env.SHARD_NAME }}
                   path: logs
