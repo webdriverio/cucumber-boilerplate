@@ -11,7 +11,7 @@ export default async (selector: Selector, falseCase: boolean) => {
      * The state of visibility of the given element inside the viewport
      * @type {Boolean}
      */
-    const isDisplayed = await $(selector).isDisplayedInViewport();
+    const isDisplayed = await $(selector).isDisplayed({ withinViewport: true });
 
     if (falseCase) {
         expect(isDisplayed).not.toEqual(

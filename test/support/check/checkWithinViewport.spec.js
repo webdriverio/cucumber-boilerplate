@@ -1,15 +1,15 @@
 import checkWithinViewport from 'src/support/check/checkWithinViewport';
 
-let isDisplayedInViewportMock;
+let isDisplayed;
 
 describe('checkWithinViewport', () => {
     let expectToEqual;
     let expectToNotEqual;
 
     beforeEach(() => {
-        isDisplayedInViewportMock = jest.fn();
+        isDisplayed = jest.fn();
         global.$ = jest.fn().mockReturnValue({
-            isDisplayedInViewport: isDisplayedInViewportMock,
+            isDisplayed,
         });
 
         expectToEqual = jest.fn();
@@ -26,8 +26,10 @@ describe('checkWithinViewport', () => {
     it('Should test if the element is visible within the viewport', async () => {
         await checkWithinViewport('#elem1', false);
 
-        _expect(isDisplayedInViewportMock)
+        _expect(isDisplayed)
             .toHaveBeenCalledTimes(1);
+        _expect(isDisplayed)
+            .toHaveBeenCalledWith(_expect.objectContaining({ withinViewport: true }));
         _expect(global.$)
             .toHaveBeenCalledWith('#elem1');
 
@@ -41,7 +43,9 @@ describe('checkWithinViewport', () => {
     it('Should test if the element is not visible within the viewport', async () => {
         await checkWithinViewport('#elem2', true);
 
-        _expect(isDisplayedInViewportMock).toHaveBeenCalledTimes(1);
+        _expect(isDisplayed).toHaveBeenCalledTimes(1);
+        _expect(isDisplayed)
+            .toHaveBeenCalledWith(_expect.objectContaining({ withinViewport: true }));
         _expect(global.$).toHaveBeenCalledWith('#elem2');
 
         _expect(expectToNotEqual).toHaveBeenCalledTimes(1);
