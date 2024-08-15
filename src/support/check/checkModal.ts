@@ -24,7 +24,7 @@ export default async (
                 `A ${modalType} was opened when it shouldn't`
             );
         }
-    } catch (e) {
+    } catch {
         if (!falseState) {
             expect(promptText).toEqual(
                 null,

@@ -35,19 +35,19 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^7.17.0",
-    "@typescript-eslint/parser": "^7.17.0",
-    "@wdio/cli": "9.0.0-alpha.426",
-    "@wdio/config": "9.0.0-alpha.426",
-    "@wdio/cucumber-framework": "9.0.0-alpha.426",
-    "@wdio/globals": "9.0.0-alpha.426",
-    "@wdio/local-runner": "9.0.0-alpha.426",
-    "@wdio/spec-reporter": "9.0.0-alpha.426",
-    "@wdio/static-server-service": "9.0.0-alpha.426",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "@wdio/cli": "9.0.0",
+    "@wdio/config": "9.0.0",
+    "@wdio/cucumber-framework": "9.0.0",
+    "@wdio/globals": "9.0.0",
+    "@wdio/local-runner": "9.0.0",
+    "@wdio/spec-reporter": "9.0.0",
+    "@wdio/static-server-service": "9.0.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-wdio": "^8.37.0",
+    "eslint-plugin-wdio": "^9.0.0",
     "http-server": "^14.1.1",
     "jest": "^29.7.0",
     "jest-circus": "^29.7.0",
@@ -55,6 +55,6 @@
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "webdriverio": "9.0.0-alpha.426"
+    "webdriverio": "9.0.0"
   }
 }
