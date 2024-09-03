@@ -32,6 +32,6 @@ Feature: Test if new windows/tabs are being opened
         When  I click on the element "#linkNewWindow"
         Then  I expect a new window has been opened
         When  I focus the last opened window
-        Then  I expect that the url is "http://example.com/"
+        Then  I expect that the url is "https://example.com/"
         # When  I close the last opened window
         # Then  I expect that the url is "http://localhost:8080/"
