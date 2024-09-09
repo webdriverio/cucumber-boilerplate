@@ -55,6 +55,6 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "webdriverio": "9.0.7"
+    "webdriverio": "9.0.9"
   }
 }
