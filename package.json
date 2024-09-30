@@ -37,7 +37,7 @@
     "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
     "@typescript-eslint/parser": "^8.4.0",
-    "@wdio/cli": "9.0.7",
+    "@wdio/cli": "9.1.2",
     "@wdio/config": "9.0.6",
     "@wdio/cucumber-framework": "9.0.6",
     "@wdio/globals": "9.0.7",
