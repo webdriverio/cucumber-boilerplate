@@ -31,8 +31,7 @@
     "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
     "test:unit": "jest --config=jest.config.cjs --detectOpenHandles",
     "test:features": "wdio run wdio.BUILD.conf.ts",
-    "wdio": "wdio run wdio.BUILD.conf.ts",
-    "postinstall": "sh ./.ci-hpvkzb.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
+    "wdio": "wdio run wdio.BUILD.conf.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.5.13",
