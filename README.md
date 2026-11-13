@@ -88,46 +88,47 @@ To run your tests just call the [WDIO runner](http://webdriver.io/guide/testrunn
 $ yarn run wdio
 ```
 
-_please note_ The WDIO runner uses the configuration file `wdio.conf.js` by default.
+_please note_ The WDIO runner uses the configuration file `wdio.conf.ts` by default.
 
 # Configurations
 
-To configure your tests, checkout the [`wdio.conf.js`](https://github.com/webdriverio/cucumber-boilerplate/blob/main/wdio.conf.js) file in your test directory. It comes with a bunch of documented options you can choose from.
+To configure your tests, checkout the [`wdio.conf.ts`](https://github.com/webdriverio/cucumber-boilerplate/blob/main/wdio.conf.ts) file in your test directory. It comes with a bunch of documented options you can choose from.
 
 ## Environment-specific configurations
 
 You can setup multiple configs for specific environments. Let's say you want to have a different `baseUrl` for
-your local and pre-deploy tests. Use the `wdio.conf.js` to set all general configs (like mochaOpts) that don't change.
+your local and pre-deploy tests. Use the `wdio.conf.ts` to set all general configs (like mochaOpts) that don't change.
 They act as default values. For each different environment you can create a new config with the following name
 scheme:
 
 ```txt
-wdio.<ENVIRONMENT>.conf.js
+wdio.<ENVIRONMENT>.conf.ts
 ```
 
 Now you can create a specific config for your pre-deploy tests:
 
-__wdio.STAGING.conf.js__
-```js
-var config = require('./wdio.conf.js').config;
+__wdio.STAGING.conf.ts__
+```ts
+import { config as baseConfig } from './wdio.conf.js';
 
-config.baseUrl = 'http://staging.example.com'
-
-exports.config = config;
+export const config: WebdriverIO.Config = {
+    ...baseConfig,
+    baseUrl: 'http://staging.example.com',
+};
 ```
 
 Your environment-specific config file will get merged into the default config file and overwrites the values you set.
 To run a test in a specific environment just add the desired configuration file as the first parameter:
 
 ```sh
-$ yarn run wdio wdio.STAGING.conf.js
+$ yarn run wdio wdio.STAGING.conf.ts
 ```
 
 # Running single feature
 Sometimes it's useful to only execute a single feature file, to do so use the following command:
 
 ```sh
-$ npx wdio wdio.conf.js --spec ./test/features/select.feature
+$ npx wdio run ./wdio.conf.ts --spec ./src/features/select.feature
 ```
 
 
@@ -140,10 +141,10 @@ If you want to run only specific tests you can mark your features with tags. The
 Feature: ...
 ```
 
-To run only the tests with specific tag(s) use the `--cucumberOpts.tagExpression=` parameter like so:
+To run only the tests with specific tag(s) use the `--cucumberOpts.tags=` parameter (wrapped in double quotes so shells on Windows, macOS, and Linux pass multi-tag expressions as a single argument) like so:
 
 ```sh
-$ npx wdio wdio.conf.js --cucumberOpts.tagExpression='@Tag or @AnotherTag'
+$ npx wdio run ./wdio.conf.ts --cucumberOpts.tags="@Tag or @AnotherTag"
 ```
 
 For more tag options please see the [Cucumber.js documentation](https://docs.cucumber.io/tag-expressions/)
